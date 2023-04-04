@@ -469,3 +469,5 @@ N-glycan_b-D-GlcAp_523,N523,GlcA,b,D,p,N3,3,GlcAp,
 N-glycan_b-D-Galp_524,N524,Gal,b,D,p,N514,4,Galp,
 N-glycan_sulfate_525,N525,sulfate,n,n,n,N522,6,sulfate,chemically inconsistent
 N-glycan_sulfate_526,N526,sulfate,n,n,n,N523,6,sulfate,chemically inconsistent
+N-glycan_a-D-GalpNAc_527,N527,GalNAc,a,D,p,N8,3,GalpNAc,
+N-glycan_a-D-GalpNAc_528,N528,GalNAc,a,D,p,N10,3,GalpNAc,

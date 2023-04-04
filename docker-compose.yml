@@ -11,8 +11,9 @@ services:
           - SPICE=${SPICE}
         volumes:
            - $PWD/portal:/var/www/html
+           - $PWD:/glycoTree
         ports:
-           - 8080:80
+           - 10988:80
         links:
            - mysql
     mysql:
@@ -26,7 +27,6 @@ services:
            - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}
            - SUGAR=${SUGAR}
            - SPICE=${SPICE}
-        ports:
-            - 3306:3306
         volumes:
            - $PWD/SQL/server:/docker-entrypoint-initdb.d
+           - $PWD:/glycoTree

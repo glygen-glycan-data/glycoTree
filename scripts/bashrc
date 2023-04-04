@@ -1,5 +1,4 @@
-if [ -f ~/.secrets ]; then
-    . ~/.secrets
+if [ -f ./.secrets ]; then
+    . ./.secrets
 fi
-
 export MYSQL_SERVER_NAME=mysql

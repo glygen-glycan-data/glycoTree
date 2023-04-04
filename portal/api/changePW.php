@@ -35,8 +35,15 @@ if ($result->num_rows == 1) { // exactly one row (index = 0) per id
   $row = $result->fetch_assoc();
   $h1 = $row['auth'];
 }
+echo "H1: '$h1'<br/>";
+echo "COMBO: $combo <br/>";
+echo "SUGAR: $uSugar <br/>";
+echo "SPICE: $uSpice <br/>";
 
 $h2 = hash_pbkdf2("sha256", $combo, $uSugar, $uSpice, 32);
+echo "H2: '$h2'<br/>";
+$b = ($h1 == $h2)?"true":"false";
+echo "B: $b<br/>";
 
 echo "You provided ['$userID'] as your user ID, along with a password [********]<br>";
 echo "The user ID and password are both CASE-SENSITIVE<br>";

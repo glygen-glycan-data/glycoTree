@@ -7,7 +7,14 @@ $servername = getenv('MYSQL_SERVER_NAME');
 $password = getenv('MYSQL_PASSWORD');
 
 try {
-	$accession = $_GET['ac'];
+        if (empty($_GET)) {
+          $request_uri = @parse_url($_SERVER['REQUEST_URI']);
+          $path = explode("/",$request_uri['path']);
+          // echo json_encode($path);
+          $accession = end($path);
+        } else {
+          $accession = $_GET['ac']; 
+        }
 	// echo  $accession;
 	// Create connection
 	$connection = new mysqli($servername, $username, $password, $dbname);

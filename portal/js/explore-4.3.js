@@ -11,7 +11,7 @@
 */
 
 // constants
-var v = 0; // verbosity of console.log
+var v = 6; // verbosity of console.log
 var nodeType = {'R':'residue', 'L':'link', 'LI':'text', 'C':'canvas', 'A':'annotation'};
 var greek = {'a': '&alpha;', 'b': '&beta;', 'x': '?','o': 'acyclic', 'n': ""};
 // data variables
@@ -240,12 +240,23 @@ function clickResponse(node) {
 	var type = parts["type"];
 	var localAcc = parts["accession"];
 	var rd = data[localAcc].residues;
+        var treetype = "-";
+	for (var r in rd) {
+          console.log(r);
+          if (/^#N/.test(r)) {
+            treetype = "N";
+            break;
+          } else if (/^#O/.test(r)) {
+            treetype = "O";
+            break;
+          }
+        }
 	if (v > 5) console.log("clicked " + type + " in image of " + localAcc +
-			" (" + id + ")");
+			" (" + id + ") " + treetype + ".");
 	//$("#caveatDiv").css("visibility", "hidden");
 	highlight(node);
 	var resID = parts["resID"];
-	var txt = getInfoText(localAcc, resID);
+	var txt = getInfoText(localAcc, resID,treetype);
 	if (v > 5) console.log("##### Info Box content #####\n" + txt + "\n#####");
 	$("#"+iDiv).html(txt);
 	
@@ -514,11 +525,17 @@ function setupEnzymeTable(tableName, tableData) {
 	} );	
 }
 
-function customStrings(accession, resID) {
+function customStrings(accession, resID, treetype) {
 	// customize mStr values for this glycan and residue
 	mStr["infoHead"] = templates["infoHead"].replace("@GLYGEN", URLs["glygen_glycan"]);
 	mStr["infoHead"] = mStr["infoHead"].replace(/@ACCESSION/g, accession);	
-	mStr["gnomeLink"] = templates["gnomeLink"].replace("@GNOME", URLs["gnome"]);
+        if (treetype == "N") {
+	  mStr["gnomeLink"] = templates["gnomeLink"].replace("@GNOME", URLs["gnome_glycotree_nlinked"]);
+        } else if (treetype == "O") {
+	  mStr["gnomeLink"] = templates["gnomeLink"].replace("@GNOME", URLs["gnome_glycotree_olinked"]);
+        } else {
+	  mStr["gnomeLink"] = templates["gnomeLink"].replace("@GNOME", URLs["gnome"]);
+        }
 	mStr["gnomeLink"] = mStr["gnomeLink"].replace(/@ACCESSION/g, accession);
 	mStr["sandLink"] = templates["sandLink"].replace(/@ACCESSION/g, accession);
 	mStr["enzHead"] = templates["enzHead"].replace(/@ACCESSION/g, accession);
@@ -706,8 +723,8 @@ function repositionInfo(acc) {
 }
 
 
-function getInfoText(accession, resID) {
-	customStrings(accession, resID);
+function getInfoText(accession, resID, treetype) {
+	customStrings(accession, resID, treetype);
 	var txt = "<p class='head1'>" + mStr["infoHead"]; 
 	if (resID == '0') {
 		// the background canvas was clicked
@@ -1281,11 +1298,7 @@ function fetchConfiguration(theURL) {
 
 function fetchGlycanData(theURL, type, accession) {
 	// dest is an array that stores parsed json data
-	$.get(theURL,
-	{
-		ac: accession,
-		type: type
-	},
+	$.get(theURL + "/" + accession,null,
 	function(result){
 		if (v > 5) {
 			console.log("  for " + accession + ", " + theURL + 

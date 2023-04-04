@@ -19,22 +19,16 @@
 include '../../config.php';
 include 'class_map.php';
 
-$servername = "";
-$password = "";
-
 try {
 	if (empty($_GET)) {
 		// $_GET is not populated when called from command line
 		// the following lines are required for command-line invocation
 		parse_str(implode('&', array_slice($argv, 1)), $_GET);
-		// this is the mysql server name when run in the docker container
-		$servername = 'localhost:8889';
-		// !!! password must be supplied on the command line !!!
-		$password = $_GET['pw'];
-	} else {
-		$servername = getenv('MYSQL_SERVER_NAME');
-		$password = getenv('MYSQL_PASSWORD');
-	}
+	} 
+        if (!$servername) {
+	    $servername = getenv('MYSQL_SERVER_NAME');
+        }
+	$password = getenv('MYSQL_PASSWORD');
 } catch(Exception $e) {
 	exit($e->getMessage());
 }

@@ -125,7 +125,8 @@ var newRule = null;
 var curatorID = "";
 var ruleData = null;
 
-var uniprotURL = "https://www.uniprot.org/uniprot/?query=[rule_enzyme]&sort=score&columns=id,organism&format=tab";	
+// var uniprotURL = "https://www.uniprot.org/uniprot/?query=[rule_enzyme]&sort=score&columns=id,organism&format=tab";	
+var uniprotURL = "https://rest.uniprot.org/uniprotkb/search?query=[rule_enzyme]&fields=accession,organism_name&format=tsv";
 	
 function initialize() {
 	console.log("##### Initializing #####");

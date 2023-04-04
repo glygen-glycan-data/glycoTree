@@ -1,5 +1,11 @@
 #!/bin/sh
+set -x
+DIR=`dirname $0`
+DIR=`readlink -f $DIR`
+cd $DIR
+ls -l
 # set environment variables
-. ~/workspace/glycoTree/bashrc
+. ./bashrc
+cd ..
 # start php-mysql-apache
-cd ~/workspace/glycoTree/ && docker-compose up -d
+docker-compose up -d
