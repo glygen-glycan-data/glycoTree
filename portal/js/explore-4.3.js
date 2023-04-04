@@ -1281,11 +1281,7 @@ function fetchConfiguration(theURL) {
 
 function fetchGlycanData(theURL, type, accession) {
 	// dest is an array that stores parsed json data
-	$.get(theURL,
-	{
-		ac: accession,
-		type: type
-	},
+	$.get(theURL+"/"+accession,null,
 	function(result){
 		if (v > 5) {
 			console.log("  for " + accession + ", " + theURL + 

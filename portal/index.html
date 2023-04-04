@@ -98,11 +98,7 @@ function showList(selectedGlycans) {
 	
 	
 function showImage(accession) {
-	$.get(glycanPath,
-	{
-		ac: accession,
-		type: 'json'
-	},
+	$.get(glycanPath+"/"+accession,null,
 	function(result){
 		if (v > 5) {
 			console.log(" the URL " + glycanPath + 
