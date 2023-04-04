@@ -4,6 +4,8 @@
 #   Example:
 #              ./build_all.sh clear &> ./log/build.log
 
+# set -x
+
 start=$(date)
 here=`pwd`
 echo "This program was called from directory $here" 
@@ -51,18 +53,20 @@ done
 echo
 echo Preparing directories
 
-mkdir ./data/mapped
-mkdir ./data/mapped/sorted
-mkdir ./model/bak
+mkdir -p ./data/mapped
+mkdir -p ./data/mapped/sorted
+mkdir -p ./model/bak
 
-mkdir ./data/Nlinked
-mkdir ./data/Nlinked/csv
+mkdir -p ./data/Nlinked
+mkdir -p ./data/Nlinked/csv
 ##  make a symbolic link so output to ./data/Nlinked/csv/mapped/ goes to ./data/mapped/
+rm -f $here/data/Nlinked/csv/mapped
 ln -s $here/data/mapped/ $here/data/Nlinked/csv/mapped
 
-mkdir ./data/Olinked
-mkdir ./data/Olinked/csv
+mkdir -p ./data/Olinked
+mkdir -p ./data/Olinked/csv
 ##  make a symbolic link so output to ./data/Olinked/csv/mapped/ goes to ./data/mapped/
+rm -f $here/data/Olinked/csv/mapped
 ln -s $here/data/mapped/ $here/data/Olinked/csv/mapped
 
 
@@ -84,7 +88,7 @@ cd $here
 
 echo
 echo "Generating list of N-linked GlycoCT files to process and placing in file:$NL    $N_Dir/files.lst"
-find $N_Dir -name "G*.txt" -print -maxdepth 1 | sort > $N_Dir/files.lst
+find $N_Dir -maxdepth 1 -name "G*.txt" -print | sort > $N_Dir/files.lst
 
 echo
 echo Generating glycoTree csv files for N-glycans
@@ -92,7 +96,7 @@ java -jar $codeDir/GenerateCSV.jar $N_Dir/files.lst list 1 &> $logDir/csv.log
 
 echo
 echo "Generating list of glycoTree N-linked csv files to process and placing in file:$NL    $csvN_Dir/files.lst"
-find $csvN_Dir -name "G*.csv" -print -maxdepth 1 | sort > $csvN_Dir/files.lst
+find $csvN_Dir -maxdepth 1 -name "G*.csv" -print | sort > $csvN_Dir/files.lst
 
 echo
 echo Fetching current model files
@@ -120,7 +124,7 @@ cd $here
 
 echo
 echo "Generating list of O-linked GlycoCT files to process and placing in file:$NL    $O_Dir/files.lst"
-find $O_Dir -name "G*.txt" -print -maxdepth 1 | sort > $O_Dir/files.lst
+find $O_Dir -maxdepth 1 -name "G*.txt" -print | sort > $O_Dir/files.lst
 
 echo
 echo Generating glycoTree csv files for O-glycans
@@ -128,7 +132,7 @@ java -jar $codeDir/GenerateCSV.jar $O_Dir/files.lst list 1 &> $logDir/csv.log
 
 echo
 echo "Generating list of glycoTree O-linked csv files to process and placing in file:$NL    $csvO_Dir/files.lst"
-find $csvO_Dir -name "G*.csv" -print -maxdepth 1 | sort > $csvO_Dir/files.lst
+find $csvO_Dir -maxdepth 1 -name "G*.csv" -print | sort > $csvO_Dir/files.lst
 
 ## There should be only one file in ./model/ that matches 'O-canonical_residues*.csv'
 node_file=`ls $modelDir/O_canonical_residues*.csv`
@@ -146,7 +150,7 @@ $codeDir/sortCSV.sh $mappedDir 1 > $logDir/sort.log
 echo
 echo "Generating list of unassigned residues and placing in file:$NL    $modelDir/unassigned.csv"
 echo "glycan_ID,residue,residue_ID,name,anomer,absolute,ring,parent_ID,site,form_name" > $modelDir/unassigned.csv
-find $sortedDir -name "G*.csv" -print -maxdepth 1 | sort | xargs -I % grep -h "unassigned" % >> $modelDir/unassigned.csv
+find $sortedDir -maxdepth 1 -name "G*.csv" -print | sort | xargs -I % grep -h "unassigned" % >> $modelDir/unassigned.csv
 
 ##  Make a large csv file containing data in directory ./data/mapped/sorted ##
 echo "Assembling mapped/sorted csv file for import into DB file:$NL     $sqlDir/compositions.csv"
@@ -156,7 +160,7 @@ cd $here
 
 echo
 echo "Generating file containing a list of mapped csv files:$NL    $mappedDir/files.lst"
-find ./data/mapped -name "G*.csv" -print -maxdepth 1  | sort > $mappedDir/files.lst
+find ./data/mapped -maxdepth 1 -name "G*.csv" -print | sort > $mappedDir/files.lst
 
 echo
 echo "Calculating common canonical residues in all accession pairs and writing related glycan data in file:$NL    $sqlDir/correlation.csv"
@@ -165,7 +169,7 @@ java -jar $codeDir/CorrelateGlycans.jar -v 2 -l $mappedDir/files.lst -c 1024 -j 
 echo
 echo "Generating a list of accessions currently supported by GlycoTree into file:$NL     $here/accessions.lst"
 ## the column index '7' in the following command is file-system-dependent and may require adjustment fo different computers
-find $mappedDir -maxdepth 1 -name "G*.csv" -print | cut -d \/ -f 7 | sort | cut -d . -f 1 > $here/accessions.lst
+find $mappedDir -maxdepth 1 -name "G*.csv" -print | sed -e 's/^.*\///' -e 's/\..*$//' | sort > $here/accessions.lst
 
 echo
 echo "The home page for the portal:$NL     $portalDir/index.html$NL is no longer automatically generated"
