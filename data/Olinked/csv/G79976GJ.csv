@@ -1,8 +1,0 @@
-glytoucan_ac,residue_name,residue_id,name,anomer,absolute,ring,parent_id,site,formName
-G79976GJ,unassigned,1,GalNAc,o,D,ol,0,0,GalolNAc
-G79976GJ,unassigned,3,Gal,b,D,p,1,3,Galp
-G79976GJ,unassigned,4,NeuNAc,a,D,p,3,3,NeupNAc
-G79976GJ,unassigned,6,GlcNAc,b,D,p,1,6,GlcpNAc
-G79976GJ,unassigned,7,Gal,b,D,p,6,3|4,Galp
-G79976GJ,unassigned,8,NeuNAc,a,D,p,7,3,NeupNAc
-G79976GJ,unassigned,10,Fuc,a,L,p,6,3|4,Fucp

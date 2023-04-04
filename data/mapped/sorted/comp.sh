@@ -1,1 +1,0 @@
-../../../code/getComposition.sh

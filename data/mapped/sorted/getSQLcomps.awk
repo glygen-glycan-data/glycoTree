@@ -1,1 +1,0 @@
-/Users/wsyork/glycotree/SQL/getSQLcomps.awk
