@@ -24,7 +24,8 @@ for filename in $1/G*.csv; do
     echo "result file: $sortedfile"
   fi
 
-  sort -k1.1,1.1r -k1.2,1 -k3,3n -k3.2,3n -t, $filename > $sortedfile 
+  # sort -k1.1,1.1r -k1.2,1 -k3,3n -k3.2,3n -t, $filename > $sortedfile 
+  cat $filename > $sortedfile
 
   let "count++"
 done
