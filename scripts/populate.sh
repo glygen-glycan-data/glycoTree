@@ -8,4 +8,4 @@ ls -l
 . ./bashrc
 cd ..
 # start php-mysql-apache
-docker-compose up -d
+docker-compose exec -u `id -u`:`id -g` $MYSQL_SERVER_NAME sh -c "cd /glycoTree/SQL; ./populateDB.sh"

@@ -8,4 +8,4 @@ ls -l
 . ./bashrc
 cd ..
 # start php-mysql-apache
-docker-compose up -d
+docker-compose down
