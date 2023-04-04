@@ -1,5 +1,3 @@
-package willUtil;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -367,7 +365,7 @@ public class CorrelateGlycans {
 					}
 					nodes.add(vals[2]);
 				}
-								
+				input.close();
 				if (v > 6) System.out.printf("\n  Nodes %s\n", nodes);
 			    Pattern p = Pattern.compile("(N[A-C]|OC)");   // include both N- and O-linked
 			    Pattern p1 = Pattern.compile("[A-Za-z]"); // includes any non-numeric character
