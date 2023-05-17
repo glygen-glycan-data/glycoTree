@@ -19,7 +19,7 @@
 include '../../config.php';
 include 'class_map.php';
 
-$servername = "";
+$servername = "mysql";
 $password = "";
 
 try {
@@ -28,7 +28,7 @@ try {
 		// the following lines are required for command-line invocation
 		parse_str(implode('&', array_slice($argv, 1)), $_GET);
 		// this is the mysql server name when run in the docker container
-		$servername = 'localhost:8889';
+		$servername = 'mysql';
 		// !!! password must be supplied on the command line !!!
 		$password = $_GET['pw'];
 	} else {
