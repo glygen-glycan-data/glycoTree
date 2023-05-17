@@ -1,0 +1,194 @@
+instance	rule_id	focus	enzyme	other_residue	polymer	taxonomy	proposer_id	refs	comment	status	administrator	disputer_id
+1	1	N7	Q812F8	N2	NULL	Mus musculus	MT	PMID: 1533386	GNT obligate order	active		NULL
+2	1	N7	Q812G0	N2	NULL	Mus musculus	MT	PMID: 1533386	GNT obligate order	active		NULL
+3	1	N7	Q9D306	N2	NULL	Mus musculus	MT	PMID: 1533386	GNT obligate order	active		NULL
+4	1	N7	Q9UBM8	N2	NULL	Homo sapiens	MT	PMID: 1533386	GNT obligate order	active		NULL
+5	1	N7	Q9UM21	N2	NULL	Homo sapiens	MT	PMID: 1533386	GNT obligate order	active		NULL
+6	1	N7	Q9UQ53	N2	NULL	Homo sapiens	MT	PMID: 1533386	GNT obligate order	active		NULL
+7	1	N39	P16442	N71	NULL	Homo sapiens	AN	PMID: 12198488	ABO glycosylation system	active		NULL
+8	1	N39	P38649	N71	NULL	Mus musculus	AN	PMID: 12198488	ABO glycosylation system	active		NULL
+9	1	N50	P16442	N54	NULL	Homo sapiens	AN	PMID: 12198488	ABO glycosylation system	active		NULL
+10	1	N50	P38649	N54	NULL	Mus musculus	AN	PMID: 12198488	ABO glycosylation system	active		NULL
+11	1	N51	P16442	N200	NULL	Homo sapiens	AN	PMID: 12198488	ABO glycosylation system	active		NULL
+12	1	N51	P38649	N200	NULL	Mus musculus	AN	PMID: 12198488	ABO glycosylation system	active		NULL
+13	1	N52	P16442	N53	NULL	Homo sapiens	AN	PMID: 12198488	ABO glycosylation system	active		NULL
+14	1	N52	P38649	N53	NULL	Mus musculus	AN	PMID: 12198488	ABO glycosylation system	active		NULL
+15	4	N206	NULL	NULL	NULL	NULL	MT	PMID: 6950933	Reference refutes residue 	active		NULL
+16	4	N207	NULL	NULL	NULL	NULL	MT		4-substituted GlcNAc ok but should be 3-linked	active		NULL
+17	4	N208	NULL	NULL	NULL	NULL	MT		Man linkage not even present in Fungi	active		NULL
+18	4	N214	NULL	NULL	NULL	NULL	MT	PMID: 7460954	Linkage undefined in original reference	active		NULL
+19	4	N215	NULL	NULL	NULL	NULL	MT	PMID: 7460954		active		NULL
+20	4	N223	NULL	NULL	NULL	NULL	MT	PMID: 2411221	Reference refutes residue 	active		NULL
+21	4	N226	NULL	NULL	NULL	NULL	MT		4-substituted GlcNAc ok but should be 3-linked	active		NULL
+22	4	N228	NULL	NULL	NULL	NULL	MT		4-substituted GlcNAc ok but should be 3-linked	active		NULL
+23	4	N238	NULL	NULL	NULL	NULL	MT			active		NULL
+24	4	N239	NULL	NULL	NULL	NULL	MT			active		NULL
+25	4	N240	NULL	NULL	NULL	NULL	MT			active		NULL
+26	4	N247	NULL	NULL	NULL	NULL	MT	PMID: 8354224	Reference does not support residue 	active		NULL
+27	4	N250	NULL	NULL	NULL	NULL	MT			active		NULL
+28	4	N251	NULL	NULL	NULL	NULL	MT			active		NULL
+29	4	N252	NULL	NULL	NULL	NULL	MT			active		NULL
+30	4	N253	NULL	NULL	NULL	NULL	MT			active		NULL
+31	4	N259	NULL	NULL	NULL	NULL	MT			active		NULL
+32	4	N260	NULL	NULL	NULL	NULL	MT	PMID: 2065672	reported in plants but no linkage position proposed	active		NULL
+33	4	N261	NULL	NULL	NULL	NULL	MT	PMID: 2065672	reported in plants but no linkage position proposed	active		NULL
+34	4	N276	NULL	NULL	NULL	NULL	MT			active		NULL
+35	4	N282	NULL	NULL	NULL	NULL	MT			active		NULL
+36	4	N293	NULL	NULL	NULL	NULL	MT			active		NULL
+37	4	N299	NULL	NULL	NULL	NULL	MT			active		NULL
+38	4	N301	NULL	NULL	NULL	NULL	MT			active		NULL
+39	4	N302	NULL	NULL	NULL	NULL	MT			active		NULL
+40	4	N305	NULL	NULL	NULL	NULL	MT			active		NULL
+41	4	N306	NULL	NULL	NULL	NULL	MT			active		NULL
+42	4	N319	NULL	NULL	NULL	NULL	MT			active		NULL
+43	4	N320	NULL	NULL	NULL	NULL	MT			active		NULL
+44	4	N321	NULL	NULL	NULL	NULL	MT			active		NULL
+45	4	N322	NULL	NULL	NULL	NULL	MT			active		NULL
+46	4	N344	NULL	NULL	NULL	NULL	MT			active		NULL
+47	4	N347	NULL	NULL	NULL	NULL	MT			active		NULL
+48	4	N348	NULL	NULL	NULL	NULL	MT			active		NULL
+49	4	N353	NULL	NULL	NULL	NULL	MT			active		NULL
+50	4	N355	NULL	NULL	NULL	NULL	MT			active		NULL
+51	4	N357	NULL	NULL	NULL	NULL	MT			active		NULL
+52	4	N359	NULL	NULL	NULL	NULL	MT			active		NULL
+53	4	N360	NULL	NULL	NULL	NULL	MT			active		NULL
+54	4	N363	NULL	NULL	NULL	NULL	MT			active		NULL
+55	4	N369	NULL	NULL	NULL	NULL	MT			active		NULL
+56	4	N378	NULL	NULL	NULL	NULL	MT			active		NULL
+57	4	N380	NULL	NULL	NULL	NULL	MT			active		NULL
+58	4	N383	NULL	NULL	NULL	NULL	MT			active		NULL
+59	4	N384	NULL	NULL	NULL	NULL	MT			active		NULL
+60	4	N385	NULL	NULL	NULL	NULL	MT			active		NULL
+61	4	N387	NULL	NULL	NULL	NULL	MT			active		NULL
+62	4	N396	NULL	NULL	NULL	NULL	MT			active		NULL
+63	4	N397	NULL	NULL	NULL	NULL	MT			active		NULL
+64	4	N404	NULL	NULL	NULL	NULL	MT			active		NULL
+65	4	N406	NULL	NULL	NULL	NULL	MT			active		NULL
+66	4	N413	NULL	NULL	NULL	NULL	MT			active		NULL
+67	4	N415	NULL	NULL	NULL	NULL	MT			active		NULL
+68	4	N416	NULL	NULL	NULL	NULL	MT			active		NULL
+69	4	N417	NULL	NULL	NULL	NULL	MT			active		NULL
+70	4	N420	NULL	NULL	NULL	NULL	MT			active		NULL
+71	4	N426	NULL	NULL	NULL	NULL	MT			active		NULL
+72	4	N428	NULL	NULL	NULL	NULL	MT			active		NULL
+73	4	N431	NULL	NULL	NULL	NULL	MT			active		NULL
+74	4	N438	NULL	NULL	NULL	NULL	MT			active		NULL
+75	4	N439	NULL	NULL	NULL	NULL	MT			active		NULL
+76	4	N441	NULL	NULL	NULL	NULL	MT			active		NULL
+77	4	N444	NULL	NULL	NULL	NULL	MT			active		NULL
+78	4	N445	NULL	NULL	NULL	NULL	MT			active		NULL
+79	4	N450	NULL	NULL	NULL	NULL	MT			active		NULL
+80	4	N453	NULL	NULL	NULL	NULL	MT			active		NULL
+81	4	N454	NULL	NULL	NULL	NULL	MT			active		NULL
+82	4	N455	NULL	NULL	NULL	NULL	MT			active		NULL
+83	4	N458	NULL	NULL	NULL	NULL	MT			active		NULL
+84	4	N459	NULL	NULL	NULL	NULL	MT			active		NULL
+85	4	N460	NULL	NULL	NULL	NULL	MT			active		NULL
+86	4	N461	NULL	NULL	NULL	NULL	MT			active		NULL
+87	4	N464	NULL	NULL	NULL	NULL	MT			active		NULL
+88	4	N465	NULL	NULL	NULL	NULL	MT			active		NULL
+89	5	N201	NULL	NULL	NULL	NULL				active		NULL
+90	5	N216	NULL	NULL	NULL	NULL				active		NULL
+91	5	N224	NULL	NULL	NULL	NULL				active		NULL
+92	5	N237	NULL	NULL	NULL	NULL	MT			active		NULL
+93	5	N255	NULL	NULL	NULL	NULL				active		NULL
+94	5	N256	NULL	NULL	NULL	NULL				active		NULL
+95	5	N294	NULL	NULL	NULL	NULL	MT			active		NULL
+96	5	N298	NULL	NULL	NULL	NULL	MT			active		NULL
+97	5	N335	NULL	NULL	NULL	NULL	MT			active		NULL
+98	5	N362	NULL	NULL	NULL	NULL	MT			active		NULL
+99	5	N395	NULL	NULL	NULL	NULL	MT			active		NULL
+100	5	N400	NULL	NULL	NULL	NULL	MT			active		NULL
+101	6	N313	NULL	NULL	NULL	NULL				active		NULL
+102	6	N316	NULL	NULL	NULL	NULL				active		NULL
+103	6	N224	NULL	NULL	NULL	NULL				active		NULL
+104	7	N205	NULL	NULL	NULL	NULL	MT			active		NULL
+105	7	N244	NULL	NULL	NULL	NULL	MT		Gala4Gal on glycolipids only; Gala3Gal OK	active		NULL
+106	7	N245	NULL	NULL	NULL	NULL	MT	www.glygen.org/motif/GGM.000069	Gala4Gal on glycolipids only; Gala3Gal OK	active		NULL
+107	7	N246	NULL	NULL	NULL	NULL	MT	www.glygen.org/motif/GGM.000069	Gala4Gal on glycolipids only; Gala3Gal OK	active		NULL
+108	7	N249	NULL	NULL	NULL	NULL	MT		I' branching GlcNAc only added to internal internal Gal residues of LacNAc repeats	active		NULL
+109	7	N257	NULL	NULL	NULL	NULL		www.glygen.org/motif/GGM.000069	Gala4Gal on glycolipids only; Gala3Gal OK	active		NULL
+110	7	N262	NULL	NULL	NULL	NULL	MT	PMID: 2065672; PMID: 1841682	Glc alpha extension only on 3-arm of trimannosysl core	active		NULL
+111	7	N267	NULL	NULL	NULL	NULL	MT			active		NULL
+112	7	N273	NULL	NULL	NULL	NULL	MT			active		NULL
+113	7	N303	NULL	NULL	NULL	NULL	MT			active		NULL
+114	7	N304	NULL	NULL	NULL	NULL	MT			active		NULL
+115	7	N309	NULL	NULL	NULL	NULL	MT			active		NULL
+116	7	N310	NULL	NULL	NULL	NULL	MT			active		NULL
+117	7	N311	NULL	NULL	NULL	NULL	MT			active		NULL
+118	7	N314	NULL	NULL	NULL	NULL	MT			active		NULL
+119	7	N315	NULL	NULL	NULL	NULL	MT			active		NULL
+120	7	N325	NULL	NULL	NULL	NULL	MT		Gala4Gal on glycolipids only; Gala3Gal OK	active		NULL
+121	7	N326	NULL	NULL	NULL	NULL	MT		Gala4Gal on glycolipids only; Gala3Gal OK	active		NULL
+122	7	N327	NULL	NULL	NULL	NULL	MT			active		NULL
+123	7	N336	NULL	NULL	NULL	NULL	MT			active		NULL
+124	7	N337	NULL	NULL	NULL	NULL	MT			active		NULL
+125	7	N338	NULL	NULL	NULL	NULL	MT			active		NULL
+126	7	N341	NULL	NULL	NULL	NULL	MT			active		NULL
+127	7	N343	NULL	NULL	NULL	NULL	MT			active		NULL
+128	7	N350	NULL	NULL	NULL	NULL	MT			active		NULL
+129	7	N352	NULL	NULL	NULL	NULL	MT			active		NULL
+130	7	N354	NULL	NULL	NULL	NULL	MT			active		NULL
+131	7	N364	NULL	NULL	NULL	NULL	MT			active		NULL
+132	7	N365	NULL	NULL	NULL	NULL	MT	PMID: 27477117	mis-asignment of bisecting GlcNAc	active		NULL
+133	7	N366	NULL	NULL	NULL	NULL	MT			active		NULL
+134	7	N368	NULL	NULL	NULL	NULL	MT	PMID: 3731182	glycan structure not present in evidence; mis-interpretation of IUPAC nomenclature?	active		NULL
+135	7	N372	NULL	NULL	NULL	NULL	MT			active		NULL
+136	7	N373	NULL	NULL	NULL	NULL	MT			active		NULL
+137	7	N398	NULL	NULL	NULL	NULL	MT			active		NULL
+138	7	N399	NULL	NULL	NULL	NULL	MT			active		NULL
+139	7	N405	NULL	NULL	NULL	NULL	MT			active		NULL
+140	7	N408	NULL	NULL	NULL	NULL	MT			active		NULL
+141	7	N418	NULL	NULL	NULL	NULL	MT			active		NULL
+142	7	N421	NULL	NULL	NULL	NULL	MT			active		NULL
+143	7	N422	NULL	NULL	NULL	NULL	MT			active		NULL
+144	7	N430	NULL	NULL	NULL	NULL	MT			active		NULL
+145	7	N435	NULL	NULL	NULL	NULL	MT			active		NULL
+146	7	N436	NULL	NULL	NULL	NULL	MT		Gala4Gal on glycolipids only; Gala3Gal OK	active		NULL
+147	7	N446	NULL	NULL	NULL	NULL	MT			active		NULL
+148	7	N447	NULL	NULL	NULL	NULL	MT			active		NULL
+149	7	N448	NULL	NULL	NULL	NULL	MT			active		NULL
+150	7	N449	NULL	NULL	NULL	NULL	MT			active		NULL
+151	7	N451	NULL	NULL	NULL	NULL	MT			active		NULL
+152	7	N462	NULL	NULL	NULL	NULL	MT			active		NULL
+153	7	N463	NULL	NULL	NULL	NULL	MT			active		NULL
+154	7	N87	NULL	NULL	NULL	NULL	MT	PMID: 25165203	Not a valid node	active		NULL
+155	8	N202	NULL	NULL	N-mannans	Fungi		PMID: 8505334		active		NULL
+156	8	N204	NULL	NULL	N-mannans	Fungi		PMID: 8505334		active		NULL
+157	8	N211	NULL	NULL	N-glycans	Schistosoma	MT	http://www.glycosciences.de reference 6981	Poorly defined antigen	active		NULL
+158	8	N212	NULL	NULL	N-glycans	Schistosoma	MT	http://www.glycosciences.de reference 6981	Poorly defined antigen	active		NULL
+159	8	N213	NULL	NULL	N-glycans	Schistosoma	MT	http://www.glycosciences.de reference 6981	Poorly defined antigen	active		NULL
+160	8	N217	NULL	NULL	N-mannans	Fungi		PMID: 8505334		active		NULL
+161	8	N218	NULL	NULL	N-mannans	Fungi		PMID: 8505334		active		NULL
+162	8	N219	NULL	NULL	N-mannans	Fungi		PMID: 8505334		active		NULL
+163	8	N220	NULL	NULL	N-mannans	Fungi		PMID: 8505334		active		NULL
+164	8	N221	NULL	NULL	N-mannans	Fungi		PMID: 8505334		active		NULL
+165	8	N225	NULL	NULL	N-mannans	Fungi		PMID: 8505334		active		NULL
+166	8	N263	NULL	NULL	N-mannans	Fungi		PMID: 8505334		active		NULL
+167	8	N264	NULL	NULL	N-mannans	Fungi	MT			active		NULL
+168	8	N269	NULL	NULL	N-mannans	Fungi				active		NULL
+169	8	N270	NULL	NULL	N-mannans	Fungi		PMID: 8505334		active		NULL
+170	8	N275	NULL	NULL	N-glycans	Nematoda or Mollusca	MT	PMID: 31046847		active		NULL
+171	8	N283	NULL	NULL	N-mannans	Fungi				active		NULL
+172	8	N286	NULL	NULL	N-mannans	Fungi	MT			active		NULL
+173	8	N296	NULL	NULL	N-mannans	Fungi	MT			active		NULL
+174	8	N300	NULL	NULL	N-mannans	Fungi	MT			active		NULL
+175	8	N330	NULL	NULL	N-mannans	Fungi	MT			active		NULL
+176	8	N367	NULL	NULL	N-mannans	Fungi				active		NULL
+177	8	N389	NULL	NULL	N-mannans	Fungi				active		NULL
+178	8	N393	NULL	NULL	N-mannans	Fungi				active		NULL
+179	8	N402	NULL	NULL	N-glycans	Nematoda	MT			active		NULL
+180	8	N403	NULL	NULL	N-glycans	Nematoda	MT			active		NULL
+181	8	N414	NULL	NULL	N-mannans	Fungi	MT			active		NULL
+182	8	N419	NULL	NULL	N-mannans	Fungi				active		NULL
+183	8	N425	NULL	NULL	N-mannans	Fungi				active		NULL
+184	8	N456	NULL	NULL	N-mannans	Fungi	MT			active		NULL
+185	8	N467	NULL	NULL	N-glycans	Nematoda	MT			active		NULL
+188	1	N97	P16442	N53	NULL	Homo sapiens	NE	PMID: 12198488	ABO glycosylation system	active	NE	NULL
+189	1	N97	P38649	N53	NULL	Mus musculus	NE	PMID: 12198488	ABO glycosylation system	active	NE	NULL
+190	1	N104	P16442	N54	NULL	Homo sapiens	NE	PMID: 12198488	ABO glycosylation system	active	NE	NULL
+191	1	N104	P38649	N54	NULL	Mus musculus	NE	PMID: 12198488	ABO glycosylation system	active	NE	NULL
+192	1	N527	P16442	N71	NULL	Homo sapiens	NE	PMID: 12198488	ABO glycosylation system	active	NE	NULL
+193	1	N527	P38649	N71	NULL	Mus musculus	NE	PMID: 12198488	ABO glycosylation system	active	NE	NULL
+194	1	N528	P16442	N200	NULL	Homo sapiens	NE	PMID: 12198488	ABO glycosylation system	active	NE	NULL
+195	1	N528	P38649	N200	NULL	Mus musculus	NE	PMID: 12198488	ABO glycosylation system	active	NE	NULL

@@ -1,0 +1,473 @@
+residue_name,residue_id,name,anomer,absolute,ring,parent_id,site,form_name,notes
+N-glycan_a-D-Manp_1,N1,Man,a,D,p,NC,3,Manp,validated by Qrator
+N-glycan_b-D-GlcpNAc_2,N2,GlcNAc,b,D,p,N1,2,GlcpNAc,validated by Qrator
+N-glycan_b-D-Galp_3,N3,Gal,b,D,p,N2,4,Galp,validated by Qrator
+N-glycan_a-D-Manp_4,N4,Man,a,D,p,NC,6,Manp,validated by Qrator
+N-glycan_b-D-GlcpNAc_5,N5,GlcNAc,b,D,p,N4,2,GlcpNAc,validated by Qrator
+N-glycan_b-D-Galp_6,N6,Gal,b,D,p,N5,4,Galp,validated by Qrator
+N-glycan_b-D-GlcpNAc_7,N7,GlcNAc,b,D,p,N1,4,GlcpNAc,validated by Qrator
+N-glycan_b-D-Galp_8,N8,Gal,b,D,p,N7,4,Galp,validated by Qrator
+N-glycan_b-D-GlcpNAc_9,N9,GlcNAc,b,D,p,N4,6,GlcpNAc,validated by Qrator
+N-glycan_b-D-Galp_10,N10,Gal,b,D,p,N9,4,Galp,validated by Qrator
+N-glycan_b-D-GlcpNAc_11,N11,GlcNAc,b,D,p,NC,4,GlcpNAc,validated by Qrator
+N-glycan_a-D-NeupNAc_12,N12,NeuNAc,a,D,p,N3,6,NeupNAc,validated by Qrator
+N-glycan_a-D-NeupNAc_13,N13,NeuNAc,a,D,p,N6,6,NeupNAc,validated by Qrator
+N-glycan_a-D-NeupNAc_14,N14,NeuNAc,a,D,p,N8,6,NeupNAc,validated by Qrator
+N-glycan_a-L-Fucp_15,N15,Fuc,a,L,p,NA,6,Fucp,validated by Qrator
+N-glycan_a-D-NeupNAc_16,N16,NeuNAc,a,D,p,N6,3,NeupNAc,validated by Qrator
+N-glycan_a-D-NeupNAc_17,N17,NeuNAc,a,D,p,N3,3,NeupNAc,validated by Qrator
+N-glycan_a-L-Fucp_18,N18,Fuc,a,L,p,N7,3,Fucp,validated by Qrator
+N-glycan_a-D-Manp_19,N19,Man,a,D,p,N4,3,Manp,validated by Qrator
+N-glycan_a-D-Manp_20,N20,Man,a,D,p,N4,6,Manp,validated by Qrator
+N-glycan_a-D-Manp_21,N21,Man,a,D,p,N1,2,Manp,validated by Qrator
+N-glycan_a-D-Manp_22,N22,Man,a,D,p,N21,2,Manp,validated by Qrator
+N-glycan_a-D-Manp_23,N23,Man,a,D,p,N20,2,Manp,validated by Qrator
+N-glycan_a-D-Manp_24,N24,Man,a,D,p,N19,2,Manp,validated by Qrator
+N-glycan_a-D-Glcp_25,N25,Glc,a,D,p,N22,3,Glcp,validated by Qrator
+N-glycan_a-D-Glcp_26,N26,Glc,a,D,p,N25,3,Glcp,validated by Qrator
+N-glycan_a-D-Glcp_27,N27,Glc,a,D,p,N26,2,Glcp,validated by Qrator
+N-glycan_b-D-Galp_28,N28,Gal,b,D,p,N7,3,Galp,validated by Qrator
+N-glycan_b-D-GalpNAc_29,N29,GalNAc,b,D,p,N2,4,GalpNAc,validated by Qrator
+N-glycan_b-D-GalpNAc_30,N30,GalNAc,b,D,p,N5,4,GalpNAc,validated by Qrator
+N-glycan_b-D-GlcpNAc_31,N31,GlcNAc,b,D,p,N4,4,GlcpNAc,validated by Qrator
+N-glycan_b-D-Galp_32,N32,Gal,b,D,p,N31,4,Galp,validated by Qrator
+N-glycan_a-D-NeupNAc_33,N33,NeuNAc,a,D,p,N28,3,NeupNAc,validated by Qrator
+N-glycan_a-D-NeupNAc_34,N34,NeuNAc,a,D,p,N8,3,NeupNAc,validated by Qrator
+N-glycan_a-D-NeupNAc_35,N35,NeuNAc,a,D,p,N10,6,NeupNAc,validated by Qrator
+N-glycan_b-D-GlcpNAc_36,N36,GlcNAc,b,D,p,N10,3,GlcpNAc,validated by Qrator
+N-glycan_b-D-Galp_37,N37,Gal,b,D,p,N36,4,Galp,validated by Qrator
+N-glycan_a-D-NeupNAc_38,N38,NeuNAc,a,D,p,N10,3,NeupNAc,validated by Qrator
+N-glycan_a-D-Galp_39,N39,Gal,a,D,p,N8,3,Galp,validated by Qrator
+N-glycan_a-L-Fucp_40,N40,Fuc,a,L,p,NA,3,Fucp,validated by Qrator
+N-glycan_a-L-Fucp_41,N41,Fuc,a,L,p,N2,3,Fucp,validated by Qrator
+N-glycan_a-L-Fucp_42,N42,Fuc,a,L,p,N5,3,Fucp,validated by Qrator
+N-glycan_a-L-Fucp_43,N43,Fuc,a,L,p,N9,3,Fucp,validated by Qrator
+N-glycan_b-D-Galp_44,N44,Gal,b,D,p,N2,3,Galp,validated by Qrator
+N-glycan_b-D-Galp_45,N45,Gal,b,D,p,N6,3,Galp,validated by Qrator
+N-glycan_a-D-NeupNAc_46,N46,NeuNAc,a,D,p,N32,3,NeupNAc,validated by Qrator
+N-glycan_a-D-NeupNGc_47,N47,NeuNGc,a,D,p,N3,6,NeupNGc,validated by Qrator
+N-glycan_a-D-NeupNGc_48,N48,NeuNGc,a,D,p,N8,6,NeupNGc,validated by Qrator
+N-glycan_a-D-NeupNGc_49,N49,NeuNGc,a,D,p,N6,6,NeupNGc,validated by Qrator
+N-glycan_a-D-Galp_50,N50,Gal,a,D,p,N6,3,Galp,validated by Qrator
+N-glycan_a-D-Galp_51,N51,Gal,a,D,p,N10,3,Galp,validated by Qrator
+N-glycan_a-D-Galp_52,N52,Gal,a,D,p,N3,3,Galp,validated by Qrator
+N-glycan_a-L-Fucp_53,N53,Fuc,a,L,p,N3,2,Fucp,validated by Qrator
+N-glycan_a-L-Fucp_54,N54,Fuc,a,L,p,N6,2,Fucp,validated by Qrator
+N-glycan_a-D-NeupNGc_55,N55,NeuNGc,a,D,p,N6,3,NeupNGc,validated by Qrator
+N-glycan_a-D-NeupNGc_56,N56,NeuNGc,a,D,p,N3,3,NeupNGc,validated by Qrator
+N-glycan_a-D-NeupNGc_57,N57,NeuNGc,a,D,p,N10,3,NeupNGc,validated by Qrator
+N-glycan_a-D-NeupNAc_58,N58,NeuNAc,a,D,p,N37,3,NeupNAc,validated by Qrator
+N-glycan_b-D-GlcpNAc_59,N59,GlcNAc,b,D,p,N6,3,GlcpNAc,validated by Qrator
+N-glycan_b-D-Galp_60,N60,Gal,b,D,p,N59,4,Galp,validated by Qrator
+N-glycan_a-D-NeupNAc_61,N61,NeuNAc,a,D,p,N60,3,NeupNAc,validated by Qrator
+N-glycan_b-D-GlcpNAc_62,N62,GlcNAc,b,D,p,N3,3,GlcpNAc,validated by Qrator
+N-glycan_b-D-Galp_63,N63,Gal,b,D,p,N62,4,Galp,validated by Qrator
+N-glycan_a-D-NeupNAc_64,N64,NeuNAc,a,D,p,N63,3,NeupNAc,validated by Qrator
+N-glycan_b-D-GlcpNAc_65,N65,GlcNAc,b,D,p,N60,3,GlcpNAc,validated by Qrator
+N-glycan_b-D-Galp_66,N66,Gal,b,D,p,N65,4,Galp,validated by Qrator
+N-glycan_b-D-GlcpNAc_67,N67,GlcNAc,b,D,p,N66,3,GlcpNAc,validated by Qrator
+N-glycan_b-D-Galp_68,N68,Gal,b,D,p,N67,4,Galp,validated by Qrator
+N-glycan_a-D-NeupNAc_69,N69,NeuNAc,a,D,p,N29,6,NeupNAc,validated by Qrator
+N-glycan_a-D-NeupNAc_70,N70,NeuNAc,a,D,p,N30,6,NeupNAc,validated by Qrator
+N-glycan_a-L-Fucp_71,N71,Fuc,a,L,p,N8,2,Fucp,validated by Qrator
+N-glycan_b-D-GalpNAc_72,N72,GalNAc,b,D,p,N7,4,GalpNAc,validated by Qrator
+N-glycan_a-D-NeupNAc_73,N73,NeuNAc,a,D,p,N44,3,NeupNAc,validated by Qrator
+N-glycan_b-D-GalpNAc_74,N74,GalNAc,b,D,p,N9,4,GalpNAc,validated by Qrator
+N-glycan_b-D-GlcpNAc_75,N75,GlcNAc,b,D,p,N8,3,GlcpNAc,validated by Qrator
+N-glycan_b-D-GlcpNAc_76,N76,GlcNAc,b,D,p,N63,3,GlcpNAc,validated by Qrator
+N-glycan_b-D-Galp_77,N77,Gal,b,D,p,N76,4,Galp,validated by Qrator
+N-glycan_b-D-Galp_78,N78,Gal,b,D,p,N9,3,Galp,validated by Qrator
+N-glycan_b-D-Galp_80,N80,Gal,b,D,p,N75,4,Galp,validated by Qrator
+N-glycan_a-L-Fucp_81,N81,Fuc,a,L,p,N28,2,Fucp,validated by Qrator
+N-glycan_b-D-GalpNAc_82,N82,GalNAc,b,D,p,N8,4,GalpNAc,validated by Qrator
+N-glycan_a-D-Galp_83,N83,Gal,a,D,p,N60,3,Galp,validated by Qrator
+N-glycan_b-D-GlcpNAc_84,N84,GlcNAc,b,D,p,N78,3,GlcpNAc,validated by Qrator
+N-glycan_b-D-Galp_85,N85,Gal,b,D,p,N84,4,Galp,validated by Qrator
+N-glycan_b-D-Galp_86,N86,Gal,b,D,p,N5,3,Galp,validated by Qrator
+N-glycan_b-D-GlcpNAc_87,N87,GlcNAc,b,D,p,N1,3,GlcpNAc,abiotic context
+N-glycan_b-D-Galp_88,N88,Gal,b,D,p,N87,4,Galp,validated by Qrator
+N-glycan_a-D-NeupNAc_96,N96,NeuNAc,a,D,p,N74,6,NeupNAc,validated by Qrator
+N-glycan_a-D-GalpNAc_97,N97,GalNAc,a,D,p,N3,3,GalpNAc,validated by Qrator
+N-glycan_a-L-Fucp_98,N98,Fuc,a,L,p,N62,3,Fucp,validated by Qrator
+N-glycan_a-L-Fucp_99,N99,Fuc,a,L,p,N59,3,Fucp,validated by Qrator
+N-glycan_a-D-NeupNAc_100,N100,NeuNAc,a,D,p,N63,6,NeupNAc,validated by Qrator
+N-glycan_a-D-NeupNAc_101,N101,NeuNAc,a,D,p,N86,3,NeupNAc,validated by Qrator
+N-glycan_a-L-Fucp_102,N102,Fuc,a,L,p,N44,2,Fucp,validated by Qrator
+N-glycan_a-L-Fucp_103,N103,Fuc,a,L,p,N86,2,Fucp,validated by Qrator
+N-glycan_a-D-GalpNAc_104,N104,GalNAc,a,D,p,N6,3,GalpNAc,validated by Qrator
+N-glycan_a-D-NeupNAc_105,N105,NeuNAc,a,D,p,N78,3,NeupNAc,validated by Qrator
+N-glycan_a-D-NeupNAc_106,N106,NeuNAc,a,D,p,N80,3,NeupNAc,validated by Qrator
+N-glycan_b-D-GalpNAc_107,N107,GalNAc,b,D,p,N3,4,GalpNAc,validated by Qrator
+N-glycan_b-D-GalpNAc_108,N108,GalNAc,b,D,p,N6,4,GalpNAc,validated by Qrator
+N-glycan_b-D-GalpNAc_109,N109,GalNAc,b,D,p,N10,4,GalpNAc,validated by Qrator
+N-glycan_b-D-GlcpNAc_110,N110,GlcNAc,b,D,p,N68,3,GlcpNAc,validated by Qrator
+N-glycan_b-D-Galp_111,N111,Gal,b,D,p,N110,4,Galp,validated by Qrator
+N-glycan_b-D-GlcpNAc_112,N112,GlcNAc,b,D,p,N111,3,GlcpNAc,validated by Qrator
+N-glycan_b-D-Galp_113,N113,Gal,b,D,p,N112,4,Galp,validated by Qrator
+N-glycan_a-D-Galp_114,N114,Gal,a,D,p,N44,3,Galp,validated by Qrator
+N-glycan_a-D-Galp_115,N115,Gal,a,D,p,N86,3,Galp,validated by Qrator
+N-glycan_a-D-GalpNAc_116,N116,GalNAc,a,D,p,N44,3,GalpNAc,validated by Qrator
+N-glycan_a-D-GalpNAc_117,N117,GalNAc,a,D,p,N86,3,GalpNAc,validated by Qrator
+N-glycan_a-L-Fucp_118,N118,Fuc,a,L,p,N2,4,Fucp,validated by Qrator
+N-glycan_a-L-Fucp_119,N119,Fuc,a,L,p,N5,4,Fucp,validated by Qrator
+N-glycan_a-D-KDN_120,N120,KDN,a,D,,N3,6,KDN,validated by Qrator
+N-glycan_a-D-KDN_121,N121,KDN,a,D,,N3,3,KDN,validated by Qrator
+N-glycan_a-D-KDN_122,N122,KDN,a,D,,N6,3,KDN,validated by Qrator
+N-glycan_a-D-NeupNGc_123,N123,NeuNGc,a,D,p,N74,6,NeupNGc,validated by Qrator
+N-glycan_a-D-KDN_124,N124,KDN,a,D,,N74,6,KDN,validated by Qrator
+N-glycan_a-D-KDN_125,N125,KDN,a,D,,N10,3,KDN,validated by Qrator
+N-glycan_a-D-NeupNGc_126,N126,NeuNGc,a,D,p,N10,6,NeupNGc,validated by Qrator
+N-glycan_a-D-KDN_127,N127,KDN,a,D,,N10,6,KDN,validated by Qrator
+N-glycan_a-D-NeupNGc_128,N128,NeuNGc,a,D,p,N29,6,NeupNGc,validated by Qrator
+N-glycan_a-D-KDN_129,N129,KDN,a,D,,N29,6,KDN,validated by Qrator
+N-glycan_a-D-NeupNGc_130,N130,NeuNGc,a,D,p,N8,3,NeupNGc,validated by Qrator
+N-glycan_a-D-KDN_131,N131,KDN,a,D,,N8,6,KDN,validated by Qrator
+N-glycan_a-D-NeupNGc_132,N132,NeuNGc,a,D,p,N60,3,NeupNGc,validated by Qrator
+N-glycan_a-D-KDN_133,N133,KDN,a,D,,N60,3,KDN,validated by Qrator
+N-glycan_a-D-KDN_134,N134,KDN,a,D,,N6,6,KDN,validated by Qrator
+N-glycan_a-D-NeupNGc_135,N135,NeuNGc,a,D,p,N44,3,NeupNGc,validated by Qrator
+N-glycan_a-D-KDN_136,N136,KDN,a,D,,N44,3,KDN,validated by Qrator
+N-glycan_a-D-NeupNGc_137,N137,NeuNGc,a,D,p,N37,3,NeupNGc,validated by Qrator
+N-glycan_a-D-KDN_138,N138,KDN,a,D,,N37,3,KDN,validated by Qrator
+N-glycan_a-D-KDN_139,N139,KDN,a,D,,N8,3,KDN,validated by Qrator
+N-glycan_a-D-NeupNGc_140,N140,NeuNGc,a,D,p,N86,3,NeupNGc,validated by Qrator
+N-glycan_a-D-KDN_141,N141,KDN,a,D,,N86,3,KDN,validated by Qrator
+N-glycan_a-D-NeupNGc_142,N142,NeuNGc,a,D,p,N63,6,NeupNGc,validated by Qrator
+N-glycan_a-D-KDN_143,N143,KDN,a,D,,N63,6,KDN,validated by Qrator
+N-glycan_a-D-NeupNGc_144,N144,NeuNGc,a,D,p,N78,3,NeupNGc,validated by Qrator
+N-glycan_a-D-KDN_145,N145,KDN,a,D,,N78,3,KDN,validated by Qrator
+N-glycan_a-D-NeupNGc_146,N146,NeuNGc,a,D,p,N30,6,NeupNGc,validated by Qrator
+N-glycan_a-D-KDN_147,N147,KDN,a,D,,N30,6,KDN,validated by Qrator
+N-glycan_b-D-GlcpNAc_150,N150,GlcNAc,b,D,p,N10,2,GlcpNAc,validated by Qrator
+N-glycan_b-D-Galp_151,N151,Gal,b,D,p,N150,4,Galp,validated by Qrator
+N-glycan_a-L-Fucp_200,N200,Fuc,a,L,p,N10,2,Fucp,validated by Qrator
+N-glycan_a-D-Fucp_201,N201,Fuc,a,D,p,NA,6,Fucp,abiotic configuration
+N-glycan_a-D-Manp_202,N202,Man,a,D,p,N1,6,Manp,N-mannans
+N-glycan_a-D-NeupNAc_203,N203,NeuNAc,a,D,p,N2,6,NeupNAc,manually validated
+N-glycan_a-D-Manp_204,N204,Man,a,D,p,N4,2,Manp,N-mannans
+N-glycan_b-D-Galp_205,N205,Gal,b,D,p,N4,6,Galp,abiotic context
+N-glycan_b-D-GlcpNAc_206,N206,GlcNAc,b,D,p,N1,6,GlcpNAc,abiotic linkage
+N-glycan_b-D-GlcpNAc_207,N207,GlcNAc,b,D,p,N6,4,GlcpNAc,abiotic linkage
+N-glycan_a-D-Manp_208,N208,Man,a,D,p,N19,6,Manp,abiotic linkage
+N-glycan_b-D-Galp_209,N209,Gal,b,D,p,N206,4,Galp,
+N-glycan_b-D-Galp_210,N210,Gal,b,D,p,N206,4,Galp,
+N-glycan_b-D-Galp_211,N211,Gal,b,D,p,N30,3,Galp,manually validated
+N-glycan_a-L-Fucp_212,N212,Fuc,a,L,p,N1,3,Fucp,manually validated
+N-glycan_a-L-Fucp_213,N213,Fuc,a,L,p,N4,3,Fucp,manually validated
+N-glycan_b-D-Glcp_214,N214,Glc,b,D,p,N22,3,Glcp,abiotic linkage
+N-glycan_a-D-Galf_215,N215,Gal,a,D,f,N19,2,Galf,abiotic linkage
+N-glycan_a-D-Fucp_216,N216,Fuc,a,D,p,N5,3,Fucp,abiotic configuration
+N-glycan_a-D-Manp_217,N217,Man,a,D,p,N202,6,Manp,N-mannans
+N-glycan_a-D-Manp_218,N218,Man,a,D,p,N22,2,Manp,N-mannans
+N-glycan_a-D-Manp_219,N219,Man,a,D,p,N204,2,Manp,N-mannans
+N-glycan_a-D-Manp_220,N220,Man,a,D,p,N1,3,Manp,N-mannans
+N-glycan_a-D-Manp_221,N221,Man,a,D,p,N202,2,Manp,N-mannans
+N-glycan_a-D-NeupNAc_222,N222,NeuNAc,a,D,p,N32,6,NeupNAc,
+N-glycan_a-D-Galp_223,N223,Gal,a,D,p,N2,4,Galp,abiotic linkage
+N-glycan_b-D-Fucp_224,N224,Fuc,b,D,p,NA,6,Fucp,abiotic configuration
+N-glycan_a-D-Manp_225,N225,Man,a,D,p,N221,3,Manp,N-mannans
+N-glycan_b-D-GlcpNAc_226,N226,GlcNAc,b,D,p,N3,4,GlcpNAc,abiotic linkage
+N-glycan_b-D-Galp_227,N227,Gal,b,D,p,N207,4,Galp,
+N-glycan_b-D-GlcpNAc_228,N228,GlcNAc,b,D,p,N8,4,GlcpNAc,abiotic linkage
+N-glycan_a-D-NeupNAc_229,N229,NeuNAc,a,D,p,N209,3,NeupNAc,manually validated
+N-glycan_a-L-Fucp_230,N230,Fuc,a,L,p,N36,3,Fucp,not validated
+N-glycan_a-L-Fucp_231,N231,Fuc,a,L,p,N75,3,Fucp,manually validated
+N-glycan_b-D-GlcpNAc_232,N232,GlcNAc,b,D,p,N37,3,GlcpNAc,manually validated
+N-glycan_a-D-NeupNAc_233,N233,NeuNAc,a,D,p,N77,6,NeupNAc,no images available
+N-glycan_b-D-GlcpNAc_234,N234,GlcNAc,b,D,p,N80,3,GlcpNAc,no images available
+N-glycan_b-D-GlcpNAc_235,N235,GlcNAc,b,D,p,N80,3,GlcpNAc,not used
+N-glycan_b-D-GlcpNAc_236,N236,GlcNAc,b,D,p,N37,3,GlcpNAc,not used
+N-glycan_a-D-Fucp_237,N237,Fuc,a,D,p,N2,3,Fucp,abiotic configuration
+N-glycan_b-D-GlcpNAc_238,N238,GlcNAc,b,D,p,N2,4,GlcpNAc,abiotic linkage
+N-glycan_b-D-Galp_239,N239,Gal,b,D,p,N6,4,Galp,abiotic linkage
+N-glycan_b-D-Galp_240,N240,Gal,b,D,p,N3,4,Galp,abiotic linkage
+N-glycan_a-D-NeupNAc_241,N241,NeuNAc,a,D,p,N7,6,NeupNAc,manually validated
+N-glycan_a-L-Fucp_242,N242,Fuc,a,L,p,N228,3,Fucp,
+N-glycan_b-D-Galp_243,N243,Gal,b,D,p,N228,4,Galp,
+N-glycan_a-D-Galp_244,N244,Gal,a,D,p,N10,4,Galp,abiotic context
+N-glycan_a-D-Galp_245,N245,Gal,a,D,p,N8,4,Galp,abiotic context
+N-glycan_a-D-Galp_246,N246,Gal,a,D,p,N3,4,Galp,abiotic context
+N-glycan_a-D-NeupNAc_247,N247,NeuNAc,a,D,p,N2,3,NeupNAc,abiotic linkage
+N-glycan_b-D-GlcpNAc_249,N249,GlcNAc,b,D,p,N8,6,GlcpNAc,abiotic context
+N-glycan_b-D-GlcpNAc_250,N250,GlcNAc,b,D,p,N5,4,GlcpNAc,abiotic linkage
+N-glycan_a-D-NeupNAc_251,N251,NeuNAc,a,D,p,N8,2,NeupNAc,abiotic linkage
+N-glycan_b-D-Galf_252,N252,Gal,b,D,f,N4,2,Galf,abiotic linkage
+N-glycan_b-D-Glcp_253,N253,Glc,b,D,p,N1,4,Glcp,abiotic linkage
+N-glycan_b-D-Glcp_254,N254,Glc,b,D,p,N1,4,Glcp,not used
+N-glycan_a-D-Fucp_255,N255,Fuc,a,D,p,N5,6,Fucp,abiotic configuration
+N-glycan_a-D-Fucp_256,N256,Fuc,a,D,p,NA,3,Fucp,abiotic configuration
+N-glycan_a-D-Galp_257,N257,Gal,a,D,p,N6,4,Galp,abiotic context
+N-glycan_b-D-GlcpNAc_258,N258,GlcNAc,b,D,p,N1,5,GlcpNAc,chemically inconsistent
+N-glycan_a-D-NeupNAc_259,N259,NeuNAc,a,D,p,N223,6,NeupNAc,abiotic linkage
+N-glycan_a-D-Manp_260,N260,Man,a,D,p,N20,4,Manp,abiotic linkage
+N-glycan_a-D-Manp_261,N261,Man,a,D,p,N1,4,Manp,abiotic linkage
+N-glycan_a-D-Glcp_262,N262,Glc,a,D,p,N23,3,Glcp,abiotic context
+N-glycan_a-D-Manp_263,N263,Man,a,D,p,N22,3,Manp,N-mannans
+N-glycan_a-D-Manp_264,N264,Man,a,D,p,N217,6,Manp,N-mannans
+N-glycan_b-D-GlcpNAc_265,N265,GlcNAc,b,D,p,N77,3,GlcpNAc,not validated
+N-glycan_b-D-Galp_266,N266,Gal,b,D,p,N3,3,Galp,not validated
+N-glycan_a-L-Fucp_267,N267,Fuc,a,L,p,N2,6,Fucp,abiotic context
+N-glycan_a-D-NeupNAc_268,N268,NeuNAc,a,D,p,N60,6,NeupNAc,manually validated
+N-glycan_a-D-Manp_269,N269,Man,a,D,p,N217,2,Manp,N-mannans
+N-glycan_a-D-Manp_270,N270,Man,a,D,p,N23,3,Manp,N-mannans
+N-glycan_a-D-NeupNAc_271,N271,NeuNAc,a,D,p,N29,3,NeupNAc,manually validated
+N-glycan_a-D-NeupNAc_272,N272,NeuNAc,a,D,p,N30,3,NeupNAc,Manually validated
+N-glycan_a-D-Glcp_273,N273,Glc,a,D,p,N1,3,Glcp,abiotic context
+N-glycan_b-D-Galp_274,N274,Gal,b,D,p,N10,3,Galp,not validated
+N-glycan_b-D-Galp_275,N275,Gal,b,D,p,N15,4,Galp,manually validated
+N-glycan_a-L-Fucp_276,N276,Fuc,a,L,p,N6,6,Fucp,abiotic linkage
+N-glycan_a-L-Fucp_277,N277,Fuc,a,L,p,N232,3,Fucp,
+N-glycan_b-D-GlcpNAc_278,N278,GlcNAc,b,D,p,N88,3,GlcpNAc,
+N-glycan_a-L-Fucp_279,N279,Fuc,a,L,p,N234,3,Fucp,
+N-glycan_b-D-Galp_280,N280,Gal,b,D,p,N234,4,Galp,
+N-glycan_b-D-Galp_281,N281,Gal,b,D,p,N232,4,Galp,manually validated
+N-glycan_a-D-Glcp_282,N282,Glc,a,D,p,N22,2,Glcp,abiotic linkage
+N-glycan_a-D-Manp_283,N283,Man,a,D,p,N218,2,Manp,N-mannans
+N-glycan_a-D-NeupNAc_284,N284,NeuNAc,a,D,p,N209,6,NeupNAc,
+N-glycan_a-D-NeupNAc_285,N285,NeuNAc,a,D,p,N5,6,NeupNAc,manually validated
+N-glycan_b-D-Manp_286,N286,Man,b,D,p,N21,2,Manp,N-mannans
+N-glycan_b-D-Galp_287,N287,Gal,b,D,p,N265,4,Galp,manually validated
+N-glycan_a-L-Fucp_288,N288,Fuc,a,L,p,N249,3,Fucp,
+N-glycan_b-D-Galp_289,N289,Gal,b,D,p,N249,4,Galp,
+N-glycan_a-D-NeupNAc_290,N290,NeuNAc,a,D,p,N86,6,NeupNAc,manually validated
+N-glycan_b-D-GlcpNAc_291,N291,GlcNAc,b,D,p,N209,3,GlcpNAc,
+N-glycan_b-D-GlcpNAc_292,N292,GlcNAc,b,D,p,N32,3,GlcpNAc,
+N-glycan_b-D-GalpNAc_293,N293,GalNAc,b,D,p,N4,2,GalpNAc,abiotic linkage
+N-glycan_a-D-Fucp_294,N294,Fuc,a,D,p,N7,3,Fucp,abiotic configuration
+N-glycan_b-D-Galp_295,N295,Gal,b,D,p,N32,3,Galp,not validated
+N-glycan_a-D-Manp_296,N296,Man,a,D,p,N20,6,Manp,N-mannans
+N-glycan_b-D-Galp_297,N297,Gal,b,D,p,N31,3,Galp,
+N-glycan_a-D-Fucp_298,N298,Fuc,a,D,p,N3,2,Fucp,abiotic configuration
+N-glycan_b-L-Fucp_299,N299,Fuc,b,L,p,NA,6,Fucp,abiotic linkage
+N-glycan_a-D-Manp_300,N300,Man,a,D,p,N23,2,Manp,N-mannans
+N-glycan_b-D-GlcpNAc_301,N301,GlcNAc,b,D,p,N4,3,GlcpNAc,abiotic linkage
+N-glycan_a-D-GlcpNAc_302,N302,GlcNAc,a,D,p,N1,4,GlcpNAc,abiotic linkage
+N-glycan_b-D-GlcpNAc_303,N303,GlcNAc,b,D,p,N19,2,GlcpNAc,abiotic context
+N-glycan_b-D-GlcpNAc_304,N304,GlcNAc,b,D,p,N20,2,GlcpNAc,abiotic context
+N-glycan_b-D-Glcp_305,N305,Glc,b,D,p,N5,4,Glcp,abiotic linkage
+N-glycan_b-D-Glcp_306,N306,Glc,b,D,p,N2,4,Glcp,abiotic linkage
+N-glycan_b-D-Galp_307,N307,Gal,b,D,p,N293,4,Galp,
+N-glycan_b-D-GalpNAc_308,N308,GalNAc-S,b,D,p,N301,4,GalpNAc,
+N-glycan_a-D-Galp_309,N309,Gal,a,D,p,N28,3,Galp,abiotic context
+N-glycan_a-D-GlcpNAc_310,N310,GlcNAc,a,D,p,N20,6,GlcpNAc,abiotic context
+N-glycan_a-D-GlcpNAc_311,N311,GlcNAc,a,D,p,N21,6,GlcpNAc,abiotic context
+N-glycan_a-D-NeupNAc_312,N312,NeuNAc,a,D,p,N66,3,NeupNAc,manually validated
+N-glycan_a-D-GlcpNAc_313,N313,GlcNAc,a,D,p,N1,2,GlcpNAc,abiotic configuration
+N-glycan_b-D-Galp_314,N314,Gal,b,D,p,N62,3,Galp,abiotic context
+N-glycan_b-D-Galp_315,N315,Gal,b,D,p,N59,3,Galp,abiotic context
+N-glycan_a-D-GlcpNAc_316,N316,GlcNAc,a,D,p,N4,2,GlcpNAc,abiotic configuration
+N-glycan_b-D-Galp_317,N317,Gal,b,D,p,N313,4,Galp,
+N-glycan_a-D-Galp_318,N318,Gal,a,D,p,N23,2,Galp,not validated
+N-glycan_b-D-GlcpNAc_319,N319,GlcNAc,b,D,p,N3,2,GlcpNAc,abiotic linkage
+N-glycan_b-D-GlcpNAc_320,N320,GlcNAc,b,D,p,N6,2,GlcpNAc,abiotic linkage
+N-glycan_b-D-GlcpNAc_321,N321,GlcNAc,b,D,p,N8,2,GlcpNAc,abiotic linkage
+N-glycan_a-D-Galp_322,N322,Gal,a,D,p,N5,4,Galp,abiotic linkage
+N-glycan_a-L-Fucp_323,N323,Fuc,a,L,p,N253,3,Fucp,
+N-glycan_b-D-Galp_324,N324,Gal,b,D,p,N253,4,Galp,
+N-glycan_a-D-Galp_325,N325,Gal,a,D,p,N86,4,Galp,abiotic context
+N-glycan_a-D-Galp_326,N326,Gal,a,D,p,N44,4,Galp,abiotic context
+N-glycan_b-D-Galp_327,N327,Gal,b,D,p,N36,3,Galp,abiotic context
+N-glycan_a-L-Fucp_328,N328,Fuc,a,L,p,N63,2,Fucp,manually validated
+N-glycan_a-L-Fucp_329,N329,Fuc,a,L,p,N60,2,Fucp,manually validated
+N-glycan_b-D-Glcp_330,N330,Glc,b,D,p,N214,3,Glcp,N-mannans
+N-glycan_a-D-Galp_331,N331,Gal,a,D,p,N32,3,Galp,manually validated
+N-glycan_a-D-Galp_332,N332,Gal,a,D,p,N240,3,Galp,not validated
+N-glycan_a-D-Galp_333,N333,Gal,a,D,p,N239,3,Galp,not validated
+N-glycan_a-L-Fucp_334,N334,Fuc,a,L,p,N31,3,Fucp,manually validated
+N-glycan_a-D-Fucp_335,N335,Fuc,a,D,p,N6,2,Fucp,abiotic configuration
+N-glycan_b-D-Manp_336,N336,Man,b,D,p,N4,3,Manp,abiotic context
+N-glycan_a-D-Manp_337,N337,Man,a,D,p,N24,2,Manp,abiotic context
+N-glycan_b-D-Manp_338,N338,Man,b,D,p,N1,2,Manp,abiotic context
+N-glycan_b-D-Galp_339,N339,Gal,b,D,p,N291,4,Galp,
+N-glycan_b-D-Galp_340,N340,Gal,b,D,p,N292,4,Galp,
+N-glycan_a-D-Manp_341,N341,Man,a,D,p,N204,6,Manp,abiotic context
+N-glycan_b-D-Galp_342,N342,Gal,b,D,p,N301,4,Galp,
+N-glycan_a-D-Manp_343,N343,Man,a,D,p,N337,2,Manp,abiotic context
+N-glycan_b-D-GlcpNAc_344,N344,GlcNAc,b,D,p,N5,6,GlcpNAc,abiotic linkage
+N-glycan_a-D-NeupNAc_345,N345,NeuNAc,a,D,p,N307,6,NeupNAc,
+N-glycan_a-D-NeupNGc_346,N346,NeuNGc,a,D,p,N2,6,NeupNGc,manually validated
+N-glycan_a-D-NeupNAc_347,N347,NeuNAc,a,D,p,N86,4,NeupNAc,abiotic linkage
+N-glycan_a-D-NeupNAc_348,N348,NeuNAc,a,D,p,N44,4,NeupNAc,abiotic linkage
+N-glycan_a-D-NeupNAc_349,N349,NeuNAc,a,D,p,N72,6,NeupNAc,manually validated
+N-glycan_b-D-GlcpNAc_350,N350,GlcNAc,b,D,p,N62,4,GlcpNAc,abiotic context
+N-glycan_b-D-GlcpNAc_351,N351,GlcNAc,b,D,p,N3,6,GlcpNAc,
+N-glycan_b-D-GlcpNAc_352,N352,GlcNAc,b,D,p,N238,4,GlcpNAc,abiotic context
+N-glycan_b-D-GalpNAc_353,N353,GalNAc,b,D,p,N4,6,GalpNAc,abiotic linkage
+N-glycan_a-D-Manp_354,N354,Man,a,D,p,N296,2,Manp,abiotic context
+N-glycan_b-D-Glcp_355,N355,Glc,b,D,p,N4,2,Glcp,abiotic linkage
+N-glycan_a-L-Fucp_356,N356,Fuc,a,L,p,N206,3,Fucp,
+N-glycan_a-D-NeupNAc_357,N357,NeuNAc,a,D,p,N3,4,NeupNAc,abiotic linkage
+N-glycan_b-D-Galp_358,N358,Gal,b,D,p,N351,4,Galp,
+N-glycan_a-D-GlcpNAc_359,N359,GlcNAc,a,D,p,N4,6,GlcpNAc,abiotic linkage
+N-glycan_b-D-Galp_360,N360,Gal,b,D,p,N4,4,Galp,abiotic linkage
+N-glycan_a-D-NeupNAc_361,N361,NeuNAc,a,D,p,N306,6,NeupNAc,
+N-glycan_a-D-Fucp_362,N362,Fuc,a,D,p,N9,3,Fucp,abiotic configuration
+N-glycan_a-D-Manp_363,N363,Man,a,D,p,N19,4,Manp,abiotic linkage
+N-glycan_a-D-Manp_364,N364,Man,a,D,p,N22,6,Manp,abiotic context
+N-glycan_b-D-GlcpNAc_365,N365,GlcNAc,b,D,p,NC,2,GlcpNAc,abiotic context
+N-glycan_a-D-Glcp_366,N366,Glc,a,D,p,N25,2,Glcp,abiotic context
+N-glycan_a-D-Manp_367,N367,Man,a,D,p,N283,2,Manp,N-mannans
+N-glycan_b-D-Galp_368,N368,Gal,b,D,p,N11,4,Galp,abiotic context
+N-glycan_a-D-NeupNAc_369,N369,NeuNAc,a,D,p,N305,6,NeupNAc,abiotic linkage
+N-glycan_b-D-Galp_370,N370,Gal,b,D,p,N316,4,Galp,
+N-glycan_a-D-NeupNAc_371,N371,NeuNAc,a,D,p,N317,3,NeupNAc,
+N-glycan_a-D-Manp_372,N372,Man,a,D,p,N19,3,Manp,abiotic context
+N-glycan_a-D-Manp_373,N373,Man,a,D,p,N20,3,Manp,abiotic context
+N-glycan_b-D-Galp_374,N374,Gal,b,D,p,N370,3,Galp,not validated
+N-glycan_b-D-Galp_375,N375,Gal,b,D,p,N319,4,Galp,
+N-glycan_b-D-Galp_376,N376,Gal,b,D,p,N320,4,Galp,
+N-glycan_b-D-Galp_377,N377,Gal,b,D,p,N321,4,Galp,
+N-glycan_b-D-Manp_378,N378,Man,b,D,p,N4,6,Manp,abiotic linkage
+N-glycan_a-D-NeupNAc_379,N379,NeuNAc,a,D,p,N44,6,NeupNAc,
+N-glycan_a-D-Manp_380,N380,Man,a,D,p,N261,4,Manp,abiotic linkage
+N-glycan_b-D-Galp_381,N381,Gal,b,D,p,N201,4,Galp,
+N-glycan_a-D-NeupNGc_382,N382,NeuNGc,a,D,p,N63,3,NeupNGc,manually validated
+N-glycan_a-D-Manp_383,N383,Man,a,D,p,N4,4,Manp,abiotic linkage
+N-glycan_a-D-GlcpNAc_384,N384,GlcNAc,a,D,p,N6,6,GlcpNAc,abiotic linkage
+N-glycan_a-D-GlcpNAc_385,N385,GlcNAc,a,D,p,N3,6,GlcpNAc,abiotic linkage
+N-glycan_a-D-NeupNGc_386,N386,NeuNGc,a,D,p,N5,6,NeupNGc,manually validated
+N-glycan_b-D-GlcpNAc_387,N387,GlcNAc,b,D,p,N10,4,GlcpNAc,abiotic linkage
+N-glycan_b-D-Galp_388,N388,Gal,b,D,p,N210,3,Galp,
+N-glycan_a-D-Manp_389,N389,Man,a,D,p,N264,2,Manp,N-mannans
+N-glycan_a-L-Fucp_390,N390,Fuc,a,L,p,N210,2,Fucp,
+N-glycan_a-D-NeupNAc_391,N391,NeuNAc,a,D,p,N322,6,NeupNAc,not validated
+N-glycan_a-D-Manp_392,N392,Man,a,D,p,N218,3,Manp,not validated
+N-glycan_a-D-Manp_393,N393,Man,a,D,p,N220,2,Manp,N-mannans
+N-glycan_a-D-Galp_394,N394,Gal,a,D,p,N22,3,Galp,
+N-glycan_a-D-Fucp_395,N395,Fuc,a,D,p,N31,3,Fucp,abiotic configuration
+N-glycan_b-D-Galp_396,N396,Gal,b,D,p,N1,4,Galp,abiotic linkage
+N-glycan_b-D-Manp_397,N397,Man,b,D,p,NC,4,Manp,abiotic linkage
+N-glycan_a-L-Fucp_398,N398,Fuc,a,L,p,N9,6,Fucp,abiotic context
+N-glycan_a-D-Glcp_399,N399,Glc,a,D,p,N26,3,Glcp,abiotic context
+N-glycan_a-D-Fucp_400,N400,Fuc,a,D,p,N2,6,Fucp,abiotic configuration
+N-glycan_a-D-NeupNAc_401,N401,NeuNAc,a,D,p,N281,3,NeupNAc,manually validated
+N-glycan_b-D-GalpNAc_402,N402,GalNAc,b,D,p,N238,4,GalpNAc,manually validated
+N-glycan_b-D-GalpNAc_403,N403,GalNAc,b,D,p,N250,4,GalpNAc,manually validated
+N-glycan_a-L-Fucp_404,N404,Fuc,a,L,p,N22,2,Fucp,abiotic linkage
+N-glycan_a-D-Glcp_405,N405,Glc,a,D,p,N21,3,Glcp,abiotic context
+N-glycan_a-D-Glcp_406,N406,Glc,a,D,p,N9,4,Glcp,abiotic linkage
+N-glycan_a-D-NeupNAc_407,N407,NeuNAc,a,D,p,N88,6,NeupNAc,
+N-glycan_a-D-NeupNAc_408,N408,NeuNAc,a,D,p,N45,6,NeupNAc,abiotic context
+N-glycan_b-D-Galp_409,N409,Gal,b,D,p,N387,4,Galp,
+N-glycan_a-D-NeupNAc_410,N410,NeuNAc,a,D,p,N28,6,NeupNAc,
+N-glycan_a-D-NeupNAc_411,N411,NeuNAc,a,D,p,N297,3,NeupNAc,
+N-glycan_a-D-NeupNAc_412,N412,NeuNAc,a,D,p,N297,6,NeupNAc,
+N-glycan_a-D-NeupNAc_413,N413,NeuNAc,a,D,p,N8,4,NeupNAc,abiotic linkage
+N-glycan_a-D-Galp_414,N414,Gal,a,D,p,N24,2,Galp,N-mannans
+N-glycan_b-D-Glcp_415,N415,Glc,b,D,p,N20,4,Glcp,abiotic linkage
+N-glycan_b-D-Glcp_416,N416,Glc,b,D,p,N19,4,Glcp,abiotic linkage
+N-glycan_a-L-Fucp_417,N417,Fuc,a,L,p,NA,2,Fucp,abiotic linkage
+N-glycan_b-D-GlcpNAc_418,N418,GlcNAc,b,D,p,N20,6,GlcpNAc,abiotic context
+N-glycan_a-D-Manp_419,N419,Man,a,D,p,N269,3,Manp,N-mannans
+N-glycan_a-D-Galp_420,N420,Gal,a,D,p,N31,4,Galp,abiotic linkage
+N-glycan_b-D-Galp_421,N421,Gal,b,D,p,N418,4,Galp,abiotic context
+N-glycan_a-L-Fucp_422,N422,Fuc,a,L,p,N5,6,Fucp,abiotic context
+N-glycan_b-D-Galp_423,N423,Gal,b,D,p,N7,5,Galp,chemically inconsistent
+N-glycan_a-D-NeupNGc_424,N424,NeuNGc,a,D,p,N29,3,NeupNGc,manually validated
+N-glycan_a-D-Manp_425,N425,Man,a,D,p,N221,2,Manp,N-mannans
+N-glycan_a-D-Galp_426,N426,Gal,a,D,p,N25,3,Galp,abiotic linkage
+N-glycan_b-D-GlcpNAc_427,N427,GlcNAc,b,D,p,N6,6,GlcpNAc,manually validated
+N-glycan_b-D-Manp_428,N428,Man,b,D,p,N1,6,Manp,abiotic linkage
+N-glycan_b-D-Galp_429,N429,Gal,b,D,p,N8,3,Galp,not validated
+N-glycan_a-D-Galp_430,N430,Gal,a,D,p,N21,3,Galp,abiotic context
+N-glycan_a-D-NeupNAc_431,N431,NeuNAc,a,D,p,N28,4,NeupNAc,abiotic linkage
+N-glycan_b-D-Galp_432,N432,Gal,b,D,p,N359,4,Galp,
+N-glycan_b-D-Galp_433,N433,Gal,b,D,p,N278,4,Galp,not validated
+N-glycan_a-D-NeupNAc_434,N434,NeuNAc,a,D,p,N88,3,NeupNAc,
+N-glycan_b-D-GlcpNAc_435,N435,GlcNAc,b,D,p,N220,2,GlcpNAc,abiotic context
+N-glycan_a-D-Galp_436,N436,Gal,a,D,p,N28,4,Galp,abiotic context
+N-glycan_a-D-NeupNAc_437,N437,NeuNAc,a,D,p,N370,6,NeupNAc,
+N-glycan_a-L-Fucp_438,N438,Fuc,a,L,p,N6,3,Fucp,abiotic linkage
+N-glycan_a-L-Fucp_439,N439,Fuc,a,L,p,N3,3,Fucp,abiotic linkage
+N-glycan_b-D-Galp_440,N440,Gal,b,D,p,N8,4,Galp,not validated
+N-glycan_a-D-Galp_441,N441,Gal,a,D,p,N9,4,Galp,abiotic linkage
+N-glycan_a-D-NeupNAc_442,N442,NeuNAc,a,D,p,N227,6,NeupNAc,
+N-glycan_a-D-NeupNAc_443,N443,NeuNAc,a,D,p,N409,6,NeupNAc,
+N-glycan_a-D-Glcp_444,N444,Glc,a,D,p,N21,2,Glcp,abiotic linkage
+N-glycan_b-D-Galp_445,N445,Gal,b,D,p,N1,6,Galp,abiotic linkage
+N-glycan_a-D-Manp_446,N446,Man,a,D,p,N300,2,Manp,abiotic context
+N-glycan_a-D-Manp_447,N447,Man,a,D,p,N343,2,Manp,abiotic context
+N-glycan_b-D-Galp_448,N448,Gal,b,D,p,N435,4,Galp,abiotic context
+N-glycan_a-L-Fucp_449,N449,Fuc,a,L,p,N211,2,Fucp,abiotic context
+N-glycan_a-D-Glcp_450,N450,Glc,a,D,p,N353,4,Glcp,abiotic linkage
+N-glycan_a-D-Glcp_451,N451,Glc,a,D,p,N444,3,Glcp,abiotic context
+N-glycan_a-D-NeupNAc_452,N452,NeuNAc,a,D,p,N370,3,NeupNAc,
+N-glycan_b-D-Glcp_453,N453,Glc,b,D,p,N24,4,Glcp,abiotic linkage
+N-glycan_b-D-Glcp_454,N454,Glc,b,D,p,N23,4,Glcp,abiotic linkage
+N-glycan_b-D-Glcp_455,N455,Glc,b,D,p,N22,4,Glcp,abiotic linkage
+N-glycan_a-D-Manp_456,N456,Man,a,D,p,N202,3,Manp,N-mannans
+N-glycan_a-D-NeupNAc_457,N457,NeuNAc,a,D,p,N17,8,NeupNAc,manually validated
+N-glycan_a-L-Fucp_458,N458,Fuc,a,L,p,N24,2,Fucp,abiotic linkage
+N-glycan_a-D-Glcp_459,N459,Glc,a,D,p,N19,2,Glcp,abiotic linkage
+N-glycan_a-D-Glcp_460,N460,Glc,a,D,p,N23,2,Glcp,abiotic linkage
+N-glycan_b-L-Fucp_461,N461,Fuc,b,L,p,NA,3,Fucp,abiotic linkage
+N-glycan_b-D-GlcpNAc_462,N462,GlcNAc,b,D,p,N11,4,GlcpNAc,abiotic context
+N-glycan_a-D-NeupNAc_463,N463,NeuNAc,a,D,p,N368,3,NeupNAc,abiotic context
+N-glycan_b-D-GalpNAc_464,N464,GalNAc,b,D,p,N1,2,GalpNAc,abiotic linkage
+N-glycan_b-D-Galp_465,N465,Gal,b,D,p,N1,2,Galp,abiotic linkage
+N-glycan_b-D-GalpNAc_466,N466,GalNAc,b,D,p,N31,4,GalpNAc,
+N-glycan_b-D-Galp_467,N467,Gal,b,D,p,NC,4,Galp,manually validated
+N-glycan_b-D-Galp_468,N468,Gal,b,D,p,N344,4,Galp,manually validated
+N-glycan_core_D-GlcNAc_A,NA,GlcNAc,x,D,x,no_id,0,GlcxNAc,validated by Qrator
+N-glycan_core_b-D-GlcpNAc_B,NB,GlcNAc,b,D,p,NA,4,GlcpNAc,validated by Qrator
+N-glycan_core_b-D-Manp_C,NC,Man,b,D,p,NB,4,Manp,validated by Qrator
+N-glycan_sulfate_469,N469,sulfate,n,n,n,N29,4,sulfate,
+N-glycan_sulfate_470,N470,sulfate,n,n,n,N30,4,sulfate,
+N-glycan_sulfate_471,N471,sulfate,n,n,n,N8,3,sulfate,
+N-glycan_b-D-NeupNAc_472,N472,NeuNAc,b,D,p,N3,6,NeupNAc,
+N-glycan_sulfate_473,N473,sulfate,n,n,n,N2,6,sulfate,
+N-glycan_a-D-Glcp_474,N474,Glc,a,D,p,N219,3,Glcp,
+N-glycan_b-D-Galp_475,N475,Gal,b,D,p,N226,4,Galp,
+N-glycan_phosphate_476,N476,phosphate,n,n,n,N23,6,phosphate,
+N-glycan_b-D-Xylf_477,N477,Xyl,b,D,f,NC,2,Xylf,
+N-glycan_a-D-Xylp_478,N478,Xyl,a,D,p,NC,2,Xylp,
+N-glycan_sulfate_479,N479,sulfate,n,n,n,N3,3,sulfate,
+N-glycan_a-D-NeupNAc_480,N480,NeuNAc,a,D,p,N324,3,NeupNAc,
+N-glycan_phosphate_481,N481,phosphate,n,n,n,N21,6,phosphate,
+N-glycan_a-D-Glcp_482,N482,Glc,a,D,p,N273,3,Glcp,
+N-glycan_sulfate_483,N483,sulfate,n,n,n,N5,6,sulfate,
+N-glycan_sulfate_484,N484,sulfate,n,n,n,N2,3,sulfate,
+N-glycan_b-D-Xylp_485,N485,Xyl,b,D,p,NC,2,Xylp,
+N-glycan_b-D-GlcpNAc_486,N486,GlcNAc,b,D,p,N433,3,GlcpNAc,
+N-glycan_sulfate_487,N487,sulfate,n,n,n,N6,3,sulfate,
+N-glycan_b-D-Manp_488,N488,Man,b,D,p,N2,4,Manp,
+N-glycan_a-D-NeupNAc_489,N489,NeuNAc,a,D,p,N375,6,NeupNAc,
+N-glycan_sulfate_490,N490,sulfate,n,n,n,N29,3,sulfate,
+N-glycan_sulfate_491,N491,sulfate,n,n,n,N30,3,sulfate,
+N-glycan_b-D-Glcp_492,N492,Glc,b,D,p,N330,2,Glcp,
+N-glycan_a-D-Xylf_493,N493,Xyl,a,D,f,NC,2,Xylf,
+N-glycan_b-D-GlcpNAc_494,N494,GlcNAc,b,D,p,N468,3,GlcpNAc,
+N-glycan_a-D-Galp_495,N495,Gal,a,D,p,N358,3,Galp,
+N-glycan_b-D-GlcpNAc_496,N496,GlcNAc,b,D,p,N352,4,GlcpNAc,
+N-glycan_b-D-Galp_497,N497,Gal,b,D,p,N355,4,Galp,
+N-glycan_b-D-Manp_498,N498,Man,b,D,p,N4,4,Manp,
+N-glycan_b-D-Galp_499,N499,Gal,b,D,p,N75,3,Galp,
+N-glycan_sulfate_500,N500,sulfate,n,n,n,N6,6,sulfate,
+N-glycan_a-L-Fucp_501,N501,Fuc,a,L,p,N313,3,Fucp,
+N-glycan_sulfate_502,N502,sulfate,n,n,n,N7,6,sulfate,
+N-glycan_a-D-NeupNAc_503,N503,NeuNAc,a,D,p,N421,3,NeupNAc,
+N-glycan_b-D-GlcpNAc_504,N504,GlcNAc,b,D,p,N396,4,GlcpNAc,
+N-glycan_a-D-GlcpNAc_505,N505,GlcNAc,a,D,p,N481,1,GlcpNAc,
+N-glycan_a-D-NeupNAc_506,N506,NeuNAc,a,D,p,N375,3,NeupNAc,
+N-glycan_a-D-Galp_507,N507,Gal,a,D,p,N22,2,Galp,
+N-glycan_b-D-Galp_508,N508,Gal,b,D,p,N486,4,Galp,
+N-glycan_b-D-Galp_509,N509,Gal,b,D,p,N10,4,Galp,
+N-glycan_a-D-Glcp_510,N510,Glc,a,D,p,N451,3,Glcp,
+N-glycan_a-D-Glcp_511,N511,Glc,a,D,p,N510,2,Glcp,
+N-glycan_a-D-Manp_512,N512,Man,a,D,p,N21,6,Manp,
+N-glycan_a-D-Manp_513,N513,Man,a,D,p,N2,4,Manp,
+N-glycan_b-D-GlcpNAc_514,N514,GlcNAc,b,D,p,N375,2,GlcpNAc,
+N-glycan_a-L-Fucp_515,N515,Fuc,a,L,p,N462,6,Fucp,
+N-glycan_a-D-Glcp_516,N516,Glc,a,D,p,N5,4,Glcp,
+N-glycan_b-D-Galp_517,N517,Gal,b,D,p,N494,4,Galp,
+N-glycan_a-D-Glcp_518,N518,Glc,a,D,p,N482,2,Glcp,
+N-glycan_a-D-NeupNAc_519,N519,NeuNAc,a,D,p,N508,6,NeupNAc,
+N-glycan_a-D-NeupNAc_520,N520,NeuNAc,a,D,p,N517,3,NeupNAc,
+N-glycan_a-D-NeupNAc_521,N521,NeuNAc,a,D,p,N497,6,NeupNAc,
+N-glycan_b-D-GlcAp_522,N522,GlcA,b,D,p,N8,3,GlcAp,
+N-glycan_b-D-GlcAp_523,N523,GlcA,b,D,p,N3,3,GlcAp,
+N-glycan_b-D-Galp_524,N524,Gal,b,D,p,N514,4,Galp,
+N-glycan_sulfate_525,N525,sulfate,n,n,n,N522,6,sulfate,chemically inconsistent
+N-glycan_sulfate_526,N526,sulfate,n,n,n,N523,6,sulfate,chemically inconsistent
+N-glycan_a-D-GalpNAc_527,N527,GalNAc,a,D,p,N8,3,GalpNAc,
+N-glycan_a-D-GalpNAc_528,N528,GalNAc,a,D,p,N10,3,GalpNAc,
