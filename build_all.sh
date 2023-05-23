@@ -141,7 +141,7 @@ cp $node_file $portalJavaDir
 
 echo
 echo Mapping residues in O-glycan csv files to canonical tree 
-java -jar $codeDir/TreeBuilder4.jar -l $csvO_Dir/files.lst -s $sugar_file -c $node_file -n 2 -v 1 -m 3 -e 1 -o $modelDir/ext.csv &> $logDir/map_O.log
+java -jar $codeDir/TreeBuilder4.jar -l $csvO_Dir/files.lst -s $sugar_file -c $node_file -n 1 -v 1 -m 3 -e 1 -o $modelDir/ext.csv &> $logDir/map_O.log
 
 echo 
 echo Sorting mapped residues
