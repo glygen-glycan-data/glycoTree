@@ -424,3 +424,9 @@ instance,residue_name,residue_id,type,uniprot,notes,status,proposer_id,administr
 423,O-glycan_a-D-GlcpNAc_537,O537,GT,Q9UNA3,,proposed,NE,NULL,NULL
 424,O-glycan_b-D-GlcpNAc_153,O153,GT,Q5JCS9,,proposed,NE,NULL,NULL
 425,O-glycan_b-D-GlcpNAc_153,O153,GT,Q9Y2A9,,proposed,NE,NULL,NULL
+426,O-glycan_b-D-GlcpNAc_538,O538,GT,Q09324,,proposed,NE,NULL,NULL
+427,O-glycan_b-D-GlcpNAc_538,O538,GT,Q02742,,proposed,NE,NULL,NULL
+428,O-glycan_b-D-GlcpNAc_538,O538,GT,P97402,,proposed,NE,NULL,NULL
+429,O-glycan_b-D-GlcpNAc_538,O538,GT,Q8N0V5,,proposed,NE,NULL,NULL
+430,O-glycan_b-D-GlcpNAc_538,O538,GT,Q5JCT0,,proposed,NE,NULL,NULL
+431,O-glycan_b-D-GlcpNAc_538,O538,GT,O95395,,proposed,NE,NULL,NULL
