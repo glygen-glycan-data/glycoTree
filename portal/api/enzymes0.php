@@ -32,7 +32,7 @@ if ( ($result->num_rows) > 0) {
 }
 
 $finalResult['mapped_enzymes'] = [];
-$query = "SELECT enzyme_mappings.*,enzymes.gene_name,enzymes.species FROM enzyme_mappings LEFT JOIN enzymes ON (enzyme_mappings.uniprot = enzymes.uniprot) WHERE enzyme_mappings.residue_id=? ORDER BY gene_name";
+$query = "SELECT enzyme_mappings.*,enzymes.gene_name,enzymes.species FROM enzyme_mappings LEFT JOIN enzymes ON (enzyme_mappings.uniprot = enzymes.uniprot) WHERE enzyme_mappings.residue_id=? ORDER BY enzymes.species, enzymes.gene_name";
 $stmt = $connection->prepare($query);
 $stmt->bind_param("s", $focus);
 $stmt->execute(); 

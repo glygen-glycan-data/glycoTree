@@ -90,8 +90,6 @@ GT,Mgat4b,Q9UQ53,NP_055090,NM_014275,MGAT4B,11282,Homo sapiens,
 GT,B4galt1,P15291,NP_001488,NM_001497,B4GALT1,2683,Homo sapiens,
 GT,B4galt1,P15535,NP_071641,NM_022305,B4galt1,14595,Mus musculus,Branch site specificity unknown
 GT,Alg8,Q6P8H8,NP_950200,NM_199035,Alg8,381903,Mus musculus,
-GT,Galnt1,Q10472,NP_065207,NM_020474,GALNT1,2589,Homo sapiens,
-GT,Galnt1,O08912,NP_001348129,NM_001361200,Galnt1,14423,Mus musculus,
 GT,C1galt1,Q9NS00,NP_064541,NM_020156,C1GALT1,56913,Homo sapiens,
 GT,C1galt1,Q9JJ06,NP_443719,NM_052993,C1galt1,94192,Mus musculus,
 GT,C1galt1c1,Q9JMG2,NP_067525,NM_021550,C1galt1c1,59048,Mus musculus,
@@ -111,3 +109,43 @@ GT,St6galnac5,Q9QYJ1,NP_036158,NM_012028,St6galnac5,26938,Mus musculus,
 GT,St6galnac5,Q9BVH7,NP_112227,NM_030965,ST6GALNAC5,81849,Homo sapiens,
 GT,St6galnac6,Q9JM95,NP_058669,NM_016973,St6galnac6,50935,Mus musculus,
 GT,St6galnac6,Q969X2,NP_038471,NM_013443,ST6GALNAC6,30815,Homo sapiens,
+GT,Galnt1,O08912,NP_038842,NM_013814,Galnt1,14423,Mus musculus,Ambiguous transcript or protein accession
+GT,Galnt1,Q10472,NP_065207,NM_020474,GALNT1,2589,Homo sapiens,Ambiguous transcript or protein accession
+GT,Galnt2,Q6PB93,NP_644678,NM_139272,Galnt2,108148,Mus musculus,
+GT,Galnt2,Q10471,NP_004472,NM_004481,GALNT2,2590,Homo sapiens,Ambiguous transcript or protein accession
+GT,Galnt3,P70419,NP_056551,NM_015736,Galnt3,14425,Mus musculus,
+GT,Galnt3,Q14435,NP_004473,NM_004482,GALNT3,2591,Homo sapiens,
+GT,Galnt4,O08832,NP_056552,NM_015737,Galnt4,14426,Mus musculus,
+GT,Galnt4,Q8N4A0,NP_003765,NM_003774,GALNT4,8693,Homo sapiens,
+GT,Galnt5,Q8C102,NP_766443,NM_172855,Galnt5,241391,Mus musculus,
+GT,Galnt5,Q7Z7M9,NP_055383,NM_014568,GALNT5,11227,Homo sapiens,Ambiguous transcript or protein accession
+GT,Galnt6,Q8C7U7,NP_766039,NM_172451,Galnt6,207839,Mus musculus,Ambiguous transcript or protein accession
+GT,Galnt6,Q8NCL4,NP_009141,NM_007210,GALNT6,11226,Homo sapiens,
+GT,Galnt7,Q80VA0,NP_653332,NM_144731,Galnt7,108150,Mus musculus,Ambiguous transcript or protein accession
+GT,Galnt7,Q86SF2,NP_059119,NM_017423,GALNT7,51809,Homo sapiens,Ambiguous transcript or protein accession
+GT,Galnt9,G3X942,NP_938048,NM_198306,Galnt9,231605,Mus musculus,Ambiguous transcript or protein accession
+GT,Galnt9,Q9HCQ5,NP_068580,NM_021808,GALNT9,50614,Homo sapiens,Ambiguous transcript or protein accession
+GT,Galnt10,Q6P9S7,NP_598950,NM_134189,Galnt10,171212,Mus musculus,
+GT,Galnt10,Q86SR1,NP_938080,NM_198321,GALNT10,55568,Homo sapiens,
+GT,Galnt11,Q921L8,NP_659157,NM_144908,Galnt11,231050,Mus musculus,Ambiguous transcript or protein accession
+GT,Galnt11,Q8NCW6,NP_071370,NM_022087,GALNT11,63917,Homo sapiens,Ambiguous transcript or protein accession
+GT,Galnt12,Q8BGT9,NP_766281,NM_172693,Galnt12,230145,Mus musculus,
+GT,Galnt12,Q8IXK2,NP_078918,NM_024642,GALNT12,79695,Homo sapiens,
+GT,Galnt13,Q8CF93,NP_766618,NM_173030,Galnt13,271786,Mus musculus,
+GT,Galnt13,Q8IUC8,NP_443149,NM_052917,GALNT13,114805,Homo sapiens,Ambiguous transcript or protein accession
+GT,Galnt14,Q8BVG5,NP_082140,NM_027864,Galnt14,71685,Mus musculus,
+GT,Galnt14,Q96FL9,NP_078848,NM_024572,GALNT14,79623,Homo sapiens,Ambiguous transcript or protein accession
+GT,Galnt16,Q9JJ61,NP_001348630,NM_001361701,Galnt16,108760,Mus musculus,Ambiguous transcript or protein accession
+GT,Galnt16,Q8N428,NP_065743,NM_020692,GALNT16,57452,Homo sapiens,Ambiguous transcript or protein accession
+GT,Galnt15,Q9D2N8,NP_084442,NM_030166,Galnt15,78754,Mus musculus,
+GT,Galnt15,Q8N3T1,NP_473451,NM_054110,GALNT15,117248,Homo sapiens,Ambiguous transcript or protein accession
+GT,Galnt18,Q8K1B9,NP_776100,NM_173739,Galnt18,233733,Mus musculus,Ambiguous transcript or protein accession
+GT,Galnt18,Q6P9A2,NP_940918,NM_198516,GALNT18,374378,Homo sapiens,Ambiguous transcript or protein accession
+GT,Galntl5,Q9D4M9,NP_080725,NM_026449,Galntl5,67909,Mus musculus,
+GT,Galntl5,Q7Z4T8,NP_660335,NM_145292,GALNTL5,168391,Homo sapiens,
+GT,Galnt17,Q7TT15,NP_660253,NM_145218,Galnt17,212996,Mus musculus,
+GT,Galnt17,Q6IS24,NP_071924,NM_022479,GALNT17,64409,Homo sapiens,
+GT,Galntl6,E5D8G1,NP_778197,NM_175032,Galntl6,270049,Mus musculus,
+GT,Galntl6,Q49A17,NP_001030017,NM_001034845,GALNTL6,442117,Homo sapiens,
+GT,B3gnt3,Q5JCS9,NP_082465,NM_028189,B3gnt3,72297,Mus musculus,
+GT,B3gnt3,Q9Y2A9,NP_055071,NM_014256,B3GNT3,10331,Homo sapiens,

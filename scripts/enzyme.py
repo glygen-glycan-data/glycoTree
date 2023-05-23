@@ -1,7 +1,8 @@
 #!/bin/env python3
 
 import os, sys, json
-mmgeneid = sys.argv[1]
+from collections import defaultdict
+import urllib.request
 
 def findvalue(d,vin,path=[]):
   if hasattr(d,'keys'):
@@ -26,7 +27,8 @@ Entrez.email = 'nje5@georgetown.edu'
 
 
 def getgene(gid):
-    retval = dict(geneid=str(gid))
+    retval = defaultdict(str)
+    retval['geneid'] = str(gid)
     handle = Entrez.efetch(db='gene',id=gid,retmode='xml')
     data = Entrez.read(handle)
     # findvalue(data[0],"A4gnt")
@@ -67,18 +69,55 @@ def getgene(gid):
  
     return retval
 
-mmvals = getgene(mmgeneid)
-mmvals['orthname'] = mmvals['genename']
-if 'orthgeneid' in mmvals:
-    hsvals = getgene(mmvals['orthgeneid'])
-    hsvals['orthname'] = mmvals['genename']
-else:
-    hsvals = None
+def uvals(s):
+    lvals = list(reversed(s.split(';')))
+    return sorted(set(lvals),key=lambda v: -lvals.index(v))
 
-if any([';' in v for v in mmvals.values()]):
-    print("!",end="")
-print("GT,%(orthname)s,%(upprot)s,%(rsprot)s,%(rsrna)s,%(genename)s,%(geneid)s,Mus musculus,"%mmvals),
-if hsvals != None:
-    if any([';' in v for v in hsvals.values()]):
-        print("!",end="")
-    print("GT,%(orthname)s,%(upprot)s,%(rsprot)s,%(rsrna)s,%(genename)s,%(geneid)s,Homo sapiens,"%hsvals),
+def testup(s):
+    try:
+        h = urllib.request.urlopen('https://rest.uniprot.org/uniprotkb/%s.json'%(s,))
+        data = json.loads(h.read())
+        return data['primaryAccession'] == s
+    except IOError:
+        pass # print(s,'IOError')
+    return False
+
+for mmgeneid in sys.argv[1:]:
+    mmvals = getgene(mmgeneid)
+    mmvals['orthname'] = mmvals['genename']
+    if 'orthgeneid' in mmvals:
+        hsvals = getgene(mmvals['orthgeneid'])
+        hsvals['orthname'] = mmvals['genename']
+    else:
+        hsvals = None
+
+     
+    mmvals['upprot'] = ";".join(filter(testup,uvals(mmvals['upprot'])))
+    hsvals['upprot'] = ";".join(filter(testup,uvals(hsvals['upprot'])))
+
+    mmbang = False
+    hsbang = False
+    for k in ('orthname','upprot','rsprot','rsrna','genename','geneid'):
+        if not mmvals.get(k):
+            mmvals[k] = ""
+            mmbang = True
+        elif len(uvals(mmvals[k])) > 1:
+            mmvals[k] = uvals(mmvals[k])[-1]
+            mmbang = True
+        else:
+            mmvals[k] = uvals(mmvals[k])[-1]
+        if not hsvals.get(k):
+            hsvals[k] = ""
+            hsbang = True
+        elif len(uvals(hsvals[k])) > 1:
+            hsvals[k] = uvals(hsvals[k])[-1]
+            hsbang = True
+        else:
+            hsvals[k] = uvals(hsvals[k])[-1]
+    if mmbang:
+        mmvals['bang'] = 'Ambiguous transcript or protein accession'
+    if hsbang:
+        hsvals['bang'] = 'Ambiguous transcript or protein accession'
+    print("GT,%(orthname)s,%(upprot)s,%(rsprot)s,%(rsrna)s,%(genename)s,%(geneid)s,Mus musculus,%(bang)s"%mmvals),
+    if hsvals != None:
+        print("GT,%(orthname)s,%(upprot)s,%(rsprot)s,%(rsrna)s,%(genename)s,%(geneid)s,Homo sapiens,%(bang)s"%hsvals),

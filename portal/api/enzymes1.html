@@ -636,7 +636,12 @@ function continue1(keepParameters) {
 		alert("Please select an enzyme to map to residue " + resID + " before continuing");
 		return;
 	}
-	var newUniprot = $('input[name="chosen_uniprot"]:checked').val();
+        var newUniprot = [];
+        $('input[name="chosen_uniprot"]:checked').each(function() {
+            newUniprot.push($(this).attr('value'));
+        });
+        newUniprot = newUniprot.join(",");
+	// var newUniprot = $('input[name="chosen_uniprot"]:checked');
 
 	if (v > 3) console.log("Enzyme " + newUniprot + " mapped to " + resID + "\n");
 
@@ -674,7 +679,7 @@ function mapResidue(newUniprot) {
 		var species = enzymeData['enzymes'][i]['species'];
 		var eType = enzymeData['enzymes'][i]['type'];
 		
-		mapStr += "  <tr><td><input type=\"radio\" id=\"enzyme_" + uniprot +
+		mapStr += "  <tr><td><input type=\"checkbox\" id=\"enzyme_" + uniprot +
 			"\" name=\"chosen_uniprot\" value=\"" + uniprot + "\">" +
 			" <label for=\"enzyme_" + uniprot + "\">" + geneID + "</label>" +
 			"</td><td><a href='https://www.glygen.org/protein/" + uniprot +

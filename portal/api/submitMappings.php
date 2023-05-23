@@ -100,8 +100,10 @@ if (is_null($submittedData['data'])) {
 	$geneName = $sData['gene_name'];
 	$residueName = $sData['residue_name'];
 	$residueID = $sData['residue_id'];
-	$uniprot = $sData['uniprot'];
+	$uniprots = $sData['uniprot'];
 	$notes = $sData['notes'];
+
+        foreach(explode(",", $uniprots) as $uniprot) {
 
 	echo "Processing new mapping of enzyme " . $geneName . " to residue " . $residueID;
 	// process 'propose mapping' - data is in $submittedData['data']
@@ -135,6 +137,7 @@ if (is_null($submittedData['data'])) {
 	} else {
 		echo "\n\nUnable to create record";
 	}
+        }
 	
 }
 
