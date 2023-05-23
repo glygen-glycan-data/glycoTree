@@ -430,3 +430,13 @@ instance,residue_name,residue_id,type,uniprot,notes,status,proposer_id,administr
 429,O-glycan_b-D-GlcpNAc_538,O538,GT,Q8N0V5,,proposed,NE,NULL,NULL
 430,O-glycan_b-D-GlcpNAc_538,O538,GT,Q5JCT0,,proposed,NE,NULL,NULL
 431,O-glycan_b-D-GlcpNAc_538,O538,GT,O95395,,proposed,NE,NULL,NULL
+432,O-glycan_b-D-GlcpNAc_157,O157,GT,Q09324,,proposed,NE,NULL,NULL
+433,O-glycan_b-D-GlcpNAc_157,O157,GT,Q02742,,proposed,NE,NULL,NULL
+434,O-glycan_b-D-GlcpNAc_157,O157,GT,P97402,,proposed,NE,NULL,NULL
+435,O-glycan_b-D-GlcpNAc_157,O157,GT,Q8N0V5,,proposed,NE,NULL,NULL
+436,O-glycan_b-D-GlcpNAc_157,O157,GT,Q5JCT0,,proposed,NE,NULL,NULL
+437,O-glycan_b-D-GlcpNAc_157,O157,GT,O95395,,proposed,NE,NULL,NULL
+438,O-glycan_b-D-GlcpNAc_156,O156,GT,Q3USF0,,proposed,NE,NULL,NULL
+439,O-glycan_b-D-GlcpNAc_156,O156,GT,Q6ZMB0,,proposed,NE,NULL,NULL
+440,O-glycan_a-D-Galp_759,O759,GT,P23336,,proposed,NE,NULL,NULL
+441,O-glycan_a-D-Galp_759,O759,GT,Q4G0N0,,proposed,NE,NULL,NULL
