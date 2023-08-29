@@ -155,7 +155,9 @@ find $sortedDir -maxdepth 1 -name "G*.csv" -print | sort | xargs -I % grep -h "u
 ##  Make a large csv file containing data in directory ./data/mapped/sorted ##
 echo "Assembling mapped/sorted csv file for import into DB file:$NL     $sqlDir/compositions.csv"
 cd $sortedDir
-awk -f $codeDir/assembleCompositions.awk G*.csv > $sqlDir/compositions.csv
+awk -f $codeDir/assembleCompositions.awk G*.csv | \
+    $here/scripts/addcanonid.py $here/data/input_N/residmap.txt $here/data/input_O/residmap.txt \
+    > $sqlDir/compositions.csv
 cd $here
 
 echo

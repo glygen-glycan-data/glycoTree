@@ -271,7 +271,7 @@ function doQuery($q, $con, $types, ...$params) {
 
 function queryComposition($acc, $con) {
 	// get canonical residue info from compositions
-	$queryText = "SELECT residue_id,name,anomer,absolute,ring,parent_id,site,form_name,glycoct_index FROM compositions WHERE glytoucan_ac=?";
+	$queryText = "SELECT residue_id,name,anomer,absolute,ring,parent_id,site,form_name,glycoct_index,canonical_residue_index FROM compositions WHERE glytoucan_ac=?";
 	$result = doQuery($queryText, $con, "s", $acc);
 	return ($result);
 } // end of function queryComposition()
