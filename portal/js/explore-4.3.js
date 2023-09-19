@@ -240,6 +240,7 @@ function clickResponse(node) {
 	var type = parts["type"];
 	var localAcc = parts["accession"];
 	var rd = data[localAcc].residues;
+	var rv = data[localAcc].rule_violations;
         var treetype = "-";
 	for (var r in rd) {
           console.log(r);
@@ -270,6 +271,7 @@ function clickResponse(node) {
 		//  and the residue is mappable to a glycoTree object
 		// ed is enzyme data for residues[resID]
 		var ed = rd['#' + resID].enzymes;
+                ed = filterEnzymesByRuleViolations(rd['#'+resID],ed,rv);
 		setupEnzymeTable('enzymeTable', ed);
 	} else {
 		// the canvas itself was clicked
@@ -287,20 +289,44 @@ function clickResponse(node) {
 			xxx.click()
 		});
 		// set up ALL enzymes table
-		var allEnzymes = getAllEnzymes(rd);
+		var allEnzymes = getAllEnzymes(rd,rv);
 		if (v > 4) console.log("  total number of enzymes is " + allEnzymes.length);
 		setupEnzymeTable('enzymeTable', allEnzymes);
 		setupRelatedGlycanTable("relatedTable", selectedData);
 	}
 } // end of function clickNode()
 
+function filterEnzymesByRuleViolations(residue,enzymes,rule_violations) {
+    // console.log(residue);
+    // console.log(enzymes);
+    // console.log(rule_violations);
+    var resid = residue.residue_id;
+    var newenzymes = [];
+    for (enz of enzymes) {
+         var good = true;
+         // for (rv of rule_violations) {
+         // console.log(rv.id,rv.focus,resid,rv.enzyme,enz.uniprot);
+         //  if (((rv.rule_id == 1) || (rv.rule_id == 2)) && (rv.focus == resid) && (rv.enzyme == enz.uniprot)) {
+         //       good = false;
+         //       break;
+         //   }
+         // }
+         if (enz["rule_violation"] == null) {
+             newenzymes.push(enz);
+         }
+    }
+    // console.log(newenzymes);
+    return newenzymes;
+}
 
-function getAllEnzymes(residueArray) {
+
+function getAllEnzymes(residueArray,rule_violations) {
 	// generate an array of enzyme objects associated with residueArray
 	var allEnzymes = [];
 	for (key in residueArray) {
 		if (!key.includes("#")) {
 			var ed = residueArray[key].enzymes;
+                        ed = filterEnzymesByRuleViolations(residueArray[key],ed,rule_violations)
 			for (key2 in ed) {
 				var ok2add = true;
 				for (i in allEnzymes) {
@@ -330,7 +356,12 @@ function setupResidueTable(tableName, tableData) {
 				"data": "name",
 				render: function(data, type, row, meta) {
 					var svgName = data.split("-")[0];
-					return "<a href='https://pubchem.ncbi.nlm.nih.gov/compound/" + svgName +
+                                        console.log(conf);
+                                        var pubchem = conf.svg2pubchem[svgName];
+                                        if (!pubchem) {
+                                            pubchem = svgName;
+                                        }
+					return "<a href='https://pubchem.ncbi.nlm.nih.gov/compound/" + pubchem +
 						"' target='pubchem'><img src='snfg_images/" + svgName + ".svg'></a>"
 				}
 			},
@@ -1579,7 +1610,16 @@ function wait2process () {
 			for (i in sugars) {
 				console.log("   " + i + ": " + sugars[i].name);
 			}
-	   }
+	        }
+                var svg2pubchem = {};
+		for (sug of conf.sugars) {
+                    if (sug.pubchem) {
+                        svg2pubchem[sug.name] = sug.pubchem;
+                    } else {
+                        svg2pubchem[sug.name] = sug.name;
+                    }
+		}
+                conf.svg2pubchem = svg2pubchem;
 		processFiles();
 	}
 }

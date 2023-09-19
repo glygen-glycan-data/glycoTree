@@ -129,7 +129,7 @@ function getFeatures($resList, $accession, $homologs, $connection) {
 		}
 	}
 	
-	if (sizeof($blockViolation) > 0 ) {
+	if (sizeof($blockViolation) > 0 && false) {
 		$newCaveat = [];
 		$blockMsg = "One or more enzymes involved in the synthesis  of " .
 			$accession . " is blocked by a residue in this glycan. Thus, " .
@@ -144,7 +144,7 @@ function getFeatures($resList, $accession, $homologs, $connection) {
 		array_push($caveats, $newCaveat);
 	}
 	
-	if (sizeof($reqViolation) > 0 ) {
+	if (sizeof($reqViolation) > 0 && false) {
 		$newCaveat = [];
 		$reqMsg = "One or more enzymes involved in the synthesis of " .
 			$accession . " requires a residue that is missing. " . "Thus, " .
@@ -271,7 +271,7 @@ function doQuery($q, $con, $types, ...$params) {
 
 function queryComposition($acc, $con) {
 	// get canonical residue info from compositions
-	$queryText = "SELECT residue_id,name,anomer,absolute,ring,parent_id,site,form_name,glycoct_index FROM compositions WHERE glytoucan_ac=?";
+	$queryText = "SELECT residue_id,name,anomer,absolute,ring,parent_id,site,form_name,glycoct_index,canonical_residue_index FROM compositions WHERE glytoucan_ac=?";
 	$result = doQuery($queryText, $con, "s", $acc);
 	return ($result);
 } // end of function queryComposition()
@@ -376,6 +376,24 @@ function integrateData($connection, $compArray, $accession) {
 	$glycan["rules"] = $features['rules'];
 	$glycan["caveats"] = $features['caveats'];
 	$glycan["rule_violations"] = $features['rule_violations'];
+        foreach ($glycan["residues"] as $rind => $res) {
+            $newenzymes = [];
+            $resid = $res["residue_id"];
+            foreach ($res["enzymes"] as $eind => $enz) {
+                $good = true;
+                foreach ($glycan["rule_violations"] as $rvind => $rv) {
+                    if (($rv["focus"] == $resid) && ($rv["enzyme"] == $enz["uniprot"])) {
+                        # $glycan["residues"][$rind]["enzymes"][$eind]["rule_violation"] = $rv["instance"];
+                        $good = false;
+                        break;
+                    }
+                }
+                if ($good) {
+                    array_push($newenzymes,$enz);
+                }
+            }
+            $glycan["residues"][$rind]["enzymes"] = $newenzymes;
+        }
 	return($glycan);
 
 } // end function integrateData()
