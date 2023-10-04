@@ -792,3 +792,7 @@ instance,residue_name,residue_id,type,uniprot,notes,status,proposer_id,administr
 818,N-glycan_b-D-GalpNAc_107,N107,GT,Q00973,,active,NE,NE,
 819,N-glycan_b-D-GalpNAc_107,N107,GT,Q09199,,active,NE,NE,
 820,N-glycan_b-D-GalpNAc_107,N107,GT,Q8NHY0,,active,NE,NE,
+821,N-glycan_b-D-Galp_78,N78,GT,O43825,,proposed,NE,NULL,NULL
+822,N-glycan_b-D-Galp_78,N78,GT,O54905,,proposed,NE,NULL,NULL
+823,N-glycan_b-D-Galp_78,N78,GT,Q9Y2C3,,proposed,NE,NULL,NULL
+824,N-glycan_b-D-Galp_78,N78,GT,Q9JI67,,proposed,NE,NULL,NULL
