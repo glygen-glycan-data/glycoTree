@@ -13,7 +13,7 @@ headers = None
 rows = csv.DictReader(sys.stdin)
 for row in rows:
     if not headers:
-        headers = rows.fieldnames
+        headers = list(rows.fieldnames)
         ind = headers.index('glycoct_index')
         headers.insert(ind+1,'canonical_residue_index')
         print(",".join(headers))
