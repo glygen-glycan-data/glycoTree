@@ -244,3 +244,47 @@ instance	rule_id	focus	enzyme	other_residue	polymer	taxonomy	proposer_id	refs	co
 251	1	O532	P38649	O154	NULL	Mus musculus	AA	N/A	O-Core Step 16	active	NE	NULL
 252	1	O162	P16442	O154	NULL	Homo sapiens	AA	N/A	O-Core Step 16	active	NE	NULL
 253	1	O162	P38649	O154	NULL	Mus musculus	AA	N/A	O-Core Step 16	active	NE	NULL
+254	1	O708	P16442	O709	NULL	Homo sapiens	NE	N/A	Capping Step 10	active	NE	
+255	1	O708	P38649	O709	NULL	Mus musculus	NE	N/A	Capping Step 10	active	NE	
+256	1	N83	P16442	N329	NULL	Homo sapiens	NE	N/A		active	NE	
+257	1	N83	P38649	N329	NULL	Mus musculus	NE	N/A		active	NE	
+258	1	N114	P16442	N102	NULL	Homo sapiens	NE	N/A		active	NE	
+259	1	N114	P38649	N102	NULL	Mus musculus	NE	N/A		active	NE	
+260	1	N115	P16442	N103	NULL	Homo sapiens	NE	N/A		active	NE	
+261	1	N115	P38649	N103	NULL	Mus musculus	NE	N/A		active	NE	
+262	1	N116	P16442	N102	NULL	Homo sapiens	NE	N/A		active	NE	
+264	1	N117	P16442	N103	NULL	Homo sapiens	NE	N/A		active	NE	
+265	1	N117	P38649	N103	NULL	Mus musculus	NE	N/A		active	NE	
+266	1	N116	P38649	N102	NULL	Mus musculus	NE	N/A		active	NE	
+267	1	N309	P16442	N81	NULL	Homo sapiens	NE	N/A		active	NE	
+268	1	N309	P38649	N81	NULL	Mus musculus	NE	N/A		active	NE	
+271	1	O166	P16442	O167	NULL	Homo sapiens	NE	N/A		active	NE	
+272	1	O166	P38649	O167	NULL	Mus musculus	NE	N/A		active	NE	
+273	1	O557	P16442	O167	NULL	Homo sapiens	NE	N/A		active	NE	
+274	1	O557	P38649	O167	NULL	Mus musculus	NE	N/A		active	NE	
+275	1	O560	P16442	O566	NULL	Homo sapiens	NE	N/A		active	NE	
+276	1	O560	P38649	O566	NULL	Mus musculus	NE	N/A		active	NE	
+277	1	O568	P16442	O607	NULL	Homo sapiens	NE	N/A		active	NE	
+278	1	O568	P38649	O607	NULL	Mus musculus	NE	N/A		active	NE	
+279	1	O570	P16442	O556	NULL	Homo sapiens	NE	N/A		active	NE	
+280	1	O570	P38649	O556	NULL	Mus musculus	NE	N/A		active	NE	
+281	1	O585	P16442	O556	NULL	Homo sapiens	NE	N/A		active	NE	
+282	1	O585	P38649	O556	NULL	Mus musculus	NE	N/A		active	NE	
+283	1	O594	P16442	O566	NULL	Homo sapiens	NE	N/A		active	NE	
+284	1	O594	P38649	O566	NULL	Mus musculus	NE	N/A		active	NE	
+285	1	O615	P16442	O607	NULL	Homo sapiens	NE	N/A		active	NE	
+286	1	O615	P38649	O607	NULL	Mus musculus	NE	N/A		active	NE	
+287	1	O685	P16442	O659	NULL	Homo sapiens	NE	N/A		active	NE	
+288	1	O685	P38649	O659	NULL	Mus musculus	NE	N/A		active	NE	
+289	1	O687	P16442	O660	NULL	Homo sapiens	NE	N/A		active	NE	
+290	1	O687	P38649	O660	NULL	Mus musculus	NE	N/A		active	NE	
+291	1	O714	P16442	O741	NULL	Homo sapiens	NE	N/A		active	NE	
+292	1	O714	P38649	O741	NULL	Mus musculus	NE	N/A		active	NE	
+293	1	O729	P16442	O683	NULL	Homo sapiens	NE	N/A		active	NE	
+294	1	O729	P38649	O683	NULL	Mus musculus	NE	N/A		active	NE	
+295	1	O733	P16442	O734	NULL	Homo sapiens	NE	N/A		active	NE	
+296	1	O733	P38649	O734	NULL	Mus musculus	NE	N/A		active	NE	
+297	1	O748	P16442	O734	NULL	Homo sapiens	NE	N/A		active	NE	
+298	1	O748	P38649	O734	NULL	Mus musculus	NE	N/A		active	NE	
+299	1	O758	P16442	O747	NULL	Homo sapiens	NE	N/A		active	NE	
+300	1	O758	P38649	O747	NULL	Mus musculus	NE	N/A		active	NE	
