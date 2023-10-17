@@ -240,3 +240,7 @@ instance	rule_id	focus	enzyme	other_residue	polymer	taxonomy	proposer_id	refs	co
 243	1	N82	Q09199	N34	NULL	Mus musculus	NE	N/A		active	NE	NULL
 244	1	O537	Q9UNA3	O168	NULL	Homo sapiens	AA	N/A	O-Core Step 6	active	NE	NULL
 245	1	O537	Q14BT6	O168	NULL	Mus musculus	AA	N/A	O-Core Step 6	active	NE	NULL
+250	1	O532	P16442	O154	NULL	Homo sapiens	AA	N/A	O-Core Step 16	active	NE	NULL
+251	1	O532	P38649	O154	NULL	Mus musculus	AA	N/A	O-Core Step 16	active	NE	NULL
+252	1	O162	P16442	O154	NULL	Homo sapiens	AA	N/A	O-Core Step 16	active	NE	NULL
+253	1	O162	P38649	O154	NULL	Mus musculus	AA	N/A	O-Core Step 16	active	NE	NULL
