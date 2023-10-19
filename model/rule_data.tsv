@@ -1,18 +1,18 @@
 instance	rule_id	focus	enzyme	other_residue	polymer	taxonomy	proposer_id	refs	comment	status	administrator	disputer_id
-1	1	N7	Q812F8	N2	NULL	Mus musculus	MT	PMID: 1533386	GNT obligate order	active		NULL
-2	1	N7	Q812G0	N2	NULL	Mus musculus	MT	PMID: 1533386	GNT obligate order	active		NULL
-3	1	N7	Q9D306	N2	NULL	Mus musculus	MT	PMID: 1533386	GNT obligate order	active		NULL
-4	1	N7	Q9UBM8	N2	NULL	Homo sapiens	MT	PMID: 1533386	GNT obligate order	active		NULL
-5	1	N7	Q9UM21	N2	NULL	Homo sapiens	MT	PMID: 1533386	GNT obligate order	active		NULL
-6	1	N7	Q9UQ53	N2	NULL	Homo sapiens	MT	PMID: 1533386	GNT obligate order	active		NULL
-7	1	N39	P16442	N71	NULL	Homo sapiens	AN	PMID: 12198488	ABO glycosylation system	active		NULL
-8	1	N39	P38649	N71	NULL	Mus musculus	AN	PMID: 12198488	ABO glycosylation system	active		NULL
-9	1	N50	P16442	N54	NULL	Homo sapiens	AN	PMID: 12198488	ABO glycosylation system	active		NULL
-10	1	N50	P38649	N54	NULL	Mus musculus	AN	PMID: 12198488	ABO glycosylation system	active		NULL
-11	1	N51	P16442	N200	NULL	Homo sapiens	AN	PMID: 12198488	ABO glycosylation system	active		NULL
-12	1	N51	P38649	N200	NULL	Mus musculus	AN	PMID: 12198488	ABO glycosylation system	active		NULL
-13	1	N52	P16442	N53	NULL	Homo sapiens	AN	PMID: 12198488	ABO glycosylation system	active		NULL
-14	1	N52	P38649	N53	NULL	Mus musculus	AN	PMID: 12198488	ABO glycosylation system	active		NULL
+1	1	N7	Q812F8	N2	NULL	Mus musculus	MT	PMID: 1533386	GNT obligate order (N-linked branching, Step 15)	active		NULL
+2	1	N7	Q812G0	N2	NULL	Mus musculus	MT	PMID: 1533386	GNT obligate order (N-linked branching, Step 15)	active		NULL
+3	1	N7	Q9D306	N2	NULL	Mus musculus	MT	PMID: 1533386	GNT obligate order (N-linked branching, Step 15)	active		NULL
+4	1	N7	Q9UBM8	N2	NULL	Homo sapiens	MT	PMID: 1533386	GNT obligate order (N-linked branching, Step 15)	active		NULL
+5	1	N7	Q9UM21	N2	NULL	Homo sapiens	MT	PMID: 1533386	GNT obligate order (N-linked branching, Step 15)	active		NULL
+6	1	N7	Q9UQ53	N2	NULL	Homo sapiens	MT	PMID: 1533386	GNT obligate order (N-linked branching, Step 15)	active		NULL
+7	1	N39	P16442	N71	NULL	Homo sapiens	AN	PMID: 12198488	ABO glycosylation system (Capping, Step 11, inferred)	active		NULL
+8	1	N39	P38649	N71	NULL	Mus musculus	AN	PMID: 12198488	ABO glycosylation system (Capping, Step 11, inferred)	active		NULL
+9	1	N50	P16442	N54	NULL	Homo sapiens	AN	PMID: 12198488	ABO glycosylation system (Capping, Step 11, inferred)	active		NULL
+10	1	N50	P38649	N54	NULL	Mus musculus	AN	PMID: 12198488	ABO glycosylation system (Capping, Step 11, inferred)	active		NULL
+11	1	N51	P16442	N200	NULL	Homo sapiens	AN	PMID: 12198488	ABO glycosylation system (Capping, Step 11, inferred)	active		NULL
+12	1	N51	P38649	N200	NULL	Mus musculus	AN	PMID: 12198488	ABO glycosylation system (Capping, Step 11, inferred)	active		NULL
+13	1	N52	P16442	N53	NULL	Homo sapiens	AN	PMID: 12198488	ABO glycosylation system (Capping, Step 11, inferred)	active		NULL
+14	1	N52	P38649	N53	NULL	Mus musculus	AN	PMID: 12198488	ABO glycosylation system (Capping, Step 11, inferred)	active		NULL
 15	4	N206	NULL	NULL	NULL	NULL	MT	PMID: 6950933	Reference refutes residue 	active		NULL
 16	4	N207	NULL	NULL	NULL	NULL	MT		4-substituted GlcNAc ok but should be 3-linked	active		NULL
 17	4	N208	NULL	NULL	NULL	NULL	MT		Man linkage not even present in Fungi	active		NULL
@@ -184,105 +184,105 @@ instance	rule_id	focus	enzyme	other_residue	polymer	taxonomy	proposer_id	refs	co
 183	8	N425	NULL	NULL	N-mannans	Fungi				active		NULL
 184	8	N456	NULL	NULL	N-mannans	Fungi	MT			active		NULL
 185	8	N467	NULL	NULL	N-glycans	Nematoda	MT			active		NULL
-188	1	N97	P16442	N53	NULL	Homo sapiens	NE	PMID: 12198488	ABO glycosylation system	active	NE	NULL
-189	1	N97	P38649	N53	NULL	Mus musculus	NE	PMID: 12198488	ABO glycosylation system	active	NE	NULL
-190	1	N104	P16442	N54	NULL	Homo sapiens	NE	PMID: 12198488	ABO glycosylation system	active	NE	NULL
-191	1	N104	P38649	N54	NULL	Mus musculus	NE	PMID: 12198488	ABO glycosylation system	active	NE	NULL
-192	1	N527	P16442	N71	NULL	Homo sapiens	NE	PMID: 12198488	ABO glycosylation system	active	NE	NULL
-193	1	N527	P38649	N71	NULL	Mus musculus	NE	PMID: 12198488	ABO glycosylation system	active	NE	NULL
-194	1	N528	P16442	N200	NULL	Homo sapiens	NE	PMID: 12198488	ABO glycosylation system	active	NE	NULL
-195	1	N528	P38649	N200	NULL	Mus musculus	NE	PMID: 12198488	ABO glycosylation system	active	NE	NULL
-196	1	O157	Q02742	O152	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-197	1	O157	Q09324	O152	NULL	Mus musculus	NE	N/A		active	NE	NULL
-198	2	O535	Q9WUV2	O156	NULL	Mus musculus	NE	N/A		active	NE	NULL
-199	2	O535	Q9WUV2	O152	NULL	Mus musculus	NE	N/A		active	NE	NULL
-200	2	O535	Q9R2B6	O156	NULL	Mus musculus	NE	N/A		active	NE	NULL
-201	2	O535	Q9R2B6	O152	NULL	Mus musculus	NE	N/A		active	NE	NULL
-202	2	O535	Q9QYJ1	O156	NULL	Mus musculus	NE	N/A		active	NE	NULL
-203	2	O535	Q9QYJ1	O152	NULL	Mus musculus	NE	N/A		active	NE	NULL
-204	2	O535	Q9JM95	O156	NULL	Mus musculus	NE	N/A		active	NE	NULL
-205	2	O535	Q9JM95	O152	NULL	Mus musculus	NE	N/A		active	NE	NULL
-206	2	O535	Q8NDV1	O156	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-207	2	O535	Q8NDV1	O152	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-208	2	O535	Q9H4F1	O156	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-209	2	O535	Q9H4F1	O152	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-210	2	O535	Q9BVH7	O156	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-211	2	O535	Q9BVH7	O152	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-212	2	O535	Q969X2	O156	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-213	2	O535	Q969X2	O152	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-215	1	O548	Q6P4F1	O581	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-216	1	O548	Q495W5	O581	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-217	1	O548	P22083	O581	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-218	1	O548	Q11130	O581	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-219	1	O548	Q9Y231	O581	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-220	1	O548	Q5F2L2	O581	NULL	Mus musculus	NE	N/A		active	NE	NULL
-221	1	O548	Q8BHC9	O581	NULL	Mus musculus	NE	N/A		active	NE	NULL
-222	1	O548	Q11127	O581	NULL	Mus musculus	NE	N/A		active	NE	NULL
-224	1	O548	Q11131	O581	NULL	Mus musculus	NE	N/A		active	NE	NULL
-225	1	O548	O88819	O581	NULL	Mus musculus	NE	N/A		active	NE	NULL
-228	1	N107	Q00973	N17	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-229	1	N108	Q00973	N16	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-230	1	N109	Q00973	N38	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-231	1	N107	Q8NHY0	N17	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-232	1	N108	Q8NHY0	N16	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-233	1	N109	Q8NHY0	N38	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-234	1	N107	Q09200	N17	NULL	Mus musculus	NE	N/A		active	NE	NULL
-235	1	N109	Q09200	N38	NULL	Mus musculus	NE	N/A		active	NE	NULL
-236	1	N108	Q09200	N16	NULL	Mus musculus	NE	N/A		active	NE	NULL
-237	1	N107	Q09199	N17	NULL	Mus musculus	NE	N/A		active	NE	NULL
-238	1	N109	Q09199	N38	NULL	Mus musculus	NE	N/A		active	NE	NULL
-239	1	N108	Q09199	N16	NULL	Mus musculus	NE	N/A		active	NE	NULL
-240	1	N82	Q00973	N34	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-241	1	N82	Q8NHY0	N34	NULL	Homo sapiens	NE	N/A		active	NE	NULL
-242	1	N82	Q09200	N34	NULL	Mus musculus	NE	N/A		active	NE	NULL
-243	1	N82	Q09199	N34	NULL	Mus musculus	NE	N/A		active	NE	NULL
-244	1	O537	Q9UNA3	O168	NULL	Homo sapiens	AA	N/A	O-Core Step 6	active	NE	NULL
-245	1	O537	Q14BT6	O168	NULL	Mus musculus	AA	N/A	O-Core Step 6	active	NE	NULL
-250	1	O532	P16442	O154	NULL	Homo sapiens	AA	N/A	O-Core Step 16	active	NE	NULL
-251	1	O532	P38649	O154	NULL	Mus musculus	AA	N/A	O-Core Step 16	active	NE	NULL
-252	1	O162	P16442	O154	NULL	Homo sapiens	AA	N/A	O-Core Step 16	active	NE	NULL
-253	1	O162	P38649	O154	NULL	Mus musculus	AA	N/A	O-Core Step 16	active	NE	NULL
-254	1	O708	P16442	O709	NULL	Homo sapiens	NE	N/A	Capping Step 10	active	NE	
-255	1	O708	P38649	O709	NULL	Mus musculus	NE	N/A	Capping Step 10	active	NE	
-256	1	N83	P16442	N329	NULL	Homo sapiens	NE	N/A		active	NE	
-257	1	N83	P38649	N329	NULL	Mus musculus	NE	N/A		active	NE	
-258	1	N114	P16442	N102	NULL	Homo sapiens	NE	N/A		active	NE	
-259	1	N114	P38649	N102	NULL	Mus musculus	NE	N/A		active	NE	
-260	1	N115	P16442	N103	NULL	Homo sapiens	NE	N/A		active	NE	
-261	1	N115	P38649	N103	NULL	Mus musculus	NE	N/A		active	NE	
-262	1	N116	P16442	N102	NULL	Homo sapiens	NE	N/A		active	NE	
-264	1	N117	P16442	N103	NULL	Homo sapiens	NE	N/A		active	NE	
-265	1	N117	P38649	N103	NULL	Mus musculus	NE	N/A		active	NE	
-266	1	N116	P38649	N102	NULL	Mus musculus	NE	N/A		active	NE	
-267	1	N309	P16442	N81	NULL	Homo sapiens	NE	N/A		active	NE	
-268	1	N309	P38649	N81	NULL	Mus musculus	NE	N/A		active	NE	
-271	1	O166	P16442	O167	NULL	Homo sapiens	NE	N/A		active	NE	
-272	1	O166	P38649	O167	NULL	Mus musculus	NE	N/A		active	NE	
-273	1	O557	P16442	O167	NULL	Homo sapiens	NE	N/A		active	NE	
-274	1	O557	P38649	O167	NULL	Mus musculus	NE	N/A		active	NE	
-275	1	O560	P16442	O566	NULL	Homo sapiens	NE	N/A		active	NE	
-276	1	O560	P38649	O566	NULL	Mus musculus	NE	N/A		active	NE	
-277	1	O568	P16442	O607	NULL	Homo sapiens	NE	N/A		active	NE	
-278	1	O568	P38649	O607	NULL	Mus musculus	NE	N/A		active	NE	
-279	1	O570	P16442	O556	NULL	Homo sapiens	NE	N/A		active	NE	
-280	1	O570	P38649	O556	NULL	Mus musculus	NE	N/A		active	NE	
-281	1	O585	P16442	O556	NULL	Homo sapiens	NE	N/A		active	NE	
-282	1	O585	P38649	O556	NULL	Mus musculus	NE	N/A		active	NE	
-283	1	O594	P16442	O566	NULL	Homo sapiens	NE	N/A		active	NE	
-284	1	O594	P38649	O566	NULL	Mus musculus	NE	N/A		active	NE	
-285	1	O615	P16442	O607	NULL	Homo sapiens	NE	N/A		active	NE	
-286	1	O615	P38649	O607	NULL	Mus musculus	NE	N/A		active	NE	
-287	1	O685	P16442	O659	NULL	Homo sapiens	NE	N/A		active	NE	
-288	1	O685	P38649	O659	NULL	Mus musculus	NE	N/A		active	NE	
-289	1	O687	P16442	O660	NULL	Homo sapiens	NE	N/A		active	NE	
-290	1	O687	P38649	O660	NULL	Mus musculus	NE	N/A		active	NE	
-291	1	O714	P16442	O741	NULL	Homo sapiens	NE	N/A		active	NE	
-292	1	O714	P38649	O741	NULL	Mus musculus	NE	N/A		active	NE	
-293	1	O729	P16442	O683	NULL	Homo sapiens	NE	N/A		active	NE	
-294	1	O729	P38649	O683	NULL	Mus musculus	NE	N/A		active	NE	
-295	1	O733	P16442	O734	NULL	Homo sapiens	NE	N/A		active	NE	
-296	1	O733	P38649	O734	NULL	Mus musculus	NE	N/A		active	NE	
-297	1	O748	P16442	O734	NULL	Homo sapiens	NE	N/A		active	NE	
-298	1	O748	P38649	O734	NULL	Mus musculus	NE	N/A		active	NE	
-299	1	O758	P16442	O747	NULL	Homo sapiens	NE	N/A		active	NE	
-300	1	O758	P38649	O747	NULL	Mus musculus	NE	N/A		active	NE	
+188	1	N97	P16442	N53	NULL	Homo sapiens	NE	PMID: 12198488	ABO glycosylation system (Capping, Step 11, inferred)	active	NE	NULL
+189	1	N97	P38649	N53	NULL	Mus musculus	NE	PMID: 12198488	ABO glycosylation system (Capping, Step 11, inferred)	active	NE	NULL
+190	1	N104	P16442	N54	NULL	Homo sapiens	NE	PMID: 12198488	ABO glycosylation system (Capping, Step 11, inferred)	active	NE	NULL
+191	1	N104	P38649	N54	NULL	Mus musculus	NE	PMID: 12198488	ABO glycosylation system (Capping, Step 11, inferred)	active	NE	NULL
+192	1	N527	P16442	N71	NULL	Homo sapiens	NE	PMID: 12198488	ABO glycosylation system (Capping, Step 11, inferred)	active	NE	NULL
+193	1	N527	P38649	N71	NULL	Mus musculus	NE	PMID: 12198488	ABO glycosylation system (Capping, Step 11, inferred)	active	NE	NULL
+194	1	N528	P16442	N200	NULL	Homo sapiens	NE	PMID: 12198488	ABO glycosylation system (Capping, Step 11, inferred)	active	NE	NULL
+195	1	N528	P38649	N200	NULL	Mus musculus	NE	PMID: 12198488	ABO glycosylation system (Capping, Step 11, inferred)	active	NE	NULL
+196	1	O157	Q02742	O152	NULL	Homo sapiens	NE	N/A	O-GalNAc Core, Step 9	active	NE	NULL
+197	1	O157	Q09324	O152	NULL	Mus musculus	NE	N/A	O-GalNAc Core, Step 9	active	NE	NULL
+198	2	O535	Q9WUV2	O156	NULL	Mus musculus	NE	N/A	O-GalNAc Core, Step 7	active	NE	NULL
+199	2	O535	Q9WUV2	O152	NULL	Mus musculus	NE	N/A	O-GalNAc Core, Step 7	active	NE	NULL
+200	2	O535	Q9R2B6	O156	NULL	Mus musculus	NE	N/A	O-GalNAc Core, Step 7	active	NE	NULL
+201	2	O535	Q9R2B6	O152	NULL	Mus musculus	NE	N/A	O-GalNAc Core, Step 7	active	NE	NULL
+202	2	O535	Q9QYJ1	O156	NULL	Mus musculus	NE	N/A	O-GalNAc Core, Step 7	active	NE	NULL
+203	2	O535	Q9QYJ1	O152	NULL	Mus musculus	NE	N/A	O-GalNAc Core, Step 7	active	NE	NULL
+204	2	O535	Q9JM95	O156	NULL	Mus musculus	NE	N/A	O-GalNAc Core, Step 7	active	NE	NULL
+205	2	O535	Q9JM95	O152	NULL	Mus musculus	NE	N/A	O-GalNAc Core, Step 7	active	NE	NULL
+206	2	O535	Q8NDV1	O156	NULL	Homo sapiens	NE	N/A	O-GalNAc Core, Step 7	active	NE	NULL
+207	2	O535	Q8NDV1	O152	NULL	Homo sapiens	NE	N/A	O-GalNAc Core, Step 7	active	NE	NULL
+208	2	O535	Q9H4F1	O156	NULL	Homo sapiens	NE	N/A	O-GalNAc Core, Step 7	active	NE	NULL
+209	2	O535	Q9H4F1	O152	NULL	Homo sapiens	NE	N/A	O-GalNAc Core, Step 7	active	NE	NULL
+210	2	O535	Q9BVH7	O156	NULL	Homo sapiens	NE	N/A	O-GalNAc Core, Step 7	active	NE	NULL
+211	2	O535	Q9BVH7	O152	NULL	Homo sapiens	NE	N/A	O-GalNAc Core, Step 7	active	NE	NULL
+212	2	O535	Q969X2	O156	NULL	Homo sapiens	NE	N/A	O-GalNAc Core, Step 7	active	NE	NULL
+213	2	O535	Q969X2	O152	NULL	Homo sapiens	NE	N/A	O-GalNAc Core, Step 7	active	NE	NULL
+215	1	O548	Q6P4F1	O581	NULL	Homo sapiens	NE	N/A	Capping, Step 4	active	NE	NULL
+216	1	O548	Q495W5	O581	NULL	Homo sapiens	NE	N/A	Capping, Step 4	active	NE	NULL
+217	1	O548	P22083	O581	NULL	Homo sapiens	NE	N/A	Capping, Step 4	active	NE	NULL
+218	1	O548	Q11130	O581	NULL	Homo sapiens	NE	N/A	Capping, Step 4	active	NE	NULL
+219	1	O548	Q9Y231	O581	NULL	Homo sapiens	NE	N/A	Capping, Step 4	active	NE	NULL
+220	1	O548	Q5F2L2	O581	NULL	Mus musculus	NE	N/A	Capping, Step 4	active	NE	NULL
+221	1	O548	Q8BHC9	O581	NULL	Mus musculus	NE	N/A	Capping, Step 4	active	NE	NULL
+222	1	O548	Q11127	O581	NULL	Mus musculus	NE	N/A	Capping, Step 4	active	NE	NULL
+224	1	O548	Q11131	O581	NULL	Mus musculus	NE	N/A	Capping, Step 4	active	NE	NULL
+225	1	O548	O88819	O581	NULL	Mus musculus	NE	N/A	Capping, Step 4	active	NE	NULL
+228	1	N107	Q00973	N17	NULL	Homo sapiens	NE	N/A	Capping, Step 20	active	NE	NULL
+229	1	N108	Q00973	N16	NULL	Homo sapiens	NE	N/A	Capping, Step 20	active	NE	NULL
+230	1	N109	Q00973	N38	NULL	Homo sapiens	NE	N/A	Capping, Step 20	active	NE	NULL
+231	1	N107	Q8NHY0	N17	NULL	Homo sapiens	NE	N/A	Capping, Step 20	active	NE	NULL
+232	1	N108	Q8NHY0	N16	NULL	Homo sapiens	NE	N/A	Capping, Step 20	active	NE	NULL
+233	1	N109	Q8NHY0	N38	NULL	Homo sapiens	NE	N/A	Capping, Step 20	active	NE	NULL
+234	1	N107	Q09200	N17	NULL	Mus musculus	NE	N/A	Capping, Step 20	active	NE	NULL
+235	1	N109	Q09200	N38	NULL	Mus musculus	NE	N/A	Capping, Step 20	active	NE	NULL
+236	1	N108	Q09200	N16	NULL	Mus musculus	NE	N/A	Capping, Step 20	active	NE	NULL
+237	1	N107	Q09199	N17	NULL	Mus musculus	NE	N/A	Capping, Step 20	active	NE	NULL
+238	1	N109	Q09199	N38	NULL	Mus musculus	NE	N/A	Capping, Step 20	active	NE	NULL
+239	1	N108	Q09199	N16	NULL	Mus musculus	NE	N/A	Capping, Step 20	active	NE	NULL
+240	1	N82	Q00973	N34	NULL	Homo sapiens	NE	N/A	Capping, Step 20	active	NE	NULL
+241	1	N82	Q8NHY0	N34	NULL	Homo sapiens	NE	N/A	Capping, Step 20	active	NE	NULL
+242	1	N82	Q09200	N34	NULL	Mus musculus	NE	N/A	Capping, Step 20	active	NE	NULL
+243	1	N82	Q09199	N34	NULL	Mus musculus	NE	N/A	Capping, Step 20	active	NE	NULL
+244	1	O537	Q9UNA3	O168	NULL	Homo sapiens	AA	N/A	O-GalNAc Core, Step 6	active	NE	NULL
+245	1	O537	Q14BT6	O168	NULL	Mus musculus	AA	N/A	O-GalNAc Core, Step 6	active	NE	NULL
+250	1	O532	P16442	O154	NULL	Homo sapiens	AA	N/A	ABO, O-GalNAc Core, Step 16	active	NE	NULL
+251	1	O532	P38649	O154	NULL	Mus musculus	AA	N/A	ABO, O-GalNAc Core, Step 16	active	NE	NULL
+252	1	O162	P16442	O154	NULL	Homo sapiens	AA	N/A	ABO, O-GalNAc Core, Step 16	active	NE	NULL
+253	1	O162	P38649	O154	NULL	Mus musculus	AA	N/A	ABO, O-GalNAc Core, Step 16	active	NE	NULL
+254	1	O708	P16442	O709	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 10	active	NE	
+255	1	O708	P38649	O709	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 10	active	NE	
+256	1	N83	P16442	N329	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 11	active	NE	
+257	1	N83	P38649	N329	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 11	active	NE	
+258	1	N114	P16442	N102	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
+259	1	N114	P38649	N102	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
+260	1	N115	P16442	N103	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
+261	1	N115	P38649	N103	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
+262	1	N116	P16442	N102	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 10, inferred	active	NE	
+264	1	N117	P16442	N103	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 10, inferred	active	NE	
+265	1	N117	P38649	N103	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 10, inferred	active	NE	
+266	1	N116	P38649	N102	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 10, inferred	active	NE	
+267	1	N309	P16442	N81	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
+268	1	N309	P38649	N81	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
+271	1	O166	P16442	O167	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 10, inferred	active	NE	
+272	1	O166	P38649	O167	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 10, inferred	active	NE	
+273	1	O557	P16442	O167	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
+274	1	O557	P38649	O167	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
+275	1	O560	P16442	O566	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
+276	1	O560	P38649	O566	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
+277	1	O568	P16442	O607	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
+278	1	O568	P38649	O607	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
+279	1	O570	P16442	O556	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
+280	1	O570	P38649	O556	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
+281	1	O585	P16442	O556	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 10, inferred	active	NE	
+282	1	O585	P38649	O556	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 10, inferred	active	NE	
+283	1	O594	P16442	O566	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 10, inferred	active	NE	
+284	1	O594	P38649	O566	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 10, inferred	active	NE	
+285	1	O615	P16442	O607	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 10, inferred	active	NE	
+286	1	O615	P38649	O607	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 10, inferred	active	NE	
+287	1	O685	P16442	O659	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 10, inferred	active	NE	
+288	1	O685	P38649	O659	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 10, inferred	active	NE	
+289	1	O687	P16442	O660	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 10, inferred	active	NE	
+290	1	O687	P38649	O660	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 10, inferred	active	NE	
+291	1	O714	P16442	O741	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 10, inferred	active	NE	
+292	1	O714	P38649	O741	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 10, inferred	active	NE	
+293	1	O729	P16442	O683	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 10, inferred	active	NE	
+294	1	O729	P38649	O683	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 10, inferred	active	NE	
+295	1	O733	P16442	O734	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 11	active	NE	
+296	1	O733	P38649	O734	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 11	active	NE	
+297	1	O748	P16442	O734	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 10	active	NE	
+298	1	O748	P38649	O734	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 10	active	NE	
+299	1	O758	P16442	O747	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 10	active	NE	
+300	1	O758	P38649	O747	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 10	active	NE	
