@@ -220,8 +220,6 @@ instance	rule_id	focus	enzyme	other_residue	polymer	taxonomy	proposer_id	refs	co
 222	1	O548	Q11127	O581	NULL	Mus musculus	NE	N/A		active	NE	NULL
 224	1	O548	Q11131	O581	NULL	Mus musculus	NE	N/A		active	NE	NULL
 225	1	O548	O88819	O581	NULL	Mus musculus	NE	N/A		active	NE	NULL
-226	2	O577	Q8BGY6	O535	NULL	Mus musculus	NE	N/A		active	NE	NULL
-227	2	O577	Q9BYG0	O535	NULL	Homo sapiens	NE	N/A		active	NE	NULL
 228	1	N107	Q00973	N17	NULL	Homo sapiens	NE	N/A		active	NE	NULL
 229	1	N108	Q00973	N16	NULL	Homo sapiens	NE	N/A		active	NE	NULL
 230	1	N109	Q00973	N38	NULL	Homo sapiens	NE	N/A		active	NE	NULL
