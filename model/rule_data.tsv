@@ -262,8 +262,6 @@ instance	rule_id	focus	enzyme	other_residue	polymer	taxonomy	proposer_id	refs	co
 274	1	O557	P38649	O167	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
 275	1	O560	P16442	O566	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
 276	1	O560	P38649	O566	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
-277	1	O568	P16442	O607	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
-278	1	O568	P38649	O607	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
 279	1	O570	P16442	O556	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
 280	1	O570	P38649	O556	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
 281	1	O585	P16442	O556	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 10, inferred	active	NE	
@@ -286,3 +284,23 @@ instance	rule_id	focus	enzyme	other_residue	polymer	taxonomy	proposer_id	refs	co
 298	1	O748	P38649	O734	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 10	active	NE	
 299	1	O758	P16442	O747	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 10	active	NE	
 300	1	O758	P38649	O747	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 10	active	NE	
+301	1	O563	Q6P4F1	O762	NULL	Homo sapiens	NE	N/A	Capping, Step 4	active	NE	NULL
+302	1	O563	Q495W5	O762	NULL	Homo sapiens	NE	N/A	Capping, Step 4	active	NE	NULL
+303	1	O563	P22083	O762	NULL	Homo sapiens	NE	N/A	Capping, Step 4	active	NE	NULL
+304	1	O563	Q11130	O762	NULL	Homo sapiens	NE	N/A	Capping, Step 4	active	NE	NULL
+305	1	O563	Q9Y231	O762	NULL	Homo sapiens	NE	N/A	Capping, Step 4	active	NE	NULL
+306	1	O563	Q5F2L2	O762	NULL	Mus musculus	NE	N/A	Capping, Step 4	active	NE	NULL
+307	1	O563	Q8BHC9	O762	NULL	Mus musculus	NE	N/A	Capping, Step 4	active	NE	NULL
+308	1	O563	Q11127	O762	NULL	Mus musculus	NE	N/A	Capping, Step 4	active	NE	NULL
+309	1	O563	Q11131	O762	NULL	Mus musculus	NE	N/A	Capping, Step 4	active	NE	NULL
+310	1	O563	O88819	O762	NULL	Mus musculus	NE	N/A	Capping, Step 4	active	NE	NULL
+311	1	O568	P16442	O607	NULL	Homo sapiens	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
+312	1	O568	P38649	O607	NULL	Mus musculus	NE	N/A	ABO, Capping, Step 11, inferred	active	NE	
+317	1	O634	Q00973	O159	NULL	Homo sapiens	NE	N/A	Capping, Step 20	active	NE	
+318	1	O634	Q8NHY0	O159	NULL	Homo sapiens	NE	N/A	Capping, Step 20	active	NE	
+319	1	O634	Q09200	O159	NULL	Mus musculus	NE	N/A	Capping, Step 20	active	NE	
+321	1	O634	Q09199	O159	NULL	Mus musculus	NE	N/A	Capping, Step 20	active	NE	
+322	1	O627	Q00973	O587	NULL	Homo sapiens	NE	N/A	Capping, Step 20	active	NE	
+323	1	O627	Q8NHY0	O587	NULL	Homo sapiens	NE	N/A	Capping, Step 20	active	NE	
+324	1	O627	Q09200	O587	NULL	Mus musculus	NE	N/A	Capping, Step 20	active	NE	
+325	1	O627	Q09199	O587	NULL	Mus musculus	NE	N/A	Capping, Step 20	active	NE	
