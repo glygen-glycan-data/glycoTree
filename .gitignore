@@ -37,7 +37,7 @@ code/bak/
 portal/api/temp/*.csv
 portal/api/temp/mapped/*.csv
 portal/wtf.php
-portal/api/paths/allPaths.json
+# portal/api/paths/allPaths.json
 portal/api/paths/testCM.php
 portal/api/paths/getpath.php
 portal/api/paths/getpathD3.php
