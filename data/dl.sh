@@ -14,7 +14,7 @@ unzip ../glycotree_nlinked_gct.zip
 cd ..
 
 #O-linked
-if [ ! -f glycotree_nlinked_gct.zip ]; then
+if [ ! -f glycotree_olinked_gct.zip ]; then
     wget https://raw.githubusercontent.com/glygen-glycan-data/PyGly/GlyGen-GlycanData-Export-Current/smw/glycandata/export/glycotree_olinked_gct.zip
 fi
 mkdir -p input_O
