@@ -13,7 +13,7 @@ services:
            - $PWD/portal:/var/www/html
            - $PWD:/glycoTree
         ports:
-           - 10989:80
+           - 10988:80
         links:
            - mysql
     mysql:

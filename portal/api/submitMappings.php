@@ -22,7 +22,6 @@ if ($connection->connect_error) {
 	die("<br>Connection failed: " . $connection->connect_error);
 }
 
-
 // authentication
 $h1 = "none";
 $query = "SELECT * FROM curators WHERE id=?";
@@ -33,6 +32,7 @@ $result = $stmt->get_result();
 if ($result->num_rows == 1) { // exactly one row (index = 0) per id
 	$h1 = $result->fetch_assoc()['auth'];
 }
+$h1 = trim($h1);
 
 $h2 = hash_pbkdf2("sha256", $combo, $SUGAR, $SPICE, 32);
 
@@ -42,7 +42,7 @@ if ($h1 != $h2) {
   $changePWurl = "";
   for ($i = 0; $i < (sizeof($hostSplit) - 1); $i++) $changePWurl .= $hostSplit[$i] . "/";
   $changePWurl .= "changePW.php?id=" . $curator_id . "&pw=[your password]";
-  $fMsg = "Authentication Failure!\n\nPlease check your curator id ($curator_id) and password (******)";
+  $fMsg = "Authentication Failure!\n'$h1'\n'$h2'\nPlease check your curator id ($curator_id) and password (******)";
   $fMsg .= "<br>  To change your password, point your browser to $changePWurl";
   die($fMsg);
 }
@@ -100,8 +100,10 @@ if (is_null($submittedData['data'])) {
 	$geneName = $sData['gene_name'];
 	$residueName = $sData['residue_name'];
 	$residueID = $sData['residue_id'];
-	$uniprot = $sData['uniprot'];
+	$uniprots = $sData['uniprot'];
 	$notes = $sData['notes'];
+
+        foreach(explode(",", $uniprots) as $uniprot) {
 
 	echo "Processing new mapping of enzyme " . $geneName . " to residue " . $residueID;
 	// process 'propose mapping' - data is in $submittedData['data']
@@ -135,6 +137,7 @@ if (is_null($submittedData['data'])) {
 	} else {
 		echo "\n\nUnable to create record";
 	}
+        }
 	
 }
 

@@ -82,6 +82,11 @@ NL=$'\n'
 
 echo
 echo "Copying GlycoCt files from $gctIn_N to $N_Dir"
+cd $here/data/extra_N
+cp G*.txt $gctIn_N
+if [ -f residmap.txt ]; then
+  awk 'NR > 1' residmap.txt >> $gctIn_N/residmap.txt
+fi
 cd $gctIn_N
 cp G*.txt $N_Dir/
 cd $here
@@ -118,6 +123,11 @@ java -jar $codeDir/TreeBuilder4.jar -l $csvN_Dir/files.lst -s $sugar_file -c $no
 
 echo
 echo "Copying GlycoCt files from $gctIn_O to $O_Dir"
+cd $here/data/extra_O
+cp G*.txt $gctIn_O
+if [ -f residmap.txt ]; then
+  awk 'NR > 1' residmap.txt >> $gctIn_O/residmap.txt
+fi
 cd $gctIn_O
 cp G*.txt $O_Dir/
 cd $here
@@ -141,7 +151,7 @@ cp $node_file $portalJavaDir
 
 echo
 echo Mapping residues in O-glycan csv files to canonical tree 
-java -jar $codeDir/TreeBuilder4.jar -l $csvO_Dir/files.lst -s $sugar_file -c $node_file -n 2 -v 1 -m 3 -e 1 -o $modelDir/ext.csv &> $logDir/map_O.log
+java -jar $codeDir/TreeBuilder4.jar -l $csvO_Dir/files.lst -s $sugar_file -c $node_file -n 1 -v 1 -m 3 -e 1 -o $modelDir/ext.csv &> $logDir/map_O.log
 
 echo 
 echo Sorting mapped residues
@@ -155,9 +165,9 @@ find $sortedDir -maxdepth 1 -name "G*.csv" -print | sort | xargs -I % grep -h "u
 ##  Make a large csv file containing data in directory ./data/mapped/sorted ##
 echo "Assembling mapped/sorted csv file for import into DB file:$NL     $sqlDir/compositions.csv"
 cd $sortedDir
-awk -f $codeDir/assembleCompositions.awk G*.csv | \
-    $here/scripts/addcanonid.py $here/data/input_N/residmap.txt $here/data/input_O/residmap.txt \
-    > $sqlDir/compositions.csv
+awk -f $codeDir/assembleCompositions.awk G*.csv  | \
+  $here/scripts/addcanonid.py $here/data/input_N/residmap.txt $here/data/input_O/residmap.txt \
+  > $sqlDir/compositions.csv
 cd $here
 
 echo

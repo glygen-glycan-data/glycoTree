@@ -47,6 +47,8 @@ symbol for that residue in a structure on the left."
 }
 
 var URLs = {
+	"gnome_glycotree_nlinked": "https://gnome.glyomics.org/restrictions/GlycoTree_NGlycans.StructureBrowser.html?focus=",
+	"gnome_glycotree_olinked": "https://gnome.glyomics.org/restrictions/GlycoTree_OGlycans.StructureBrowser.html?focus=",
 	"gnome": "https://gnome.glyomics.org/restrictions/GlyGen.StructureBrowser.html?focus=",
 	"glygen_glycan": "https://www.glygen.org/glycan/",
 	"gene": "https://www.genecards.org/cgi-bin/carddisp.pl?gene=",

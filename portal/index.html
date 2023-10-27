@@ -34,7 +34,7 @@
 	z-index: 88;
 	top: 20px;
 	width: 100%;
-	height: 500px;
+	height: 300px;
 	border-style: none;
 	text-align: center;
 }
@@ -105,7 +105,8 @@ function showImage(accession) {
 				" returned this json data for " + accession + "\n  " + result.toString());
 		}
 
-		var jsonResult = JSON.parse(result);
+		// var jsonResult = JSON.parse(result);
+		var jsonResult = result;
 		if (v > 5) console.log(result);
 		// svgEncoding is a global variable
 		svgEncoding = generateOneSVG(accession, jsonResult);
@@ -241,9 +242,9 @@ function getGlycans() {
 <body onLoad=initialize();>
 	
 <div id="header" width=100%>
-<span id="header_1">GlyGen</span>
+<A href="https://glygen.org" target="_blank"><span id="header_1">GlyGen</span></A>
 <object id="logo_svg" type="image/svg+xml" data="svg/sbLogo.svg" class="logo"></object>
-<span id="header_2">Sand Box</span>
+<A href="."><span id="header_2">Sandbox</span></A>
 </div>
 
 
@@ -254,8 +255,10 @@ function getGlycans() {
 		<option value="all" selected>All glycans in DB</option>
 		<option value="all_N">All N-linked glycans in DB</option>
 		<option value="mapped_N">All fully mapped N-linked glycans in DB</option>
+		<option value="clean_mapped_N">All fully mapped and validated N-linked glycans in DB</option>
 		<option value="all_O">All O-linked glycans in DB</option>
 		<option value="mapped_O">All fully mapped O-linked glycans in DB</option>
+		<option value="clean_mapped_O">All fully mapped and validated O-linked glycans in DB</option>
 		<option value="res">All glycans containing a specified canonical residue</option>
 		<option value="sug">All glycans containing a specified sugar or substituent</option>
 	</select>

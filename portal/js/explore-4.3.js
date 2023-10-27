@@ -11,7 +11,7 @@
 */
 
 // constants
-var v = 0; // verbosity of console.log
+var v = 6; // verbosity of console.log
 var nodeType = {'R':'residue', 'L':'link', 'LI':'text', 'C':'canvas', 'A':'annotation'};
 var greek = {'a': '&alpha;', 'b': '&beta;', 'x': '?','o': 'acyclic', 'n': ""};
 // data variables
@@ -240,12 +240,24 @@ function clickResponse(node) {
 	var type = parts["type"];
 	var localAcc = parts["accession"];
 	var rd = data[localAcc].residues;
+	var rv = data[localAcc].rule_violations;
+        var treetype = "-";
+	for (var r in rd) {
+          console.log(r);
+          if (/^#N/.test(r)) {
+            treetype = "N";
+            break;
+          } else if (/^#O/.test(r)) {
+            treetype = "O";
+            break;
+          }
+        }
 	if (v > 5) console.log("clicked " + type + " in image of " + localAcc +
-			" (" + id + ")");
+			" (" + id + ") " + treetype + ".");
 	//$("#caveatDiv").css("visibility", "hidden");
 	highlight(node);
 	var resID = parts["resID"];
-	var txt = getInfoText(localAcc, resID);
+	var txt = getInfoText(localAcc, resID,treetype);
 	if (v > 5) console.log("##### Info Box content #####\n" + txt + "\n#####");
 	$("#"+iDiv).html(txt);
 	
@@ -259,6 +271,7 @@ function clickResponse(node) {
 		//  and the residue is mappable to a glycoTree object
 		// ed is enzyme data for residues[resID]
 		var ed = rd['#' + resID].enzymes;
+                ed = filterEnzymesByRuleViolations(rd['#'+resID],ed,rv);
 		setupEnzymeTable('enzymeTable', ed);
 	} else {
 		// the canvas itself was clicked
@@ -276,20 +289,44 @@ function clickResponse(node) {
 			xxx.click()
 		});
 		// set up ALL enzymes table
-		var allEnzymes = getAllEnzymes(rd);
+		var allEnzymes = getAllEnzymes(rd,rv);
 		if (v > 4) console.log("  total number of enzymes is " + allEnzymes.length);
 		setupEnzymeTable('enzymeTable', allEnzymes);
 		setupRelatedGlycanTable("relatedTable", selectedData);
 	}
 } // end of function clickNode()
 
+function filterEnzymesByRuleViolations(residue,enzymes,rule_violations) {
+    // console.log(residue);
+    // console.log(enzymes);
+    // console.log(rule_violations);
+    var resid = residue.residue_id;
+    var newenzymes = [];
+    for (enz of enzymes) {
+         var good = true;
+         // for (rv of rule_violations) {
+         // console.log(rv.id,rv.focus,resid,rv.enzyme,enz.uniprot);
+         //  if (((rv.rule_id == 1) || (rv.rule_id == 2)) && (rv.focus == resid) && (rv.enzyme == enz.uniprot)) {
+         //       good = false;
+         //       break;
+         //   }
+         // }
+         if (enz["rule_violation"] == null) {
+             newenzymes.push(enz);
+         }
+    }
+    // console.log(newenzymes);
+    return newenzymes;
+}
 
-function getAllEnzymes(residueArray) {
+
+function getAllEnzymes(residueArray,rule_violations) {
 	// generate an array of enzyme objects associated with residueArray
 	var allEnzymes = [];
 	for (key in residueArray) {
 		if (!key.includes("#")) {
 			var ed = residueArray[key].enzymes;
+                        ed = filterEnzymesByRuleViolations(residueArray[key],ed,rule_violations)
 			for (key2 in ed) {
 				var ok2add = true;
 				for (i in allEnzymes) {
@@ -319,7 +356,22 @@ function setupResidueTable(tableName, tableData) {
 				"data": "name",
 				render: function(data, type, row, meta) {
 					var svgName = data.split("-")[0];
-					return "<a href='https://pubchem.ncbi.nlm.nih.gov/compound/" + svgName +
+                                        if (!conf.svg2pubchem) {
+                                            var svg2pubchem = {};
+                                            for (sug of conf.sugars) {
+                                                if (sug.pubchem) {
+                                                    svg2pubchem[sug.name] = sug.pubchem;
+                                                } else {
+                                                    svg2pubchem[sug.name] = sug.name;
+                                                }
+                                            }
+                                            conf.svg2pubchem = svg2pubchem;
+                                        }
+                                        var pubchem = conf.svg2pubchem[svgName];
+                                        if (!pubchem) {
+                                            pubchem = svgName;
+                                        }
+					return "<a href='https://pubchem.ncbi.nlm.nih.gov/compound/" + pubchem +
 						"' target='pubchem'><img src='snfg_images/" + svgName + ".svg'></a>"
 				}
 			},
@@ -440,6 +492,7 @@ function setupEnzymeTable(tableName, tableData) {
 	var table = $('#'+tableName).DataTable( {
 		data: tableData,
 		paging: false,
+                "order": [[ 3, 'asc' ], [ 0, 'asc' ]],
 		"columnDefs": [
 			{"className": "dt-center", "targets": "_all"}
 		],
@@ -514,11 +567,17 @@ function setupEnzymeTable(tableName, tableData) {
 	} );	
 }
 
-function customStrings(accession, resID) {
+function customStrings(accession, resID, treetype) {
 	// customize mStr values for this glycan and residue
 	mStr["infoHead"] = templates["infoHead"].replace("@GLYGEN", URLs["glygen_glycan"]);
 	mStr["infoHead"] = mStr["infoHead"].replace(/@ACCESSION/g, accession);	
-	mStr["gnomeLink"] = templates["gnomeLink"].replace("@GNOME", URLs["gnome"]);
+        if (treetype == "N") {
+	  mStr["gnomeLink"] = templates["gnomeLink"].replace("@GNOME", URLs["gnome_glycotree_nlinked"]);
+        } else if (treetype == "O") {
+	  mStr["gnomeLink"] = templates["gnomeLink"].replace("@GNOME", URLs["gnome_glycotree_olinked"]);
+        } else {
+	  mStr["gnomeLink"] = templates["gnomeLink"].replace("@GNOME", URLs["gnome"]);
+        }
 	mStr["gnomeLink"] = mStr["gnomeLink"].replace(/@ACCESSION/g, accession);
 	mStr["sandLink"] = templates["sandLink"].replace(/@ACCESSION/g, accession);
 	mStr["enzHead"] = templates["enzHead"].replace(/@ACCESSION/g, accession);
@@ -706,8 +765,8 @@ function repositionInfo(acc) {
 }
 
 
-function getInfoText(accession, resID) {
-	customStrings(accession, resID);
+function getInfoText(accession, resID, treetype) {
+	customStrings(accession, resID, treetype);
 	var txt = "<p class='head1'>" + mStr["infoHead"]; 
 	if (resID == '0') {
 		// the background canvas was clicked
@@ -1281,7 +1340,7 @@ function fetchConfiguration(theURL) {
 
 function fetchGlycanData(theURL, type, accession) {
 	// dest is an array that stores parsed json data
-	$.get(theURL+"/"+accession,null,
+	$.get(theURL + "/" + accession,null,
 	function(result){
 		if (v > 5) {
 			console.log("  for " + accession + ", " + theURL + 
@@ -1290,7 +1349,8 @@ function fetchGlycanData(theURL, type, accession) {
 
 		if (type === 'json') {
 			// 'data' is a global Object containing glycan data
-			data[accession] = JSON.parse(result);
+			// data[accession] = JSON.parse(result);
+			data[accession] = result;
 			if (v > 2) {
 				console.log("Data for accession " + accession + ":\n" +  JSON.stringify(data[accession], 3, 3));
 			}
@@ -1562,7 +1622,17 @@ function wait2process () {
 			for (i in sugars) {
 				console.log("   " + i + ": " + sugars[i].name);
 			}
-	   }
+	        }
+                var svg2pubchem = {};
+		for (sug of conf.sugars) {
+                    if (sug.pubchem) {
+                        svg2pubchem[sug.name] = sug.pubchem;
+                    } else {
+                        svg2pubchem[sug.name] = sug.name;
+                    }
+		}
+                conf.svg2pubchem = svg2pubchem;
+                console.log(conf);
 		processFiles();
 	}
 }

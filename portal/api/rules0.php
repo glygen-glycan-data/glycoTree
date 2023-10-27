@@ -65,6 +65,7 @@ while ($row = $result->fetch_assoc()) {
 	array_push($finalResult['rules'],$row);
 }
 
+header("Content-Type: application/json");
 echo json_encode($finalResult, JSON_PRETTY_PRINT);
 
 ?>

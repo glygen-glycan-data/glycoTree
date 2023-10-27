@@ -15,7 +15,15 @@ try {
         } else {
           $accession = $_GET['ac']; 
         }
-	// echo  $accession;
+        if ($accession===null) {
+          $accessions = $_GET['accs']; 
+          $accessions = explode(",",$accessions);
+          $returnlist = true;
+        } else {
+          $accessions = [ $accession ];
+          $returnlist = false;
+        }
+
 	// Create connection
 	$connection = new mysqli($servername, $username, $password, $dbname);
 
@@ -24,6 +32,10 @@ try {
 		die("<br>Connection failed: " . $connection->connect_error);
 	}	
 
+        $results = [];
+
+        foreach ($accessions as $accession) {
+
 	// get canonical residue info from compositions
 	$comp_result = queryComposition($accession, $connection);
 	// $compArray is a standard array of associative arrays, not a mysqli object,
@@ -31,10 +43,19 @@ try {
 	$compArray = $comp_result->fetch_all(MYSQLI_ASSOC);
 
 	$integratedData = integrateData($connection, $compArray, $accession);
-	echo json_encode($integratedData, JSON_PRETTY_PRINT);
-//echo "<pre>";
-//echo json_encode($integratedData, JSON_PRETTY_PRINT);
-//echo "</pre>";	
+
+        array_push($results, $integratedData);
+        }
+	header("Content-Type: application/json");
+        if (!$returnlist) {
+	    echo json_encode($results[0], JSON_PRETTY_PRINT);
+        } else {
+	    echo json_encode($results, JSON_PRETTY_PRINT);
+        }
+
+        //echo "<pre>";
+        //echo json_encode($integratedData, JSON_PRETTY_PRINT);
+        //echo "</pre>";	
 
 } catch (mysqli_sql_exception $e) { 
 	echo "MySQLi Error Code: " . $e->get Code() . "<br />";

@@ -5,12 +5,6 @@
 #   Example:
 #              ./genAllPaths.sh ./mappedNglycans.txt ./allPaths.json
 
-user="gt_user"
-export MYSQL_PWD="$MYSQL_PASSWORD"
-
-# echo -n "password:  "
-# read pw
-
 input_file=$1
 output_file=$2
 
@@ -26,7 +20,7 @@ while read line; do
     echo "," >> $output_file
   fi
   n=$((n+1))
-  php genPath_v2.php fmt=json scope=likely end=$line head=1 pw="$MYSQL_PASSWORD" >> $output_file
+  php genPath_v2.php fmt=json scope=likely end=$line head=1 >> $output_file
 done < $input_file
 
 echo " ]" >> $output_file

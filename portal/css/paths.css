@@ -55,6 +55,11 @@
 	margin-left: 5px;
 	margin-right: 5px;
 }
+.header_2 a    {text-decoration: none;}
+.header_2 a:link    {color:white;}
+.header_2 a:visited {color:white;}
+.header_2 a:hover   {color:#ace;}
+.header_2 a:active  {color:white;}
 
 .headPath {
 	height: 36px;
@@ -293,3 +298,9 @@ ul {
 	visibility: visible;
 	height: auto;
 }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+

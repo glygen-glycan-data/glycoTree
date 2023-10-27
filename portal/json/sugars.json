@@ -61,14 +61,16 @@
 			"shape": "diamond",
 			"color": "#A54399",
 			"stdAbsolute": "D",
-			"stdRing": "p"
+			"stdRing": "p",
+                        "pubchem": "Neu5Ac"
 		}, 
 		{
 			"name": "NeuNGc",
 			"shape": "diamond",
 			"color": "#8FCCE9",
 			"stdAbsolute": "D",
-			"stdRing": "p"
+			"stdRing": "p",
+                        "pubchem": "Neu5Gc"
 		},	
 		{
 			"name": "GalNAc",

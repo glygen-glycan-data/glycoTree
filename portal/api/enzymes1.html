@@ -196,7 +196,8 @@ function showImage(accession, resID) {
 				" returned this json data for " + accession + "\n  " + result.toString());
 		}
 
-		var jsonResult = JSON.parse(result);
+		// var jsonResult = JSON.parse(result);
+		var jsonResult = result;
 		if (v > 5) console.log(result);
 		// svgEncoding is a global variable
 		svgEncoding = generateOneSVG(accession, jsonResult);
@@ -355,7 +356,7 @@ function getEnzymes(showEm) {
 	function(result){
 		if (v > 1) console.log("result returned from " + url + "\n " + result);
 		 // process mapping data
-		enzymeData = JSON.parse(result); // global for download
+		enzymeData = result; // JSON.parse(result); // global for download
 		if (showEm) showMappings(enzymeData);
 	});
 }
@@ -636,7 +637,12 @@ function continue1(keepParameters) {
 		alert("Please select an enzyme to map to residue " + resID + " before continuing");
 		return;
 	}
-	var newUniprot = $('input[name="chosen_uniprot"]:checked').val();
+        var newUniprot = [];
+        $('input[name="chosen_uniprot"]:checked').each(function() {
+            newUniprot.push($(this).attr('value'));
+        });
+        newUniprot = newUniprot.join(",");
+	// var newUniprot = $('input[name="chosen_uniprot"]:checked');
 
 	if (v > 3) console.log("Enzyme " + newUniprot + " mapped to " + resID + "\n");
 
@@ -674,7 +680,7 @@ function mapResidue(newUniprot) {
 		var species = enzymeData['enzymes'][i]['species'];
 		var eType = enzymeData['enzymes'][i]['type'];
 		
-		mapStr += "  <tr><td><input type=\"radio\" id=\"enzyme_" + uniprot +
+		mapStr += "  <tr><td><input type=\"checkbox\" id=\"enzyme_" + uniprot +
 			"\" name=\"chosen_uniprot\" value=\"" + uniprot + "\">" +
 			" <label for=\"enzyme_" + uniprot + "\">" + geneID + "</label>" +
 			"</td><td><a href='https://www.glygen.org/protein/" + uniprot +

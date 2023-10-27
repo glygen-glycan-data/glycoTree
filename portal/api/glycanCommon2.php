@@ -8,7 +8,7 @@ function checkRE($value) {
 	return false;
 }
 
-function getFeatures($resList, $accession, $homologs, $connection) {
+function getFeatures($resList, $accession, $homologs, $fullymapped, $connection) {
 	// generate caveat objects and put into array $caveats
 
 	$caveats = [];
@@ -37,6 +37,7 @@ function getFeatures($resList, $accession, $homologs, $connection) {
 		$anomer = str_replace($findStr,$replaceStr,$value['anomer']);
 		$resStructure =  $anomer . "-" . $value['absolute'] . "-" . $value['form_name'];
 		$resStructureArray[$resID] = $resStructure;
+                
 
 		$result = doQuery($queryText, $connection, "s", $resID);
 		while ($row = $result->fetch_assoc()) {
@@ -94,27 +95,35 @@ function getFeatures($resList, $accession, $homologs, $connection) {
 				$instance = $value['instance'];
 				if (strpos($value['logic'], "requires residue [other_residue]")) {
 					$reqRes = $value['other_residue'];
-					if (!array_key_exists($reqRes, $resStructureArray) ) {
+					$resinStruct = array_key_exists($reqRes, $resStructureArray);
+					if (!$resinStruct) {
 						// the glycan does NOT contain reqRes (it is not in $resStructureArray)
-						array_push($reqViolation, "enzyme " . $value['enzyme'] .
+						if (!$fullymapped) {
+						    array_push($reqViolation, "enzyme " . $value['enzyme'] .
 							  " transfers residue " . $focus . 
 							  " (" . $resStructureArray[$focus] . ") in " .
 							  $value['taxonomy'] . " - missing residue " . $reqRes .
 							  " (" . $otherStructureArray[$reqRes] . ")");
-						array_push($rawRuleData, $value);
+                                                } else {
+						    array_push($rawRuleData, $value);
+                                                }
 					}
 				}
 				if (strpos($value['logic'], "blocked by residue [other_residue]")) {
 					$blockRes = $value['other_residue'];
-					if (array_key_exists($blockRes, $resStructureArray) ) {
-						// the glycan DOES contain blockRes
-						array_push($blockViolation, "enzyme: " . $value['enzyme'] .
+					$resinStruct = array_key_exists($blockRes, $resStructureArray);
+					if ($resinStruct || !$fullymapped) {
+						// the glycan contains blockRes or there are unmapped residues
+						if (!$resinStruct) {
+						     array_push($blockViolation, "enzyme: " . $value['enzyme'] .
 							  "; &nbsp; transferred residue: " . $value['focus'] . 
 							  " (" . $resStructureArray[$focus] . ")" .
 							  "; &nbsp; blocking: " . $blockRes .
 							  " (" . $otherStructureArray[$blockRes] . ")" .
 							  "; &nbsp; species: " . $value['taxonomy']);
-						array_push($rawRuleData, $value);
+                                                } else {
+						     array_push($rawRuleData, $value);
+                                                }
 					}
 				}
 				if (strpos($value['logic'], "abiotic")) {
@@ -129,22 +138,39 @@ function getFeatures($resList, $accession, $homologs, $connection) {
 		}
 	}
 	
-	if (sizeof($blockViolation) > 0 ) {
+	if (sizeof($blockViolation) > 0) {
 		$newCaveat = [];
 		$blockMsg = "One or more enzymes involved in the synthesis  of " .
 			$accession . " is blocked by a residue in this glycan. Thus, " .
 			$accession . " is either abiotic (e.g., chemically synthesized) or synthesized " .
 			"by a pathway that does not involve any of the enzymes listed below: ";
+		$any = false;
 		$sep = "";
 		for ($i = 0; $i < sizeof($blockViolation); $i++) {
+                        $keepviolation = true;
+                        for ($j = 0; $j< sizeof($rawRuleData); $j++) {
+                            $focus = $rawRuleData[$j]["focus"];
+                            $enzyme = $rawRuleData[$j]["enzyme"];
+			    $bvstr = "enzyme: " . $enzyme . "; &nbsp; transferred residue: " . $focus . " ";
+                            if (strstr($blockViolation[$i],$bvstr) !== false) {
+                                $keepviolation = false;
+                                break;
+                            }
+                        }
+                        if (!$keepviolation) {
+                            continue;
+                        }
 			$blockMsg .= $sep . $blockViolation[$i];
 			$sep = "# ";
+                        $any = true;
 		}
-		$newCaveat['msg'] = $blockMsg;
-		array_push($caveats, $newCaveat);
+                if ($any) {
+		    $newCaveat['msg'] = $blockMsg;
+		    array_push($caveats, $newCaveat);
+                }
 	}
 	
-	if (sizeof($reqViolation) > 0 ) {
+	if (sizeof($reqViolation) > 0) {
 		$newCaveat = [];
 		$reqMsg = "One or more enzymes involved in the synthesis of " .
 			$accession . " requires a residue that is missing. " . "Thus, " .
@@ -307,7 +333,7 @@ function queryComposition($acc, $con) {
 ***************************/
 function integrateData($connection, $compArray, $accession) {
 	// integrates the data associated with the accession
-	
+
 	// $glycan is an associative array that holds the integrated, hierarchical data
 	//    for the glycan with a specific glytoucan_ac value
 	$glycan = [];
@@ -330,7 +356,7 @@ function integrateData($connection, $compArray, $accession) {
 	$match_stmt->bind_param("s", $accession);
 
 	$residues = [];
-	
+	$fullymapped = true;
 	foreach($compArray as $i => $resdata) {
 		$enzymes = [];
 		$homologs = [];
@@ -346,9 +372,11 @@ function integrateData($connection, $compArray, $accession) {
 
 		if (is_null($fullrow['residue_name'])) {
 			$fullrow['glycotree'] = "none";
+                        $fullymapped = false;
 		} else {
 			$fullrow['glycotree'] = explode("_", $fullrow['residue_name'])[0];
 		}
+                $fullrow['canonical_residue_index'] = explode(";", $fullrow['canonical_residue_index'])[0];
 		// query enzyme_mappings using the current residue_id
 		$map_stmt->execute(); 
 		$map_result = $map_stmt->get_result();
@@ -366,7 +394,8 @@ function integrateData($connection, $compArray, $accession) {
 		}
 	}
 
-	$features = getFeatures($residues, $accession, $homologs, $connection);
+        $glycan["fullymapped"] = $fullymapped;
+	$features = getFeatures($residues, $accession, $homologs, $fullymapped, $connection);
 
 	// array sort by column value using custom comparator
 	// $sorted = $residues;
@@ -376,6 +405,24 @@ function integrateData($connection, $compArray, $accession) {
 	$glycan["rules"] = $features['rules'];
 	$glycan["caveats"] = $features['caveats'];
 	$glycan["rule_violations"] = $features['rule_violations'];
+        foreach ($glycan["residues"] as $rind => $res) {
+            $newenzymes = [];
+            $resid = $res["residue_id"];
+            foreach ($res["enzymes"] as $eind => $enz) {
+                $good = true;
+                foreach ($glycan["rule_violations"] as $rvind => $rv) {
+                    if (($rv["focus"] == $resid) && ($rv["enzyme"] == $enz["uniprot"])) {
+                        # $glycan["residues"][$rind]["enzymes"][$eind]["rule_violation"] = $rv["instance"];
+                        $good = false;
+                        break;
+                    }
+                }
+                if ($good) {
+                    array_push($newenzymes,$enz);
+                }
+            }
+            $glycan["residues"][$rind]["enzymes"] = $newenzymes;
+        }
 	return($glycan);
 
 } // end function integrateData()

@@ -13,5 +13,9 @@
 
 	$startAccession['hybrid'] = 'G08520NM';
 	$startAccession['complex'] = 'G61751GZ';
+
+        $glycanClassMap['ogalnac'] = array('OC'=>'1');
+     
+        $startAccession['ogalnac'] = 'G57321FI';
 	
 ?>

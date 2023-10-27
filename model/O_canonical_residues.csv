@@ -233,7 +233,6 @@ O-glycan_a-D-NeupNAc_739,O739,NeuNAc,a,D,p,O737,3,NeupNAc,not validated
 O-glycan_a-D-GalpNAc_740,O740,GalNAc,a,D,p,O674,3,GalpNAc,not validated
 O-glycan_a-L-Fucp_741,O741,Fuc,a,L,p,O648,2,Fucp,not validated
 O-glycan_b-D-Galp_742,O742,Gal,b,D,p,O718,4,Galp,not validated
-O-glycan_b-D-Galp_743,O743,Gal,b,D,p,O718,4,Galp,not validated
 O-glycan_b-D-GlcpNAc_744,O744,GlcNAc,b,D,p,O742,3,GlcpNAc,not validated
 O-glycan_a-D-NeupNAc_745,O745,NeuNAc,a,D,p,O742,6,NeupNAc,not validated
 O-glycan_b-D-Galp_746,O746,Gal,b,D,p,O673,4,Galp,not validated
@@ -249,3 +248,10 @@ O-glycan_b-D-GlcpNAc_755,O755,GlcNAc,b,D,p,O753,6,GlcpNAc,not validated
 O-glycan_b-D-GlcpNAc_756,O756,GlcNAc,b,D,p,O753,6,GlcpNAc,not validated
 O-glycan_b-D-GlcpNAc_757,O757,GlcNAc,b,D,p,O753,3,GlcpNAc,not validated
 O-glycan_a-D-GalpNAc_758,O758,GalNAc,a,D,p,O746,3,GalpNAc,not validated
+O-glycan_a-D-Galp_759,O759,Gal,a,D,p,OC,3,Galp,not validated
+O-glycan_a-D-NeupNAc_760,O760,NeuNAc,a,D,p,O581,6,NeupNAc,not validated
+O-glycan_a-D-NeupNAc_761,O761,NeuNAc,a,D,p,O581,3,NeupNAc,not validated
+O-glycan_b-D-GalpNAc_762,O762,GalNAc,b,D,p,O156,4,GalpNAc,not validated 
+O-glycan_a-D-Galp_763,O763,Gal,a,D,p,O153,3,Galp,not validated
+O-glycan_a-D-Galp_764,O764,Gal,a,D,p,O538,3,Galp,not validated
+O-glycan_a-D-GalpNAc_765,O765,GalNAc,a,D,p,OC,6,GalpNAc,not validated
