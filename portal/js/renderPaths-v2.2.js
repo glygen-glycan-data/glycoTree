@@ -576,7 +576,7 @@ function plantTree(treeData) {
 	d3.select("#defocusButton").classed('inactive', true);
 
 	 
-	var headerStr = "<span class='headPath'>" + a[1] + " &rarr; &rarr; &rarr; " + a[0] + "</span>";
+	var headerStr = "<span class='headPath'>" + startGlycan + " &rarr; &rarr; &rarr; " + endGlycan + "</span>";
 
 	$("#headerDiv").append(headerStr); 
 	$("#results").html(helpMessage)
@@ -612,14 +612,15 @@ function plantTree(treeData) {
 	// fetch json data for each glycan
 	data.nodes.forEach(function( d, i ) {
 		if (v > 1) console.log("### Fetching json data for " + d.id);
-		var path = glycanPath + "?ac=" + d.id + "&type=json";
+		var path = glycanPath + "/" + d.id;
 		if (v > 4) console.log("    glycan path is " + path);
 		$.get(path,
 			function(response) {
 				// generate svg encoding
 				if (v > 4) console.log("    glycan response:\n" +
 											  response);
-				var jData = JSON.parse(response);
+				// var jData = JSON.parse(response);
+				var jData = response;
 				if (v > 4) console.log("    jData.glytoucan_ac = " +
 											  jData.glytoucan_ac);
 				tree = plantTree(jData);

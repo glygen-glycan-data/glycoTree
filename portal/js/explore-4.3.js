@@ -356,7 +356,17 @@ function setupResidueTable(tableName, tableData) {
 				"data": "name",
 				render: function(data, type, row, meta) {
 					var svgName = data.split("-")[0];
-                                        console.log(conf);
+                                        if (!conf.svg2pubchem) {
+                                            var svg2pubchem = {};
+                                            for (sug of conf.sugars) {
+                                                if (sug.pubchem) {
+                                                    svg2pubchem[sug.name] = sug.pubchem;
+                                                } else {
+                                                    svg2pubchem[sug.name] = sug.name;
+                                                }
+                                            }
+                                            conf.svg2pubchem = svg2pubchem;
+                                        }
                                         var pubchem = conf.svg2pubchem[svgName];
                                         if (!pubchem) {
                                             pubchem = svgName;
@@ -482,6 +492,7 @@ function setupEnzymeTable(tableName, tableData) {
 	var table = $('#'+tableName).DataTable( {
 		data: tableData,
 		paging: false,
+                "order": [[ 3, 'asc' ], [ 0, 'asc' ]],
 		"columnDefs": [
 			{"className": "dt-center", "targets": "_all"}
 		],
@@ -1338,7 +1349,8 @@ function fetchGlycanData(theURL, type, accession) {
 
 		if (type === 'json') {
 			// 'data' is a global Object containing glycan data
-			data[accession] = JSON.parse(result);
+			// data[accession] = JSON.parse(result);
+			data[accession] = result;
 			if (v > 2) {
 				console.log("Data for accession " + accession + ":\n" +  JSON.stringify(data[accession], 3, 3));
 			}
@@ -1620,6 +1632,7 @@ function wait2process () {
                     }
 		}
                 conf.svg2pubchem = svg2pubchem;
+                console.log(conf);
 		processFiles();
 	}
 }

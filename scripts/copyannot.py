@@ -45,8 +45,8 @@ for r in rows:
     if r['focus'] == fromresid[0]:
         rulerows.append(copy.copy(r))
 
-shutil.copy(enzymemap,enzymemap+".new")
-wh = open(enzymemap+".new",'a')
+shutil.copy(enzymemap,enzymemap+".orig")
+wh = open(enzymemap,'a')
 for resid in toresids:
     for r in enzymerows:
         r['residue_id'] = resid[0]
@@ -56,8 +56,8 @@ for resid in toresids:
         wh.write(",".join(map(r.get,enzymeheaders)) + "\n")
 wh.close()
 
-shutil.copy(ruledata,ruledata+".new")
-wh = open(ruledata+".new",'a')
+shutil.copy(ruledata,ruledata+".orig")
+wh = open(ruledata,'a')
 for resid in toresids:
     for r in rulerows:
         r['focus'] = resid[0]

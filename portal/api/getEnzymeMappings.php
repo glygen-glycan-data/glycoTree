@@ -30,11 +30,16 @@ $query = "none";
 // verbosity REQUIRED for security - cannot simply replace variables, but use prepared statements
 $nPars = 0;
 $whereClause = "";
-
+$orderClause = "ORDER BY SUBSTR(canonical_residues.residue_id, 1, 1), cast(SUBSTR(canonical_residues.residue_id, 2, 4) as UNSIGNED)";
 
 if(!empty($limiter)) switch ($limiter) { 
 	case "residue_id":
 	  $whereClause = "WHERE canonical_residues.residue_id=?";
+	  $nPars = 1;
+	  break;	
+	case "parent_id":
+	  $whereClause = "WHERE canonical_residues.parent_id=?";
+          $orderClause = "ORDER BY canonical_residues.anomer, canonical_residues.absolute, canonical_residues.form_name, canonical_residues.site";
 	  $nPars = 1;
 	  break;	
 	case "proposer":
@@ -79,7 +84,7 @@ if(!empty($limiter)) switch ($limiter) {
 	  $whereClause = "WHERE enzyme_mappings.residue_id=0";
 }
 
-$query = "SELECT canonical_residues.residue_id,canonical_residues.anomer,canonical_residues.absolute,canonical_residues.form_name,canonical_residues.site,enzyme_mappings.instance,enzyme_mappings.uniprot,enzyme_mappings.notes,enzyme_mappings.type,enzyme_mappings.status,enzyme_mappings.proposer_id,enzyme_mappings.disputer_id,enzymes.species,enzymes.gene_name FROM canonical_residues LEFT JOIN enzyme_mappings ON (enzyme_mappings.residue_id = canonical_residues.residue_id) LEFT JOIN enzymes ON (enzymes.uniprot = enzyme_mappings.uniprot) $whereClause ORDER BY SUBSTR(canonical_residues.residue_id, 1, 1), cast(SUBSTR(canonical_residues.residue_id, 2, 4) as UNSIGNED)";
+$query = "SELECT canonical_residues.residue_id,canonical_residues.anomer,canonical_residues.absolute,canonical_residues.form_name,canonical_residues.site,canonical_residues.parent_id,enzyme_mappings.instance,enzyme_mappings.uniprot,enzyme_mappings.notes,enzyme_mappings.type,enzyme_mappings.status,enzyme_mappings.proposer_id,enzyme_mappings.disputer_id,enzymes.species,enzymes.gene_name FROM canonical_residues LEFT JOIN enzyme_mappings ON (enzyme_mappings.residue_id = canonical_residues.residue_id) LEFT JOIN enzymes ON (enzymes.uniprot = enzyme_mappings.uniprot) $whereClause $orderClause";
 //echo "$query<br><br>";
 //echo "limiterVal is $limiterVal";
 $stmt = $connection->prepare($query);

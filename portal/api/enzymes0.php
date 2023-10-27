@@ -56,6 +56,7 @@ while ($row = $result->fetch_assoc()) {
 }
 
 //echo "<pre>";
+header("Content-Type: application/json");
 echo json_encode($finalResult, JSON_PRETTY_PRINT);
 //echo "</pre>";
 

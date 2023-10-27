@@ -1,9 +1,0 @@
-glytoucan_ac,residue_name,residue_id,name,anomer,absolute,ring,parent_id,site,formName
-G50198YU,unassigned,11,sulfate,n,n,n,10,3,sulfate
-G50198YU,unassigned,1,GalNAc,b,D,p,0,0,GalpNAc
-G50198YU,unassigned,3,GlcNAc,b,D,p,1,3,GlcpNAc
-G50198YU,unassigned,5,Gal,b,D,p,3,3,Galp
-G50198YU,unassigned,6,Fuc,a,L,p,5,2,Fucp
-G50198YU,unassigned,7,GlcNAc,b,D,p,1,6,GlcpNAc
-G50198YU,unassigned,9,Fuc,a,L,p,7,3,Fucp
-G50198YU,unassigned,10,Gal,b,D,p,7,4,Galp

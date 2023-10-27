@@ -632,8 +632,25 @@ try {
 	switch ($glycanType) {
 		case "O":
 			$rid = "OC";
-			//fwrite($logFile, "Cannot generate pathways for O-glycan [" . $end . "]\n");
-			bail(3, $end, $format, $data);
+			$subclass = getSubclass($end, $connection, $glycanClassMap, $logFile);
+			foreach($subclass as $value) {
+				// use this to set $start
+				if ($value == "ogalnac") {
+					$properRed = 'a-D-GalpNAc';
+					if ($reEnd != $properRed) {
+						$data['notes'][$noteCount++] = "reducing end mismatch [" . $reEnd . "]";
+						$end = getAlternate($end, $connection, $properRed);
+						// getAlternate ensures that $reEnd == $properRed
+						$data['notes'][$noteCount++] = "homologous pathway end-point [" . $end . "]";
+						//fwrite($logFile, "\n  reducing end mismatch [" . $reEnd . "]; homologous pathway end-point [" . $end ."]\n");
+						$reEnd = $properRed;
+					}
+					$start = $startAccession['ogalnac'];
+				} 
+                        }
+			$data['notes'][$noteCount++] = "pathway start-point [" . $start . "]";			
+			//fwrite($logFile, "\n  pathway start-point is " . $start . "\n");
+			//fwrite($logFile, "  pathway end-point is " . $end . "\n");
 			break;
 		case "N":
 			// get $subclass to identify $start for this glycan
@@ -729,8 +746,9 @@ try {
 	
 	// pathways to glycans with proper reducing end must have at least 2 elements
 	$threshold = 2;
+        if ($glycanType == 'O') $threshold = 1;
 	// pathways to glycans with improper reducing end must have at least 3 elements
-	if ($queryEnd !== $end) $threshold = 3;
+	if ($queryEnd !== $end) $threshold += 1;
 	
 	if (count($data['nodes']) < $threshold) {
 		bail(9, ($queryEnd), $format, $data);

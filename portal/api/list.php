@@ -32,6 +32,12 @@ try {
 		case "all":
 		  $query = "SELECT DISTINCT glytoucan_ac FROM compositions";
 		  break;
+		case "mapped":
+		  $query = "SELECT DISTINCT glytoucan_ac FROM compositions WHERE glytoucan_ac NOT IN (SELECT DISTINCT glytoucan_ac FROM compositions WHERE residue_name='unassigned')";
+		  break;
+		case "clean":
+		  $query = "SELECT DISTINCT glytoucan_ac FROM compositions WHERE glytoucan_ac NOT IN (SELECT DISTINCT glytoucan_ac FROM compositions WHERE residue_name='unassigned' OR notes not in ('validated by Qrator','manually validated','Manually validated'))";
+		  break;
 		case "all_N":
 		  $query = "SELECT DISTINCT glytoucan_ac FROM compositions WHERE residue_id LIKE 'N%'";
 		  break;

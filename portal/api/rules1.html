@@ -124,6 +124,7 @@ var svgEncoding = "";
 var newRule = null;
 var curatorID = "";
 var ruleData = null;
+var enzymeData = null;
 
 // var uniprotURL = "https://www.uniprot.org/uniprot/?query=[rule_enzyme]&sort=score&columns=id,organism&format=tab";	
 var uniprotURL = "https://rest.uniprot.org/uniprotkb/search?query=[rule_enzyme]&fields=accession,organism_name&format=tsv";
@@ -133,7 +134,7 @@ function initialize() {
 	setupAnimation('logo_svg', 'header');
 	fetchConfiguration(configPath);
 	$("#check_it").click(function() {
-		getRules(true);
+		getEnzymes(true);
 	});
 	$("#generate_rule").click(function() {
 		generateRule();
@@ -144,7 +145,7 @@ function initialize() {
 	var a = arg.split("=");
 	if (arg.length > 1) {
 		$("#resid").val(a[a.length - 1]);
-		getRules(true);
+		getEnzymes(true);
 	}
 } // end of function initialize()
 
@@ -198,10 +199,9 @@ function showImage(accession, resID) {
 				" returned this json data for " + accession + "\n  " + result.toString());
 		}
 
-		var jsonResult = JSON.parse(result);
 		if (v > 5) console.log(result);
 		// svgEncoding is a global variable
-		svgEncoding = generateOneSVG(accession, jsonResult);
+		svgEncoding = generateOneSVG(accession, result);
 		
 		hideAllLayerDivs();
 		var sd = $("#layer_div_1");
@@ -341,6 +341,27 @@ function plantTree(treeData) {
 	return (tree);
 } // end of function plantTree()
 
+function getEnzymes(showem) {
+        var resid = $("#resid").val();
+        var thisURL = "" + window.location; // force thisURL to be a String
+        var urlSplit = thisURL.split('/');
+        var urlBase = "";
+        for (var i = 0; i < (urlSplit.length - 1); i++) { // everything except the file name
+                urlBase += urlSplit[i] + "/";
+        }
+        url = urlBase + "enzymes0.php?focus=" + resid; 
+	$.get(url,
+	function(result){
+		enzymeData = result;
+	        enzymeData.upmap = {};
+                for (let me of enzymeData.mapped_enzymes) {
+                     let up = me['uniprot']
+                     let gn = me['gene_name']
+                     enzymeData.upmap[up] = gn + " (" + up + ")";
+                }
+                getRules(showem);
+	});
+}
 	
 function getRules(showEm) {
 	var resid = $("#resid").val();
@@ -357,7 +378,7 @@ function getRules(showEm) {
 	function(result){
 		if (v > 1) console.log("result returned from " + url + "\n " + result);
 		 // process rule data
-		ruleData = JSON.parse(result); // global for download
+		ruleData = result; // global for download
 		if (showEm) showRules(ruleData);
 	});
 }
@@ -382,6 +403,12 @@ function showRules(data) {
 			var ruleStatus = data['rule_instances'][i]['status'];
 			var otherResidue = data['rule_instances'][i]['other_residue'];
 			var radioID = data['rule_instances'][i]['instance'];
+                        for (let up in enzymeData.upmap) {
+                            if (ruleInference.includes(up)) {
+				ruleInference = ruleInference.replace(up,enzymeData.upmap[up]);
+                                break;
+                            }
+                        }
 			resultStr += "<tr><td><input type=\"radio\" id=\"instance_select_" + radioID +
 				"\" name=\"remove_choose\" value=\"" + radioID +
 				"\" onclick=\"filterButtons()\"></td><td style='white-space: nowrap'>" + ruleInference +
@@ -568,7 +595,7 @@ function submitDispute(disputeID) {
 			var resultMSG = "<center><h2>Response from API (" + submitPath + ")</h2></center>" + htmlResult;
 			
 			if (result.includes("successfully") ) {
-				 resultMSG +=  "<br><button onclick='getRules(true);'>Continue</button>";
+				 resultMSG +=  "<br><button onclick='getEnzymes(true);'>Continue</button>";
 			 } else {
 				// resultMSG +=  "";
 			 }
@@ -602,7 +629,7 @@ function submitWithdraw(withdrawID) {
 			var resultMSG = "<center><h2>Response from API (" + submitPath + ")</h2></center>" + htmlResult;
 			
 			if (result.includes("successfully") ) {
-				 resultMSG +=  "<br><button onclick='getRules(true);'>Continue</button>";
+				 resultMSG +=  "<br><button onclick='getEnzymes(true);'>Continue</button>";
 			 } else {
 				// resultMSG +=  "";
 			 }
@@ -635,7 +662,7 @@ function submitRule(newRuleID) {
 			var resultMSG = "<center><h2>Response from API (" + submitPath + ")</h2></center>" + htmlResult;
 			
 			if (result.includes("record created successfully") ) {
-				 resultMSG +=  "<br><button onclick='getRules(true);'>Continue</button>";
+				 resultMSG +=  "<br><button onclick='getEnzymes(true);'>Continue</button>";
 			 } else {
 				resultMSG +=  "<br><button <button id=\"review_rule\" onclick=\"continue3('" +
 					newRuleID + "');\">Review Rule Submission</button>";
@@ -654,13 +681,20 @@ function continue3(newRuleID) {
 	hideAllLayerDivs();
 	showLayerDiv(sd);
 	// newRule is global!!!
+	let enzymevalue = $("#rule_enzyme").val();
+	let sev = enzymevalue.split(':');
+        let enzyme = sev[0];
+        let taxonomy = $("#rule_taxonomy").val();
+        if (sev.length > 1) {
+            taxonomy = sev[1];
+        }
 	newRule = {
 		rule_id: newRuleID,
 		focus: $("#resid").val(),
-		enzyme: $("#rule_enzyme").val(),
+		enzyme: enzyme,
 		other_residue: $("#rule_other_residue").val(),
 		polymer: $("#rule_polymer").val(),
-		taxonomy: $("#rule_taxonomy").val(),
+		taxonomy: taxonomy,
 		refs: $("#rule_refs").val(),
 		comment: $("#rule_comment").val()
 	} 
@@ -669,7 +703,7 @@ function continue3(newRuleID) {
 	var ruleLogic = getRuleLogic(newRuleID);
 	var inference = ruleLogic.replace("[focus]", "<b>" + newRule['focus'] + "</b>");
 
-	var newRuleStr = "<b>Assertion: </b>" + inference.replace("[enzyme]", "<b>" + newRule['enzyme'] + "</b>");
+	var newRuleStr = "<b>Assertion: </b>" + inference.replace("[enzyme]", "<b>" + enzymeData.upmap[newRule['enzyme']] + "</b>");
 	newRuleStr = newRuleStr.replace("[other_residue]", "<b>" + newRule['other_residue'] + "</b>");
 	newRuleStr = newRuleStr.replace("[polymer]", "<b>" + newRule['polymer'] + "</b>");
 	newRuleStr = newRuleStr.replace("[taxonomy]", "<b>" + newRule['taxonomy'] + "</b>");
@@ -725,8 +759,12 @@ function continue2(newRuleID) {
 			return;
 		}
 	}
-	
-	var ruleEnzyme = $("#rule_enzyme").val();
+
+        var senz = $("#rule_enzyme").val().split(':');	
+	var ruleEnzyme = senz[0];
+        if (senz.length > 1) {
+            ruleTaxonomy = senz[1];
+        }
 	if (ruleLogic.search(/(enzyme)/) > -1) {
 		if (v > 1) console.log("Rule cites enzyme");
 		// the rule cites an enzyme (enzyme)
@@ -818,7 +856,24 @@ function continue1(keepParameters) {
 
 	var inference = ruleLogic.replace("[focus]", resID);
 	if (v > 3) console.log("Rule " + newRuleID + " applied to " + resID + "\n" + inference);
-	var ruleInput = inference.replace("[enzyme]", "<input type='text' id='rule_enzyme' size='10' placeholder='uniprot id'>");
+        let options = [];										  
+        let values = [];
+        let allsp = new Set();
+        let me = enzymeData.mapped_enzymes;
+        for (let i=0; i<me.length; i++) {
+	    let up = me[i]['uniprot'];
+            let gn = me[i]['gene_name'];
+            let sp = me[i]['species'];
+            options.push(gn + " (" + up + ") in " + sp);
+            values.push(up+":"+sp);
+        }
+        
+        let enzselect = "<select id='rule_enzyme'>";
+        for (let i=0; i<options.length; i++) {
+             enzselect += "<option value='"+values[i]+"'>"+options[i]+"</option>";
+        }										  
+        enzselect += "</select>";
+	var ruleInput = inference.replace("[enzyme] in [taxonomy]", enzselect);
 	ruleInput = ruleInput.replace("[other_residue]", "<input type='text' id='rule_other_residue' size='8' placeholder='e.g., N2'>");
 	ruleInput = ruleInput.replace("[polymer]", "<input type='text' id='rule_polymer' size='16' placeholder='polymer'>");
 	ruleInput = ruleInput.replace("[taxonomy]", "<input type='text' id='rule_taxonomy' size='24' placeholder='e.g., Homo sapiens'>");
@@ -845,7 +900,7 @@ function continue1(keepParameters) {
 function generateRule(selectedRuleID) {
 	// display a list of rules to choose from
 	hideAllLayerDivs();
-	getRules(false);
+	getEnzymes(false);
 	var resID = $("#resid").val();
 	var sd = $("#layer_div_2");
 	sd.show().css("visibility", "visible");
