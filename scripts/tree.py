@@ -58,7 +58,7 @@ class GlycoTree(object):
             if pid and pid != 'no_id':
                 if 'children' not in self.residues[pid]:
                     self.residues[pid]['children'] = dict()
-                chkey = (self.residues[rid]['site'],self.residues[rid]['anomer'],self.residues[rid]['form_name'])
+                chkey = (self.residues[rid]['site'],self.residues[rid]['anomer'],self.residues[rid]['absolute'],self.residues[rid]['form_name'])
                 self.residues[pid]['children'][chkey] = rid
 
     def add_rules(self):
@@ -85,7 +85,7 @@ class GlycoTree(object):
         return self.residues.get(rid,{}).get('children',{}).keys()
 
     def get_toedge(self,rid):
-        return (self.residues[rid]['site'],self.residues[rid]['anomer'],self.residues[rid]['form_name'])
+        return (self.residues[rid]['site'],self.residues[rid]['anomer'],self.residues[rid]['absolute'],self.residues[rid]['form_name'])
 
     def get_child(self,rid,edge,default=None):
         return self.residues.get(rid,{}).get('children',{}).get(edge,default)
