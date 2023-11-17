@@ -304,3 +304,7 @@ instance	rule_id	focus	enzyme	other_residue	polymer	taxonomy	proposer_id	refs	co
 323	1	O627	Q8NHY0	O587	NULL	Homo sapiens	NE	N/A	Capping, Step 20	active	NE	
 324	1	O627	Q09200	O587	NULL	Mus musculus	NE	N/A	Capping, Step 20	active	NE	
 325	1	O627	Q09199	O587	NULL	Mus musculus	NE	N/A	Capping, Step 20	active	NE	
+326	1	N331	P16442	N531	NULL	Homo sapiens	NE	N/A	ABO glycosylation system (Capping, Step 11, inferred)	active	NE	
+327	1	N331	P38649	N531	NULL	Mus musculus	NE	N/A	ABO glycosylation system (Capping, Step 11, inferred)	active	NE	
+328	1	O710	P16442	O766	NULL	Homo sapiens	NE	N/A	ABO glycosylation system (Capping, Step 11, inferred)	active	NE	
+329	1	O710	P38649	O766	NULL	Mus musculus	NE	N/A	ABO glycosylation system (Capping, Step 11, inferred)	active	NE	
