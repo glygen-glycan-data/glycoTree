@@ -1,5 +1,3 @@
-package gctTOcsv;
-
 import java.awt.List;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -169,12 +167,15 @@ public class GenerateCSV {
 					}
 				}
 			} catch (FileNotFoundException e) {
-				System.out.printf("Error in file %s\n", theFile);
+				System.out.printf("\nError in file %s\n", theFile);
 				e.printStackTrace();
 			} catch (UnsupportedEncodingException e) {
-				System.out.printf("Error in file %s\n", theFile);
+				System.out.printf("\nError in file %s\n", theFile);
 				e.printStackTrace();
-			}
+			} catch (java.lang.ArrayIndexOutOfBoundsException e) {
+				System.out.printf("\nError in file %s\n", theFile);
+				e.printStackTrace();
+                        }
 		}
 
 	} // end of main
@@ -220,7 +221,11 @@ public class GenerateCSV {
 		String suffix = "";
 		String gctID = "";
 
-		try {
+                ArrayList<String> validSubst = new ArrayList<String>();
+                validSubst.add("phosphate");
+                validSubst.add("sulfate");
+
+		{
 			if ( (section.matches("RES") ) || (section.matches("LIN") ) ) {
 				// parse the gctLine
 				splitIndex = gctLine.indexOf(':');
@@ -260,12 +265,16 @@ public class GenerateCSV {
 						System.out.printf("\n[%s]:  This is an %s-linked substituent", suffix, subType);
 					}
 					if (subType.equals("N")) {
+                                                // maybe we should check these substituents too?
 						subList.put(gctID, suffix);
 					} else {
 						sugarAtts =  gctParser.parseSubstituent(suffix, v);
 						sugarAtts.put("name", suffix);
 						sugarAtts.put("formName", suffix);
 						sugarAtts.put("gctID", gctID);
+                                                if (!validSubst.contains(suffix)) {
+                                                  throw new ArrayIndexOutOfBoundsException("Bad substituent"); 
+                                                }
 						resList.put(gctID, sugarAtts);
 					}
 					break;
@@ -316,9 +325,6 @@ public class GenerateCSV {
 			default:
 				break;
 			}
-		} catch (Exception e) {
-			System.out.printf("\n### Error in GlycoCT file ###\n    %s\n", gctLine);
-			e.printStackTrace();
 		}
 		return(section);
 	} // end of method parseGCTline()
