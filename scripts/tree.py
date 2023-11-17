@@ -59,6 +59,9 @@ class GlycoTree(object):
                 if 'children' not in self.residues[pid]:
                     self.residues[pid]['children'] = dict()
                 chkey = (self.residues[rid]['site'],self.residues[rid]['anomer'],self.residues[rid]['absolute'],self.residues[rid]['form_name'])
+                if chkey in self.residues[pid]['children']:
+                    print("Duplicate residue:",rid)
+                    continue
                 self.residues[pid]['children'][chkey] = rid
 
     def add_rules(self):

@@ -6,8 +6,8 @@ from tree import GlycoTree
 from collections import defaultdict
 
 gt = GlycoTree()
-# origseeds = ['N2','N7','N5','N31','N9','O156','O157']
-origseeds = ['N2','N7','N5','N31','N9']
+origseeds = ['N2','N7','N5','N31','N9','O156','O157']
+# origseeds = ['N2','N7','N5','N31','N9']
 # origseeds = ['O156','O157']
 residuemap = dict()
 residuemap[None] = None
