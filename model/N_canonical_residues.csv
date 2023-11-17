@@ -150,7 +150,6 @@ N-glycan_b-D-GlcpNAc_206,N206,GlcNAc,b,D,p,N1,6,GlcpNAc,abiotic linkage
 N-glycan_b-D-GlcpNAc_207,N207,GlcNAc,b,D,p,N6,4,GlcpNAc,abiotic linkage
 N-glycan_a-D-Manp_208,N208,Man,a,D,p,N19,6,Manp,abiotic linkage
 N-glycan_b-D-Galp_209,N209,Gal,b,D,p,N206,4,Galp,
-N-glycan_b-D-Galp_210,N210,Gal,b,D,p,N206,4,Galp,
 N-glycan_b-D-Galp_211,N211,Gal,b,D,p,N30,3,Galp,manually validated
 N-glycan_a-L-Fucp_212,N212,Fuc,a,L,p,N1,3,Fucp,manually validated
 N-glycan_a-L-Fucp_213,N213,Fuc,a,L,p,N4,3,Fucp,manually validated
@@ -175,8 +174,6 @@ N-glycan_a-L-Fucp_231,N231,Fuc,a,L,p,N75,3,Fucp,manually validated
 N-glycan_b-D-GlcpNAc_232,N232,GlcNAc,b,D,p,N37,3,GlcpNAc,manually validated
 N-glycan_a-D-NeupNAc_233,N233,NeuNAc,a,D,p,N77,6,NeupNAc,no images available
 N-glycan_b-D-GlcpNAc_234,N234,GlcNAc,b,D,p,N80,3,GlcpNAc,no images available
-N-glycan_b-D-GlcpNAc_235,N235,GlcNAc,b,D,p,N80,3,GlcpNAc,not used
-N-glycan_b-D-GlcpNAc_236,N236,GlcNAc,b,D,p,N37,3,GlcpNAc,not used
 N-glycan_a-D-Fucp_237,N237,Fuc,a,D,p,N2,3,Fucp,abiotic configuration
 N-glycan_b-D-GlcpNAc_238,N238,GlcNAc,b,D,p,N2,4,GlcpNAc,abiotic linkage
 N-glycan_b-D-Galp_239,N239,Gal,b,D,p,N6,4,Galp,abiotic linkage
@@ -193,7 +190,6 @@ N-glycan_b-D-GlcpNAc_250,N250,GlcNAc,b,D,p,N5,4,GlcpNAc,abiotic linkage
 N-glycan_a-D-NeupNAc_251,N251,NeuNAc,a,D,p,N8,2,NeupNAc,abiotic linkage
 N-glycan_b-D-Galf_252,N252,Gal,b,D,f,N4,2,Galf,abiotic linkage
 N-glycan_b-D-Glcp_253,N253,Glc,b,D,p,N1,4,Glcp,abiotic linkage
-N-glycan_b-D-Glcp_254,N254,Glc,b,D,p,N1,4,Glcp,not used
 N-glycan_a-D-Fucp_255,N255,Fuc,a,D,p,N5,6,Fucp,abiotic configuration
 N-glycan_a-D-Fucp_256,N256,Fuc,a,D,p,NA,3,Fucp,abiotic configuration
 N-glycan_a-D-Galp_257,N257,Gal,a,D,p,N6,4,Galp,abiotic context
@@ -327,9 +323,9 @@ N-glycan_a-D-GlcpNAc_384,N384,GlcNAc,a,D,p,N6,6,GlcpNAc,abiotic linkage
 N-glycan_a-D-GlcpNAc_385,N385,GlcNAc,a,D,p,N3,6,GlcpNAc,abiotic linkage
 N-glycan_a-D-NeupNGc_386,N386,NeuNGc,a,D,p,N5,6,NeupNGc,manually validated
 N-glycan_b-D-GlcpNAc_387,N387,GlcNAc,b,D,p,N10,4,GlcpNAc,abiotic linkage
-N-glycan_b-D-Galp_388,N388,Gal,b,D,p,N210,3,Galp,
+N-glycan_b-D-Galp_388,N388,Gal,b,D,p,N209,3,Galp,
 N-glycan_a-D-Manp_389,N389,Man,a,D,p,N264,2,Manp,N-mannans
-N-glycan_a-L-Fucp_390,N390,Fuc,a,L,p,N210,2,Fucp,
+N-glycan_a-L-Fucp_390,N390,Fuc,a,L,p,N209,2,Fucp,
 N-glycan_a-D-NeupNAc_391,N391,NeuNAc,a,D,p,N322,6,NeupNAc,not validated
 N-glycan_a-D-Manp_392,N392,Man,a,D,p,N218,3,Manp,not validated
 N-glycan_a-D-Manp_393,N393,Man,a,D,p,N220,2,Manp,N-mannans
@@ -471,3 +467,6 @@ N-glycan_sulfate_525,N525,sulfate,n,n,n,N522,6,sulfate,chemically inconsistent
 N-glycan_sulfate_526,N526,sulfate,n,n,n,N523,6,sulfate,chemically inconsistent
 N-glycan_a-D-GalpNAc_527,N527,GalNAc,a,D,p,N8,3,GalpNAc,
 N-glycan_a-D-GalpNAc_528,N528,GalNAc,a,D,p,N10,3,GalpNAc,
+N-glycan_phosphate_529,N529,phosphate,n,n,n,N19,6,phosphate,by analogy with N481
+N-glycan_phosphate_530,N530,phosphate,n,n,n,N20,6,phosphate,by analogy with N481
+N-glycan_a-L-Fucp_531,N531,Fuc,a,L,p,N32,2,Fucp,
