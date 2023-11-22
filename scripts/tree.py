@@ -110,6 +110,8 @@ if __name__ == "__main__":
             absolute
             form_name
             parent_id
+            parent_absolute
+            parent_form_name
             uniprot 
             gene_name
             species 
