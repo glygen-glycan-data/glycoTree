@@ -2,24 +2,25 @@
 
 set -x
 
+PYGLY_SCRIPTS=../../PyGly/scripts
+GCTCONID=$PYGLY_SCRIPTS/glycotree_gctconid.py
+GGACCS=$PYGLY_SCRIPTS/glyres.py
+
+# GlyGen accessions
+
+$GGACCS GlyGen allglycans > glygen_allacc.txt
+
 #N-linked
 
-if [ ! -f glycotree_nlinked_gct.zip ]; then
-    wget https://raw.githubusercontent.com/glygen-glycan-data/PyGly/GlyGen-GlycanData-Export-Current/smw/glycandata/export/glycotree_nlinked_gct.zip
-fi
+rm -rf input_N
 mkdir -p input_N
-rm -f input_N/*
-cd input_N
-unzip ../glycotree_nlinked_gct.zip
-cd ..
+$GCTCONID N-linked input_N
+mkdir -p extra_N
 
 #O-linked
-if [ ! -f glycotree_olinked_gct.zip ]; then
-    wget https://raw.githubusercontent.com/glygen-glycan-data/PyGly/GlyGen-GlycanData-Export-Current/smw/glycandata/export/glycotree_olinked_gct.zip
-fi
+
+rm -rf input_O
 mkdir -p input_O
-rm -f input_O/*
-cd input_O
-unzip ../glycotree_olinked_gct.zip
-cd ..
+$GCTCONID O-linked input_O
+mkdir -p extra_O
 

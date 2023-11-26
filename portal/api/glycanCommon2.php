@@ -302,7 +302,11 @@ function queryComposition($acc, $con) {
 	return ($result);
 } // end of function queryComposition()
 
-
+function queryStructure($acc, $con) {
+	$queryText = "SELECT tree,abiotic,mapped,validated,inglygen FROM structure WHERE glytoucan_ac=?";
+	$result = doQuery($queryText, $con, "s", $acc);
+	return ($result);
+} // end of function queryStrucure()
 
 /****************************
 * The integrateData() function takes an array of associative arrays as its second argument
@@ -331,7 +335,7 @@ function queryComposition($acc, $con) {
 *   int(6)
 *  }
 ***************************/
-function integrateData($connection, $compArray, $accession) {
+function integrateData($connection, $compArray, $accession, $structure) {
 	// integrates the data associated with the accession
 
 	// $glycan is an associative array that holds the integrated, hierarchical data
@@ -394,6 +398,7 @@ function integrateData($connection, $compArray, $accession) {
 		}
 	}
 
+        $glycan["structure"] = $structure;
         $glycan["fullymapped"] = $fullymapped;
 	$features = getFeatures($residues, $accession, $homologs, $fullymapped, $connection);
 

@@ -241,6 +241,7 @@ function clickResponse(node) {
 	var localAcc = parts["accession"];
 	var rd = data[localAcc].residues;
 	var rv = data[localAcc].rule_violations;
+        var ingg = (data[localAcc].structure.inglygen == 1);
         var treetype = "-";
 	for (var r in rd) {
           console.log(r);
@@ -257,7 +258,7 @@ function clickResponse(node) {
 	//$("#caveatDiv").css("visibility", "hidden");
 	highlight(node);
 	var resID = parts["resID"];
-	var txt = getInfoText(localAcc, resID,treetype);
+	var txt = getInfoText(localAcc, resID, treetype, ingg);
 	if (v > 5) console.log("##### Info Box content #####\n" + txt + "\n#####");
 	$("#"+iDiv).html(txt);
 	
@@ -567,9 +568,15 @@ function setupEnzymeTable(tableName, tableData) {
 	} );	
 }
 
-function customStrings(accession, resID, treetype) {
+function customStrings(accession, resID, treetype, inglygen) {
 	// customize mStr values for this glycan and residue
-	mStr["infoHead"] = templates["infoHead"].replace("@GLYGEN", URLs["glygen_glycan"]);
+	mStr["infoHead"] = templates["infoHead"];
+        if (inglygen == true) {
+	    mStr["infoHead"] = mStr["infoHead"].replace("@GLYGENLINK", templates["glygenLink"]);
+	    mStr["infoHead"] = mStr["infoHead"].replace("@GLYGEN", URLs["glygen_glycan"]);
+        } else {
+	    mStr["infoHead"] = mStr["infoHead"].replace("@GLYGENLINK", "");
+        }
 	mStr["infoHead"] = mStr["infoHead"].replace(/@ACCESSION/g, accession);	
         if (treetype == "N") {
 	  mStr["gnomeLink"] = templates["gnomeLink"].replace("@GNOME", URLs["gnome_glycotree_nlinked"]);
@@ -765,8 +772,8 @@ function repositionInfo(acc) {
 }
 
 
-function getInfoText(accession, resID, treetype) {
-	customStrings(accession, resID, treetype);
+function getInfoText(accession, resID, treetype, inglygen) {
+	customStrings(accession, resID, treetype, inglygen);
 	var txt = "<p class='head1'>" + mStr["infoHead"]; 
 	if (resID == '0') {
 		// the background canvas was clicked

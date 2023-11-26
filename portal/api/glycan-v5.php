@@ -42,7 +42,10 @@ try {
 	//    as required by the function integrateData() - below
 	$compArray = $comp_result->fetch_all(MYSQLI_ASSOC);
 
-	$integratedData = integrateData($connection, $compArray, $accession);
+        $struct_result = queryStructure($accession, $connection);
+        $struct_result = $struct_result->fetch_array(MYSQLI_ASSOC);
+
+	$integratedData = integrateData($connection, $compArray, $accession, $struct_result);
 
         array_push($results, $integratedData);
         }

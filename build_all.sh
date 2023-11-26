@@ -180,8 +180,11 @@ java -jar $codeDir/CorrelateGlycans.jar -v 2 -l $mappedDir/files.lst -c 1024 -j 
 
 echo
 echo "Generating a list of accessions currently supported by GlycoTree into file:$NL     $here/accessions.lst"
-## the column index '7' in the following command is file-system-dependent and may require adjustment fo different computers
 find $mappedDir -maxdepth 1 -name "G*.csv" -print | sed -e 's/^.*\///' -e 's/\..*$//' | sort > $here/accessions.lst
+
+echo
+echo "Writing file of structure properties:$NL	$sqlDir/structure.csv"
+$here/scripts/structprops.py $here/data/glygen_allacc.txt $sqlDir/compositions.csv $sqlDir/rule_data.tsv > $sqlDir/structure.csv
 
 echo
 echo "The home page for the portal:$NL     $portalDir/index.html$NL is no longer automatically generated"

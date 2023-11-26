@@ -113,10 +113,11 @@ function fetchData() {
 	
 function showRules(data, URIbutton) {
 	var resultStr = URIbutton + "<table id='enzyme_table'>\n  ";
-	resultStr += "<tr><th>Residue&nbsp;ID</th><th>Structure</th><th>Parent&nbsp;ID</th><th>Enzyme</th><th>Gene</th><th>Status</th><th>Species</th><th>proposer</th><th>disputer</th><th align='left'>Notes</th></tr>";
+	resultStr += "<tr><th>Residue&nbsp;ID</th><th>Structure</th><th>Parent&nbsp;ID</th><th>Parent&nbsp;Name</th><th>Enzyme</th><th>Gene</th><th>Status</th><th>Species</th><th>proposer</th><th>disputer</th><th align='left'>Notes</th></tr>";
 	for (var i = 0; i < data.length; i++) {
 		var resid = data[i]['residue_id'];
 		var parid = data[i]['parent_id'];
+		var parname = data[i]['parent_absolute'] + "-" + data[i]['parent_form_name'];
 		var anomer = data[i]['anomer'].replace("a","&alpha;");
 		anomer = anomer.replace("b","&beta;");
 		var structure = anomer + "-" + data[i]['absolute'] +
@@ -130,7 +131,7 @@ function showRules(data, URIbutton) {
 		var disputer = data[i]['disputer_id'];
 		var resLink = "<a href='enzymes1.html?residue_id=" + resid + "' target='_blank'>" + resid + "</a>";
 		resultStr += "<tr><td style='white-space: nowrap'>" + resLink +  
-			"</td><td>" + structure + "</td><td>" + parid + "</td><td>" + enzyme + "</td><td>" + geneName +
+			"</td><td>" + structure + "</td><td>" + parid + "</td><td>" + parname + "</td><td>" + enzyme + "</td><td>" + geneName +
 			"</td><td>" + status + "</td><td>" + species +
 			"</td><td>" + proposer +  
 			"</td><td>" + disputer + 
