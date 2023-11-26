@@ -12,7 +12,8 @@ var selectStrings = {
 
 // template strings modified during runtime
 var templates = {
-	"infoHead": "Exploring glycan @ACCESSION (<a href='@GLYGEN@ACCESSION' target='glygen_frame'>GlyGen Data</a>)",
+        "glygenLink": " (<a href='@GLYGEN@ACCESSION' target='glygen_frame'>GlyGen Data</a>)",
+	"infoHead": "Exploring glycan @ACCESSION@GLYGENLINK",
 	"listHead": "Glycans Biosynthetically Related to @ACCESSION",
 	"gnomeLink": "Explore accessions related to @ACCESSION using the <a href='@GNOME@ACCESSION' target='_blank'><i>GNOme Subsumption Navigator</i></a>",
 	"sandLink": "<a href='explore.html?@ACCESSION' target='_blank'>Click here to open a <i>new Sandbox Window</i></a> to explore glycans biosynthetically related to @ACCESSION<br><br>Alternatively, you can double click on any glycan's canvas to fully explore it in <i>this window</i><br>This will allow you to navigate from sandbox to sandbox using the back and forward buttons on your browser ",

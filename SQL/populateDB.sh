@@ -46,7 +46,7 @@ echo "show tables" | $MYSQL
 # echo "glytoucan_ac,residue_name,residue_id,name,anomer,absolute,ring,parent_id,site,form_name,glycoct_index,notes" > compositions.tmp
 # fgrep -v glytoucan_ac compositions.csv >> compositions.tmp
 # mv -f compositions.tmp compositions.csv
-for f in canonical_residues.csv compositions.csv correlation.csv enzyme_mappings.csv enzymes.csv bitSet.tsv curators.tsv rule_data.tsv rules.tsv; do
+for f in canonical_residues.csv compositions.csv correlation.csv enzyme_mappings.csv enzymes.csv bitSet.tsv curators.tsv rule_data.tsv rules.tsv structure.csv; do
   ( ./loadtsv.sh ./$f | $MYSQL ) || exit 1
 done
 
