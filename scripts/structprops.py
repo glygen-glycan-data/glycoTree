@@ -19,7 +19,7 @@ for r in csv.DictReader(open(sys.argv[2])):
     acc = r['glytoucan_ac']
     if r['residue_name'] == 'unassigned':
         data[acc]['unmapped'] = True
-    if r['notes'] not in ('validated by Qrator',):
+    if r['notes'] not in ('validated by Qrator','manually validated','Manually validated'):
         data[acc]['unvalidated'] = True
     if r['residue_id'].startswith('N'):
         data[acc]['tree'] = 'N'
