@@ -470,3 +470,10 @@ N-glycan_a-D-GalpNAc_528,N528,GalNAc,a,D,p,N10,3,GalpNAc,
 N-glycan_phosphate_529,N529,phosphate,n,n,n,N19,6,phosphate,by analogy with N481
 N-glycan_phosphate_530,N530,phosphate,n,n,n,N20,6,phosphate,by analogy with N481
 N-glycan_a-L-Fucp_531,N531,Fuc,a,L,p,N32,2,Fucp,
+N-glycan_b-D-GlcAp_532,N532,GlcA,b,D,p,N6,3,GlcAp,
+N-glycan_b-D-GlcAp_533,N533,GlcA,b,D,p,N10,3,GlcAp,
+N-glycan_sulfate_534,N534,sulfate,n,n,n,N522,3,sulfate,
+N-glycan_sulfate_535,N535,sulfate,n,n,n,N523,3,sulfate,
+N-glycan_sulfate_536,N536,sulfate,n,n,n,N532,3,sulfate,
+N-glycan_sulfate_537,N537,sulfate,n,n,n,N533,3,sulfate,
+N-glycan_sulfate_538,N538,sulfate,n,n,n,N10,3,sulfate,
