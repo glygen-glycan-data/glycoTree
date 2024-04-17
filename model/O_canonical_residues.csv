@@ -1,5 +1,5 @@
 residue_name,residue_id,name,anomer,absolute,ring,parent_id,site,form_name,notes
-O-glycan_core_a-D-GalpNAc_C,OC,GalNAc,x,D,x,no_id,0,GalxNAc,validated by Qrator
+O-glycan_core_x-D-GalpNAc_C,OC,GalNAc,x,D,x,no_id,0,GalxNAc,validated by Qrator
 O-glycan_a-D-GalpNAc_162,O162,GalNAc,a,D,p,O152,3,GalpNAc,validated by Qrator
 O-glycan_a-D-GalpNAc_164,O164,GalNAc,a,D,p,O152,4,GalpNAc,validated by Qrator
 O-glycan_a-D-GalpNAc_165,O165,GalNAc,a,D,p,O158,4,GalpNAc,validated by Qrator
@@ -249,3 +249,32 @@ O-glycan_a-D-Galp_763,O763,Gal,a,D,p,O153,3,Galp,not validated
 O-glycan_a-D-Galp_764,O764,Gal,a,D,p,O538,3,Galp,not validated
 O-glycan_a-D-GalpNAc_765,O765,GalNAc,a,D,p,OC,6,GalpNAc,not validated
 O-glycan_a-L-Fucp_766,O766,Fuc,a,L,p,O675,2,Fucp,not validated
+O-glycan_core_x-L-Fucx_C1,OC1,Fuc,x,L,x,no_id,0,Fucx,not validated
+O-glycan_b-D-Glcp_800,O800,Glc,b,D,p,OC1,3,Glcp,not validated
+O-glycan_b-D-GlcpNAc_801,O801,GlcNAc,b,D,p,OC1,3,GlcpNAc,not validated
+O-glycan_b-D-Galp_802,O802,Gal,b,D,p,O801,4,Galp,not validated
+O-glycan_a-D-NeupNAc_803,O803,NeuNAc,a,D,p,O802,6,NeupNAc,not validated
+O-glycan_core_x-D-GlcxNAc_C2,OC2,GlcNAc,x,D,x,no_id,0,GlcxNAc,not validated
+O-glycan_core_x-D-Glcx_C3,OC3,Glc,x,D,x,no_id,0,Glcx,not validated
+O-glycan_a-D-Xylp_804,O804,Xyl,a,D,p,OC3,3,Xylp,not validated
+O-glycan_a-D-Xylp_805,O805,Xyl,a,D,p,O804,3,Xylp,not validated
+O-glycan_core_x-D-Manx_C4,OC4,Man,x,D,x,no_id,0,Manx,not validated
+O-glycan_b-D-GlcpNAc_806,O806,GlcNAc,b,D,p,OC4,2,GlcpNAc,not validated
+O-glycan_b-D-GlcpNAc_807,O807,GlcNAc,b,D,p,OC4,6,GlcpNAc,not validated
+O-glycan_b-D-Galp_808,O808,Gal,b,D,p,O806,4,Galp,not validated
+O-glycan_b-D-Galp_809,O809,Gal,b,D,p,O807,4,Galp,not validated
+O-glycan_a-L-Fucp_810,O810,Fuc,a,L,p,O806,3,Fucp,not validated
+O-glycan_a-L-Fucp_811,O811,Fuc,a,L,p,O807,3,Fucp,not validated
+O-glycan_a-D-NeupNAc_812,O812,NeuNAc,a,D,p,O808,3,NeupNAc,not validated
+O-glycan_a-D-NeupNAc_813,O813,NeuNAc,a,D,p,O809,3,NeupNAc,not validated
+O-glycan_b-D-GlcAp_814,O814,GlcA,b,D,p,O808,3,GlcAp,not validated
+O-glycan_b-D-GlcAp_815,O815,GlcA,b,D,p,O809,3,GlcAp,not validated
+O-glycan_sulfate_816,O816,sulfate,n,n,n,O814,3,sulfate,not validated
+O-glycan_sulfate_817,O817,sulfate,n,n,n,O815,3,sulfate,not validated
+O-glycan_b-D-GlcAp_818,O818,GlcA,b,D,p,O539,3,GlcAp,not validated
+O-glycan_b-D-GlcAp_819,O819,GlcA,b,D,p,O158,3,GlcAp,not validated
+O-glycan_sulfate_820,O820,sulfate,n,n,n,O818,3,sulfate,not validated
+O-glycan_sulfate_821,O821,sulfate,n,n,n,O819,3,sulfate,not validated
+O-glycan_b-D-Galp_822,O822,Gal,b,D,p,OC2,4,Galp,not validated
+O-glycan_a-D-NeupNAc_823,O823,NeuNAc,a,D,p,O822,6,NeupNAc,not validated
+O-glycan_a-D-NeupNAc_824,O824,NeuNAc,a,D,p,O822,3,NeupNAc,not validated

@@ -231,6 +231,10 @@ function getGlycans() {
      $('#parDiv').css('visibility', 'visible');
      $('#parLab').html('Sugar, e.g., D-Glcp:');
   }
+  if (gs === 'enz') {
+     $('#parDiv').css('visibility', 'visible');
+     $('#parLab').html('Enzyme, e.g., ST6GAL1:');
+  }
   fetchList();
 } // end of function getGlycans()
 
@@ -259,8 +263,9 @@ function getGlycans() {
 		<option value="all_O">All O-linked glycans in DB</option>
 		<option value="mapped_O">All fully mapped O-linked glycans in DB</option>
 		<option value="clean_mapped_O">All fully mapped and validated O-linked glycans in DB</option>
-		<option value="res">All glycans containing a specified canonical residue</option>
 		<option value="sug">All glycans containing a specified sugar or substituent</option>
+		<option value="enz">All glycans containing a sugar potentially attached by a specified enzyme</option>
+		<option value="res">All glycans containing a specified canonical residue</option>
 	</select>
 
 	<div id="parDiv" style="visibility: hidden; text-align: center;" onchange="getGlycans()">

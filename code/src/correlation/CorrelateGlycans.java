@@ -27,6 +27,8 @@ public class CorrelateGlycans {
 	 *  Map keys are accessions 
 	 */
 	static Map<String, BitSet> m = new HashMap<String, BitSet>();  
+        static Map<String, Integer> idmap = new HashMap<String, Integer>();
+        static Integer maxid = 0; // id == 0 is not a valid id for a node...
 	
 	/**
 	 * correlation matrix - each element is the count (as byte) of common residues for a pair of structures
@@ -268,7 +270,7 @@ public class CorrelateGlycans {
 
 		if ( (accA != "") && (accB != "") ) showCorrelation(accA, accB);
 		
-		if (v > 0) System.out.printf("\n\n### Processing Complete ###", args);
+		if (v > 0) System.out.printf("\n\n### Processing Complete ###", (Object)args);
 	} // end of method main()
 	
 	/**
@@ -319,6 +321,13 @@ public class CorrelateGlycans {
 		return (result);
 	} // end of parseListFile
 
+        public static Integer getid(String nd) {
+            if (!idmap.containsKey(nd)) {
+                maxid += 1;
+                idmap.put(nd,maxid);
+            }
+            return idmap.get(nd);
+        }
 	
 	public static int importData(String fn, Map<String, BitSet> map) {
 		File file = new File(fn);
@@ -332,14 +341,18 @@ public class CorrelateGlycans {
 		}
 		if (v > 5) System.out.printf("\n  Accession is %s\n", accession);
 		
-	    Pattern p0 = Pattern.compile("^[0-9]");  // pattern starts with a number  
+	    Pattern p0 = Pattern.compile("^[0-9]+$");  // pattern is a number
 	    
   		// idMap is tiny, catering only to a few specific unusual node IDs
-  		Map<String, Integer> idMap = new HashMap<String, Integer>();
-  		idMap.put("NA", nCols - 3);
-  		idMap.put("NB", nCols - 2);
-  		idMap.put("NC", nCols - 1);
-  		idMap.put("OC", nCols - 4);
+  		// Map<String, Integer> idMap = new HashMap<String, Integer>();
+  		// idMap.put("NA", nCols - 3);
+  		// idMap.put("NB", nCols - 2);
+  		// idMap.put("NC", nCols - 1);
+  		// idMap.put("OC", nCols - 4);
+  		// idMap.put("OC1", nCols - 5);
+  		// // idMap.put("OC2", nCols - 6);
+  		// idMap.put("OC3", nCols - 7);
+  		// idMap.put("OC4", nCols - 8);
   		
 		if (file.exists()) {
 			try {
@@ -357,35 +370,28 @@ public class CorrelateGlycans {
 						System.out.printf("node ID is %s\n", vals[2]);
 					}
 					
-				    Matcher idMatch = p0.matcher(vals[2]); // vals[2] is the node_id
-					if (idMatch.find() == true) {  // // vals[1] starts with a number (not N or O) - it's unassigned
+				    Matcher idMatch = p0.matcher(vals[2].trim()); // vals[2] is the node_id
+					if (idMatch.find() == true) {  // // vals[2] is a number (not N or O) - it's unassigned
 						if (v > 6) System.out.printf("## Residue %s is not assigned, setting bs[0] to 1\n", vals[2]);
 						// bs[0] is 0 if structure HAS NO unassigned nodes, or 1 if structure HAS unassigned nodes
 						bs.set(0);
 					}
-					nodes.add(vals[2]);
+					nodes.add(vals[2].trim());
 				}
 				input.close();
 				if (v > 6) System.out.printf("\n  Nodes %s\n", nodes);
-			    Pattern p = Pattern.compile("(N[A-C]|OC)");   // include both N- and O-linked
-			    Pattern p1 = Pattern.compile("[A-Za-z]"); // includes any non-numeric character
+			    // Pattern p = Pattern.compile("(N[A-C]|OC|OC[1-4])");   // include both N- and O-linked
+			    // Pattern p1 = Pattern.compile("[A-Za-z]"); // includes any non-numeric character
 			    // iterate through all nodes in the current structure
 				for (Iterator<String> n_iter = nodes.iterator(); n_iter.hasNext();) {
 					String nd = n_iter.next();
 					if (v > 8) System.out.printf("\nchecking node %s", nd);
-				    Matcher ma = p.matcher(nd);
+				    Matcher ma = p0.matcher(nd);
 				    int id = 0;
 				    // assign a numerical value to 'id' based on value of current node
-				  	if (ma.find() == true) { // the current node is NA, NB, or NC
-				  		id = idMap.get(nd);
+				  	if (ma.find() == false) { // the current node is not unassigned i.e. canonical
+				  		id = getid(nd);
 				  		if (v > 8) System.out.printf("\nfound core node %s", nd);
-				  	} else {
-				  		// check if id is canonical (contains with a non-numeric character)
-					    Matcher mf = p1.matcher(nd);
-					    if (mf.find() == true) {
-					    	id = Integer.parseInt(nd.substring(1));
-					    	if (v > 6) System.out.printf("      Node %s has index %d\n", nd, id);
-					    }
 				  	}
 			  		// set the bit corresponding to the node in the BitSet 
 			  		if (id > 0) bs.set(id);

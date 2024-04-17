@@ -350,7 +350,7 @@ function getEnzymes(showEm) {
 	var urlBase = "";
 	for (var i = 0; i < (urlSplit.length - 1); i++) // everything except the file name
 		urlBase += urlSplit[i] + "/";
-	url = urlBase + "enzymes0.php?focus=" + resid; 
+	url = urlBase + "enzymes0.php?focus=" + resid;  
 	
 	$.get(url,
 	function(result){
@@ -663,18 +663,24 @@ function continue1(keepParameters) {
 }
 	
 	
-function mapResidue(newUniprot) {
+function mapResidue(newUniprot,allenz) {
 	// TODO: display list of ENZYMES to choose from
 	hideAllLayerDivs();
-	getEnzymes(false);
+	// getEnzymes(false);
 	var resID = $("#resid").val();
 	var sd = $("#layer_div_2");
 	sd.show().css("visibility", "visible");
 	var mapStr = "<b>Select an enzyme to map to residue " + resID + ", then </b>";
-	mapStr += "<button id=\"continue_1\" onclick=\"continue1();\">Continue</button>";
+	mapStr += "<button id=\"continue_1\" onclick=\"continue1();\">Continue</button> ";
+        if (allenz) {
+            mapStr += "<button id=\"start_over\" onclick=\"mapResidue(null,0);\">Show Expected Enzymes</button></p>";
+        } else {
+            mapStr += "<button id=\"start_over\" onclick=\"mapResidue(null,1);\">Show All Enzymes</button></p>";
+        }
 	mapStr += "<table id='enzyme_select_table'>\n";
 	mapStr += "  <tr><th>Gene</th><th>UniProt</th><th>Type</th><th>Species</th></tr>\n";
 	for (var i = 0; i < enzymeData['enzymes'].length; i++) {
+            if (enzymeData['enzymes'][i]['expected'] || allenz) {
 		var geneID = enzymeData['enzymes'][i]['gene_name'];
 		var uniprot = enzymeData['enzymes'][i]['uniprot'];
 		var species = enzymeData['enzymes'][i]['species'];
@@ -685,14 +691,14 @@ function mapResidue(newUniprot) {
 			" <label for=\"enzyme_" + uniprot + "\">" + geneID + "</label>" +
 			"</td><td><a href='https://www.glygen.org/protein/" + uniprot +
 			"' target='_new'>" + uniprot + "</a></td><td>" + eType + "</td><td>" + species + "</td></tr>\n"
+            }
 	}
 	mapStr += "</table>\n";
 	mapStr += "<p><button id=\"continue_1\" onclick=\"continue1();\">Continue</button></p>";
-	console.log(mapStr);
 	sd.html(mapStr);
-	if (selectedGeneID !== undefined) {
-		$("#enzyme_" + newUniprot).attr('checked',true);
-	}
+	// if (selectedGeneID !== undefined) {
+	// 	$("#enzyme_" + newUniprot).attr('checked',true);
+	// }
 }
 
 	

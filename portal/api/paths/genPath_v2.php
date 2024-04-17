@@ -631,22 +631,38 @@ try {
 	
 	switch ($glycanType) {
 		case "O":
-			$rid = "OC";
 			$subclass = getSubclass($end, $connection, $glycanClassMap, $logFile);
 			foreach($subclass as $value) {
 				// use this to set $start
 				if ($value == "ogalnac") {
+			                $rid = "OC";
 					$properRed = 'a-D-GalpNAc';
-					if ($reEnd != $properRed) {
-						$data['notes'][$noteCount++] = "reducing end mismatch [" . $reEnd . "]";
-						$end = getAlternate($end, $connection, $properRed);
-						// getAlternate ensures that $reEnd == $properRed
-						$data['notes'][$noteCount++] = "homologous pathway end-point [" . $end . "]";
-						//fwrite($logFile, "\n  reducing end mismatch [" . $reEnd . "]; homologous pathway end-point [" . $end ."]\n");
-						$reEnd = $properRed;
-					}
-					$start = $startAccession['ogalnac'];
-				} 
+					$start = $startAccession[$value];
+				} else if ($value == "ofuc") {
+			                $rid = "OC1";
+					$properRed = 'a-L-Fucp';
+					$start = $startAccession[$value];
+                                } else if ($value == "oglcnac") {
+			                $rid = "OC2";
+					$properRed = 'b-D-GlcpNAc';
+					$start = $startAccession[$value];
+                                } else if ($value == "oglc") {
+			                $rid = "OC3";
+					$properRed = 'b-D-Glcp';
+					$start = $startAccession[$value];
+                                } else if ($value == "oman") {
+			                $rid = "OC4";
+					$properRed = 'a-D-Manp';
+					$start = $startAccession[$value];
+                                }
+				if ($reEnd != $properRed) {
+					$data['notes'][$noteCount++] = "reducing end mismatch [" . $reEnd . "]";
+					$end = getAlternate($end, $connection, $properRed);
+					// getAlternate ensures that $reEnd == $properRed
+					$data['notes'][$noteCount++] = "homologous pathway end-point [" . $end . "]";
+					//fwrite($logFile, "\n  reducing end mismatch [" . $reEnd . "]; homologous pathway end-point [" . $end ."]\n");
+					$reEnd = $properRed;
+				}
                         }
 			$data['notes'][$noteCount++] = "pathway start-point [" . $start . "]";			
 			//fwrite($logFile, "\n  pathway start-point is " . $start . "\n");
@@ -656,42 +672,18 @@ try {
 			// get $subclass to identify $start for this glycan
 			$rid = "NA";
 			$subclass = getSubclass($end, $connection, $glycanClassMap, $logFile);
-			foreach($subclass as $value) {
-				// use this to set $start
-				if ($value == "hybrid") {
-					$properRed = 'b-D-GlcpNAc';
-					if ($reEnd != $properRed) {
-						$data['notes'][$noteCount++] = "reducing end mismatch [" . $reEnd . "]";
-						$end = getAlternate($end, $connection, $properRed);
-						// getAlternate ensures that $reEnd == $properRed
-						$data['notes'][$noteCount++] = "homologous pathway end-point [" . $end . "]";
-						//fwrite($logFile, "\n  reducing end mismatch [" . $reEnd . "]; homologous pathway end-point [" . $end ."]\n");
-						$reEnd = $properRed;
-					}
-					$start = $startAccession['hybrid'];
-				} 
+			$properRed = 'b-D-GlcpNAc';
+                        // echo json_encode($subclass, JSON_PRETTY_PRINT);
+			$start = $startAccession[$subclass[0]];
+			if ($reEnd != $properRed) {
+				$data['notes'][$noteCount++] = "reducing end mismatch [" . $reEnd . "]";
+				$end = getAlternate($end, $connection, $properRed);
+				// getAlternate ensures that $reEnd == $properRed
+				$data['notes'][$noteCount++] = "homologous pathway end-point [" . $end . "]";
+				//fwrite($logFile, "\n  reducing end mismatch [" . $reEnd . "]; homologous pathway end-point [" . $end ."]\n");
+				$reEnd = $properRed;
+			} 
 				
-				if ($value == "complex") {
-					$properRed = 'b-D-GlcpNAc';
-					if ($reEnd != $properRed) {
-						$data['notes'][$noteCount++] = "reducing end mismatch [" . $reEnd . "]";
-						$end = getAlternate($end, $connection, $properRed);
-						// getAlternate ensures that $reEnd == $properRed
-						$data['notes'][$noteCount++] = "homologous pathway end-point [" . $end . "]";
-						//fwrite($logFile, "\n  reducing end mismatch [" . $reEnd . "]; homologous pathway end-point [" . $end ."]\n");
-						$reEnd = $properRed;
-					} 
-					$start = $startAccession['complex'];				
-				}  
-				
-				// N-glycans lacking residue N2 apparently have not been processed by Mgat1
-				if ($value == "no_mgat1 ") bail(5, $end, $format, $data); 
-				// no_mgat1 pathways not ready yet (either a-D-GlcpNAc or b-D-GlcpNAc)
-
-				if ($value == "core_fucosylated") {
-					$data['notes'][$noteCount++] = "glycan is core-fucosylated";
-				}
-			}
 			$data['notes'][$noteCount++] = "pathway start-point [" . $start . "]";			
 			//fwrite($logFile, "\n  pathway start-point is " . $start . "\n");
 			//fwrite($logFile, "  pathway end-point is " . $end . "\n");
