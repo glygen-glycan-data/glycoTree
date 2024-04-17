@@ -60,6 +60,12 @@ try {
 		  $numPars = 1;
 		  $query = "SELECT DISTINCT glytoucan_ac FROM compositions WHERE residue_id=?";
 		  break;	
+		case "enz":
+		  $numPars = 2;
+		  # $query = "SELECT DISTINCT glytoucan_ac FROM compositions JOIN enzyme_mappings ON compositions.residue_name=enzyme_mappings.residue_name JOIN enzyme ON enzyme_mappings.uniprot=enyzmes.uniprot WHERE enzymes.gene_name=?;";
+		  $query = "SELECT DISTINCT glytoucan_ac FROM compositions, enzyme_mappings, enzymes WHERE ( enzymes.gene_name=? OR enzymes.uniprot=? ) AND compositions.residue_name=enzyme_mappings.residue_name AND enzyme_mappings.uniprot=enzymes.uniprot;";
+                  $par2 = $par;
+		  break;	
 		case "sug":
 		  $par2 = "%" . $par . "%";
 		  $numPars = 2;
@@ -85,6 +91,7 @@ try {
 	SELECT glytoucan_ac,count(DISTINCT residue_id) AS DP FROM compositions AS C1 WHERE EXISTS (SELECT glytoucan_ac FROM compositions AS C2 WHERE C1.glytoucan_ac = C2.glytoucan_ac AND residue_id='N53') GROUP BY glytoucan_ac;
 	*/
 	$stmt = $connection->prepare($query);	
+	# echo json_encode($connection->error_list, JSON_PRETTY_PRINT);
 	if ($numPars === 1) {
 		$stmt->bind_param("s", $par);
 	}

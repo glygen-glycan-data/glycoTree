@@ -113,7 +113,7 @@ function fetchData() {
 	
 function showRules(data, URIbutton) {
 	var resultStr = URIbutton + "<table id='enzyme_table'>\n  ";
-	resultStr += "<tr><th>Residue&nbsp;ID</th><th>Structure</th><th>Parent&nbsp;ID</th><th>Parent&nbsp;Name</th><th>Enzyme</th><th>Gene</th><th>Status</th><th>Species</th><th>proposer</th><th>disputer</th><th align='left'>Notes</th></tr>";
+	resultStr += "<tr><th>Residue&nbsp;ID</th><th>Structure</th><th>Parent&nbsp;ID</th><th>Parent&nbsp;Name</th><th>#Glycan</th><th>Gene</th><th>Enzyme</th><th>Species</th><th>Status</th><th>proposer</th><th>disputer</th><th align='left'>Notes</th></tr>";
 	for (var i = 0; i < data.length; i++) {
 		var resid = data[i]['residue_id'];
 		var parid = data[i]['parent_id'];
@@ -129,13 +129,21 @@ function showRules(data, URIbutton) {
 		var notes = data[i]['notes'];
 		var proposer = data[i]['proposer_id'];
 		var disputer = data[i]['disputer_id'];
+                var nstructures = data[i]['structures'];
 		var resLink = "<a href='enzymes1.html?residue_id=" + resid + "' target='_blank'>" + resid + "</a>";
 		resultStr += "<tr><td style='white-space: nowrap'>" + resLink +  
-			"</td><td>" + structure + "</td><td>" + parid + "</td><td>" + parname + "</td><td>" + enzyme + "</td><td>" + geneName +
-			"</td><td>" + status + "</td><td>" + species +
+			"</td><td>" + structure + 
+                        "</td><td>" + parid + 
+                        "</td><td>" + parname + 
+                        "</td><td style=\"text-align: right;\">" + nstructures + 
+                        "</td><td>" + geneName + 
+                        "</td><td>" + enzyme +
+			"</td><td>" + species + 
+                        "</td><td>" + status +
 			"</td><td>" + proposer +  
 			"</td><td>" + disputer + 
-			"</td><td>" + notes +  "</td></tr>\n  ";
+			"</td><td>" + notes +  
+                        "</td></tr>\n  ";
 	}
 	resultStr += "</table>\n  ";
 	$("#ruleDiv").html(resultStr);

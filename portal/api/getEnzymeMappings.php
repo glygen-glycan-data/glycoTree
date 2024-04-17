@@ -22,8 +22,17 @@ $dataWrap['limiter_value'] = $limiterVal;
 // echo "limiter is " . $limiter . " - limiterVal is " . $limiterVal . "<br>";
 
 
-$enzymeMappingData = [];
+$canonidcnt = [];
 
+$query = "SELECT residue_id, count(DISTINCT glytoucan_ac) as count from compositions GROUP BY residue_id";
+$stmt = $connection->prepare($query);
+$stmt->execute(); 
+$result = $stmt->get_result();
+while ($row = $result->fetch_assoc() ) {
+     $canonidcnt[$row['residue_id']] = $row['count'];
+}
+
+$enzymeMappingData = [];
 $query = "none";
 
 // limit query to specific, acceptable cases
@@ -105,7 +114,12 @@ $stmt->execute();
 $result = $stmt->get_result();
 if ( ($result->num_rows) > 0) {
 	while ($row = $result->fetch_assoc() ) {
-		array_push($enzymeMappingData,$row);
+             if (array_key_exists($row['residue_id'],$canonidcnt)) {
+                 $row['structures'] = $canonidcnt[$row['residue_id']];
+             } else {
+                 $row['structures'] = 0;
+             }
+	     array_push($enzymeMappingData,$row);
 	}
 } else {
 	$msg = "The query generated no results.  " . $dataWrap['msg'];
