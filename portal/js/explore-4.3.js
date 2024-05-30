@@ -242,16 +242,23 @@ function clickResponse(node) {
 	var rd = data[localAcc].residues;
 	var rv = data[localAcc].rule_violations;
         var ingg = (data[localAcc].structure.inglygen == 1);
-        var treetype = "-";
+        var treetypen = 0;
+        var treetypeo = 0;
+        var nodecnt = 0;
 	for (var r in rd) {
-          console.log(r);
+          // console.log(r);
+          nodecnt += 1;
           if (/^#N/.test(r)) {
-            treetype = "N";
-            break;
+            treetypen += 1;
           } else if (/^#O/.test(r)) {
-            treetype = "O";
-            break;
+            treetypeo += 1;
           }
+        }
+        var treetype = '-'
+        if (nodecnt == treetypen) {
+            treetype = 'N';
+        } else if (nodecnt == treetypeo) {
+            treetype = 'O';
         }
 	if (v > 5) console.log("clicked " + type + " in image of " + localAcc +
 			" (" + id + ") " + treetype + ".");
