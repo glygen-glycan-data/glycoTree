@@ -11,7 +11,7 @@
 */
 
 // constants
-var v = 1; // verbosity of console.log
+var v = 5; // verbosity of console.log
 var nodeType = {'R':'residue', 'L':'link', 'LI':'text', 'C':'canvas', 'A':'annotation'};
 var greek = {'a': '&alpha;', 'b': '&beta;', 'x': '?','o': 'acyclic', 'n': ""};
 // data variables
@@ -263,7 +263,7 @@ function clickResponse(node) {
         } else if (nodecnt == treetypeo) {
             treetype = 'O';
         }
-        console.log("blah, blah, blah:",treetype,nodecnt,treetypen,treetypeo);
+        // console.log("blah, blah, blah:",treetype,nodecnt,treetypen,treetypeo);
 	if (v > 5) console.log("clicked " + type + " in image of " + localAcc +
 			" (" + id + ") " + treetype + ".");
 	//$("#caveatDiv").css("visibility", "hidden");
