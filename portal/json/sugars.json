@@ -73,6 +73,14 @@
                         "pubchem": "Neu5Gc"
 		},	
 		{
+			"name": "Kdn",
+			"shape": "diamond",
+			"color": "#00A651",
+			"stdAbsolute": "D",
+			"stdRing": "p",
+                        "pubchem": "Kdn"
+		},	
+		{
 			"name": "GalNAc",
 			"shape": "square",
 			"color": "#FFD400",
