@@ -73,7 +73,7 @@
                         "pubchem": "Neu5Gc"
 		},	
 		{
-			"name": "Kdn",
+			"name": "KDN",
 			"shape": "diamond",
 			"color": "#00A651",
 			"stdAbsolute": "D",
