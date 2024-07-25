@@ -283,7 +283,7 @@ function clickResponse(node) {
 		//  and the residue is mappable to a glycoTree object
 		// ed is enzyme data for residues[resID]
 		var ed = rd['#' + resID].enzymes;
-                ed = filterEnzymesByRuleViolations(rd['#'+resID],ed,rv);
+                // ed = filterEnzymesByRuleViolations(rd['#'+resID],ed,rv);
 		setupEnzymeTable('enzymeTable', ed);
 	} else {
 		// the canvas itself was clicked
@@ -315,7 +315,7 @@ function filterEnzymesByRuleViolations(residue,enzymes,rule_violations) {
     var resid = residue.residue_id;
     var newenzymes = [];
     for (enz of enzymes) {
-         var good = true;
+         // var good = true;
          // for (rv of rule_violations) {
          // console.log(rv.id,rv.focus,resid,rv.enzyme,enz.uniprot);
          //  if (((rv.rule_id == 1) || (rv.rule_id == 2)) && (rv.focus == resid) && (rv.enzyme == enz.uniprot)) {
@@ -338,7 +338,20 @@ function getAllEnzymes(residueArray,rule_violations) {
 	for (key in residueArray) {
 		if (!key.includes("#")) {
 			var ed = residueArray[key].enzymes;
-                        ed = filterEnzymesByRuleViolations(residueArray[key],ed,rule_violations)
+			for (key2 in ed) {
+				var ok2add = (ed[key2].rule_violations === undefined);
+				for (i in allEnzymes) {
+					if (ed[key2].gene_name === allEnzymes[i].gene_name) {
+						ok2add = false;
+					}
+				}
+				if (ok2add) allEnzymes.push(ed[key2]);				
+			}
+		}
+        }
+	for (key in residueArray) {
+		if (!key.includes("#")) {
+			var ed = residueArray[key].enzymes;
 			for (key2 in ed) {
 				var ok2add = true;
 				for (i in allEnzymes) {
@@ -352,7 +365,6 @@ function getAllEnzymes(residueArray,rule_violations) {
 	}
 	return(allEnzymes);
 } // end of function getAllEnzymes()
-
 
 function setupResidueTable(tableName, tableData) {
 	var table = $('#'+tableName).DataTable( {
@@ -389,7 +401,13 @@ function setupResidueTable(tableName, tableData) {
 			},
 			{ 
 				"title": "Monosaccharide",
-				"data": "html_name"
+				"data": "html_name",
+                                render: function(data, type, row, meta) {
+                                        if (row['rule_violations'] !== undefined) {
+                                            data += '&nbsp;<img src="./svg/warn.svg" style="vertical-align: -5px" width=25 height=25>';
+                                        }
+                                        return data;
+                                }
 			},
 			{ 
 				"title": "Residue ID",
@@ -516,6 +534,9 @@ function setupEnzymeTable(tableName, tableData) {
 					if(type === 'display'){
 						data = '<a href="' + URLs["gene"] + data + 
 							'" target="genecards">' + data + '</a>';
+                                                if (row['rule_violations'] !== undefined) {
+                                                    data += '&nbsp;<img src="./svg/warn.svg" style="vertical-align: -5px" width=25 height=25>';
+                                                }
 					}
 					return data;
 				}
@@ -691,6 +712,13 @@ function showCaveats(acc) {
 		// enclose each residue_id in an anchor referring to method 'highlightResidue()'
 		var resStr = msg.match(/[NO][0-9]+/g);
 		var uniqueResStr = [...new Set(resStr)];
+                var newuniqres = [];
+                for (var r of uniqueResStr) {
+                     if (data[acc].residues["#"+r] !== undefined) {
+                         newuniqres.push(r);
+                     }
+                }
+                uniqueResStr = newuniqres;
 		$.each(uniqueResStr, function(index, value) { 
 			var replacement = "<a href=\"javascript:highlightResidue('" + value + "','" + acc + "');\">" + value + "</a>";
 			var regex = new RegExp(value, "g");

@@ -25,6 +25,7 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
 	// initialize elements of ruleData array
 	for ($i = 1; $i <= $ruleCount; $i++) $groupedRuleData[$i] = [];
 	
+        $enz2gn = [];
 	$resStructureArray = [];
 	$otherStructureArray = [];
 	$ruleArray = [];
@@ -79,6 +80,9 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
 			}
 		}
 		
+            foreach ($value["enzymes"] as $eind => $enz) {
+               $enz2gn[$enz["uniprot"]] = $enz["gene_name"];
+            }
 	}
 
 	$reqViolation = [];
@@ -98,32 +102,32 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
 					$resinStruct = array_key_exists($reqRes, $resStructureArray);
 					if (!$resinStruct) {
 						// the glycan does NOT contain reqRes (it is not in $resStructureArray)
-						if (!$fullymapped) {
-						    array_push($reqViolation, "enzyme " . $value['enzyme'] .
+						// if (!$fullymapped) {
+						    array_push($reqViolation, "enzyme " . $enz2gn[$value['enzyme']] .
 							  " transfers residue " . $focus . 
 							  " (" . $resStructureArray[$focus] . ") in " .
 							  $value['taxonomy'] . " - missing residue " . $reqRes .
 							  " (" . $otherStructureArray[$reqRes] . ")");
-                                                } else {
+                                                // } else {
 						    array_push($rawRuleData, $value);
-                                                }
+                                                // }
 					}
 				}
 				if (strpos($value['logic'], "blocked by residue [other_residue]")) {
 					$blockRes = $value['other_residue'];
 					$resinStruct = array_key_exists($blockRes, $resStructureArray);
-					if ($resinStruct || !$fullymapped) {
+					if ($resinStruct /* || !$fullymapped*/) {
 						// the glycan contains blockRes or there are unmapped residues
-						if (!$resinStruct) {
-						     array_push($blockViolation, "enzyme: " . $value['enzyme'] .
+						// if (!$resinStruct) {
+						     array_push($blockViolation, "enzyme: " . $enz2gn[$value['enzyme']] .
 							  "; &nbsp; transferred residue: " . $value['focus'] . 
 							  " (" . $resStructureArray[$focus] . ")" .
 							  "; &nbsp; blocking: " . $blockRes .
 							  " (" . $otherStructureArray[$blockRes] . ")" .
 							  "; &nbsp; species: " . $value['taxonomy']);
-                                                } else {
+                                                // } else {
 						     array_push($rawRuleData, $value);
-                                                }
+                                                // }
 					}
 				}
 				if (strpos($value['logic'], "abiotic")) {
@@ -151,9 +155,9 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
                         for ($j = 0; $j< sizeof($rawRuleData); $j++) {
                             $focus = $rawRuleData[$j]["focus"];
                             $enzyme = $rawRuleData[$j]["enzyme"];
-			    $bvstr = "enzyme: " . $enzyme . "; &nbsp; transferred residue: " . $focus . " ";
+			    $bvstr = "enzyme: " . $enz2gn[$enzyme] . "; &nbsp; transferred residue: " . $focus . " ";
                             if (strstr($blockViolation[$i],$bvstr) !== false) {
-                                $keepviolation = false;
+                                # $keepviolation = false;
                                 break;
                             }
                         }
@@ -411,22 +415,31 @@ function integrateData($connection, $compArray, $accession, $structure) {
 	$glycan["caveats"] = $features['caveats'];
 	$glycan["rule_violations"] = $features['rule_violations'];
         foreach ($glycan["residues"] as $rind => $res) {
-            $newenzymes = [];
             $resid = $res["residue_id"];
-            foreach ($res["enzymes"] as $eind => $enz) {
-                $good = true;
-                foreach ($glycan["rule_violations"] as $rvind => $rv) {
-                    if (($rv["focus"] == $resid) && ($rv["enzyme"] == $enz["uniprot"])) {
-                        # $glycan["residues"][$rind]["enzymes"][$eind]["rule_violation"] = $rv["instance"];
-                        $good = false;
-                        break;
+            $glycan["residues"][$rind]["rule_violations"] = [];
+            foreach ($glycan["rule_violations"] as $rvind => $rv) {
+                if ($rv["focus"] == $resid) {
+                    if (!$rv["enzyme"]) {
+                        array_push($glycan["residues"][$rind]["rule_violations"],$rv["instance"]);
+                    }
+                    foreach ($res["enzymes"] as $eind => $enz) {
+                        if ($rv["enzyme"] == $enz["uniprot"]) {
+                            if (!array_key_exists("rule_violations",$enz)) {
+                                $glycan["residues"][$rind]["enzymes"][$eind]["rule_violations"] = [];
+                            }
+                            array_push($glycan["residues"][$rind]["enzymes"][$eind]["rule_violations"],$rv["instance"]);
+                        }
                     }
                 }
-                if ($good) {
-                    array_push($newenzymes,$enz);
+            }
+            if (sizeof($glycan["residues"][$rind]["rule_violations"]) == 0) {
+                unset($glycan["residues"][$rind]["rule_violations"]);
+            }
+            foreach ($res["enzymes"] as $eind => $enz) {                                                                      
+                if (array_key_exists("rule_violations",$enz) && sizeof($enz["rule_violations"]) == 0) {
+                    unset($glycan["residues"][$rind]["enzymes"][$eind]["rule_violations"]);
                 }
             }
-            $glycan["residues"][$rind]["enzymes"] = $newenzymes;
         }
 	return($glycan);
 
