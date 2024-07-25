@@ -55,8 +55,8 @@ public class GenerateCSV {
 	static StringBuilder csvStr = null; 
 
         static String[] NAME2NAME = {
-                        "Neu,Kdn",
-                        "Neup,Kdnp"
+                        "Neu,KDN",
+                        "Neup,KDNp"
         };
 
 	/**
