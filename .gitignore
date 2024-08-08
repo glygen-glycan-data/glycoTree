@@ -54,3 +54,4 @@ SQL/scrape/
 SQL/bak/
 SQL/mysql*
 SQL/match*
+.env

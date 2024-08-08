@@ -2,21 +2,47 @@
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	text-align: center;
+	line-height: 1;
 }
 
 #header {
-	position: fixed;
-	top: 0px;
-	left : 0px;
-	top: 0px;
-	z-index: 99;
-	border: none;
 	background: #2F78B7;
-	padding: 5px 5px 5px;
-	outline: 0;
-	width: 100%;
-	height: 36px;
 	text-align: left;
+	line-height: normal;
+}
+
+#header_row {
+	padding-top: 0.3rem;
+}
+
+#header_cols {
+	display: flex;
+    align-items: center; 
+}
+
+div a {
+	text-decoration: none;
+}
+
+h3 {
+	font-size: 18.72px;
+	font-weight: 700;
+	margin-top: 0rem;
+}
+
+#glycan_residue {
+	font-size: 17px;
+	display: inline-block;
+}
+
+#button_style {
+	font-size: 13.33px;
+	line-height: 1;
+	border-radius: 3px;
+	border-color: rgba(73, 72, 72, 0.782);
+	border-width: 1px;
+	border-style: solid;
+	padding: 4px 7px 4px 7px
 }
 
 #progressDiv {
@@ -30,21 +56,24 @@ body {
 	opacity: 0.8;
 }
 
-#caveatDiv {
-	z-index: 95;
-	width: 880px;
-	padding-left: 20px;
-	padding-right: 20px;
-	background-color: #FFFFFF;
-	border: 2px solid #CCCCCC;
-	text-align: left;
-	visibility: hidden;
-}	
+.container-fluid {
+	margin: 0px;
+	padding: 0px;
+}
+
+
+#glycan_caveat {
+	font-size: 24px;
+	font-weight: 700;
+	padding-top:20px;
+	padding-bottom: 5px;
+}
+
+a:hover {
+	text-decoration: none;
+}
 
 div span {
-	height: 36px;
-	display: inline-block;
-	vertical-align: top;
 	color: white;
 	font-size: 36px;
 	font-weight: bold;
@@ -72,29 +101,12 @@ div span {
 
 
 #helpDiv {
-	position: fixed;
-	z-index: 90;
-	height: 50px;
-	width: 400px;
-	left: 20px;
-	top: 45px;
 	background-color: rgb(255,255,255);
 	color: #4376B2;
 	font-weight: bolder;
 	font-size: 20px;
 }
-	
 
-.svgDiv {
-	height: 200px;
-	width: 10px;
-	position: absolute;
-	top: 70px;
-	left : 20px;
-	background-color: rgb(255,255,255);
-	text-align: right;
-	border: none;
-}
 
 #div2 {
 	position: fixed;
@@ -108,15 +120,7 @@ div span {
 }
 
 #infoDiv {
-	z-index: 50;
-	position: fixed;
-	top: 20px;
-	left : 300px;
-	height: 90%;
-	width: 950px;
 	text-align: left;
-	padding: 20px;
-	overflow: auto;
 }
 
 .no_und {
@@ -126,6 +130,32 @@ div span {
 .head1 {
 	font-size: 18px;
 	font-weight: bold;
+	min-width: 0; 
+	box-sizing: border-box; 
+}
+
+#enzymeTable {
+	font-weight: normal;
+	font-size:16.33px;
+}
+
+.toggle-vis {
+	font-weight: normal;
+}
+
+#enzymeTable_info {
+	font-weight: normal;
+	font-size: 16.33px;
+}
+
+#enzymeTable_filter {
+	font-weight: normal;
+	font-size: 16.33px;
+}
+
+.row {
+	padding-left: 0px;
+	padding-right: 0px;
 }
 	
 #tabs {
@@ -185,30 +215,24 @@ div span {
 
 
 #tabbox {
-	position: absolute;
-	width:100%; 
-	left: 0px;
-	top: 100px;
-	height: 60px;
 	border-bottom: 3px double #ccc;
 }
 
-#contentbox {
-	position: absolute;
-	width:100%; 
-	left: 0px;
-	top: 80px;
-	border: none;
+.container-fluid {
+	display: flex;
+	flex-direction: column;
+}
+
+.tableContents {
+	display: flex;
+	flex-direction: column;
 }
 
 .tableHolder {
-	clear: both;           
-	width: 93%; 
-	text-align:left;
 	padding-top: 10px;
-	padding-left: 20px;
 	padding-right: 20px;
 }
+
 	
 .ttip {
   position: relative;
@@ -240,6 +264,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+
 .boxHighlight {
 	fill: rgb(233,239,244);
 	stroke: rgb(47,120,183);
@@ -266,9 +296,6 @@ body {
 	visibility: hidden;
 }
 
-body {
-	margin-right: 60px;
-}
 
 .zoomer {
 	transform: scale(1);
@@ -291,6 +318,12 @@ select.downloader {
 	color: rgb(67,118,278);
 	background-color: white;
 	font: 18px Arial, sans-serif;
+}
+
+#download_icon {
+	text-align: left;
+	float: right;
+	text-wrap: nowrap;
 }
 
 select.downloader:focus {

@@ -9,6 +9,10 @@
 
 <title>GlyGen Sandbox</title>
 	
+<!-- Bootstrap import from local file repository -->
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+
+
 <link rel="icon" href="svg/sbSmall.svg" type="image/icon type">
 <link rel="stylesheet" type="text/css" href="css/explore.css">
 	
@@ -27,6 +31,7 @@
 	width: 70%;
 	border-style: none;
 	text-align: center;
+	max-height: 100vh;
 }
 		
 #iDiv {
@@ -40,14 +45,76 @@
 }
 
 #listDiv {
-	position: absolute;
-	z-index: 88;
-	left: 20px;
-	top: 60px;
-	width: 25%;
-	border-style: none;
+	visibility: visible; 
+	max-height: 100vh; 
+	overflow-y: auto;
+	max-width: 8rem;
 	text-align: left;
 }
+
+#headingContainer {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: left;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; 
+    margin: 0;
+	line-height: normal;
+}
+
+
+#filter {
+    width: 100%; 
+    max-width: 455px; 
+	max-height: 20px;
+	overflow: hidden;
+	font-size:13.33px;
+	padding: 1px;
+}
+
+input {
+	font-size: 13.33px;
+}
+
+#focus {
+	width: 142px;
+	height: 22px;
+}
+
+#filter option {
+    white-space: normal; 
+    overflow-wrap: break-word; 
+    /* padding: 0.5rem;  */
+}
+
+h3 {
+	display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+
+/* Media query for smaller screens */
+@media (max-width: 600px) { */
+    #filter {
+        max-width: 100%; 
+    }
+
+	#filter option {
+        font-size: 0.9rem; 
+    }
+} 
+
+
 
 </style>	
 	
@@ -85,7 +152,8 @@ function downloadSVG(a) {
 	
 function showList(selectedGlycans) {
 	var ld = $("#listDiv");
-	var listHTML = "<h3>Filtered Glycan List</h3><table>\n";
+	// var listHTML = "<h3>Filtered Glycan List</h3><table>\n";
+	var listHTML = "<table>\n";
 	for (var i = 0; i < selectedGlycans.length; i++) {
 		listHTML += "<tr>\n<td><a href=\"javascript:showImage('" +
 			selectedGlycans[i].glytoucan_ac + "');\">" +
@@ -243,49 +311,68 @@ function getGlycans() {
 		
 </head>
 
-<body onLoad=initialize();>
-	
-<div id="header" width=100%>
-<A href="https://glygen.org" target="_blank"><span id="header_1">GlyGen</span></A>
-<object id="logo_svg" type="image/svg+xml" data="svg/sbLogo.svg" class="logo"></object>
-<A href="."><span id="header_2">Sandbox</span></A>
-</div>
+	<body onLoad=initialize();>
 
+		<div class="container-fluid" style="margin:0px;"></div>
 
-<div id="imgDiv">
-	<h3>Explore Gycan Structures with GlycoTree</h3>
-	<label for="filter">Glycan List Filter:</label><br> 
-	<select name="filter" id="filter" onchange="getGlycans()">
-		<option value="all" selected>All glycans in DB</option>
-		<option value="all_N">All N-linked glycans in DB</option>
-		<option value="mapped_N">All fully mapped N-linked glycans in DB</option>
-		<option value="clean_mapped_N">All fully mapped and validated N-linked glycans in DB</option>
-		<option value="all_O">All O-linked glycans in DB</option>
-		<option value="mapped_O">All fully mapped O-linked glycans in DB</option>
-		<option value="clean_mapped_O">All fully mapped and validated O-linked glycans in DB</option>
-		<option value="sug">All glycans containing a specified sugar or substituent</option>
-		<option value="enz">All glycans containing a sugar potentially attached by a specified enzyme</option>
-		<option value="res">All glycans containing a specified canonical residue</option>
-	</select>
+			<div id="header">
+				<div class="row" id="header_row">
+					
+					<div class="col-6" id="header_cols">
+							<a href="https://glygen.org"><span>GlyGen</span></a>
+							<object id="logo_svg" type="image/svg+xml" data="svg/sbLogo.svg" class="logo"></object>
+							<a href="."><span id="header_2">Sandbox</span></a>
+					</div>
+				</div>
+			</div>
 
-	<div id="parDiv" style="visibility: hidden; text-align: center;" onchange="getGlycans()">
-		<label for="par" id="parLab">Data:</label>
-		<input name="par" id="par" type="text" maxlength="16" size="8" value="">
-	</div>
-	<br>
-	<form action="explore.html" method="get" target="_blank">
-		<label for="fname">GlyTouCan Accession:</label>
-		<input type="text" id="focus" name="focus">
-		<br><input type="submit" value="Explore This Glycan Structure">
-	</form>
-	
-	
-	<div id="iDiv">Structures will appear here<br>
-	</div>
-</div>
-  
-<div id="listDiv" style="visibility: visible">
-</div>
+			<div class="row">
+				<div class="col-4" style="margin-left:1.2rem">
+					<div id="headingContainer">
+						<h3>Glycan List</h3>
+					</div>
+					
+					<div id="listDiv"></div>
+					
+				</div>
 
-</body>
+				<div class="col">
+					<div id="imgDiv">
+						<h3>Explore Gycan Structures with GlycoTree</h3>
+						<label for="filter">Glycan List Filter:</label><br> 
+						<select name="filter" id="filter" onchange="getGlycans()">
+							<option value="all" selected>All glycans in DB</option>
+							<option value="all_N">All N-linked glycans in DB</option>
+							<option value="mapped_N">All fully mapped N-linked glycans in DB</option>
+							<option value="clean_mapped_N">All fully mapped and validated N-linked glycans in DB</option>
+							<option value="all_O">All O-linked glycans in DB</option>
+							<option value="mapped_O">All fully mapped O-linked glycans in DB</option>
+							<option value="clean_mapped_O">All fully mapped and validated O-linked glycans in DB</option>
+							<option value="sug">All glycans containing a specified sugar or substituent</option>
+							<option value="enz">All glycans containing a sugar potentially attached by a specified enzyme</option>
+							<option value="res">All glycans containing a specified canonical residue</option>
+						</select>
+					
+						<div id="parDiv" style="visibility: hidden; text-align: center;" onchange="getGlycans()">
+							<label for="par" id="parLab">Data:</label>
+							<input name="par" id="par" type="text" maxlength="16" size="8" value="">
+						</div>
+						<br>
+						<form action="explore.html" method="get" target="_blank">
+							<label for="fname">GlyTouCan Accession:</label>
+							<input type="text" id="focus" name="focus">
+							<br><input type="submit" value="Explore This Glycan Structure">
+						</form>
+						
+						
+						<div id="iDiv">Structures will appear here<br>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			
+
+		</div>
+	</body>
 </html>
