@@ -30,10 +30,10 @@ h3 {
 	margin-top: 0rem;
 }
 
-#glycan_residue {
+/* #glycan_residue {
 	font-size: 17px;
 	display: inline-block;
-}
+} */
 
 #button_style {
 	font-size: 13.33px;
@@ -105,6 +105,7 @@ div span {
 	color: #4376B2;
 	font-weight: bolder;
 	font-size: 20px;
+	height: 50px;
 }
 
 
@@ -159,12 +160,12 @@ div span {
 }
 	
 #tabs {
-	left: 5px;
+	/* left: 5px; */
 	width: 80%;
 	height: 30px; 
 	border-bottom: none;
 	padding-right: 2px;
-	margin-top: 28px;
+	/* margin-top: 28px; */
 }
 
 #tabs li {
@@ -214,9 +215,9 @@ div span {
 }
 
 
-#tabbox {
+/* #tabbox {
 	border-bottom: 3px double #ccc;
-}
+} */
 
 .container-fluid {
 	display: flex;
@@ -267,6 +268,7 @@ body {
 html, body {
     height: 100%;
     margin: 0;
+	overflow-x: hidden;
 }
 
 
@@ -279,6 +281,16 @@ html, body {
 .svgText {
 	font-size:18px;
 	stroke: none;
+}
+
+#parent_svg {
+	padding-top:1.5rem;
+	padding-bottom: 1rem;
+	overflow: hidden;
+}
+
+#child_svg {
+	overflow: hidden;
 }
 
 .annotationShown {

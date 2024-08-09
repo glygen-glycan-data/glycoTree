@@ -754,8 +754,11 @@ function showCaveats(acc) {
 	cavPanel.html(caveatTxt);
 	cavPanel.css("visibility","visible");
 
+	// set the below properties if caveatDiv is visible
 	if (cavPanel.css("visibility") === "visible") {
-        cavPanel.css("border", "2px solid #CCCCCC"); // Set border if visible
+        cavPanel.css("border", "2px solid #CCCCCC"); 
+		cavPanel.css("width", "98%");
+		cavPanel.css("margin-bottom", "1rem"); 
       } else {
         cavPanel.css("border", "none"); // Remove border if not visible
       }
@@ -874,14 +877,16 @@ function getInfoText(accession, resID, treetype, inglygen) {
 
 		txt += "</div>" 	// closing the col div
 
+		txt += "</div>"
+
 		txt += "<p></p>"
 
 		txt += "<p class='head1'>" + mStr["gnomeLink"] + "</p>\n";
 		
 		txt += "<div id='caveatDiv'></div>";
-		txt += "</div>" 	
+		// txt += "</div>" 	// closing the row div
 		
-		txt += "</div>" 	// closing the row div
+		txt += "</div>" 	
 
 		// START OF TABS DIV
 		txt += "<div class='row' id='myColumn'>"		// creating a row
@@ -892,7 +897,7 @@ function getInfoText(accession, resID, treetype, inglygen) {
 				<li><a href='#enzyme_table_div'>Enzymes</a></li> \n\
 				<li><a href='#glycan_table_div' class='gtd'>Related Glycans</a></li> \n\
 				</ul> \n\
-			</div> \n";
+			</div> <hr style='width:98%; border-bottom: 3px double #ccc;>\n";
 		// END OF TABS DIV
 		
 // 		// START OF CONTENT BOX
@@ -1578,8 +1583,8 @@ function displayGlycans() {
 	
 	// render the probe structure - write as text then add to sd
 	var htmlEncoding = "&emsp; <br><center><h3>" + dStr["imgHead"] + "</h3></center>";
-	htmlEncoding += "<p>" + svgEncoding[acc[0]] + "&emsp; <br></p><hr>";
-	htmlEncoding += "<center><b>" + mStr["listHead"] + "<br>" +
+	htmlEncoding += "<p id='parent_svg'>" + svgEncoding[acc[0]] + "&emsp; <br></p><hr>";
+	htmlEncoding += "<center style='padding-bottom:2.5rem'><b>" + mStr["listHead"] + "<br>" +
 		selectStrings[glycanSelector] + "</b></center>";
 
 
@@ -1599,7 +1604,7 @@ function displayGlycans() {
 			if (v > 3) {
 				console.log("*** key is " + key + " ***");
 			}
-			htmlEncoding += sep + "<p>" + svgEncoding[key];
+			htmlEncoding += sep + "<p style='padding-bottom:2rem'>" + svgEncoding[key];
 			sep = "&emsp; <br>";
 		}
 		htmlEncoding += "<br></p>"
