@@ -20,9 +20,9 @@ body {
     align-items: center; 
 }
 
-div a {
+/* div a {
 	text-decoration: none;
-}
+} */
 
 h3 {
 	font-size: 18.72px;
@@ -80,9 +80,16 @@ h3 {
 	padding-bottom: 5px;
 }
 
-a:hover {
-	text-decoration: none;
+a, a:link, a:hover {
+  color: #0066cc;
+  text-decoration: underline;
+  font-size: inherit;
+  font-weight: inherit;
 }
+
+/* a:hover {
+	text-decoration: none;
+} */
 
 div span {
 	color: white;
@@ -355,12 +362,14 @@ svg.downloader {
 	vertical-align: text-top;
 	height: 20px;
 	width: 20px;
+	color: #0066cc;
 }
 
 select.downloader {
 	cursor: pointer;
 	border-style: none;
-	color: rgb(67,118,278);
+	/* color: rgb(67,118,278); */
+	color: #0066cc;
 	background-color: white;
 	font: 18px Arial, sans-serif;
 }
@@ -369,15 +378,10 @@ select.downloader {
 	text-align: left;
 	float: right;
 	text-wrap: nowrap;
+	color: #0066cc;
 }
 
 select.downloader:focus {
 	outline: none;
 	box-shadow: none;
 }
-
-
-#right_column{
-	overflow-x:auto;
-}
-

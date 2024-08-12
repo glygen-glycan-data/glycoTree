@@ -854,7 +854,7 @@ function getInfoText(accession, resID, treetype, inglygen) {
 		var counts = countResidues(data[accession].residues);
 		// var thisSubCount = countElements(getSubstituents(accession));
 		txt += " - " + counts.resCount + " residues, " +
-			counts.subCount + " substituent(s) &nbsp; &nbsp; &nbsp; &nbsp;\n </div>";
+			counts.subCount + " substituent(s) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  \n </div>";
 			
 		txt += "</div>"		// closing the col div
 
@@ -864,9 +864,10 @@ function getInfoText(accession, resID, treetype, inglygen) {
 		
 		txt += "<svg class='downloader' xmlns:xlink='http://www.w3.org/1999/xlink' \n\
 			xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'> \n\
-			<path d='M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z' fill='rgb(67,118,278)'> \n\
+			<path d='M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z' fill='rgb(0, 102, 204)'> \n\
 			</path> \n\
 			</svg> \n"
+                        // <path d='M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z' fill='rgb(67,118,278)'> \n\
 		
 		txt += "<select class='downloader' name='selDown' id='selDown' onchange=\"downloadGlycan('" +
 			accession + "', this);\">\
