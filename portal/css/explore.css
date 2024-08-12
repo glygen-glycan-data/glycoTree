@@ -385,3 +385,7 @@ select.downloader:focus {
 	outline: none;
 	box-shadow: none;
 }
+
+#right_column{
+	overflow-x:hidden;
+}
