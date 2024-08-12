@@ -56,6 +56,17 @@ h3 {
 	opacity: 0.8;
 }
 
+
+
+/* Styles for smaller screens */
+/* @media only screen and (max-width: 1000px) { /* Adjust the max-width as needed
+	#parent_svg svg {
+	  overflow-x: auto; 
+	  overflow-y: hidden; 
+	  white-space: nowrap; 
+	}
+}  */
+
 .container-fluid {
 	margin: 0px;
 	padding: 0px;
@@ -286,12 +297,34 @@ html, body {
 #parent_svg {
 	padding-top:1.5rem;
 	padding-bottom: 1rem;
-	overflow: hidden;
+	overflow-y: hidden;
 }
 
-#child_svg {
-	overflow: hidden;
+#child_glycans {
+	overflow-y: hidden;
 }
+
+
+@media only screen and (max-width: 1300px) { 
+	#parent_svg {
+		max-width: 500px;
+	  	overflow-y: auto;
+	}
+
+	#parent_svg svg{
+		width: 400px;
+	}
+
+	#child_glycans{
+		max-width: 500px;
+	  	overflow-y: auto;
+	}
+
+	#child_glycans svg{
+		width: 400px;
+	}
+}
+
 
 .annotationShown {
 	font-size: 8px;
@@ -342,3 +375,9 @@ select.downloader:focus {
 	outline: none;
 	box-shadow: none;
 }
+
+
+#right_column{
+	overflow-x:auto;
+}
+

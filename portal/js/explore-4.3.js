@@ -1161,13 +1161,12 @@ function resize_svg() {
 	var s = sd.find('svg');
 
 	var container_width = sd.width();
-	// console.log("@@@@@@@@@@ CONTAINER WIDTH",container_width)
+	console.log("@@@@@@@@@@ CONTAINER WIDTH",container_width)
 	
 	for (var i = 0; i < s.length; i++) {
-
+		console.log(container_width - 50);
 		var new_width = container_width - 50;
-		$(s[i]).attr('width',new_width + 'px');
-		// $(s[i]).attr('height',200 + 'px');
+		$(s[i]).attr('width', new_width + 'px');
 	}
 	
 	annotateResidues();
@@ -1604,7 +1603,7 @@ function displayGlycans() {
 			if (v > 3) {
 				console.log("*** key is " + key + " ***");
 			}
-			htmlEncoding += sep + "<p style='padding-bottom:2rem'>" + svgEncoding[key];
+			htmlEncoding += sep + "<p id = 'child_glycans' style='padding-bottom:2rem'>" + svgEncoding[key];
 			sep = "&emsp; <br>";
 		}
 		htmlEncoding += "<br></p>"
