@@ -80,12 +80,12 @@ h3 {
 	padding-bottom: 5px;
 }
 
-a, a:link, a:hover {
+/* a, a:link, a:hover {
   color: #0066cc;
   text-decoration: underline;
   font-size: inherit;
   font-weight: inherit;
-}
+} */
 
 /* a:hover {
 	text-decoration: none;
