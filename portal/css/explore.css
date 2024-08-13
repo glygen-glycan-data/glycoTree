@@ -389,4 +389,5 @@ select.downloader:focus {
 
 #right_column{
 	overflow-x:auto;
+	overflow-y:hidden;
 }
