@@ -881,7 +881,7 @@ function getInfoText(accession, resID, treetype, inglygen) {
 
 		txt += "</div>"
 
-		// txt += "<p></p>"
+		txt += "<span style='font-size: 18px'>&nbsp;</span>"
 
 		txt += "<p class='head2'>" + mStr["gnomeLink"] + "</p>\n";
 		
