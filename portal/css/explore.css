@@ -56,17 +56,6 @@ h3 {
 	opacity: 0.8;
 }
 
-
-
-/* Styles for smaller screens */
-/* @media only screen and (max-width: 1000px) { /* Adjust the max-width as needed
-	#parent_svg svg {
-	  overflow-x: auto; 
-	  overflow-y: hidden; 
-	  white-space: nowrap; 
-	}
-}  */
-
 .container-fluid {
 	margin: 0px;
 	padding: 0px;
@@ -80,12 +69,12 @@ h3 {
 	padding-bottom: 5px;
 }
 
-/* a, a:link, a:hover {
+a, a:link, a:hover {
   color: #0066cc;
   text-decoration: underline;
   font-size: inherit;
   font-weight: inherit;
-} */
+}
 
 /* a:hover {
 	text-decoration: none;
@@ -149,8 +138,15 @@ div span {
 .head1 {
 	font-size: 18px;
 	font-weight: bold;
-	min-width: 0; 
-	box-sizing: border-box; 
+	/* margin-top:0px;
+	margin-bottom:30px; */
+}
+
+.head2 {
+	font-size: 18px;
+	font-weight: bold;
+	margin-top:5px;
+	margin-bottom:5px;
 }
 
 #enzymeTable {
@@ -302,17 +298,18 @@ html, body {
 }
 
 #parent_svg {
-	padding-top:1.5rem;
-	padding-bottom: 1rem;
-	overflow-y: hidden;
+	padding-bottom: 1.5rem;
+	margin:0px;
+	overflow: hidden;
 }
 
 #child_glycans {
-	overflow-y: hidden;
+	margin:0px;
+	overflow: hidden;
 }
 
-
-@media only screen and (max-width: 1300px) { 
+/* css to add scrollbars for SVG Glycans for smaller screens */
+/* @media (max-width: 1300px) { 
 	#parent_svg {
 		max-width: 500px;
 	  	overflow-y: auto;
@@ -330,7 +327,7 @@ html, body {
 	#child_glycans svg{
 		width: 400px;
 	}
-}
+} */
 
 
 .annotationShown {
@@ -387,5 +384,5 @@ select.downloader:focus {
 }
 
 #right_column{
-	overflow-x:hidden;
+	overflow-x:auto;
 }

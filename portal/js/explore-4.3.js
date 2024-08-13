@@ -759,6 +759,7 @@ function showCaveats(acc) {
         cavPanel.css("border", "2px solid #CCCCCC"); 
 		cavPanel.css("width", "98%");
 		cavPanel.css("margin-bottom", "1rem"); 
+		cavPanel.css("margin-top", "1rem"); 
       } else {
         cavPanel.css("border", "none"); // Remove border if not visible
       }
@@ -880,9 +881,9 @@ function getInfoText(accession, resID, treetype, inglygen) {
 
 		txt += "</div>"
 
-		txt += "<p></p>"
+		// txt += "<p></p>"
 
-		txt += "<p class='head1'>" + mStr["gnomeLink"] + "</p>\n";
+		txt += "<p class='head2'>" + mStr["gnomeLink"] + "</p>\n";
 		
 		txt += "<div id='caveatDiv'></div>";
 		// txt += "</div>" 	// closing the row div
