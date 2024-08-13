@@ -1145,8 +1145,9 @@ function setupFrames() {
 		var textElement = generateTextElement((w/2)-40, 0.96*h, 'svgText', "", accession);
 		s[i].appendChild(textElement);
 
-		var new_width = container_width - 50;
+		var new_width = container_width/1.3;
 		$(s[i]).attr('width',new_width + 'px');
+		$(s[i]).attr('height','auto');
 		// $(s[i]).attr('height',200 + 'px');
 	}
 	
@@ -1166,9 +1167,10 @@ function resize_svg() {
 	console.log("@@@@@@@@@@ CONTAINER WIDTH",container_width)
 	
 	for (var i = 0; i < s.length; i++) {
-		console.log(container_width - 50);
-		var new_width = container_width - 50;
+		console.log(container_width/1.3);
+		var new_width = container_width/1.3;
 		$(s[i]).attr('width', new_width + 'px');
+		$(s[i]).attr('height', 'auto');
 	}
 	
 	annotateResidues();
@@ -1585,7 +1587,7 @@ function displayGlycans() {
 	// render the probe structure - write as text then add to sd
 	var htmlEncoding = "&emsp; <br><center><h3>" + dStr["imgHead"] + "</h3></center>";
 	htmlEncoding += "<p id='parent_svg'>" + svgEncoding[acc[0]] + "&emsp; <br></p><hr>";
-	htmlEncoding += "<center style='padding-bottom:2.5rem'><b>" + mStr["listHead"] + "<br>" +
+	htmlEncoding += "<center><b>" + mStr["listHead"] + "<br>" +
 		selectStrings[glycanSelector] + "</b></center>";
 
 
@@ -1605,7 +1607,7 @@ function displayGlycans() {
 			if (v > 3) {
 				console.log("*** key is " + key + " ***");
 			}
-			htmlEncoding += sep + "<p id = 'child_glycans' style='padding-bottom:2rem'>" + svgEncoding[key];
+			htmlEncoding += sep + "<p id = 'child_glycans'>" + svgEncoding[key];
 			sep = "&emsp; <br>";
 		}
 		htmlEncoding += "<br></p>"

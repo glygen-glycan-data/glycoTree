@@ -28,6 +28,7 @@ h3 {
 	font-size: 18.72px;
 	font-weight: 700;
 	margin-top: 0rem;
+	margin-bottom: 0rem;
 }
 
 /* #glycan_residue {
@@ -299,6 +300,7 @@ html, body {
 
 #parent_svg {
 	padding-bottom: 1.5rem;
+	padding-top: 1.5rem;
 	margin:0px;
 	overflow: hidden;
 }
@@ -306,6 +308,8 @@ html, body {
 #child_glycans {
 	margin:0px;
 	overflow: hidden;
+	padding-bottom: 1rem;
+	padding-top: 1rem;
 }
 
 /* css to add scrollbars for SVG Glycans for smaller screens */
