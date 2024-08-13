@@ -47,10 +47,10 @@
 
 #listDiv {
 	visibility: visible; 
-	max-height: 100vh; 
-	overflow-y: auto;
-	max-width: 8rem;
-	text-align: left;
+	max-height: 80vh; 
+    overflow-y: scroll;  
+    width: 8.5rem;     
+    text-align: left;
 }
 
 #headingContainer {
@@ -315,7 +315,7 @@ function getGlycans() {
 
 	<body onLoad=initialize();>
 
-		<div class="container-fluid" style="margin:0px;"></div>
+		<div class="container-fluid" style="margin:0px;">
 
 			<div id="header">
 				<div class="row" id="header_row">
@@ -330,12 +330,16 @@ function getGlycans() {
 
 			<div class="row">
 				<div class="col-4" style="margin-left:1.2rem">
-					<div id="headingContainer">
-						<h3>Glycan List</h3>
+					<div class="row">
+						<div id="headingContainer">
+							<h3>Glycan List</h3>
+						</div>
 					</div>
 					
-					<div id="listDiv"></div>
-					
+					<div class="row">
+						<div id="listDiv"></div>
+					</div>
+
 					
 				</div>
 
