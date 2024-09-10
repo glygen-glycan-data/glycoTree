@@ -36,7 +36,21 @@ var pathStart = "none";
 var alternate = null;
 var trees = new Array();
 
+var isCaveat = false;
+var isCaveatClicked = false;
+
+var residue_tab_height = 0;
+// var residue_with_caveat = 0;
+var enzyme_tab_height = 0;
+var glycan_tab_height = 0;
+
+
 document.onkeydown = keySet;
+
+// since the residue table is always visible - it is good to compute the dimesnions whenever a 
+// user returns back to the default screen
+document.addEventListener('click', getResidueTableHeight);
+
 
 function highlight(node) {
 	if (v > 3) console.log("  highlighting node " +
@@ -190,12 +204,12 @@ function enterNode() {
 		var parts = parseID(id);
 		var t = ', ' + nodeType[parts['type']] + ' ';
 		var rid = parts['resID'];
-		var txt = "<br>&nbsp; Click now to explore glycan ";
+		var txt = "<div id='glycan_residue'><br>&nbsp; Click now to explore glycan ";
 		if (rid == 0) { // mouse over svg canvas
 			rid = '';
 			t = '';
 		}
-		txt +=  parts['accession'] + t + rid;
+		txt +=  parts['accession'] + t + rid + '</div>';
 		$('#'+hDiv).html(txt); 
 		if (v > 6) gNodeLog(this);
 	}
@@ -271,10 +285,15 @@ function clickResponse(node) {
 	var resID = parts["resID"];
 	var txt = getInfoText(localAcc, resID, treetype, ingg);
 	if (v > 5) console.log("##### Info Box content #####\n" + txt + "\n#####");
-	$("#"+iDiv).html(txt);
+	
+	// this is the iDiv (which corresponds to infoDiv in explore.html) which is 
+	// displayed on the RHS when a glycan is clicked.
+	// All the data is gathered from the function - getInfoText()
+	$("#"+iDiv).html(txt);   
 	
 	var caveats = data[localAcc].caveats;
 	if (caveats.length > 0) {
+		isCaveat = true;
 		showCaveats(localAcc);
 		minimizeCaveats(localAcc);
 	}
@@ -283,7 +302,7 @@ function clickResponse(node) {
 		//  and the residue is mappable to a glycoTree object
 		// ed is enzyme data for residues[resID]
 		var ed = rd['#' + resID].enzymes;
-                ed = filterEnzymesByRuleViolations(rd['#'+resID],ed,rv);
+                // ed = filterEnzymesByRuleViolations(rd['#'+resID],ed,rv);
 		setupEnzymeTable('enzymeTable', ed);
 	} else {
 		// the canvas itself was clicked
@@ -315,7 +334,7 @@ function filterEnzymesByRuleViolations(residue,enzymes,rule_violations) {
     var resid = residue.residue_id;
     var newenzymes = [];
     for (enz of enzymes) {
-         var good = true;
+         // var good = true;
          // for (rv of rule_violations) {
          // console.log(rv.id,rv.focus,resid,rv.enzyme,enz.uniprot);
          //  if (((rv.rule_id == 1) || (rv.rule_id == 2)) && (rv.focus == resid) && (rv.enzyme == enz.uniprot)) {
@@ -338,7 +357,20 @@ function getAllEnzymes(residueArray,rule_violations) {
 	for (key in residueArray) {
 		if (!key.includes("#")) {
 			var ed = residueArray[key].enzymes;
-                        ed = filterEnzymesByRuleViolations(residueArray[key],ed,rule_violations)
+			for (key2 in ed) {
+				var ok2add = (ed[key2].rule_violations === undefined);
+				for (i in allEnzymes) {
+					if (ed[key2].gene_name === allEnzymes[i].gene_name) {
+						ok2add = false;
+					}
+				}
+				if (ok2add) allEnzymes.push(ed[key2]);				
+			}
+		}
+        }
+	for (key in residueArray) {
+		if (!key.includes("#")) {
+			var ed = residueArray[key].enzymes;
 			for (key2 in ed) {
 				var ok2add = true;
 				for (i in allEnzymes) {
@@ -353,10 +385,9 @@ function getAllEnzymes(residueArray,rule_violations) {
 	return(allEnzymes);
 } // end of function getAllEnzymes()
 
-
 function setupResidueTable(tableName, tableData) {
 	var table = $('#'+tableName).DataTable( {
-
+                autoWidth: false,
 		data: tableData,
 		paging: false,
 		"columnDefs": [
@@ -364,7 +395,7 @@ function setupResidueTable(tableName, tableData) {
 		],
 		columns: [
 			{ 
-				"title": "<a href='https://www.ncbi.nlm.nih.gov/glycans/snfg.html' target='_blank'>SNFG Symbol</a>",
+				"title": "<a href='https://www.ncbi.nlm.nih.gov/glycans/snfg.html' target='_blank'>Symbol</a>",
 				"data": "name",
 				render: function(data, type, row, meta) {
 					var svgName = data.split("-")[0];
@@ -388,18 +419,24 @@ function setupResidueTable(tableName, tableData) {
 				}
 			},
 			{ 
-				"title": "Monosaccharide",
-				"data": "html_name"
+				"title": "Mono.",
+				"data": "html_name",
+                                render: function(data, type, row, meta) {
+                                        if (row['rule_violations'] !== undefined) {
+                                            data += '&nbsp;<img src="./svg/warn.svg" style="vertical-align: -5px" width=25 height=25>';
+                                        }
+                                        return data;
+                                }
 			},
 			{ 
-				"title": "Residue ID",
+				"title": "ID",
 				"data": "residue_id",
 				render: function(data, type, row, meta) {
 					return "<a href=\"javascript:highlightResidue('" + data + "','" + acc[0] + "');\">" + data + "</a>"
 				}
 			},
 			{ 
-				"title": "Linked to Residue",
+				"title": "Parent",
 				"data": "parent_id",
 				render: function(data, type, row, meta) {
 					if (data === "0") {
@@ -410,7 +447,7 @@ function setupResidueTable(tableName, tableData) {
 				}
 			},
 			{ 
-				"title": "Linkage Site",
+				"title": "Site",
 				"data": "site"
 			},
 			{ 
@@ -428,7 +465,7 @@ function setupRelatedGlycanTable(tableName, tableData) {
 	var nRes = data[acc[0]].residues.length;
 
 	var table = $('#'+tableName).DataTable( {
-
+                autoWidth: false,
 		data: tableData,
 		order: [[ 3, "asc" ]],
 		paging: false,
@@ -486,12 +523,12 @@ function setupRelatedGlycanTable(tableName, tableData) {
 			},
 			
 			{ 
-				"title": "Substituents",
+				"title": "Subst.",
 				"data": "sub_count"
 			},
 			
 			{ 
-				"title": "Reducing End",
+				"title": "Red-End",
 				"data": "reducing_end"			
 			}
 		]
@@ -502,6 +539,7 @@ function setupRelatedGlycanTable(tableName, tableData) {
 
 function setupEnzymeTable(tableName, tableData) {
 	var table = $('#'+tableName).DataTable( {
+                autoWidth: false,
 		data: tableData,
 		paging: false,
                 "order": [[ 3, 'asc' ], [ 0, 'asc' ]],
@@ -516,6 +554,9 @@ function setupEnzymeTable(tableName, tableData) {
 					if(type === 'display'){
 						data = '<a href="' + URLs["gene"] + data + 
 							'" target="genecards">' + data + '</a>';
+                                                if (row['rule_violations'] !== undefined) {
+                                                    data += '&nbsp;<img src="./svg/warn.svg" style="vertical-align: -5px" width=25 height=25>';
+                                                }
 					}
 					return data;
 				}
@@ -527,17 +568,6 @@ function setupEnzymeTable(tableName, tableData) {
 					if(type === 'display'){
 						data = '<a href="' + URLs["glygen_protein"] + data + 
 							'" target="glygen">' + data + '</a>';
-					}
-					return data;
-				}
-			},
-			{ 
-				"title": "UniProt",
-				"data": "uniprot",
-				"render": function(data, type, row, meta){
-					if(type === 'display'){
-						data = '<a href="' + URLs["uniprot"] + data + 
-							'" target="uniprot">' + data + '</a>';
 					}
 					return data;
 				}
@@ -684,13 +714,20 @@ function showCaveats(acc) {
 		cavPanel.css("visibility","hidden");
 		return;
 	}
-	var caveatTxt = "<center><h2>Caveats for Glycan " + acc + "</h2></center><ul>";
+	var caveatTxt = "<center><h2 id='glycan_caveat'>Caveats for Glycan " + acc + "</h2></center><ul>";
 	for (var i in caveats) {
 		var msg = caveats[i]['msg'];
 		
 		// enclose each residue_id in an anchor referring to method 'highlightResidue()'
 		var resStr = msg.match(/[NO][0-9]+/g);
 		var uniqueResStr = [...new Set(resStr)];
+                var newuniqres = [];
+                for (var r of uniqueResStr) {
+                     if (data[acc].residues["#"+r] !== undefined) {
+                         newuniqres.push(r);
+                     }
+                }
+                uniqueResStr = newuniqres;
 		$.each(uniqueResStr, function(index, value) { 
 			var replacement = "<a href=\"javascript:highlightResidue('" + value + "','" + acc + "');\">" + value + "</a>";
 			var regex = new RegExp(value, "g");
@@ -706,6 +743,16 @@ function showCaveats(acc) {
 	caveatTxt += "</ul> &nbsp; <a href=\"javascript:minimizeCaveats('" + acc + "');\">less ...</a>";
 	cavPanel.html(caveatTxt);
 	cavPanel.css("visibility","visible");
+
+	// set the below properties if caveatDiv is visible
+	if (cavPanel.css("visibility") === "visible") {
+        cavPanel.css("border", "2px solid #CCCCCC"); 
+		cavPanel.css("width", "98%");
+		cavPanel.css("margin-bottom", "1rem"); 
+		cavPanel.css("margin-top", "1rem"); 
+      } else {
+        cavPanel.css("border", "none"); // Remove border if not visible
+      }
 	repositionInfo(acc);
 }
 
@@ -773,78 +820,101 @@ function highlightResidue(resID, ac) {
 }
 
 function repositionInfo(acc) {
-	var caveats = data[acc].caveats;
-	var cavPanel = $("#caveatDiv");
-	var tabTop = cavPanel.height() + 122;
-	$("#tabbox").css("top", tabTop + "px");
-	var contentTop = tabTop + 60;
-	$("#contentbox").css("top", contentTop + "px");
-	cavPanel.css('left', $("#infoDiv").css("left"));
+	// var caveats = data[acc].caveats;
+	// var cavPanel = $("#caveatDiv");
+	// var tabTop = cavPanel.height() + 122;
+	// $("#tabbox").css("top", tabTop + "px");
+	// var contentTop = tabTop + 60;
+	// $("#contentbox").css("top", contentTop + "px");
+	// cavPanel.css('left', $("#infoDiv").css("left"));
+	console.log("no need for reposition - Using bootstrap containers now")
 }
 
 
 function getInfoText(accession, resID, treetype, inglygen) {
 	customStrings(accession, resID, treetype, inglygen);
-	var txt = "<p class='head1'>" + mStr["infoHead"]; 
+	var txt = "<div class='container-fluid' style='padding-left:0px'>" 
+	
+	txt += "<div class='row'>"
+
+	txt += "<div class='col'>"
+
+	txt += "<div class='head1'>" + mStr['infoHead']; 
 	if (resID == '0') {
 		// the background canvas was clicked
 		var counts = countResidues(data[accession].residues);
 		// var thisSubCount = countElements(getSubstituents(accession));
 		txt += " - " + counts.resCount + " residues, " +
-			counts.subCount + " substituent(s) &nbsp; &nbsp; &nbsp; &nbsp; \n";
-		
-		txt += "<svg xmlns:xlink='http://www.w3.org/1999/xlink' \n\
-xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='downloader'> \n\
-  <path d='M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z' fill='rgb(67,118,278)'> \n\
-  </path> \n\
-</svg> \n"
-		
-		txt += "<select name='selDown' id='selDown' onchange=\"downloadGlycan('" +
-			accession + "', this);\" class='downloader'>\
-  <option value='none' selected disabled hidden>DOWNLOAD</option> \n\
-  <option value='svg'>SVG Image</option> \n\
-  <option value='json'>Glycan Data</option> \n\
-</select> \n";
+			counts.subCount + " substituent(s) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  \n </div>";
+			
+		txt += "</div>"		// closing the col div
 
-		txt += "<p class='head1'>" + mStr["gnomeLink"] + "</p>\n";
+		txt += "<div class='col-3'>"
+
+		txt += "<div id='download_icon'>"
 		
-		var cavTop = 92;
-		var tabTop = cavTop;
-		var contentTop = tabTop + 60;
+		txt += "<svg class='downloader' xmlns:xlink='http://www.w3.org/1999/xlink' \n\
+			xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'> \n\
+			<path d='M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z' fill='rgb(0, 102, 204)'> \n\
+			</path> \n\
+			</svg> \n"
+                        // <path d='M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z' fill='rgb(67,118,278)'> \n\
 		
-		txt += "<div id='caveatDiv' style='top: " + cavTop + "px;'> ... </div>";
+		txt += "<select class='downloader' name='selDown' id='selDown' onchange=\"downloadGlycan('" +
+			accession + "', this);\">\
+			<option value='none' selected disabled hidden>DOWNLOAD</option> \n\
+			<option value='svg'>SVG Image</option> \n\
+			<option value='json'>Glycan Data</option> \n\
+			</select></div>\n";
+
+		txt += "</div>" 	// closing the col div
+
+		txt += "</div>"
+
+		txt += "<span style='font-size: 18px'>&nbsp;</span>"
+
+		txt += "<p class='head2'>" + mStr["gnomeLink"] + "</p>\n";
 		
+		txt += "<div id='caveatDiv'></div>";
+		// txt += "</div>" 	// closing the row div
+		
+		txt += "</div>" 	
+
 		// START OF TABS DIV
-		txt += "<div id='tabbox' style='top: " + tabTop + "px;'> \n\
-<ul id='tabs'> \n\
-	<li><a href='#residue_table_div'>Residues</a></li> \n\
-	<li><a href='#enzyme_table_div'>Enzymes</a></li> \n\
-	<li><a href='#glycan_table_div' class='gtd'>Related Glycans</a></li> \n\
-	</ul> \n\
-</div> \n";
+		txt += "<div class='row' id='myColumn'>"		// creating a row
+
+		txt += "<div id='tabbox'> \n\
+			<ul id='tabs'> \n\
+				<li><a href='#residue_table_div'>Residues</a></li> \n\
+				<li><a href='#enzyme_table_div'>Enzymes</a></li> \n\
+				<li><a href='#glycan_table_div' class='gtd'>Related Glycans</a></li> \n\
+				</ul> \n\
+			</div> <hr style='width:98%; border-bottom: 3px double #ccc;>\n";
 		// END OF TABS DIV
 		
-		// START OF CONTENT BOX
-		txt += "<div id='contentbox' style='top: " + contentTop +"px'> \n";
+// 		// START OF CONTENT BOX
+		txt += "<div id='contentbox'> \n";
 	
 		// START OF RESIDUE TABLE SECTION
 		txt += "<div class='tableHolder' id='residue_table_div'> \n\
-  <b>Residues in " + accession + "</b> \n\
-  <table id='residueTable' class='display' width='100%'></table> \n\
-</div> \n";
+			<b>Residues in " + accession + "</b> \n\
+			<table id='residueTable' class='display' width='100%'></table> \n\
+			</div> \n";
 		// END OF RESIDUE TABLE SECTION
 		
 		
 		// START OF ENZYME TABLE SECTION
 		txt += "<div class='tableHolder' id='enzyme_table_div'> \n\
-	<b>" + mStr["enzAll"] + 
-	"<a href=\"javascript: document.getElementById('table_end').scrollIntoView();\" class='no_und'> \
-	<sup>&#135;</sup></a></b></p> \n\
-	<table id='enzymeTable' class='display' width='100%'></table> \n\
-	<p id='table_end'> \n\
-		<sup>&#135;</sup>" + dStr["tableEnd"] +
-	"</p> \n\
-</div> \n";
+			<b>" + mStr["enzAll"] + 
+			"<a href=\"javascript: document.getElementById('table_end').scrollIntoView();\" class='no_und'> \
+			<sup>&#135;</sup></a></b></p> \n\
+				<div id='enzyme_table_setup'> \n\
+					<table id='enzymeTable' class='display' width='100%'></table> \n\
+					<p id='table_end'> \n\
+					<sup>&#135;</sup>" + dStr["tableEnd"] +
+					"</p> \n\
+				</div> \n\
+			</div> \n";
 		// END OF ENZYME TABLE SECTION
 		
 		
@@ -877,8 +947,6 @@ xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='downloader'> \n\
 		txt += "</div> \n"
 		// END OF GLYCAN TABLE SECTION
 		
-
-		
 		// END OF CONTENT BOX
 		txt += "</div>\ \n";
 
@@ -896,7 +964,7 @@ xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='downloader'> \n\
 					txt += "This residue has <b>not</b> been found in " + rd.not_found_in + "<br>";
 			if (typeof rd.notes != "undefined")
 				if (rd.notes.length > 0)
-					txt += "Status: " + rd.notes + "<br>";
+					txt += "<div style='font-weight:normal; font-size:16.33px;'>Status: " + rd.notes + "<br></div>";
 			if (typeof rd.requires_residue != "undefined")
 				if (rd.requires_residue.length > 0)
 					txt += "Enzymatic transfer of this canonical residue occurs only when residue " + rd.requires_residue + "  is present<br>";
@@ -906,21 +974,22 @@ xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' class='downloader'> \n\
 	
 			var svgName = rd.name.split("-")[0];
 			
-			txt += "<br> <a href='https://pubchem.ncbi.nlm.nih.gov/compound/" + svgName +
-"' target='pubchem'><img src='snfg_images/" + svgName + ".svg'></a> \n\
-&emsp;<b>" + rd.html_name + "</b> \n\
-linked to residue " + rd.parent_id + " at site " + rd.site +
-" (<a href='https://www.glygen.org/glycan/" + accession + 
-"#Digital-Sequence' target='glycoct'>GlycoCT</a> index: " + rd.glycoct_index + ") \n\
-<hr><p><b>" + mStr["enzHead"] + "</b> \n\
-<table id='enzymeTable' class='display' width='100%'></table> \n\
-<br> <b>Show/Hide Column: </b> \n\
-  <a class='toggle-vis' data-column='0'>Gene</a> | \n\
-  <a class='toggle-vis' data-column='1'>GlyGen</a> | \n\
-  <a class='toggle-vis' data-column='2'>UniProt</a> | \n\
-  <a class='toggle-vis' data-column='3'>Species</a> | \n\
-  <a class='toggle-vis' data-column='4'>Type</a> | \n\
-  <a class='toggle-vis' data-column='5'>Gene ID</a>";
+			txt += "<div style='font-weight:normal; font-size: 16.33px; align:center'><br> <a href='https://pubchem.ncbi.nlm.nih.gov/compound/" + svgName +
+			"' target='pubchem'><img src='snfg_images/" + svgName + ".svg'></a> \n\
+			&emsp;" + '<b>' + rd.html_name + '</b>' + " \n\
+			linked to residue " + rd.parent_id + " at site " + rd.site +
+			" (<a href='https://www.glygen.org/glycan/" + accession + 
+			"#Digital-Sequence' target='glycoct'>GlycoCT</a> index: " + rd.glycoct_index + ") </div>\n\
+			<hr><p><b style='font-size:16.33px'>" + mStr["enzHead"] + "</b> \n\
+			<table id='enzymeTable' class='display' width='100%'></table> \n\
+			<p></p> \n\
+			<div style='font-size:16.33px'> <b>Show/Hide Column: </b> \n\
+			<a class='toggle-vis' data-column='0'>Gene</a> | \n\
+			<a class='toggle-vis' data-column='1'>GlyGen</a> | \n\
+			<a class='toggle-vis' data-column='2'>UniProt</a> | \n\
+			<a class='toggle-vis' data-column='3'>Species</a> | \n\
+			<a class='toggle-vis' data-column='4'>Type</a> | \n\
+			<a class='toggle-vis' data-column='5'>Gene ID</a></div>";
 		} else {
 			txt += "</p><p>&#128683; The residue you clicked cannot be mapped to a glycoTree object &#128683;</p>"
 		}
@@ -1032,9 +1101,12 @@ function parseID(id) {
 	parts["resID"] = colonSplit[1];
 	return(parts);
 }  // end of function parseID()
-	
-	
+
+
+
 function setupFrames() {
+	console.log("SVG images were resized based on screen resize")
+
 	// resize iframe and information div's
 	if (v > 2) console.log("##### Resizing Frames #####");
 	var canvasH = 155;
@@ -1045,50 +1117,57 @@ function setupFrames() {
 	$(sd).addClass("svgDiv");
 	
 	var s = sd.find('svg');
+
+	var container_width = sd.width();
+	console.log("@@@@@@@@@@ CONTAINER WIDTH",container_width)
 	
 	for (var i = 0; i < s.length; i++) {
 		// put s[i] in parentheses after $ to make it a jquery object
 		var w = 1.0 * $(s[i]).attr('width');
 		var h = 1.0 * $(s[i]).attr('height');
 		var accession = $(s[i]).attr('id').split('-')[1];
-		if (v > 4) console.log("  svg[" + i + "] height: " + h + "; width: " + w );
+		if (v > 4) 
+			console.log("  svg[" + i + "] height: " + h + "; width: " + w );
 		canvasH +=  40 + h;
 		canvasW = Math.max(canvasW, w + 120);
 		// annotate canvas with accession by appending text element
 		// this annotation has no ID - it cannot be clicked and it is not toggled
 		var textElement = generateTextElement((w/2)-40, 0.96*h, 'svgText', "", accession);
 		s[i].appendChild(textElement);
-	}
-	
-	var newLeft = canvasW + 45;
 
-	// setup  svgDiv
-	sd.css("width", canvasW + "px");
-	sd.css("height", canvasH + "px");
-	
-	// setup the helpDiv
-	$('#' + hDiv).css("width", canvasW + "px");
-	
-	// setup the control div (div2)
-	$('#div2').css('left', newLeft + 'px');
-	
-	// setup the infoDiv
-	$('#' + iDiv).css('left', newLeft + 'px');
-	
-	// setup the caveatDiv
-	//$('#' + cDiv).css('left', newLeft + 'px');
-	
-	if (v > 4) {
-		console.log("  canvas -> height: " + canvasH + "; width: " +
-						canvasW );
-		console.log("  div2 -> left: " + newLeft + "; height: " +
-						canvasH );
+		var new_width = container_width/1.3;
+		$(s[i]).attr('width',new_width + 'px');
+		$(s[i]).attr('height','auto');
+		// $(s[i]).attr('height',200 + 'px');
 	}
 	
 	annotateResidues();
 	annotated = true;
 	toggleResidueAnnotations();
 } // end of function setupFrames()
+
+
+function resize_svg() {
+	console.log("SVG images were resized based on screen resize")
+
+	var sd = $("#" + sDiv);
+	var s = sd.find('svg');
+
+	var container_width = sd.width();
+	console.log("@@@@@@@@@@ CONTAINER WIDTH",container_width)
+	
+	for (var i = 0; i < s.length; i++) {
+		console.log(container_width/1.3);
+		var new_width = container_width/1.3;
+		$(s[i]).attr('width', new_width + 'px');
+		$(s[i]).attr('height', 'auto');
+	}
+	
+	annotateResidues();
+	annotated = true;
+	toggleResidueAnnotations();
+} // end of function setupFrames()
+	
 
 
 function toggleResidueAnnotations() {
@@ -1497,9 +1576,12 @@ function displayGlycans() {
 	
 	// render the probe structure - write as text then add to sd
 	var htmlEncoding = "&emsp; <br><center><h3>" + dStr["imgHead"] + "</h3></center>";
-	htmlEncoding += "<p>" + svgEncoding[acc[0]] + "&emsp; <br></p><hr>";
+	htmlEncoding += "<p id='parent_svg'>" + svgEncoding[acc[0]] + "&emsp; <br></p><hr>";
 	htmlEncoding += "<center><b>" + mStr["listHead"] + "<br>" +
 		selectStrings[glycanSelector] + "</b></center>";
+
+
+	htmlEncoding += "<div id='child_svg'>"
 
 	if (acc.length > 1) {
 		// selected data does NOT include the reference structure - only related structures
@@ -1515,11 +1597,13 @@ function displayGlycans() {
 			if (v > 3) {
 				console.log("*** key is " + key + " ***");
 			}
-			htmlEncoding += sep + "<p>" + svgEncoding[key];
+			htmlEncoding += sep + "<p id = 'child_glycans'>" + svgEncoding[key];
 			sep = "&emsp; <br>";
 		}
 		htmlEncoding += "<br></p>"
 	}
+
+	htmlEncoding += "</div>"
 
 	sd.append(htmlEncoding);
 	var s = sd.find("svg"); // all <svg> elements in svgDiv
@@ -1558,6 +1642,9 @@ function processFiles() {
 				clickResponse(topCanvas);			
 			}
 		}
+		
+		// calling this function to set a scrollbar on residue table when the page loads
+		// getResidueTableHeight();
 }
 
 
@@ -1709,6 +1796,7 @@ function initialize() {
 	$("#progressDiv").css("visibility","visible");
 	if (v > 0) console.log("##### Initializing #####");
 	setupAnimation('logo_svg', 'header');
+	// setupAnimation('logo_svg');
 	var arg = window.location.search.substring(1);
 	// setup arrays with input parameters
 	// account for http requests from html <form> (GET method)
@@ -1735,5 +1823,4 @@ function initialize() {
 	// fetch and process the images and data
 	getFiles(0);
 	wait2add();
-
 } // end of function initialize()

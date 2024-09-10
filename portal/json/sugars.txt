@@ -49,6 +49,13 @@
 			"stdRing": "p"
 		},	
 		{
+			"name": "KDN",
+			"shape": "diamond",
+			"color": "#00A651",
+			"stdAbsolute": "D",
+			"stdRing": "p"
+		},	
+		{
 			"name": "GalNAc",
 			"shape": "square",
 			"color": "#FFD400",

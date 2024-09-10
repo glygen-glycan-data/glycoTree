@@ -1,87 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-<meta charset="utf-8">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Expires" content="0">
 
-<title>GlyGen Sandbox: Explore</title>
-	
-<link rel="icon" href="svg/sbSmall.svg" type="image/icon type">
-<script src="js/sbheader.js"></script>
-<script src="js/referenceStrings.js"></script>
-<script src="js/explore-4.3.js"></script>
-<script src="js/json2svg_v1.4.js"></script>
-<link rel="stylesheet" type="text/css" href="css/explore.css">
-	
-<script src="js/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="js/datatables.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/datatables.min.css">
+		<title>GlyGen Sandbox: Explore</title>
 
-<!-- files required for buttons in jquery table - not used now
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script>
--->	
+		<!-- Bootstrap import from local file repository -->
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
 
-<script>
-// development variables
-var glycanPath = "api/glycan-v5.php";
-var configPath = "json/sugars.json";
-// context variables (HTML)
-var sDiv = "svgDiv";
-var hDiv = "helpDiv";
-var iDiv = "infoDiv";
-var cDiv = "caveatDiv";
-var iframeCSS = "css/iframeCSS.css";
-// appearance variables
-// global scope tCount used in logo transformations
-var tCount = 0;
-var boxHighlightColor = "rgb(255,239,207)";
-	
-</script>
-		
-</head>
+		<!-- Bootstrap import - direct import from CDN - not using this currently -->
+		<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+		<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
 
-<body onLoad=initialize();>
-	
-<div id="header" width=100%>
-	<a href="https://glygen.org" target="_blank">
-	  <span class='header_1'>GlyGen</span>
-	</a>
-	<object id="logo_svg" type="image/svg+xml" data="svg/sbLogo.svg" class="logo"></object>
-	<A href="."><span id="header_2">Sandbox</span></A>
-	<button onclick="showPathway()" style="position:absolute; right: 195px; top: 20px;">
-		Pathways
-	</button>
-	<button onclick="showMapped()" style="position:absolute; right: 125px; top: 20px;">
-		Mapped
-	</button>
-	<button onclick="toggleResidueAnnotations()" style="position:absolute; right: 30px; top: 20px;">
-		Residue IDs
-	</button>
-</div>
-	
-<div id="helpDiv" >
-	<br>Click a structure or a residue&#128071;
-</div>
+			
+		<link rel="icon" href="svg/sbSmall.svg" type="image/icon type">
+		<script src="js/sbheader.js"></script>
+		<script src="js/referenceStrings.js"></script>
+		<script src="js/explore-4.3.js"></script>
+		<script src="js/json2svg_v1.4.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/explore.css">
+			
+		<script src="js/jquery-3.5.1.min.js"></script>
+		<script type="text/javascript" src="js/datatables.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/datatables.min.css">
 
-<div id="svgDiv" >
-<p>Images go here</p>
-</div>
-	
-<div id="infoDiv" >
-	<center>
-		<h2>Click on a structure or residue</h2>
-		No biosynthetically related glycans have been found
-	</center>
-</div>
-	
-<div id="progressDiv">
-	<br><img style="margin:auto" src='svg/logogogo3.svg'>
-</div>
-	
-	
-</body>
+
+		<!-- files required for buttons in jquery table - not used now
+		<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
+		<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script>
+		-->	
+
+		<script>
+			// development variables
+			var glycanPath = "api/glycan-v5.php";
+			var configPath = "json/sugars.json";
+			// context variables (HTML)
+			var sDiv = "svgDiv";
+			var hDiv = "helpDiv";
+			var iDiv = "infoDiv";
+			var cDiv = "caveatDiv";
+			var iframeCSS = "css/iframeCSS.css";
+			// appearance variables
+			// global scope tCount used in logo transformations
+			var tCount = 0;
+			var boxHighlightColor = "rgb(255,239,207)";
+
+			window.addEventListener('resize', resize_svg);
+     	
+
+		</script>	
+	</head>
+
+	<body onLoad=initialize();>
+
+		<div class="container-fluid">
+
+			<div id="header">
+				<div class="row" id="header_row">
+					
+					<div class="col-6" id="header_cols">
+							<a href="https://glygen.org" style="text-decoration: none;"><span>GlyGen</span></a>
+							<object id="logo_svg" type="image/svg+xml" data="svg/sbLogo.svg" class="logo"></object>
+							<a href="." style="text-decoration: none;"><span id="header_2">Sandbox</span></a>
+					</div>
+
+					<div class="col" id="header_cols" style="justify-content: right;">
+						<div class="text-end" style="margin-right:5%">
+							<button onclick="showPathway()" id="button_style">
+								Pathways
+							</button>
+							<button onclick="showMapped()" id="button_style">
+								Mapped
+							</button>
+							<button onclick="toggleResidueAnnotations()" id="button_style">
+								Residue IDs
+							</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-5" id="svg_container">
+					<div id="helpDiv">
+						<br>Click a structure or a residue
+					</div>
+
+					<div id="svgDiv" style="padding-top: 0.5rem; margin-left:0.5rem">
+						<p>Images go here</p>
+					</div>
+
+				</div>
+
+				<div class="col" id="right_column" style="margin-top: 1rem; margin-right: 1rem;">
+
+					<div class="tableContents" id="infoDiv">
+							<center>
+								<h2>Click on a structure or residue</h2>
+								No biosynthetically related glycans have been found
+							</center>
+					</div>
+					
+				</div>
+			
+				<div id="progressDiv">
+					<br><img style="margin:auto" src='svg/logogogo3.svg'>
+				</div>
+
+			</div>
+		</div>
+	</body>
+
+</html>
  

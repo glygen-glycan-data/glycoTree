@@ -54,6 +54,11 @@ public class GenerateCSV {
 	 */
 	static StringBuilder csvStr = null; 
 
+        static String[] NAME2NAME = {
+                        "Neu,KDN",
+                        "Neup,KDNp"
+        };
+
 	/**
 	 * the core processing method.
 	 * @param args the command-line arguments for invoking the GenerateCSV class.<br>
@@ -71,6 +76,8 @@ public class GenerateCSV {
 
 		v = Integer.valueOf(args[2]);
 		if (v > 0) System.out.printf("\nverbosity is %d", v);
+
+                Map<String,String> name2name = generateMap(NAME2NAME);
 
 		ArrayList<String> files = new ArrayList<String>();
 		if (args[1].compareTo("list") == 0) {
@@ -133,8 +140,11 @@ public class GenerateCSV {
 						// ToDo: check if each res element has an apropriate value ... otherwise append appropriate default value (e.g., "0" or "x")
 						Map<String, String> res = residueList.get(k1);
 						csvStr.append("\n" + glycanName + ",unassigned," + k1) ;
-
-						appendCSVstr(res.get("name"), "none", csvStr);
+                                                if (name2name.get(res.get("name")) != null) {
+						    appendCSVstr(name2name.get(res.get("name")), "none", csvStr);
+                                                } else {
+						    appendCSVstr(res.get("name"), "none", csvStr);
+                                                }
 						appendCSVstr(res.get("anomer"), "x", csvStr);
 						// since the following line generates a substring, it must be first checked
 						if ( (res.get("absConfig") != null) && (!res.get("absConfig").isEmpty() ) ) 
@@ -142,7 +152,11 @@ public class GenerateCSV {
 						appendCSVstr(res.get("ring"), "x", csvStr);
 						appendCSVstr(res.get("parent"), "x", csvStr);
 						appendCSVstr(res.get("link_position"), "x", csvStr);
-						appendCSVstr(res.get("formName"), "none", csvStr);
+                                                if (name2name.get(res.get("formName")) != null) {
+						    appendCSVstr(name2name.get(res.get("formName")), "none", csvStr);
+                                                } else {
+						    appendCSVstr(res.get("formName"), "none", csvStr);
+                                                }
 					}
 					// csvStr is now complete, so write it out
 
@@ -187,6 +201,16 @@ public class GenerateCSV {
 			csvStr.append("," + defaultStr);
 		}
 	}
+
+        public static Map<String, String> generateMap(String[] mapString) {
+                Map<String, String> map = new HashMap<String, String>();
+                for (int i = 0; i < mapString.length; i++) {
+                        String[] kv = mapString[i].split(",");
+                        map.put(kv[0],  kv[1]);
+                }
+                return(map);
+        }
+
 
 	/**
 	 * parses a line in the GlycoCT file, populating the resList and subList Maps, which hold the attributes
