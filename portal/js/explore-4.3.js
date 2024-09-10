@@ -387,7 +387,7 @@ function getAllEnzymes(residueArray,rule_violations) {
 
 function setupResidueTable(tableName, tableData) {
 	var table = $('#'+tableName).DataTable( {
-
+                autoWidth: false,
 		data: tableData,
 		paging: false,
 		"columnDefs": [
@@ -395,7 +395,7 @@ function setupResidueTable(tableName, tableData) {
 		],
 		columns: [
 			{ 
-				"title": "<a href='https://www.ncbi.nlm.nih.gov/glycans/snfg.html' target='_blank'>SNFG Symbol</a>",
+				"title": "<a href='https://www.ncbi.nlm.nih.gov/glycans/snfg.html' target='_blank'>Symbol</a>",
 				"data": "name",
 				render: function(data, type, row, meta) {
 					var svgName = data.split("-")[0];
@@ -419,7 +419,7 @@ function setupResidueTable(tableName, tableData) {
 				}
 			},
 			{ 
-				"title": "Monosaccharide",
+				"title": "Mono.",
 				"data": "html_name",
                                 render: function(data, type, row, meta) {
                                         if (row['rule_violations'] !== undefined) {
@@ -429,14 +429,14 @@ function setupResidueTable(tableName, tableData) {
                                 }
 			},
 			{ 
-				"title": "Residue ID",
+				"title": "ID",
 				"data": "residue_id",
 				render: function(data, type, row, meta) {
 					return "<a href=\"javascript:highlightResidue('" + data + "','" + acc[0] + "');\">" + data + "</a>"
 				}
 			},
 			{ 
-				"title": "Linked to Residue",
+				"title": "Parent",
 				"data": "parent_id",
 				render: function(data, type, row, meta) {
 					if (data === "0") {
@@ -447,7 +447,7 @@ function setupResidueTable(tableName, tableData) {
 				}
 			},
 			{ 
-				"title": "Linkage Site",
+				"title": "Site",
 				"data": "site"
 			},
 			{ 
@@ -465,7 +465,7 @@ function setupRelatedGlycanTable(tableName, tableData) {
 	var nRes = data[acc[0]].residues.length;
 
 	var table = $('#'+tableName).DataTable( {
-
+                autoWidth: false,
 		data: tableData,
 		order: [[ 3, "asc" ]],
 		paging: false,
@@ -523,12 +523,12 @@ function setupRelatedGlycanTable(tableName, tableData) {
 			},
 			
 			{ 
-				"title": "Substituents",
+				"title": "Subst.",
 				"data": "sub_count"
 			},
 			
 			{ 
-				"title": "Reducing End",
+				"title": "Red-End",
 				"data": "reducing_end"			
 			}
 		]
@@ -539,6 +539,7 @@ function setupRelatedGlycanTable(tableName, tableData) {
 
 function setupEnzymeTable(tableName, tableData) {
 	var table = $('#'+tableName).DataTable( {
+                autoWidth: false,
 		data: tableData,
 		paging: false,
                 "order": [[ 3, 'asc' ], [ 0, 'asc' ]],
@@ -567,17 +568,6 @@ function setupEnzymeTable(tableName, tableData) {
 					if(type === 'display'){
 						data = '<a href="' + URLs["glygen_protein"] + data + 
 							'" target="glygen">' + data + '</a>';
-					}
-					return data;
-				}
-			},
-			{ 
-				"title": "UniProt",
-				"data": "uniprot",
-				"render": function(data, type, row, meta){
-					if(type === 'display'){
-						data = '<a href="' + URLs["uniprot"] + data + 
-							'" target="uniprot">' + data + '</a>';
 					}
 					return data;
 				}
