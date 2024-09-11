@@ -986,10 +986,10 @@ function getInfoText(accession, resID, treetype, inglygen) {
 			<div style='font-size:16.33px'> <b>Show/Hide Column: </b> \n\
 			<a class='toggle-vis' data-column='0'>Gene</a> | \n\
 			<a class='toggle-vis' data-column='1'>GlyGen</a> | \n\
-			<a class='toggle-vis' data-column='2'>UniProt</a> | \n\
-			<a class='toggle-vis' data-column='3'>Species</a> | \n\
-			<a class='toggle-vis' data-column='4'>Type</a> | \n\
-			<a class='toggle-vis' data-column='5'>Gene ID</a></div>";
+			<!-- <a class='toggle-vis' data-column='2'>UniProt</a> | --> \n\
+			<a class='toggle-vis' data-column='2'>Species</a> | \n\
+			<a class='toggle-vis' data-column='3'>Type</a> | \n\
+			<a class='toggle-vis' data-column='4'>Gene ID</a></div>";
 		} else {
 			txt += "</p><p>&#128683; The residue you clicked cannot be mapped to a glycoTree object &#128683;</p>"
 		}
