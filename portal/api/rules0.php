@@ -31,7 +31,7 @@ if ( ($result->num_rows) > 0) {
 }
 
 $finalResult['rule_instances'] = [];
-$query = "SELECT rule_data.*,rules.* FROM rule_data JOIN rules on (rule_data.rule_id=rules.rule_id) WHERE rule_data.focus=?";
+$query = "SELECT rule_data.*,rules.* FROM rule_data JOIN rules on (rule_data.rule_id=rules.rule_id) WHERE rule_data.focus=? ORDER BY taxonomy, enzyme, other_residue";
 $stmt = $connection->prepare($query);
 $stmt->bind_param("s", $focus);
 $stmt->execute(); 

@@ -105,19 +105,27 @@ if (is_null($submittedData['data'])) {
 	$stmt = $connection->prepare($query);
 	$stmt->bind_param("isssssssss", $rule_id, $focus, $enzyme, $other_residue, $polymer, $taxonomy, $curator_id, $refs, $comment, $status);
 
+        $enzymes = explode(',',$sData['enzyme']);
+	// echo "\nenzymes: '" . $enzymes.join(",") . "'";
+        
+        $taxas = explode(',',$sData['taxonomy']);
+	// echo "\ntaxas: '" . $taxas.join(",") . "'";
+        $residues = explode(',',$sData['other_residue']);
+        for ($i = 0; $i < sizeof($enzymes); $i++) {
+          for ($j = 0; $j < sizeof($residues); $j++) {
 	
 	echo "\nproposer: '" . $curator_id . "'";
 	$rule_id = 1 * $sData['rule_id'];
 	echo "\n  proposed assertion id: " . $rule_id; 
 	$focus = $sData['focus'];
 	echo "\n  focus: '" . $focus . "'"; 
-	$enzyme = $sData['enzyme'];
+	$enzyme = $enzymes[$i]; // $sData['enzyme'];
 	echo "\n  enzyme: '" . $enzyme . "'"; 
-	$other_residue = $sData['other_residue'];
+	$other_residue = trim($residues[$j]); // $sData['other_residue'];
 	echo "\n  other_residue: '" . $other_residue . "'"; 
 	$polymer = $sData['polymer'];
 	echo "\n  polymer: '" . $polymer . "'"; 
-	$taxonomy = $sData['taxonomy'];
+	$taxonomy = $taxas[$i]; // $sData['taxonomy'];
 	echo "\n  taxonomy: '" . $taxonomy . "'"; 
 	$refs = $sData['refs'];
 	echo "\n  refs: '" . $refs . "'"; 
@@ -129,7 +137,7 @@ if (is_null($submittedData['data'])) {
 		echo "\n\nNew record created successfully";
 	} else {
 		echo "\n\nUnable to create record";
-	}
+	} } }
 	
 }
 

@@ -764,8 +764,9 @@ function continue2(newRuleID) {
 	var ruleEnzyme = senz[0];
         if (senz.length > 1) {
             ruleTaxonomy = senz[1];
+	    continue3(newRuleID);
         }
-	if (ruleLogic.search(/(enzyme)/) > -1) {
+	else if (ruleLogic.search(/(enzyme)/) > -1) {
 		if (v > 1) console.log("Rule cites enzyme");
 		// the rule cites an enzyme (enzyme)
 		if (ruleEnzyme.length == 0) {
@@ -860,18 +861,23 @@ function continue1(keepParameters) {
         let values = [];
         let allsp = new Set();
         let me = enzymeData.mapped_enzymes;
+        let allenz = [];
+        let alltax = [];
         for (let i=0; i<me.length; i++) {
 	    let up = me[i]['uniprot'];
             let gn = me[i]['gene_name'];
             let sp = me[i]['species'];
             options.push(gn + " (" + up + ") in " + sp);
             values.push(up+":"+sp);
+            allenz.push(up);
+            alltax.push(sp);
         }
         
         let enzselect = "<select id='rule_enzyme'>";
         for (let i=0; i<options.length; i++) {
              enzselect += "<option value='"+values[i]+"'>"+options[i]+"</option>";
         }										  
+        enzselect += "<option value='"+allenz.join(",")+":"+alltax.join(",")+"'>All enzymes</option>";
         enzselect += "</select>";
 	var ruleInput = inference.replace("[enzyme] in [taxonomy]", enzselect);
 	ruleInput = ruleInput.replace("[other_residue]", "<input type='text' id='rule_other_residue' size='8' placeholder='e.g., N2'>");
