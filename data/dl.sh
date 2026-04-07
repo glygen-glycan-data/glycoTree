@@ -1,6 +1,7 @@
 #!/bin/sh
 
 set -x
+set -e
 
 PYGLY_SCRIPTS=../../PyGly/scripts
 GCTCONID=$PYGLY_SCRIPTS/glycotree_gctconid.py
