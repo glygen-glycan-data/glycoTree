@@ -41,6 +41,10 @@ if(!empty($limiter)) switch ($limiter) {
 	  $whereClause = "WHERE residue_id=?";
 	  $nPars = 1;
 	  break;		
+	case "parent_id":
+	  $whereClause = "WHERE parent_id=?";
+	  $nPars = 1;
+	  break;		
 	case "rule_id":
 	  $whereClause = "WHERE rules.rule_id=?";
 	  $nPars = 1;
@@ -96,7 +100,7 @@ if(!empty($limiter)) switch ($limiter) {
 	  $whereClause = "WHERE rule_data.rule_id=0";
 }
 
-$query = "SELECT canonical_residues.residue_id,canonical_residues.anomer,canonical_residues.absolute,canonical_residues.form_name,canonical_residues.site,rule_data.*,rules.logic FROM canonical_residues LEFT JOIN rule_data ON (rule_data.focus = canonical_residues.residue_id) LEFT JOIN rules ON (rules.rule_id = rule_data.rule_id) $whereClause ORDER BY SUBSTR(canonical_residues.residue_id, 1, 1), cast(SUBSTR(canonical_residues.residue_id, 2, 4) as UNSIGNED)";
+$query = "SELECT canonical_residues.residue_id,canonical_residues.anomer,canonical_residues.absolute,canonical_residues.form_name,canonical_residues.site,canonical_residues.parent_id,rule_data.*,rules.logic FROM canonical_residues LEFT JOIN rule_data ON (rule_data.focus = canonical_residues.residue_id) LEFT JOIN rules ON (rules.rule_id = rule_data.rule_id) $whereClause ORDER BY SUBSTR(canonical_residues.residue_id, 1, 1), cast(SUBSTR(canonical_residues.residue_id, 2, 4) as UNSIGNED), taxonomy, enzyme, other_residue";
 //echo "$query\n\n";
 //echo "limiterVal is $limiterVal";
 $stmt = $connection->prepare($query);

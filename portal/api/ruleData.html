@@ -113,9 +113,10 @@ function fetchData() {
 	
 function showRules(data, URIbutton) {
 	var resultStr = URIbutton + "<table id='rules_table'>\n  ";
-	resultStr += "<tr><th>Residue ID</th><th>Focus</th><th>Structure</th><th>Rule ID</th><th>Status</th><th>Assertion</th><th>Logic</th><th>Reference(s)</th><th>Comment</th><th>proposer</th><th>disputer</th></tr>";
+	resultStr += "<tr><th>Residue ID</th><th>Focus</th><th>Structure</th><th>Parent ID</th><th>Rule ID</th><th>Status</th><th>Assertion</th><th>Logic</th><th>Reference(s)</th><th>Comment</th><th>proposer</th><th>disputer</th></tr>";
 	for (var i = 0; i < data.length; i++) {
 		var resid = data[i]['residue_id'];
+		var parid = data[i]['parent_id'];
 		var anomer = data[i]['anomer'].replace("a","&alpha;");
 		anomer = anomer.replace("b","&beta;");
 		var structure = anomer + "-" + data[i]['absolute'] +
@@ -131,7 +132,7 @@ function showRules(data, URIbutton) {
 		var status = data[i]['status'];
 		var resLink = "<a href='rules1.html?focus=" + resid + "' target='_blank'>" + resid + "</a>";
 		resultStr += "<tr><td style='white-space: nowrap'>" + resLink + "</td><td>" + focus + 
-			"</td><td>" + structure + "</td><td>" + ruleID + "</td><td>" + status +
+			"</td><td>" + structure + "</td><td>" + parid + "</td><td>" + ruleID + "</td><td>" + status +
 			"</td><td>" + assertion + "</td><td>" + logic +
 			"</td><td>" + ruleRef + "</td><td>" + ruleComment +
 			"</td><td>" + proposer +  
