@@ -25,4 +25,6 @@ HEADERS="instance,residue_name,residue_id,type,uniprot,notes,status,proposer_id,
 HEADERS="instance,rule_id,focus,enzyme,other_residue,polymer,taxonomy,proposer_id,refs,comment,status,administrator,disputer_id"
 ./dumptsv.sh rule_data "$HEADERS" | $MYSQL > rule_data.tsv
 
+mv ../model/enzyme_mappings.csv ../model/enzyme_mappings.$(date +%Y-%m-%d).csv
+mv ../model/rule_data.tsv ../model/rule_data.$(date +%Y-%m-%d).tsv
 cp -f enzyme_mappings.csv rule_data.tsv ../model
