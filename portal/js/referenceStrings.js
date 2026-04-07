@@ -31,18 +31,27 @@ var dStr = {
 	"resTable": "Go to the Residue Table",
 	"glyTable": "Go to the Glycan Table",
 	"imgHead": "Reference Glycan",
-	"tableEnd":	"These data were compiled by \
-<a href='https://www.ccrc.uga.edu/personnel/index.php?uid=79&personnel=Non%20Tenure-Track%20Faculty' \
-target='_blank'>Dr. Alison Nairn</a>, and reflect knowledge accumulated by \
-Dr. Kelley Moremen, Dr. Nairn, and other members of Dr. Moremen's laboratory.  (See \
-<a href='https://www.ccrc.uga.edu/~moremen/glycomics/' target='_blank'><b>this web site</b></a>.) \
-<p>The proteins in this list are limited to those enzymes  \
+	"tableEnd":	"These enzymes' roles in the biosynthesis of this glycan structure were compiled \
+and curated by Dr. Alison Nairn, and reflect knowledge accumulated by \
+Dr. Kelley Moremen, Dr. Nairn, and other members of Dr. Moremen's \
+laboratory (see <A href=\"https://glycoenzymes.ccrc.uga.edu/Glycomics3/\">Glycan Biosynthetic Pathways</A>). \
+<p>Other enzymes shown to be associated with this glycan structure are inferred from online \
+resources, including \
+<A href=\"https://glycoenzymes.ccrc.uga.edu/Glycomics3/\">Glycan Biosynthetic Pathways</A>, \
+<A href=\"https://glycosmos.org/glycomaple/human\">GlycoMaple</A>, \
+<A href=\"https://glyco.me/glycopacity\">Glycopacity</A>, \
+<A href=\"https://github.com/neel-lab/GlycoEnzOnto\">GlycoEnzOnto</A>, \
+<!-- <A href=\"https://pubmed.ncbi.nlm.nih.gov/31227230/\">Narimatsu et al. (2019)</A>, -->\
+<!-- <A href=\"https://pubmed.ncbi.nlm.nih.gov/33087899/\">Schjoldager et al. (2020)</A>, -->\
+and <A href=\"https://www.ncbi.nlm.nih.gov/books/NBK579918/\">Essentials of Glycobiology</A>;  \
+or by orthology with curated enzymes by Abdullah Abdul and Dr. Nathan Edwards. Feedback <A href=\"https://github.com/glygen-glycan-data/glycoTree/issues\">welcomed</A>.\
+<p>The proteins in this list are limited to those enzymes \
 (e.g., glycosyl transferases) that <i>directly impact</i> (e.g., attach) \
 <b>residues that are mapped to GlycoTree <i>and</i> that are found in the mature glycan</b>. \
-<br>Enzymes involved in generating precursors \
-such as lipid-linked intermediates or nucleotide sugars are <b>not shown</b>.</p> \
+Enzymes involved in generating precursors \
+such as lipid-linked intermediates or nucleotide sugars are <b>not shown</b>. \
 Software to generate and display the full biosynthetic pathway for each glycan is currently under development. <br>\
-To see specific enzymes that directly impact each residue in the glycan, click on the \
+<p>To see specific enzymes that directly impact each residue in the glycan, click on the \
 <a href='https://www.ncbi.nlm.nih.gov/glycans/snfg.html' target='_blank'>SNFG</a> \
 symbol for that residue in a structure on the left."
 }

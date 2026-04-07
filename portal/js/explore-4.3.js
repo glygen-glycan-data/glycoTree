@@ -44,6 +44,13 @@ var residue_tab_height = 0;
 var enzyme_tab_height = 0;
 var glycan_tab_height = 0;
 
+var species_sort_order = {
+	'Homo sapiens': 0,
+	'Mus musculus': 1,
+	'Rattus norvegicus': 2,
+	'Sus scrofa': 3,
+	'Bos taurus': 4,
+}
 
 document.onkeydown = keySet;
 
@@ -360,21 +367,21 @@ function getAllEnzymes(residueArray,rule_violations) {
 			for (key2 in ed) {
 				var ok2add = (ed[key2].rule_violations === undefined);
 				for (i in allEnzymes) {
-					if (ed[key2].gene_name === allEnzymes[i].gene_name) {
+					if (ed[key2].uniprot === allEnzymes[i].uniprot) {
 						ok2add = false;
 					}
 				}
 				if (ok2add) allEnzymes.push(ed[key2]);				
 			}
 		}
-        }
+    }
 	for (key in residueArray) {
 		if (!key.includes("#")) {
 			var ed = residueArray[key].enzymes;
 			for (key2 in ed) {
 				var ok2add = true;
 				for (i in allEnzymes) {
-					if (ed[key2].gene_name === allEnzymes[i].gene_name) {
+					if (ed[key2].uniprot === allEnzymes[i].uniprot) {
 						ok2add = false;
 					}
 				}
@@ -542,7 +549,7 @@ function setupEnzymeTable(tableName, tableData) {
                 autoWidth: false,
 		data: tableData,
 		paging: false,
-                "order": [[ 3, 'asc' ], [ 0, 'asc' ]],
+                "order": [[ 2, 'asc' ], [ 0, 'asc' ]],
 		"columnDefs": [
 			{"className": "dt-center", "targets": "_all"}
 		],
@@ -552,11 +559,16 @@ function setupEnzymeTable(tableName, tableData) {
 				"data": "gene_name",
 				"render": function(data, type, row, meta){
 					if(type === 'display'){
-						data = '<a href="' + URLs["gene"] + data + 
-							'" target="genecards">' + data + '</a>';
-                                                if (row['rule_violations'] !== undefined) {
-                                                    data += '&nbsp;<img src="./svg/warn.svg" style="vertical-align: -5px" width=25 height=25>';
-                                                }
+                        if (row['species'] == "Homo sapiens") {
+						    data = '<a href="' + URLs["gene"] + data + 
+						    	   '" target="genecards">' + data + '</a>';
+                        }
+						if (row['curated']) {
+							data += '&nbsp;<img src="./svg/star-solid-full.svg" style="vertical-align: -2px" width=20 height=20>';
+						} 
+                        if (row['rule_violations'] !== undefined) {
+                            data += '&nbsp;<img src="./svg/warn.svg" style="vertical-align: -5px" width=25 height=25>';
+                        }
 					}
 					return data;
 				}
@@ -579,6 +591,8 @@ function setupEnzymeTable(tableName, tableData) {
 					if(type === 'display'){
 						data = '<a href="' + URLs["taxonomy"] + data + 
 							'" target="species">' + data + '</a>';
+					} else if (type === 'sort' || type === 'order') {
+						return species_sort_order[data]; 
 					}
 					return data;
 				}
@@ -906,12 +920,11 @@ function getInfoText(accession, resID, treetype, inglygen) {
 		// START OF ENZYME TABLE SECTION
 		txt += "<div class='tableHolder' id='enzyme_table_div'> \n\
 			<b>" + mStr["enzAll"] + 
-			"<a href=\"javascript: document.getElementById('table_end').scrollIntoView();\" class='no_und'> \
-			<sup>&#135;</sup></a></b></p> \n\
+			"</b></p> \n\
 				<div id='enzyme_table_setup'> \n\
 					<table id='enzymeTable' class='display' width='100%'></table> \n\
 					<p id='table_end'> \n\
-					<sup>&#135;</sup>" + dStr["tableEnd"] +
+					<img src=\"./svg/star-solid-full.svg\" style=\"vertical-align: -5px\" width=20 height=20>" + dStr["tableEnd"] +
 					"</p> \n\
 				</div> \n\
 			</div> \n";
@@ -989,7 +1002,11 @@ function getInfoText(accession, resID, treetype, inglygen) {
 			<!-- <a class='toggle-vis' data-column='2'>UniProt</a> | --> \n\
 			<a class='toggle-vis' data-column='2'>Species</a> | \n\
 			<a class='toggle-vis' data-column='3'>Type</a> | \n\
-			<a class='toggle-vis' data-column='4'>Gene ID</a></div>";
+			<a class='toggle-vis' data-column='4'>Gene ID</a> \n\
+			<div style='font-weight:normal;'><p id='table_end'> \n\
+			<img src=\"./svg/star-solid-full.svg\" style=\"vertical-align: -5px\" width=20 height=20>" + dStr["tableEnd"] + "\
+            </p></div> \n\
+			</div>";
 		} else {
 			txt += "</p><p>&#128683; The residue you clicked cannot be mapped to a glycoTree object &#128683;</p>"
 		}
