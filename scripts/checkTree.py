@@ -2,10 +2,10 @@
 
 import sys 
 
-from tree import GlycoTree
+from tree import GlycoTree, GlycoTreeDev
 from collections import defaultdict
 
-gt = GlycoTree()
+gt = GlycoTreeDev()
 origseeds = ['N2','N7','N5','N31','N9','O156','O157']
 # origseeds = ['N2','N7','N5','N31','N9']
 # origseeds = ['O156','O157']
