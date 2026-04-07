@@ -12,7 +12,7 @@ var selectStrings = {
 
 // template strings modified during runtime
 var templates = {
-        "glygenLink": " (<a href='@GLYGEN@ACCESSION' target='glygen_frame'>GlyGen Data</a>)",
+    "glygenLink": " (<a href='@GLYGEN@ACCESSION' target='glygen_frame'>GlyGen Data</a>)",
 	"infoHead": "Exploring glycan @ACCESSION@GLYGENLINK",
 	"listHead": "Glycans Biosynthetically Related to @ACCESSION",
 	"gnomeLink": "Explore accessions related to @ACCESSION using the <a href='@GNOME@ACCESSION' target='_blank'><i>GNOme Subsumption Navigator</i></a>",
