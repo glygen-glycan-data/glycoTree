@@ -65,5 +65,5 @@ var URLs = {
 	"glygen_protein": "https://www.glygen.org/protein/",
 	"uniprot": "https://www.uniprot.org/uniprot/",
 	"taxonomy": "https://www.ncbi.nlm.nih.gov/taxonomy/?term=",
-	"gene_id": "https://www.ncbi.nlm.nih.gov/gene/"
+	"gene_id": "https://www.ncbi.nlm.nih.gov/datasets/gene/"
 }
