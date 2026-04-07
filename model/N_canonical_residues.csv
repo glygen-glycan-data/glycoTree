@@ -477,3 +477,12 @@ N-glycan_sulfate_535,N535,sulfate,n,n,n,N523,3,sulfate,
 N-glycan_sulfate_536,N536,sulfate,n,n,n,N532,3,sulfate,
 N-glycan_sulfate_537,N537,sulfate,n,n,n,N533,3,sulfate,
 N-glycan_sulfate_538,N538,sulfate,n,n,n,N10,3,sulfate,
+N-glycan_a-D-NeupNAc_539,N539,NeuNAc,a,D,p,N34,8,NeupNAc,cloned from node N457
+N-glycan_a-D-NeupNAc_540,N540,NeuNAc,a,D,p,N16,8,NeupNAc,cloned from node N457
+N-glycan_a-D-NeupNAc_541,N541,NeuNAc,a,D,p,N46,8,NeupNAc,cloned from node N457
+N-glycan_a-D-NeupNAc_542,N542,NeuNAc,a,D,p,N38,8,NeupNAc,cloned from node N457
+N-glycan_a-D-NeupNAc_543,N543,NeuNAc,a,D,p,N457,8,NeupNAc,cloned from node N457
+N-glycan_a-D-NeupNAc_544,N544,NeuNAc,a,D,p,N539,8,NeupNAc,cloned from node N457
+N-glycan_a-D-NeupNAc_545,N545,NeuNAc,a,D,p,N540,8,NeupNAc,cloned from node N457
+N-glycan_a-D-NeupNAc_546,N546,NeuNAc,a,D,p,N541,8,NeupNAc,cloned from node N457
+N-glycan_a-D-NeupNAc_547,N547,NeuNAc,a,D,p,N542,8,NeupNAc,cloned from node N457
