@@ -339,7 +339,7 @@ function queryStructure($acc, $con) {
 *   int(6)
 *  }
 ***************************/
-function integrateData($connection, $compArray, $accession, $structure) {
+function integrateData($connection, $compArray, $accession, $structure=null) {
 	// integrates the data associated with the accession
 
 	// $glycan is an associative array that holds the integrated, hierarchical data
