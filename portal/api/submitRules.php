@@ -101,9 +101,9 @@ if (is_null($submittedData['data'])) {
 	echo "Proposing new assertion of rule " . $sData['rule_id'];
 	// process 'propose assertion' - data is in $submittedData['data']
 	//   NOTE: 'curator_id' is associated with 'proposer_id'
-	$query = "INSERT INTO rule_data (rule_id, focus, enzyme, other_residue, polymer, taxonomy, proposer_id, refs, comment, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	$query = "INSERT INTO rule_data (rule_id, focus, enzyme, enzyme_id, other_residue, polymer, taxonomy, proposer_id, refs, comment, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	$stmt = $connection->prepare($query);
-	$stmt->bind_param("isssssssss", $rule_id, $focus, $enzyme, $other_residue, $polymer, $taxonomy, $curator_id, $refs, $comment, $status);
+	$stmt->bind_param("ississsssss", $rule_id, $focus, $enzyme, $enz_id, $other_residue, $polymer, $taxonomy, $curator_id, $refs, $comment, $status);
 
         $enzymes = explode(',',$sData['enzyme']);
 	// echo "\nenzymes: '" . $enzymes.join(",") . "'";

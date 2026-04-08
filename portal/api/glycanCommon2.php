@@ -52,6 +52,7 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
 				$focus = $row['focus'];
 				$theRule['focus'] = $focus;
 				$theRule['enzyme'] = $row['enzyme'];
+				$theRule['enzyme_id'] = $row['enzyme_id'];
 				$otherResidue = $row['other_residue'];
 				$theRule['other_residue'] = $otherResidue;
 				// retrieve structure of otherResidue, when appropriate
@@ -354,7 +355,7 @@ function integrateData($connection, $compArray, $accession, $structure=null) {
 	$canon_stmt->bind_param("s", $resid);
 
 	// get enzyme information for residues from enzyme_mappings
-	$map_query = "SELECT enzyme_mappings.type,enzyme_mappings.uniprot,enzyme_mappings.notes,enzyme_mappings.proposer_id,enzyme_mappings.administrator,enzymes.protein_refseq,enzymes.dna_refseq,enzymes.gene_name,enzymes.gene_id,enzymes.species,enzymes.branch_site_specificity,enzymes.orthology_group FROM enzyme_mappings,enzymes WHERE enzyme_mappings.uniprot=enzymes.uniprot AND residue_id=?";
+	$map_query = "SELECT enzyme_mappings.type,enzymes.uniprot,enzyme_mappings.notes,enzyme_mappings.proposer_id,enzyme_mappings.administrator,enzymes.protein_refseq,enzymes.dna_refseq,enzymes.gene_name,enzymes.gene_id,enzymes.species,enzymes.branch_site_specificity,enzymes.orthology_group FROM enzyme_mappings,enzymes WHERE enzyme_mappings.enzyme_id=enzymes.enzyme_id AND residue_id=?";
 	$map_stmt = $connection->prepare($map_query);
 	$map_stmt->bind_param("s", $resid);
 

@@ -21,7 +21,7 @@ try {
     echo "glytoucan_ac\tresidue_name\tresidue_id\tuniprot\tgene_name\tgene_id\tparent_residue_id\tenzyme_type\tspecies\n";
     for ($i=0;$i<10;$i++) {
 
-	$query = "SELECT compositions.glytoucan_ac,compositions.residue_name,compositions.residue_id,enzyme_mappings.uniprot,gene_name,gene_id,compositions.parent_id,enzymes.type,enzymes.species FROM compositions,enzyme_mappings,enzymes,structure WHERE compositions.residue_id=enzyme_mappings.residue_id AND enzyme_mappings.uniprot=enzymes.uniprot AND compositions.glytoucan_ac LIKE ? AND structure.glytoucan_ac = compositions.glytoucan_ac;";
+	$query = "SELECT compositions.glytoucan_ac,compositions.residue_name,compositions.residue_id,enzymes.uniprot,gene_name,gene_id,compositions.parent_id,enzymes.type,enzymes.species FROM compositions,enzyme_mappings,enzymes,structure WHERE compositions.residue_id=enzyme_mappings.residue_id AND enzyme_mappings.enzyme_id=enzymes.enzyme_id AND compositions.glytoucan_ac LIKE ? AND structure.glytoucan_ac = compositions.glytoucan_ac;";
 	$stmt = $connection->prepare($query);
         $likearg = "G".strval($i)."%";
         $stmt->bind_param("s",$likearg);

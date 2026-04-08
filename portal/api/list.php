@@ -62,8 +62,8 @@ try {
 		  break;	
 		case "enz":
 		  $numPars = 2;
-		  # $query = "SELECT DISTINCT glytoucan_ac FROM compositions JOIN enzyme_mappings ON compositions.residue_name=enzyme_mappings.residue_name JOIN enzyme ON enzyme_mappings.uniprot=enyzmes.uniprot WHERE enzymes.gene_name=?;";
-		  $query = "SELECT DISTINCT glytoucan_ac FROM compositions, enzyme_mappings, enzymes WHERE ( enzymes.gene_name=? OR enzymes.uniprot=? ) AND compositions.residue_name=enzyme_mappings.residue_name AND enzyme_mappings.uniprot=enzymes.uniprot;";
+		  # $query = "SELECT DISTINCT glytoucan_ac FROM compositions JOIN enzyme_mappings ON compositions.residue_name=enzyme_mappings.residue_name JOIN enzyme ON enzyme_mappings.enzyme_id=enyzmes.enzyme_id WHERE enzymes.gene_name=?;";
+		  $query = "SELECT DISTINCT glytoucan_ac FROM compositions, enzyme_mappings, enzymes WHERE ( enzymes.gene_name=? OR enzymes.uniprot=? ) AND compositions.residue_name=enzyme_mappings.residue_name AND enzyme_mappings.enzyme_id=enzymes.enzyme_id;";
                   $par2 = $par;
 		  break;	
 		case "sug":

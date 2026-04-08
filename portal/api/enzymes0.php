@@ -39,7 +39,7 @@ if ( ($result->num_rows) > 0) {
 }
 
 $finalResult['mapped_enzymes'] = [];
-$query = "SELECT enzyme_mappings.*,enzymes.gene_name,enzymes.species FROM enzyme_mappings LEFT JOIN enzymes ON (enzyme_mappings.uniprot = enzymes.uniprot) WHERE enzyme_mappings.residue_id=? ORDER BY enzymes.species, enzymes.gene_name";
+$query = "SELECT enzyme_mappings.*,enzymes.uniprot,enzymes.gene_name,enzymes.species FROM enzyme_mappings LEFT JOIN enzymes ON (enzyme_mappings.enzyme_id = enzymes.enzyme_id) WHERE enzyme_mappings.residue_id=? ORDER BY enzymes.species, enzymes.gene_name";
 $stmt = $connection->prepare($query);
 $stmt->bind_param("s", $focus);
 $stmt->execute(); 
@@ -54,7 +54,7 @@ if ( ($result->num_rows) > 0) {
 }
 
 $finalResult['enzymes'] = [];
-$query = "SELECT DISTINCT enzymes.*, NOT ISNULL(canonical_residues.residue_id) as expected FROM enzymes LEFT JOIN enzyme_mappings ON  enzymes.uniprot = enzyme_mappings.uniprot LEFT JOIN canonical_residues ON enzyme_mappings.residue_id = canonical_residues.residue_id and canonical_residues.name = ? and canonical_residues.anomer = ? and canonical_residues.absolute = ? and canonical_residues.ring = ? and canonical_residues.site = ? ORDER BY enzymes.gene_name";
+$query = "SELECT DISTINCT enzymes.*, NOT ISNULL(canonical_residues.residue_id) as expected FROM enzymes LEFT JOIN enzyme_mappings ON  enzymes.enzyme_id = enzyme_mappings.enzyme_id LEFT JOIN canonical_residues ON enzyme_mappings.residue_id = canonical_residues.residue_id and canonical_residues.name = ? and canonical_residues.anomer = ? and canonical_residues.absolute = ? and canonical_residues.ring = ? and canonical_residues.site = ? ORDER BY enzymes.gene_name";
 $stmt = $connection->prepare($query);
 $stmt->bind_param("sssss", $finalResult['name'], $finalResult['anomer'], $finalResult['absolute'], $finalResult['ring'], $finalResult['site']);
 $stmt->execute(); 
