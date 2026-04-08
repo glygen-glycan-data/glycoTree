@@ -250,7 +250,7 @@ species_table = SpeciesTable()
 class Enzymes(ModelTable):
     filename = '../model/enzymes.csv'
     transform = {'taxid': (species_table.taxid,'species')}
-    unique = [ ('uniprot',) ]
+    unique = [ ('enzyme_id',), ('uniprot',) ]
 
 class ClusterTable(ModelTable):
     unique = [ ('clustid',) ]
@@ -486,15 +486,15 @@ class GlyGenProteinMasterlist(GlyGenTable):
 class EnzymeMapping(ModelTable):
     id_column = 'instance'
     filename = '../model/enzyme_mappings.csv'
-    unique = [ ('residue_id','uniprot') ]
-    indexes = [ ('uniprot',) ]
+    unique = [ ('residue_id','enzyme_id') ]
+    indexes = [ ('enzyme_id',) ]
 
 class RuleData(ModelTable):
     filename = '../model/rule_data.tsv'
     id_column = 'instance'
     # notnull = [ 'enzyme' ]
-    unique = [ ('rule_id','enzyme','focus','other_residue') ]
-    indexes = [ ('enzyme',) ]
+    unique = [ ('rule_id','enzyme_id','focus','other_residue') ]
+    indexes = [ ('enzyme_id',) ]
     # transform = {'uniprot': (str,'enzyme'), 'residue_id': (str,'focus')}
 
 # residue_name,residue_id,name,anomer,absolute,ring,parent_id,site,form_name,notes
