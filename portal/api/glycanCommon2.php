@@ -29,7 +29,7 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
 	$resStructureArray = [];
 	$otherStructureArray = [];
 	$ruleArray = [];
-	$queryText = "SELECT rule_data.*,rules.*,canonical_residues.anomer,canonical_residues.absolute,canonical_residues.form_name FROM rule_data LEFT JOIN rules ON (rule_data.rule_id = rules.rule_id) LEFT JOIN canonical_residues ON (canonical_residues.residue_id = rule_data.other_residue) LEFT JOIN enzymes ON (enzymes.enzyme_id = rule_data.enzyme_id) WHERE focus=?";
+	$queryText = "SELECT rule_data.*,rules.*,enzymes.uniprot as enzyme,canonical_residues.anomer,canonical_residues.absolute,canonical_residues.form_name FROM rule_data LEFT JOIN rules ON (rule_data.rule_id = rules.rule_id) LEFT JOIN canonical_residues ON (canonical_residues.residue_id = rule_data.other_residue) LEFT JOIN enzymes ON (enzymes.enzyme_id = rule_data.enzyme_id) WHERE focus=?";
 	foreach ($resList as $value)  {
 		// reinitialize eCaveats for each residue;
 		$resID = $value['residue_id'];
