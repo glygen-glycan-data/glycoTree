@@ -3,6 +3,8 @@
 ## Usage:  ./2_clear_data.sh
 # Removes selected (e.g., temporary) files from the glycoTree directory structure,
 #   while keeping basic model files (e.g., canonical node files) in place
+# set -e
+# set -o pipefail
 
 here=`pwd`
 echo "The script (2_clear_data.sh) was called from $here"

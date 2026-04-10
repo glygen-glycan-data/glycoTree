@@ -60,11 +60,14 @@ function	reactionHTMLtop(d, fromGlycan, toGlycan, multiple) {
 	tStr += "<body style='font-family: Helvetica, sans-serif;' >";
 	tStr += "<center><h3>Reaction Details</h3>";
 	tStr += "Species: <select onchange=\"speciate();\" id='species'>\
-	  <option value='Homo sapiens'>Homo sapiens</option>\
+	  <option value='Homo sapiens' selected>Homo sapiens</option>\
 	  <option value='Mus musculus'>Mus musculus</option>\
-	  <option value='all' selected>all</option>\
+	  <option value='Rattus norvegicus'>Rattus norvegicus</option>\
+	  <option value='Sus scrofa'>Sus scrofa</option>\
+	  <option value='Bos taurus'>Bos taurus</option>\
+	  <option value='all'>all</option>\
 	</select>";
-	tStr += "<table width='640px'>";
+	tStr += "<table width='800px'>";
 	tStr += "<tr><td colspan='3'>" + images[d.source] + "<br>" + d.source + "</td></tr>";
 	return tStr;
 } // end function reactionHTMLtop()
@@ -95,15 +98,21 @@ function	reactionAppend(d) {
 	tStr += "	 <td width='35%'>"; 
 	tStr += "    <ul>";
 	
+	d.enzymes.sort((a, b) => a.gene_name.localeCompare(b.gene_name))
+
 	d.enzymes.forEach(function (enz) {
 		var eStr = enz.gene_name + " (" + enz.species + " " + enz.uniprot + ")";
+		var show = " style = \"visibility: hidden; height: 0px;\" ";
+		if (enz.species === "Homo sapiens") {
+			show = " style = \"visibility: visible; height: auto;\" ";
+		} 
 		if (enz.uniprot === "abiotic")  {
 			// reaction is abiotic
-			tStr += "      <li><img src='svg/warn.svg' style='vertical-align: -5px' width='25' height='25'>" +
+			tStr += "      <li"+show+"><img src='svg/warn.svg' style='vertical-align: -5px' width='25' height='25'>" +
 				"&nbsp;abiotic (no enzyme)&nbsp;" +
 				"<img src='svg/warn.svg' style='vertical-align: -5px' width='25' height='25'></li>";
 		} else {
-			tStr += "      <li class='species " + enz.species + "'>" +
+			tStr += "      <li class='species " + enz.species + "'" + show + ">" +
 				"<a href='https://www.glygen.org/protein/" +
 				enz.uniprot +   "' target='_blank'>" + eStr + "</a></li>";
 		}	

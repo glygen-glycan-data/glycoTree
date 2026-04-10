@@ -108,7 +108,7 @@ if (is_null($submittedData['data'])) {
 	echo "Processing new mapping of enzyme " . $geneName . " to residue " . $residueID;
 	// process 'propose mapping' - data is in $submittedData['data']
 	//   NOTE: 'curator_id' is associated with 'proposer_id'
-	$query = "SELECT type FROM enzymes WHERE uniprot=?";
+	$query = "SELECT enzyme_id, type FROM enzymes WHERE uniprot=?";
 	$stmt = $connection->prepare($query);
 	$stmt->bind_param("s", $uniprot);
 	$stmt->execute();
@@ -116,17 +116,19 @@ if (is_null($submittedData['data'])) {
 	if ( ($result->num_rows) > 0) { 
 		$row = $result->fetch_assoc();
 		$type = $row['type'];
+		$enzid = $row['enzyme_id'];
 	}
 	
-	$query = "INSERT INTO enzyme_mappings (residue_name, residue_id, uniprot, notes, type, proposer_id, status) VALUES (?, ?, ?, ?, ?, ?, ?)";
+	$query = "INSERT INTO enzyme_mappings (residue_name, residue_id, uniprot, enzyme_id, notes, type, proposer_id, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 	$stmt = $connection->prepare($query);
-	$stmt->bind_param("sssssss", $residueName, $residueID, $uniprot, $notes, $type, $curator_id, $status);
+	$stmt->bind_param("sssissss", $residueName, $residueID, $uniprot, $enzid, $notes, $type, $curator_id, $status);
 
 	
 	echo "\nproposer: '" . $curator_id . "'";
 	echo "\n  residue name: '" . $residueName . "'"; 
 	echo "\n  residue ID: '" . $residueID . "'"; 
 	echo "\n  uniprot: '" . $uniprot . "'"; 
+	echo "\n  enzyme_id: '" . $enzid . "'";
 	echo "\n  notes: '" . $notes . "'"; 
 	echo "\n  type: '" . $type . "'";  
 	echo "\n  status: '" . $status . "'"; 

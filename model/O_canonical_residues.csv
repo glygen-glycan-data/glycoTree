@@ -278,3 +278,7 @@ O-glycan_sulfate_821,O821,sulfate,n,n,n,O819,3,sulfate,not validated
 O-glycan_b-D-Galp_822,O822,Gal,b,D,p,OC2,4,Galp,not validated
 O-glycan_a-D-NeupNAc_823,O823,NeuNAc,a,D,p,O822,6,NeupNAc,not validated
 O-glycan_a-D-NeupNAc_824,O824,NeuNAc,a,D,p,O822,3,NeupNAc,not validated
+O-glycan_a-D-NeupNAc_825,O825,NeuNAc,a,D,p,O159,8,NeupNAc,cloned from node N457
+O-glycan_a-D-NeupNAc_826,O826,NeuNAc,a,D,p,O587,8,NeupNAc,cloned from node O825
+O-glycan_a-D-NeupNAc_827,O827,NeuNAc,a,D,p,O825,8,NeupNAc,cloned from node O825
+O-glycan_a-D-NeupNAc_828,O828,NeuNAc,a,D,p,O826,8,NeupNAc,cloned from node O825

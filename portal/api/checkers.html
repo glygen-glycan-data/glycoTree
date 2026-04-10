@@ -39,6 +39,9 @@ span {
 	
 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../js/sbheader.js"></script>
+<script src="../js/referenceStrings.js"></script>
+<script src="../js/explore-4.3.js"></script>
 <script src="../js/json2svg_v1.4.js"></script>
 <script src="../js/jquery-3.5.1.min.js"></script>
 
@@ -143,6 +146,7 @@ function generateResultsText(probeData) {
 	var id = probeData['temp_id'];
 	accession = id; // accession is a global variable used by json2svg; must be set before calling layout()
 	probeSVG = layout(probeTree); // probeSVG is global for download
+
 	var txt = "<h2>This structure has been assigned a temporary id: [" + id + "]</h2>";
 	txt += "Unmapped residues are 'greyed-out'<br>";
 	txt += probeSVG + "<br>";
@@ -226,7 +230,8 @@ function generateResultsText(probeData) {
 function processProbe(probeData) {
 	var txt = generateResultsText(probeData);
 	$("#result_div").html(txt);
-	
+    var sDiv = "result_div";
+	annotateResidues();
 	// highlight mapped residues: first get clickable svg elements
 	var rd = $("#result_div");
 	var  clickableSet = rd.find('[class$=_node]').children();

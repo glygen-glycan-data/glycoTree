@@ -5,6 +5,8 @@
 #              ./build_all.sh clear &> ./log/build.log
 
 # set -x
+set -e
+set -o pipefail
 
 start=$(date)
 here=`pwd`
@@ -84,7 +86,11 @@ NL=$'\n'
 echo
 echo "Copying GlycoCt files from $gctIn_N to $N_Dir"
 cd $here/data/extra_N
-cp G*.txt $gctIn_N
+for f in G*.txt; do
+  if [ -f "$f" ]; then
+    cp "$f" $gctIn_N
+  fi
+done
 if [ -f residmap.txt ]; then
   awk 'NR > 1' residmap.txt >> $gctIn_N/residmap.txt
 fi
@@ -108,14 +114,14 @@ echo
 echo Fetching current model files
 
 ## There should be only one file in ./model/ that matches 'N-canonical_residues*.csv'
-node_file=`ls $modelDir/N_canonical_residues*.csv`
+node_file=`ls $modelDir/N_canonical_residues.csv`
 echo using node file $node_file
 cp $node_file $portalJavaDir
 
-sugar_file=`ls $modelDir/sugars*.csv`
+sugar_file=`ls $modelDir/sugars.csv`
 echo using sugar file:\n    $sugar_file
 
-enzyme_file=`ls $modelDir/enzyme_mappings*.csv`
+enzyme_file=`ls $modelDir/enzyme_mappings.csv`
 echo using enzyme file:\n    $enzyme_file
 
 echo
@@ -125,7 +131,11 @@ java -jar $codeDir/TreeBuilder4.jar -l $csvN_Dir/files.lst -s $sugar_file -c $no
 echo
 echo "Copying GlycoCt files from $gctIn_O to $O_Dir"
 cd $here/data/extra_O
-cp G*.txt $gctIn_O
+for f in G*.txt; do
+  if [ -f "$f" ]; then
+    cp "$f" $gctIn_O
+  fi
+done
 if [ -f residmap.txt ]; then
   awk 'NR > 1' residmap.txt >> $gctIn_O/residmap.txt
 fi
@@ -146,7 +156,7 @@ echo "Generating list of glycoTree O-linked csv files to process and placing in 
 find $csvO_Dir -maxdepth 1 -name "G*.csv" -print | sort > $csvO_Dir/files.lst
 
 ## There should be only one file in ./model/ that matches 'O-canonical_residues*.csv'
-node_file=`ls $modelDir/O_canonical_residues*.csv`
+node_file=`ls $modelDir/O_canonical_residues.csv`
 echo using node file $node_file
 cp $node_file $portalJavaDir
 
@@ -161,7 +171,7 @@ $codeDir/sortCSV.sh $mappedDir 1 > $logDir/sort.log
 echo
 echo "Generating list of unassigned residues and placing in file:$NL    $modelDir/unassigned.csv"
 echo "glycan_ID,residue,residue_ID,name,anomer,absolute,ring,parent_ID,site,form_name" > $modelDir/unassigned.csv
-find $sortedDir -maxdepth 1 -name "G*.csv" -print | sort | xargs -I % grep -h "unassigned" % >> $modelDir/unassigned.csv
+find $sortedDir -maxdepth 1 -name "G*.csv" -print | sort | xargs -n 10 cat | grep -h "unassigned" >> $modelDir/unassigned.csv
 
 ##  Make a large csv file containing data in directory ./data/mapped/sorted ##
 echo "Assembling mapped/sorted csv file for import into DB file:$NL     $sqlDir/compositions.csv"

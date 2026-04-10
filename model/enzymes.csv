@@ -1,240 +1,615 @@
-type,orthology_group,uniprot,protein_refseq,dna_refseq,gene_name,gene_id,species,branch_site_specificity
-GT,B3gnt8,Q8R3I9,NP_666296,NM_146184,B3gnt8,232984,Mus musculus,only GTs to tetra-anntenary
-GT,Alg9,Q8VDI9,NP_598742,NM_133981,Alg9,102580,Mus musculus,
-GT,St6gal1,P15907,NP_775323,NM_173216,ST6GAL1,6480,Homo sapiens,
-GT,Fut2,Q9JL27,NP_061364,NM_018876,Fut2,14344,Mus musculus,
-GT,Mgat3,Q10470,NP_034925,NM_010795,Mgat3,17309,Mus musculus,
-GT,B4galt2,O60909,NP_085076,NM_030587,B4GALT2,8704,Homo sapiens,
-GT,Alg3,Q8K2A8,NP_666051,NM_145939,Alg3,208624,Mus musculus,
-GT,B4galnt4,Q76KP1,NP_848632,NM_178537,B4GALNT4,338707,Homo sapiens,
-GT,Alg10b,Q3UGP8,NP_001028613,NM_001033441,Alg10b,380959,Mus musculus,
-GT,B4galnt4,Q766D5,NP_808565,NM_177897,B4galnt4,330671,Mus musculus,Branch site specificity unknown
-GT,B3galt5,Q9Y2C3,NP_006048,NM_006057,B3GALT5,10317,Homo sapiens,
-GT,Alg8,Q9BVK2,NP_076984,NM_024079,ALG8,79053,Homo sapiens,
-GT,Alg6,Q3TAE8,NP_001074733,NM_001081264,Alg6,320438,Mus musculus,
-GT,Abo,P16442,NP_065202,NM_020469,ABO,28,Homo sapiens,
-GT,Fut9,Q9Y231,NP_006572,NM_006581,FUT9,10690,Homo sapiens,
-GT,Alg2,Q9H553,NP_149078,NM_033087,ALG2,85365,Homo sapiens,
-GT,St3gal3,Q11203,NP_777623,NM_006279,ST3GAL3,6487,Homo sapiens,
-GT,Alg11,Q2TAA5,NP_001004127.1,NM_001004127,ALG11,440138,Homo sapiens,
-GT,Alg1,Q9BT22,NP_061982,NM_019109,ALG1,56052,Homo sapiens,
-GT,B4galnt3,Q6L9W6,NP_775864,NM_173593,B4GALNT3,283358,Homo sapiens,
-GT,Mgat4a,Q9UM21,NP_036346,NM_012214,MGAT4A,11320,Homo sapiens,
-GT,Abo,P38649,NP_109643,NM_030718,Abo,80908,Mus musculus,
-GT,Alg13,Q9D8C3,NP_080523,NM_026247,Alg13,67574,Mus musculus,
-GT,St3gal4,Q11206,NP_006269,NM_006278,ST3GAL4,6484,Homo sapiens,
-GT,Alg3,Q92685,NP_005778,NM_005787,ALG3,10195,Homo sapiens,
-GT,B4galnt3,Q6L8S8,NP_942585,NM_198884,B4galnt3,330406,Mus musculus,Branch site specificity unknown
-GT,Alg13,Q9NP73,NP_060936,NM_018466,ALG13,79868,Homo sapiens,
-GT,Fut4,Q11127,NP_034372,NM_010242,Fut4,14345,Mus musculus,Branch site specificity unknown: Listed in potential order of specificity
-GT,Fut3,P21217,NP_000140,NM_000149,FUT3,2525,Homo sapiens,
-GT,Fut5,Q11128,NP_002025,NM_002034,FUT5,2527,Homo sapiens,
-GT,Mgat4a,Q812G0,NP_776295,NM_173870,Mgat4a,269181,Mus musculus,
-GT,Alg9,Q9H6U8,NP_079016,NM_024740,ALG9,79796,Homo sapiens,
-GT,Alg14,Q96F25,NP_659425,NM_144988,ALG14,199857,Homo sapiens,
-GT,Dpagt1,P42867,NP_031901,NM_007875,Dpagt1,13478,Mus musculus,
-GT,Glt28d2,Q8BML3,NP_796104,NM_177130,Glt28d2,320302,Mus musculus,
-GT,B3gnt2,Q9Z222,NP_058584,NM_016888,B3gnt2,53625,Mus musculus,Branch site specificity unknown
-GT,Mgat5b,Q765H6,NP_766536,NM_172948,Mgat5b,268510,Mus musculus,
-GT,Mgat4c,Q9D306,NP_080519,NM_026243,Mgat4c,67569,Mus musculus,
-GT,Fut10,Q5F2L2,NP_598922,NM_134161,Fut10,171167,Mus musculus,Branch site specificity unknown
-GT,Mgat5b,Q3V5L5,NP_653278,NM_144677,MGAT5B,146664,Homo sapiens,
-GT,St3gal4,Q91Y74,NP_033204,NM_009178,St3gal4,20443,Mus musculus,Branch site specificity unknown
-GT,B3gnt8,Q7Z7M8,NP_940942,NM_198540,B3GNT8,374907,Homo sapiens,
-GT,St6gal2,Q96JF0,NP_115917,NM_032528,ST6GAL2,84620,Homo sapiens,
-GT,B4galt3,Q91YY2,NP_065604,NM_020579,B4galt3,57370,Mus musculus,Branch site specificity unknown
-GT,Dpagt1,Q9H3H5,NP_001373,NM_001382,DPAGT1,1798,Homo sapiens,
-GT,Alg6,Q9Y672,NP_037471,NM_013339,ALG6,29929,Homo sapiens,
-GT,B3gnt2,Q9NY97,NP_006568,NM_006577,B3GNT2,10678,Homo sapiens,
-GT,B4galt2,Q9Z2Y2,NP_059073,NM_017377,B4galt2,53418,Mus musculus,Branch site specificity unknown
-GT,Alg12,Q8VDB2,NP_663452,NM_145477,Alg12,223774,Mus musculus,
-GT,Alg1,Q921Q3,NP_663337,NM_145362,Alg1,208211,Mus musculus,
-GT,Alg14,Q9D081,NP_077140,NM_024178,Alg14,66789,Mus musculus,
-GT,St6gal2,Q76K27,NP_766417,NM_172829,St6gal2,240119,Mus musculus,Branch site specificity unknown
-GT,St6gal1,Q64685,NP_666045,NM_145933,St6gal1,20440,Mus musculus,Branch site specificity unknown
-GT,Alg11,Q3TZM9,NP_898965,NM_183142,Alg11,207958,Mus musculus,
-GT,B3galt2,O43825,NP_003774,NM_003783,B3GALT2,8707,Homo sapiens,
-GT,Mgat2,Q10469,NP_002399,NM_002408,MGAT2,4247,Homo sapiens,
-GT,Alg10b,Q5BKT4,NP_116223,NM_032834,ALG10,84920,Homo sapiens,
-GT,Mgat4c,Q9UBM8,NP_037376,NM_013244,MGAT4C,25834,Homo sapiens,
-GT,Mgat1,P26572,NP_001108090,NM_001114618,MGAT1,4245,Homo sapiens,
-GT,Fut1,P19526,NP_000139,NM_000148,FUT1,2523,Homo sapiens,
-GT,St3gal6,Q8VIB3,NP_061254,NM_018784,St3gal6,54613,Mus musculus,Branch site specificity unknown
-GT,B4galt3,O60512,NP_003770,NM_003779,B4GALT3,8703,Homo sapiens,
-GT,St3gal6,Q9Y274,NP_006091,NM_006100,ST3GAL6,10402,Homo sapiens,
-GT,Fut1,O09160,NP_032077,NM_008051,Fut1,14343,Mus musculus,
-GT,Fut10,Q6P4F1,NP_116053,NM_032664,FUT10,84750,Homo sapiens,
-GT,Mgat2,Q921V5,NP_666147,NM_146035,Mgat2,217664,Mus musculus,
-GT,Sec1,P97353,NP_001258507,NM_019934,Sec1,56546,Mus musculus,
-GT,B3gnt4,Q1RLK6,NP_941013,NM_198611,B3gnt4,231727,Mus musculus,Branch site specificity unknown
-GT,Alg2,Q9DBE8,NP_064382,NM_019998,Alg2,56737,Mus musculus,
-GT,Fut11,Q8BHC9,NP_082704,NM_028428,Fut11,73068,Mus musculus,Branch site specificity unknown
-GT,Fut2,Q10981,NP_000502,NM_000511,FUT2,2524,Homo sapiens,
-GT,Mgat3,Q09327,NP_003500,NM_002409,MGAT3,4248,Homo sapiens,
-GT,B3galt2,O54905,NP_064409,NM_020025,B3galt2,26878,Mus musculus,Branch site specificity unknown
-GT,Mgat4b,Q812F8,NP_666038,NM_145926,Mgat4b,103534,Mus musculus,
-GT,Fut8,Q9WTS2,NP_058589,NM_016893,Fut8,53618,Mus musculus,
-GT,Fut11,Q495W5,NP_775811,NM_173540,FUT11,170384,Homo sapiens,
-GT,Fut9,O88819,NP_034373,NM_010243,Fut9,14348,Mus musculus,Branch site specificity unknown: Listed in potential order of specificity
-GT,Mgat5,Q09328,NP_002401,NM_002410,MGAT5,4249,Homo sapiens,
-GT,Fut8,Q9BYC5,NP_835368,NM_178155,FUT8,2530,Homo sapiens,
-GT,B3galt5,Q9JI67,NP_149161,NM_033149,B3galt5,96961,Mus musculus,Branch site specificity unknown
-GT,Fut4,P22083,NP_002024,NM_002033,FUT4,2526,Homo sapiens,
-GT,Mgat1,P27808,NP_034924,NM_010794,Mgat1,17308,Mus musculus,
-GT,B3gnt4,Q9C0J1,NP_110392,NM_030765,B3GNT4,79369,Homo sapiens,
-GT,Mgat5,Q8R4G6,NP_660110,NM_145128,Mgat5,107895,Mus musculus,
-GT,St3gal3,P97325,NP_033202,NM_009176,St3gal3,20441,Mus musculus,Branch site specificity unknown
-GT,Fut6,P51993,NP_000141,NM_000150,FUT6,2528,Homo sapiens,
-GT,Alg12,Q9BV10,NP_077010,NM_024105,ALG12,79087,Homo sapiens,
-GT,Mgat4b,Q9UQ53,NP_055090,NM_014275,MGAT4B,11282,Homo sapiens,
-GT,B4galt1,P15291,NP_001488,NM_001497,B4GALT1,2683,Homo sapiens,
-GT,B4galt1,P15535,NP_071641,NM_022305,B4galt1,14595,Mus musculus,Branch site specificity unknown
-GT,Alg8,Q6P8H8,NP_950200,NM_199035,Alg8,381903,Mus musculus,
-GT,C1galt1,Q9NS00,NP_064541,NM_020156,C1GALT1,56913,Homo sapiens,
-GT,C1galt1,Q9JJ06,NP_443719,NM_052993,C1galt1,94192,Mus musculus,
-CH,C1galt1c1,Q9JMG2,NP_067525,NM_021550,C1galt1c1,59048,Mus musculus,
-CH,C1galt1c1,Q96EU7,NP_689905,NM_152692,C1GALT1C1,29071,Homo sapiens,
-GT,St3gal1,P54751,NP_033203,NM_009177,St3gal1,20442,Mus musculus,
-GT,St3gal1,Q11201,NP_775479,NM_173344,ST3GAL1,6482,Homo sapiens,
-GT,A4gnt,Q14BT6,NP_001070892,NM_001077424,A4gnt,333424,Mus musculus,
-GT,A4gnt,Q9UNA3,NP_057245,NM_016161,A4GNT,51146,Homo sapiens,
-GT,St6galnac1,Q9QZ39,NP_035501,NM_011371,St6galnac1,20445,Mus musculus,
-GT,St6galnac1,Q9NSC7,NP_060884,NM_018414,ST6GALNAC1,55808,Homo sapiens,
-GT,St6galnac2,P70277,NP_033206,NM_009180,St6galnac2,20446,Mus musculus,
-GT,St6galnac2,Q9UJ37,NP_006447,NM_006456,ST6GALNAC2,10610,Homo sapiens,
-GT,St6galnac3,Q9WUV2,NP_035502,NM_011372,St6galnac3,20447,Mus musculus,
-GT,St6galnac3,Q8NDV1,NP_694541,NM_152996,ST6GALNAC3,256435,Homo sapiens,
-GT,St6galnac4,Q9R2B6,NP_035503,NM_011373,St6galnac4,20448,Mus musculus,
-GT,St6galnac4,Q9H4F1,NP_778204,NM_175039,ST6GALNAC4,27090,Homo sapiens,
-GT,St6galnac5,Q9QYJ1,NP_036158,NM_012028,St6galnac5,26938,Mus musculus,
-GT,St6galnac5,Q9BVH7,NP_112227,NM_030965,ST6GALNAC5,81849,Homo sapiens,
-GT,St6galnac6,Q9JM95,NP_058669,NM_016973,St6galnac6,50935,Mus musculus,
-GT,St6galnac6,Q969X2,NP_038471,NM_013443,ST6GALNAC6,30815,Homo sapiens,
-GT,Galnt1,O08912,NP_038842,NM_013814,Galnt1,14423,Mus musculus,Ambiguous transcript or protein accession
-GT,Galnt1,Q10472,NP_065207,NM_020474,GALNT1,2589,Homo sapiens,Ambiguous transcript or protein accession
-GT,Galnt2,Q6PB93,NP_644678,NM_139272,Galnt2,108148,Mus musculus,
-GT,Galnt2,Q10471,NP_004472,NM_004481,GALNT2,2590,Homo sapiens,Ambiguous transcript or protein accession
-GT,Galnt3,P70419,NP_056551,NM_015736,Galnt3,14425,Mus musculus,
-GT,Galnt3,Q14435,NP_004473,NM_004482,GALNT3,2591,Homo sapiens,
-GT,Galnt4,O08832,NP_056552,NM_015737,Galnt4,14426,Mus musculus,
-GT,Galnt4,Q8N4A0,NP_003765,NM_003774,GALNT4,8693,Homo sapiens,
-GT,Galnt5,Q8C102,NP_766443,NM_172855,Galnt5,241391,Mus musculus,
-GT,Galnt5,Q7Z7M9,NP_055383,NM_014568,GALNT5,11227,Homo sapiens,Ambiguous transcript or protein accession
-GT,Galnt6,Q8C7U7,NP_766039,NM_172451,Galnt6,207839,Mus musculus,Ambiguous transcript or protein accession
-GT,Galnt6,Q8NCL4,NP_009141,NM_007210,GALNT6,11226,Homo sapiens,
-GT,Galnt7,Q80VA0,NP_653332,NM_144731,Galnt7,108150,Mus musculus,Ambiguous transcript or protein accession
-GT,Galnt7,Q86SF2,NP_059119,NM_017423,GALNT7,51809,Homo sapiens,Ambiguous transcript or protein accession
-GT,Galnt9,G3X942,NP_938048,NM_198306,Galnt9,231605,Mus musculus,Ambiguous transcript or protein accession
-GT,Galnt9,Q9HCQ5,NP_068580,NM_021808,GALNT9,50614,Homo sapiens,Ambiguous transcript or protein accession
-GT,Galnt10,Q6P9S7,NP_598950,NM_134189,Galnt10,171212,Mus musculus,
-GT,Galnt10,Q86SR1,NP_938080,NM_198321,GALNT10,55568,Homo sapiens,
-GT,Galnt11,Q921L8,NP_659157,NM_144908,Galnt11,231050,Mus musculus,Ambiguous transcript or protein accession
-GT,Galnt11,Q8NCW6,NP_071370,NM_022087,GALNT11,63917,Homo sapiens,Ambiguous transcript or protein accession
-GT,Galnt12,Q8BGT9,NP_766281,NM_172693,Galnt12,230145,Mus musculus,
-GT,Galnt12,Q8IXK2,NP_078918,NM_024642,GALNT12,79695,Homo sapiens,
-GT,Galnt13,Q8CF93,NP_766618,NM_173030,Galnt13,271786,Mus musculus,
-GT,Galnt13,Q8IUC8,NP_443149,NM_052917,GALNT13,114805,Homo sapiens,Ambiguous transcript or protein accession
-GT,Galnt14,Q8BVG5,NP_082140,NM_027864,Galnt14,71685,Mus musculus,
-GT,Galnt14,Q96FL9,NP_078848,NM_024572,GALNT14,79623,Homo sapiens,Ambiguous transcript or protein accession
-GT,Galnt16,Q9JJ61,NP_001348630,NM_001361701,Galnt16,108760,Mus musculus,Ambiguous transcript or protein accession
-GT,Galnt16,Q8N428,NP_065743,NM_020692,GALNT16,57452,Homo sapiens,Ambiguous transcript or protein accession
-GT,Galnt15,Q9D2N8,NP_084442,NM_030166,Galnt15,78754,Mus musculus,
-GT,Galnt15,Q8N3T1,NP_473451,NM_054110,GALNT15,117248,Homo sapiens,Ambiguous transcript or protein accession
-GT,Galnt18,Q8K1B9,NP_776100,NM_173739,Galnt18,233733,Mus musculus,Ambiguous transcript or protein accession
-GT,Galnt18,Q6P9A2,NP_940918,NM_198516,GALNT18,374378,Homo sapiens,Ambiguous transcript or protein accession
-GT,Galntl5,Q9D4M9,NP_080725,NM_026449,Galntl5,67909,Mus musculus,
-GT,Galntl5,Q7Z4T8,NP_660335,NM_145292,GALNTL5,168391,Homo sapiens,
-GT,Galnt17,Q7TT15,NP_660253,NM_145218,Galnt17,212996,Mus musculus,
-GT,Galnt17,Q6IS24,NP_071924,NM_022479,GALNT17,64409,Homo sapiens,
-GT,Galntl6,E5D8G1,NP_778197,NM_175032,Galntl6,270049,Mus musculus,
-GT,Galntl6,Q49A17,NP_001030017,NM_001034845,GALNTL6,442117,Homo sapiens,
-GT,B3gnt3,Q5JCS9,NP_082465,NM_028189,B3gnt3,72297,Mus musculus,
-GT,B3gnt3,Q9Y2A9,NP_055071,NM_014256,B3GNT3,10331,Homo sapiens,
-GT,Gcnt1,Q09324,NP_775618,NM_173442,Gcnt1,14537,Mus musculus,Ambiguous transcript or protein accession
-GT,Gcnt1,Q02742,NP_001481,NM_001490,GCNT1,2650,Homo sapiens,Ambiguous transcript or protein accession
-GT,Gcnt2,P97402,NP_573482,NM_133219,Gcnt2,14538,Mus musculus,Ambiguous transcript or protein accession
-GT,Gcnt2,Q8N0V5,NP_663630,NM_145655,GCNT2,2651,Homo sapiens,Ambiguous transcript or protein accession
-GT,Gcnt3,Q5JCT0,NP_082363,NM_028087,Gcnt3,72077,Mus musculus,
-GT,Gcnt3,O95395,NP_004742,NM_004751,GCNT3,9245,Homo sapiens,
-GT,A3galt2,Q3V1N9,NP_001009819,NM_001009819,A3galt2,215493,Mus musculus,
-GT,A3galt2,U3KPV4,NP_001073907,NM_001080438,A3GALT2,127550,Homo sapiens,
-GT,B3gnt6,Q3USF0,NP_001074636,NM_001081167,B3gnt6,272411,Mus musculus,
-GT,B3gnt6,Q6ZMB0,NP_619651,NM_138706,B3GNT6,192134,Homo sapiens,
-GT,Ggta1,P23336,NP_034413,NM_010283,Ggta1,14594,Mus musculus,Ambiguous transcript or protein accession
-GT,Ggta1,Q4G0N0,NP_001369516,NM_001382587,GGTA1,2681,Homo sapiens,Ambiguous transcript or protein accession
-GT,B4gat1,Q8BWP8,NP_780592,NM_175383,B4gat1,108902,Mus musculus,
-GT,B4gat1,O43505,NP_006867,NM_006876,B4GAT1,11041,Homo sapiens,
-GT,Ogt,Q8CGY8,NP_631883,NM_139144,Ogt,108155,Mus musculus,Ambiguous transcript or protein accession
-GT,Ogt,O15294,NP_858059,NM_181673,OGT,8473,Homo sapiens,Ambiguous transcript or protein accession
-GT,Pofut1,Q91ZW2,NP_536711,NM_080463,Pofut1,140484,Mus musculus,
-GT,Pofut1,Q9H488,NP_758436,NM_172236,POFUT1,23509,Homo sapiens,Ambiguous transcript or protein accession
-GT,Lfng,O09010,NP_032520,NM_008494,Lfng,16848,Mus musculus,
-GT,Lfng,Q8NES3,NP_002295,NM_002304,LFNG,3955,Homo sapiens,Ambiguous transcript or protein accession
-GT,Mfng,O09008,NP_032621,NM_008595,Mfng,17305,Mus musculus,Ambiguous transcript or protein accession
-GT,Mfng,O00587,NP_002396,NM_002405,MFNG,4242,Homo sapiens,Ambiguous transcript or protein accession
-GT,Rfng,O09009,NP_033079,NM_009053,Rfng,19719,Mus musculus,
-GT,Rfng,Q9Y644,NP_002908,NM_002917,RFNG,5986,Homo sapiens,
-GT,Pomt2,Q8BGQ4,NP_700464,NM_153415,Pomt2,217734,Mus musculus,
-GT,Pomt2,Q9UKY4,NP_037514,NM_013382,POMT2,29954,Homo sapiens,
-GT,B3glct,Q8BHT6,NP_001074673,NM_001081204,B3glct,381694,Mus musculus,
-GT,B3glct,Q6Y288,NP_919299,NM_194318,B3GLCT,145173,Homo sapiens,
-GT,B4galt5,Q9JMK0,NP_062809,NM_019835,B4galt5,56336,Mus musculus,
-GT,B4galt5,O43286,NP_004767,NM_004776,B4GALT5,9334,Homo sapiens,
-GT,B4galt4,Q9JJ04,NP_062778,NM_019804,B4galt4,56375,Mus musculus,Ambiguous transcript or protein accession
-GT,B4galt4,O60513,NP_997708,NM_212543,B4GALT4,8702,Homo sapiens,Ambiguous transcript or protein accession
-GT,Pomgnt1,Q91X88,NP_084062,NM_029786,Pomgnt1,68273,Mus musculus,Ambiguous transcript or protein accession
-GT,Pomgnt1,Q8WZA1,NP_060209,NM_017739,POMGNT1,55624,Homo sapiens,Ambiguous transcript or protein accession
-GT,Oga,Q9EQQ9,NP_076288,NM_023799,Oga,76055,Mus musculus,Ambiguous transcript or protein accession
-GT,Oga,O60502,NP_036347,NM_012215,OGA,10724,Homo sapiens,Ambiguous transcript or protein accession
-GT,Pofut2,Q8VHI3,NP_084538,NM_030262,Pofut2,80294,Mus musculus,
-GT,Pofut2,Q9Y2G5,NP_598368,NM_133635,POFUT2,23275,Homo sapiens,Ambiguous transcript or protein accession
-GT,Pomt1,Q8R2R1,NP_660127,NM_145145,Pomt1,99011,Mus musculus,
-GT,Pomt1,Q9Y6A1,NP_009102,NM_007171,POMT1,10585,Homo sapiens,Ambiguous transcript or protein accession
-GT,Fut7,Q11131,NP_038552,NM_013524,Fut7,14347,Mus musculus,Ambiguous transcript or protein accession
-GT,Fut7,Q11130,NP_004470,NM_004479,FUT7,2529,Homo sapiens,
-GT,St3gal2,Q11204,NP_033205,NM_009179,St3gal2,20444,Mus musculus,
-GT,St3gal2,Q16842,NP_008858,NM_006927,ST3GAL2,6483,Homo sapiens,
-GT,St3gal5,O88829,NP_035505,NM_011375,St3gal5,20454,Mus musculus,Ambiguous transcript or protein accession
-GT,St3gal5,Q9UNP4,NP_003887,NM_003896,ST3GAL5,8869,Homo sapiens,Ambiguous transcript or protein accession
-GT,B3galt1,O54904,NP_064679,NM_020283,B3galt1,26877,Mus musculus,Ambiguous transcript or protein accession
-GT,B3galt1,Q9Y5Z6,NP_066191,NM_020981,B3GALT1,8708,Homo sapiens,
-GT,B3galnt1,Q920V1,NP_064410,NM_020026,B3galnt1,26879,Mus musculus,Ambiguous transcript or protein accession
-GT,B3galnt1,O75752,NP_149359,NM_033169,B3GALNT1,8706,Homo sapiens,Ambiguous transcript or protein accession
-GT,B3galt4,Q9Z0F0,NP_062293,NM_019420,B3galt4,54218,Mus musculus,
-GT,B3galt4,O96024,NP_003773,NM_003782,B3GALT4,8705,Homo sapiens,
-GT,B3gnt5,Q8BGY6,NP_473393,NM_054052,B3gnt5,108105,Mus musculus,Ambiguous transcript or protein accession
-GT,B3gnt5,Q9BYG0,NP_114436,NM_032047,B3GNT5,84002,Homo sapiens,
-GT,B4galnt1,Q09200,NP_082015,NM_027739,B4galnt1,14421,Mus musculus,Ambiguous transcript or protein accession
-GT,B4galnt1,Q00973,NP_001469,NM_001478,B4GALNT1,2583,Homo sapiens,Ambiguous transcript or protein accession
-GT,B4galnt2,Q09199,NP_032107,NM_008081,B4galnt2,14422,Mus musculus,
-GT,B4galnt2,Q8NHY0,NP_703147,NM_153446,B4GALNT2,124872,Homo sapiens,Ambiguous transcript or protein accession
-GT,Chst8,Q8BQ86,NP_780349,NM_175140,Chst8,68947,Mus musculus,
-GT,Chst8,Q9H2A9,NP_071912,NM_022467,CHST8,64377,Homo sapiens,Ambiguous transcript or protein accession
-GT,Chst9,Q76EC5,NP_951010,NM_199055,Chst9,71367,Mus musculus,Ambiguous transcript or protein accession
-GT,Chst9,Q7L1S5,NP_113610,NM_031422,CHST9,83539,Homo sapiens,Ambiguous transcript or protein accession
-GT,Gal3st1,Q9JHE4,NP_058618,NM_016922,Gal3st1,53897,Mus musculus,Ambiguous transcript or protein accession
-GT,Gal3st1,Q99999,NP_004852,NM_004861,GAL3ST1,9514,Homo sapiens,Ambiguous transcript or protein accession
-GT,Chst2,Q80WV3,NP_061233,NM_018763,Chst2,54371,Mus musculus,
-GT,Chst2,Q9Y4C5,NP_004258,NM_004267,CHST2,9435,Homo sapiens,Ambiguous transcript or protein accession
-GT,Chst4,Q9R1I1,NP_036128,NM_011998,Chst4,26887,Mus musculus,
-GT,Chst4,Q8NCG5,NP_005760,NM_005769,CHST4,10164,Homo sapiens,Ambiguous transcript or protein accession
-GT,B3gat1,Q9CW73,NP_084068,NM_029792,B3gat1,76898,Mus musculus,Ambiguous transcript or protein accession
-GT,B3gat1,Q9P2W7,NP_473366,NM_054025,B3GAT1,27087,Homo sapiens,Ambiguous transcript or protein accession
-GT,B3gat2,P59270,NP_742122,NM_172124,B3gat2,280645,Mus musculus,
-GT,B3gat2,Q9NPZ5,NP_542780,NM_080742,B3GAT2,135152,Homo sapiens,
-GT,Chst10,Q6PGK7,NP_660124,NM_145142,Chst10,98388,Mus musculus,Ambiguous transcript or protein accession
-GT,Chst10,O43529,NP_004845,NM_004854,CHST10,9486,Homo sapiens,
-GT,Poglut1,Q8BYB9,NP_759012,NM_172380,Poglut1,224143,Mus musculus,Ambiguous transcript or protein accession
-GT,Poglut1,Q8NBL1,NP_689518,NM_152305,POGLUT1,56983,Homo sapiens,
-GT,Gxylt1,Q3UHH8,NP_001343935,NM_001357006,Gxylt1,223827,Mus musculus,Ambiguous transcript or protein accession
-GT,Gxylt1,Q4G148,NP_775872,NM_173601,GXYLT1,283464,Homo sapiens,Ambiguous transcript or protein accession
-GT,Gxylt2,Q810K9,NP_941014,NM_198612,Gxylt2,232313,Mus musculus,
-GT,Gxylt2,A0PJZ3,NP_001073862,NM_001080393,GXYLT2,727936,Homo sapiens,
-GT,Xxylt1,Q3U4G3,NP_941028,NM_198626,Xxylt1,268880,Mus musculus,
-GT,Xxylt1,Q8NBI6,NP_689744,NM_152531,XXYLT1,152002,Homo sapiens,Ambiguous transcript or protein accession
-GT,Poglut2,Q9JHP7,NP_076134,NM_023645,Poglut2,72050,Mus musculus,
-GT,Poglut2,Q6UW63,NP_076994,NM_024089,POGLUT2,79070,Homo sapiens,Ambiguous transcript or protein accession
-GT,Poglut3,G5E897,NP_997610,NM_212445,Poglut3,68304,Mus musculus,
-GT,Poglut3,Q7Z4H8,NP_714916,NM_153705,POGLUT3,143888,Homo sapiens,Ambiguous transcript or protein accession
-GT,Eogt,Q8BYW9,NP_780522,NM_175313,Eogt,101351,Mus musculus,
-GT,Eogt,Q5NDL2,NP_775925,NM_173654,EOGT,285203,Homo sapiens,Ambiguous transcript or protein accession
+enzyme_id,type,orthology_group,uniprot,protein_refseq,dna_refseq,gene_name,gene_id,species,branch_site_specificity
+1,GT,B3gnt8,Q8R3I9,NP_666296,NM_146184,B3gnt8,232984,Mus musculus,only GTs to tetra-anntenary
+2,GT,Alg9,Q8VDI9,NP_598742,NM_133981,Alg9,102580,Mus musculus,
+3,GT,St6gal1,P15907,NP_775323,NM_173216,ST6GAL1,6480,Homo sapiens,
+4,GT,Fut2,Q9JL27,NP_061364,NM_018876,Fut2,14344,Mus musculus,
+5,GT,Mgat3,Q10470,NP_034925,NM_010795,Mgat3,17309,Mus musculus,
+6,GT,B4galt2,O60909,NP_085076,NM_030587,B4GALT2,8704,Homo sapiens,
+7,GT,Alg3,Q8K2A8,NP_666051,NM_145939,Alg3,208624,Mus musculus,
+8,GT,B4galnt4,Q76KP1,NP_848632,NM_178537,B4GALNT4,338707,Homo sapiens,
+9,GT,Alg10,Q3UGP8,NP_001028613,NM_001033441,Alg10b,380959,Mus musculus,
+10,GT,B4galnt4,Q766D5,NP_808565,NM_177897,B4galnt4,330671,Mus musculus,Branch site specificity unknown
+11,GT,B3galt5,Q9Y2C3,NP_006048,NM_006057,B3GALT5,10317,Homo sapiens,
+12,GT,Alg8,Q9BVK2,NP_076984,NM_024079,ALG8,79053,Homo sapiens,
+13,GT,Alg6,Q3TAE8,NP_001074733,NM_001081264,Alg6,320438,Mus musculus,
+14,GT,Abo,P16442,NP_065202,NM_020469,ABO,28,Homo sapiens,
+15,GT,Fut9,Q9Y231,NP_006572,NM_006581,FUT9,10690,Homo sapiens,
+16,GT,Alg2,Q9H553,NP_149078,NM_033087,ALG2,85365,Homo sapiens,
+17,GT,St3gal3,Q11203,NP_777623,NM_006279,ST3GAL3,6487,Homo sapiens,
+18,GT,Alg11,Q2TAA5,NP_001004127.1,NM_001004127,ALG11,440138,Homo sapiens,
+19,GT,Alg1,Q9BT22,NP_061982,NM_019109,ALG1,56052,Homo sapiens,
+20,GT,B4galnt3,Q6L9W6,NP_775864,NM_173593,B4GALNT3,283358,Homo sapiens,
+21,GT,Mgat4a,Q9UM21,NP_036346,NM_012214,MGAT4A,11320,Homo sapiens,
+22,GT,Abo,P38649,NP_109643,NM_030718,Abo,80908,Mus musculus,
+23,GT,Alg13,Q9D8C3,NP_080523,NM_026247,Alg13,67574,Mus musculus,
+24,GT,St3gal4,Q11206,NP_006269,NM_006278,ST3GAL4,6484,Homo sapiens,
+25,GT,Alg3,Q92685,NP_005778,NM_005787,ALG3,10195,Homo sapiens,
+26,GT,B4galnt3,Q6L8S8,NP_942585,NM_198884,B4galnt3,330406,Mus musculus,Branch site specificity unknown
+27,GT,Alg13,Q9NP73,NP_060936,NM_018466,ALG13,79868,Homo sapiens,
+28,GT,Fut4,Q11127,NP_034372,NM_010242,Fut4,14345,Mus musculus,Branch site specificity unknown: Listed in potential order of specificity
+29,GT,Fut3,P21217,NP_000140,NM_000149,FUT3,2525,Homo sapiens,
+30,GT,Fut5,Q11128,NP_002025,NM_002034,FUT5,2527,Homo sapiens,
+31,GT,Mgat4a,Q812G0,NP_776295,NM_173870,Mgat4a,269181,Mus musculus,
+32,GT,Alg9,Q9H6U8,NP_079016,NM_024740,ALG9,79796,Homo sapiens,
+33,GT,Alg14,Q96F25,NP_659425,NM_144988,ALG14,199857,Homo sapiens,
+34,GT,Dpagt1,P42867,NP_031901,NM_007875,Dpagt1,13478,Mus musculus,
+35,GT,Glt28d2,Q8BML3,NP_796104,NM_177130,Glt28d2,320302,Mus musculus,
+36,GT,B3gnt2,Q9Z222,NP_058584,NM_016888,B3gnt2,53625,Mus musculus,Branch site specificity unknown
+37,GT,Mgat5b,Q765H6,NP_766536,NM_172948,Mgat5b,268510,Mus musculus,
+38,GT,Mgat4c,Q9D306,NP_080519,NM_026243,Mgat4c,67569,Mus musculus,
+39,GT,Fut10,Q5F2L2,NP_598922,NM_134161,Fut10,171167,Mus musculus,Branch site specificity unknown
+40,GT,Mgat5b,Q3V5L5,NP_653278,NM_144677,MGAT5B,146664,Homo sapiens,
+41,GT,St3gal4,Q91Y74,NP_033204,NM_009178,St3gal4,20443,Mus musculus,Branch site specificity unknown
+42,GT,B3gnt8,Q7Z7M8,NP_940942,NM_198540,B3GNT8,374907,Homo sapiens,
+43,GT,St6gal2,Q96JF0,NP_115917,NM_032528,ST6GAL2,84620,Homo sapiens,
+44,GT,B4galt3,Q91YY2,NP_065604,NM_020579,B4galt3,57370,Mus musculus,Branch site specificity unknown
+45,GT,Dpagt1,Q9H3H5,NP_001373,NM_001382,DPAGT1,1798,Homo sapiens,
+46,GT,Alg6,Q9Y672,NP_037471,NM_013339,ALG6,29929,Homo sapiens,
+47,GT,B3gnt2,Q9NY97,NP_006568,NM_006577,B3GNT2,10678,Homo sapiens,
+48,GT,B4galt2,Q9Z2Y2,NP_059073,NM_017377,B4galt2,53418,Mus musculus,Branch site specificity unknown
+49,GT,Alg12,Q8VDB2,NP_663452,NM_145477,Alg12,223774,Mus musculus,
+50,GT,Alg1,Q921Q3,NP_663337,NM_145362,Alg1,208211,Mus musculus,
+51,GT,Alg14,Q9D081,NP_077140,NM_024178,Alg14,66789,Mus musculus,
+52,GT,St6gal2,Q76K27,NP_766417,NM_172829,St6gal2,240119,Mus musculus,Branch site specificity unknown
+53,GT,St6gal1,Q64685,NP_666045,NM_145933,St6gal1,20440,Mus musculus,Branch site specificity unknown
+54,GT,Alg11,Q3TZM9,NP_898965,NM_183142,Alg11,207958,Mus musculus,
+55,GT,B3galt2,O43825,NP_003774,NM_003783,B3GALT2,8707,Homo sapiens,
+56,GT,Mgat2,Q10469,NP_002399,NM_002408,MGAT2,4247,Homo sapiens,
+57,GT,Alg10,Q5BKT4,NP_116223,NM_032834,ALG10,84920,Homo sapiens,
+58,GT,Alg10,Q5I7T1,NP_001013642,,ALG10B,144245,Homo sapiens,
+59,GT,Mgat4c,Q9UBM8,NP_037376,NM_013244,MGAT4C,25834,Homo sapiens,
+60,GT,Mgat1,P26572,NP_001108090,NM_001114618,MGAT1,4245,Homo sapiens,
+61,GT,Fut1,P19526,NP_000139,NM_000148,FUT1,2523,Homo sapiens,
+62,GT,St3gal6,Q8VIB3,NP_061254,NM_018784,St3gal6,54613,Mus musculus,Branch site specificity unknown
+63,GT,B4galt3,O60512,NP_003770,NM_003779,B4GALT3,8703,Homo sapiens,
+64,GT,St3gal6,Q9Y274,NP_006091,NM_006100,ST3GAL6,10402,Homo sapiens,
+65,GT,Fut1,O09160,NP_032077,NM_008051,Fut1,14343,Mus musculus,
+66,GT,Fut10,Q6P4F1,NP_116053,NM_032664,FUT10,84750,Homo sapiens,
+67,GT,Mgat2,Q921V5,NP_666147,NM_146035,Mgat2,217664,Mus musculus,
+68,GT,Sec1,P97353,NP_001258507,NM_019934,Sec1,56546,Mus musculus,
+69,GT,B3gnt4,Q1RLK6,NP_941013,NM_198611,B3gnt4,231727,Mus musculus,Branch site specificity unknown
+70,GT,Alg2,Q9DBE8,NP_064382,NM_019998,Alg2,56737,Mus musculus,
+71,GT,Fut11,Q8BHC9,NP_082704,NM_028428,Fut11,73068,Mus musculus,Branch site specificity unknown
+72,GT,Fut2,Q10981,NP_000502,NM_000511,FUT2,2524,Homo sapiens,
+73,GT,Mgat3,Q09327,NP_003500,NM_002409,MGAT3,4248,Homo sapiens,
+74,GT,B3galt2,O54905,NP_064409,NM_020025,B3galt2,26878,Mus musculus,Branch site specificity unknown
+75,GT,Mgat4b,Q812F8,NP_666038,NM_145926,Mgat4b,103534,Mus musculus,
+76,GT,Fut8,Q9WTS2,NP_058589,NM_016893,Fut8,53618,Mus musculus,
+77,GT,Fut11,Q495W5,NP_775811,NM_173540,FUT11,170384,Homo sapiens,
+78,GT,Fut9,O88819,NP_034373,NM_010243,Fut9,14348,Mus musculus,Branch site specificity unknown: Listed in potential order of specificity
+79,GT,Mgat5,Q09328,NP_002401,NM_002410,MGAT5,4249,Homo sapiens,
+80,GT,Fut8,Q9BYC5,NP_835368,NM_178155,FUT8,2530,Homo sapiens,
+81,GT,B3galt5,Q9JI67,NP_149161,NM_033149,B3galt5,96961,Mus musculus,Branch site specificity unknown
+82,GT,Fut4,P22083,NP_002024,NM_002033,FUT4,2526,Homo sapiens,
+83,GT,Mgat1,P27808,NP_034924,NM_010794,Mgat1,17308,Mus musculus,
+84,GT,B3gnt4,Q9C0J1,NP_110392,NM_030765,B3GNT4,79369,Homo sapiens,
+85,GT,Mgat5,Q8R4G6,NP_660110,NM_145128,Mgat5,107895,Mus musculus,
+86,GT,St3gal3,P97325,NP_033202,NM_009176,St3gal3,20441,Mus musculus,Branch site specificity unknown
+87,GT,Fut6,P51993,NP_000141,NM_000150,FUT6,2528,Homo sapiens,
+88,GT,Alg12,Q9BV10,NP_077010,NM_024105,ALG12,79087,Homo sapiens,
+89,GT,Mgat4b,Q9UQ53,NP_055090,NM_014275,MGAT4B,11282,Homo sapiens,
+90,GT,B4galt1,P15291,NP_001488,NM_001497,B4GALT1,2683,Homo sapiens,
+91,GT,B4galt1,P15535,NP_071641,NM_022305,B4galt1,14595,Mus musculus,Branch site specificity unknown
+92,GT,Alg8,Q6P8H8,NP_950200,NM_199035,Alg8,381903,Mus musculus,
+93,GT,C1galt1,Q9NS00,NP_064541,NM_020156,C1GALT1,56913,Homo sapiens,
+94,GT,C1galt1,Q9JJ06,NP_443719,NM_052993,C1galt1,94192,Mus musculus,
+95,CH,C1galt1c1,Q9JMG2,NP_067525,NM_021550,C1galt1c1,59048,Mus musculus,
+96,CH,C1galt1c1,Q96EU7,NP_689905,NM_152692,C1GALT1C1,29071,Homo sapiens,
+97,GT,St3gal1,P54751,NP_033203,NM_009177,St3gal1,20442,Mus musculus,
+98,GT,St3gal1,Q11201,NP_775479,NM_173344,ST3GAL1,6482,Homo sapiens,
+99,GT,A4gnt,Q14BT6,NP_001070892,NM_001077424,A4gnt,333424,Mus musculus,
+100,GT,A4gnt,Q9UNA3,NP_057245,NM_016161,A4GNT,51146,Homo sapiens,
+101,GT,St6galnac1,Q9QZ39,NP_035501,NM_011371,St6galnac1,20445,Mus musculus,
+102,GT,St6galnac1,Q9NSC7,NP_060884,NM_018414,ST6GALNAC1,55808,Homo sapiens,
+103,GT,St6galnac2,P70277,NP_033206,NM_009180,St6galnac2,20446,Mus musculus,
+104,GT,St6galnac2,Q9UJ37,NP_006447,NM_006456,ST6GALNAC2,10610,Homo sapiens,
+105,GT,St6galnac3,Q9WUV2,NP_035502,NM_011372,St6galnac3,20447,Mus musculus,
+106,GT,St6galnac3,Q8NDV1,NP_694541,NM_152996,ST6GALNAC3,256435,Homo sapiens,
+107,GT,St6galnac4,Q9R2B6,NP_035503,NM_011373,St6galnac4,20448,Mus musculus,
+108,GT,St6galnac4,Q9H4F1,NP_778204,NM_175039,ST6GALNAC4,27090,Homo sapiens,
+109,GT,St6galnac5,Q9QYJ1,NP_036158,NM_012028,St6galnac5,26938,Mus musculus,
+110,GT,St6galnac5,Q9BVH7,NP_112227,NM_030965,ST6GALNAC5,81849,Homo sapiens,
+111,GT,St6galnac6,Q9JM95,NP_058669,NM_016973,St6galnac6,50935,Mus musculus,
+112,GT,St6galnac6,Q969X2,NP_038471,NM_013443,ST6GALNAC6,30815,Homo sapiens,
+113,GT,Galnt1,O08912,NP_038842,NM_013814,Galnt1,14423,Mus musculus,Ambiguous transcript or protein accession
+114,GT,Galnt1,Q10472,NP_065207,NM_020474,GALNT1,2589,Homo sapiens,Ambiguous transcript or protein accession
+115,GT,Galnt2,Q6PB93,NP_644678,NM_139272,Galnt2,108148,Mus musculus,
+116,GT,Galnt2,Q10471,NP_004472,NM_004481,GALNT2,2590,Homo sapiens,Ambiguous transcript or protein accession
+117,GT,Galnt3,P70419,NP_056551,NM_015736,Galnt3,14425,Mus musculus,
+118,GT,Galnt3,Q14435,NP_004473,NM_004482,GALNT3,2591,Homo sapiens,
+119,GT,Galnt4,O08832,NP_056552,NM_015737,Galnt4,14426,Mus musculus,
+120,GT,Galnt4,Q8N4A0,NP_003765,NM_003774,GALNT4,8693,Homo sapiens,
+121,GT,Galnt5,Q8C102,NP_766443,NM_172855,Galnt5,241391,Mus musculus,
+122,GT,Galnt5,Q7Z7M9,NP_055383,NM_014568,GALNT5,11227,Homo sapiens,Ambiguous transcript or protein accession
+123,GT,Galnt6,Q8C7U7,NP_766039,NM_172451,Galnt6,207839,Mus musculus,Ambiguous transcript or protein accession
+124,GT,Galnt6,Q8NCL4,NP_009141,NM_007210,GALNT6,11226,Homo sapiens,
+125,GT,Galnt7,Q80VA0,NP_653332,NM_144731,Galnt7,108150,Mus musculus,Ambiguous transcript or protein accession
+126,GT,Galnt7,Q86SF2,NP_059119,NM_017423,GALNT7,51809,Homo sapiens,Ambiguous transcript or protein accession
+127,GT,Galnt9,G3X942,NP_938048,NM_198306,Galnt9,231605,Mus musculus,Ambiguous transcript or protein accession
+128,GT,Galnt9,Q9HCQ5,NP_068580,NM_021808,GALNT9,50614,Homo sapiens,Ambiguous transcript or protein accession
+129,GT,Galnt10,Q6P9S7,NP_598950,NM_134189,Galnt10,171212,Mus musculus,
+130,GT,Galnt10,Q86SR1,NP_938080,NM_198321,GALNT10,55568,Homo sapiens,
+131,GT,Galnt11,Q921L8,NP_659157,NM_144908,Galnt11,231050,Mus musculus,Ambiguous transcript or protein accession
+132,GT,Galnt11,Q8NCW6,NP_071370,NM_022087,GALNT11,63917,Homo sapiens,Ambiguous transcript or protein accession
+133,GT,Galnt12,Q8BGT9,NP_766281,NM_172693,Galnt12,230145,Mus musculus,
+134,GT,Galnt12,Q8IXK2,NP_078918,NM_024642,GALNT12,79695,Homo sapiens,
+135,GT,Galnt13,Q8CF93,NP_766618,NM_173030,Galnt13,271786,Mus musculus,
+136,GT,Galnt13,Q8IUC8,NP_443149,NM_052917,GALNT13,114805,Homo sapiens,Ambiguous transcript or protein accession
+137,GT,Galnt14,Q8BVG5,NP_082140,NM_027864,Galnt14,71685,Mus musculus,
+138,GT,Galnt14,Q96FL9,NP_078848,NM_024572,GALNT14,79623,Homo sapiens,Ambiguous transcript or protein accession
+139,GT,Galnt16,Q9JJ61,NP_001348630,NM_001361701,Galnt16,108760,Mus musculus,Ambiguous transcript or protein accession
+140,GT,Galnt16,Q8N428,NP_065743,NM_020692,GALNT16,57452,Homo sapiens,Ambiguous transcript or protein accession
+141,GT,Galnt15,Q9D2N8,NP_084442,NM_030166,Galnt15,78754,Mus musculus,
+142,GT,Galnt15,Q8N3T1,NP_473451,NM_054110,GALNT15,117248,Homo sapiens,Ambiguous transcript or protein accession
+143,GT,Galnt18,Q8K1B9,NP_776100,NM_173739,Galnt18,233733,Mus musculus,Ambiguous transcript or protein accession
+144,GT,Galnt18,Q6P9A2,NP_940918,NM_198516,GALNT18,374378,Homo sapiens,Ambiguous transcript or protein accession
+145,GT,Galntl5,Q9D4M9,NP_080725,NM_026449,Galntl5,67909,Mus musculus,
+146,GT,Galntl5,Q7Z4T8,NP_660335,NM_145292,GALNTL5,168391,Homo sapiens,
+147,GT,Galnt17,Q7TT15,NP_660253,NM_145218,Galnt17,212996,Mus musculus,
+148,GT,Galnt17,Q6IS24,NP_071924,NM_022479,GALNT17,64409,Homo sapiens,
+149,GT,Galntl6,E5D8G1,NP_778197,NM_175032,Galntl6,270049,Mus musculus,
+150,GT,Galntl6,Q49A17,NP_001030017,NM_001034845,GALNTL6,442117,Homo sapiens,
+151,GT,B3gnt3,Q5JCS9,NP_082465,NM_028189,B3gnt3,72297,Mus musculus,
+152,GT,B3gnt3,Q9Y2A9,NP_055071,NM_014256,B3GNT3,10331,Homo sapiens,
+153,GT,Gcnt1,Q09324,NP_775618,NM_173442,Gcnt1,14537,Mus musculus,Ambiguous transcript or protein accession
+154,GT,Gcnt1,Q02742,NP_001481,NM_001490,GCNT1,2650,Homo sapiens,Ambiguous transcript or protein accession
+155,GT,Gcnt2,P97402,NP_573482,NM_133219,Gcnt2,14538,Mus musculus,Ambiguous transcript or protein accession
+156,GT,Gcnt2,Q8N0V5,NP_663630,NM_145655,GCNT2,2651,Homo sapiens,Ambiguous transcript or protein accession
+157,GT,Gcnt3,Q5JCT0,NP_082363,NM_028087,Gcnt3,72077,Mus musculus,
+158,GT,Gcnt3,O95395,NP_004742,NM_004751,GCNT3,9245,Homo sapiens,
+159,GT,A3galt2,Q3V1N9,NP_001009819,NM_001009819,A3galt2,215493,Mus musculus,
+160,GT,A3galt2,U3KPV4,NP_001073907,NM_001080438,A3GALT2,127550,Homo sapiens,
+161,GT,B3gnt6,Q3USF0,NP_001074636,NM_001081167,B3gnt6,272411,Mus musculus,
+162,GT,B3gnt6,Q6ZMB0,NP_619651,NM_138706,B3GNT6,192134,Homo sapiens,
+163,GT,Ggta1,P23336,NP_034413,NM_010283,Ggta1,14594,Mus musculus,Ambiguous transcript or protein accession
+164,GT,Ggta1,Q4G0N0,NP_001369516,NM_001382587,GGTA1,2681,Homo sapiens,Ambiguous transcript or protein accession
+165,GT,B4gat1,Q8BWP8,NP_780592,NM_175383,B4gat1,108902,Mus musculus,
+166,GT,B4gat1,O43505,NP_006867,NM_006876,B4GAT1,11041,Homo sapiens,
+167,GT,Ogt,Q8CGY8,NP_631883,NM_139144,Ogt,108155,Mus musculus,Ambiguous transcript or protein accession
+168,GT,Ogt,O15294,NP_858059,NM_181673,OGT,8473,Homo sapiens,Ambiguous transcript or protein accession
+169,GT,Pofut1,Q91ZW2,NP_536711,NM_080463,Pofut1,140484,Mus musculus,
+170,GT,Pofut1,Q9H488,NP_758436,NM_172236,POFUT1,23509,Homo sapiens,Ambiguous transcript or protein accession
+171,GT,Lfng,O09010,NP_032520,NM_008494,Lfng,16848,Mus musculus,
+172,GT,Lfng,Q8NES3,NP_002295,NM_002304,LFNG,3955,Homo sapiens,Ambiguous transcript or protein accession
+173,GT,Mfng,O09008,NP_032621,NM_008595,Mfng,17305,Mus musculus,Ambiguous transcript or protein accession
+174,GT,Mfng,O00587,NP_002396,NM_002405,MFNG,4242,Homo sapiens,Ambiguous transcript or protein accession
+175,GT,Rfng,O09009,NP_033079,NM_009053,Rfng,19719,Mus musculus,
+176,GT,Rfng,Q9Y644,NP_002908,NM_002917,RFNG,5986,Homo sapiens,
+177,GT,Pomt2,Q8BGQ4,NP_700464,NM_153415,Pomt2,217734,Mus musculus,
+178,GT,Pomt2,Q9UKY4,NP_037514,NM_013382,POMT2,29954,Homo sapiens,
+179,GT,B3glct,Q8BHT6,NP_001074673,NM_001081204,B3glct,381694,Mus musculus,
+180,GT,B3glct,Q6Y288,NP_919299,NM_194318,B3GLCT,145173,Homo sapiens,
+181,GT,B4galt5,Q9JMK0,NP_062809,NM_019835,B4galt5,56336,Mus musculus,
+182,GT,B4galt5,O43286,NP_004767,NM_004776,B4GALT5,9334,Homo sapiens,
+183,GT,B4galt4,Q9JJ04,NP_062778,NM_019804,B4galt4,56375,Mus musculus,Ambiguous transcript or protein accession
+184,GT,B4galt4,O60513,NP_997708,NM_212543,B4GALT4,8702,Homo sapiens,Ambiguous transcript or protein accession
+185,GT,Pomgnt1,Q91X88,NP_084062,NM_029786,Pomgnt1,68273,Mus musculus,Ambiguous transcript or protein accession
+186,GT,Pomgnt1,Q8WZA1,NP_060209,NM_017739,POMGNT1,55624,Homo sapiens,Ambiguous transcript or protein accession
+187,GT,Oga,Q9EQQ9,NP_076288,NM_023799,Oga,76055,Mus musculus,Ambiguous transcript or protein accession
+188,GT,Oga,O60502,NP_036347,NM_012215,OGA,10724,Homo sapiens,Ambiguous transcript or protein accession
+189,GT,Pofut2,Q8VHI3,NP_084538,NM_030262,Pofut2,80294,Mus musculus,
+190,GT,Pofut2,Q9Y2G5,NP_598368,NM_133635,POFUT2,23275,Homo sapiens,Ambiguous transcript or protein accession
+191,GT,Pomt1,Q8R2R1,NP_660127,NM_145145,Pomt1,99011,Mus musculus,
+192,GT,Pomt1,Q9Y6A1,NP_009102,NM_007171,POMT1,10585,Homo sapiens,Ambiguous transcript or protein accession
+193,GT,Fut7,Q11131,NP_038552,NM_013524,Fut7,14347,Mus musculus,Ambiguous transcript or protein accession
+194,GT,Fut7,Q11130,NP_004470,NM_004479,FUT7,2529,Homo sapiens,
+195,GT,St3gal2,Q11204,NP_033205,NM_009179,St3gal2,20444,Mus musculus,
+196,GT,St3gal2,Q16842,NP_008858,NM_006927,ST3GAL2,6483,Homo sapiens,
+197,GT,St3gal5,O88829,NP_035505,NM_011375,St3gal5,20454,Mus musculus,Ambiguous transcript or protein accession
+198,GT,St3gal5,Q9UNP4,NP_003887,NM_003896,ST3GAL5,8869,Homo sapiens,Ambiguous transcript or protein accession
+199,GT,B3galt1,O54904,NP_064679,NM_020283,B3galt1,26877,Mus musculus,Ambiguous transcript or protein accession
+200,GT,B3galt1,Q9Y5Z6,NP_066191,NM_020981,B3GALT1,8708,Homo sapiens,
+201,GT,B3galnt1,Q920V1,NP_064410,NM_020026,B3galnt1,26879,Mus musculus,Ambiguous transcript or protein accession
+202,GT,B3galnt1,O75752,NP_149359,NM_033169,B3GALNT1,8706,Homo sapiens,Ambiguous transcript or protein accession
+203,GT,B3galt4,Q9Z0F0,NP_062293,NM_019420,B3galt4,54218,Mus musculus,
+204,GT,B3galt4,O96024,NP_003773,NM_003782,B3GALT4,8705,Homo sapiens,
+205,GT,B3gnt5,Q8BGY6,NP_473393,NM_054052,B3gnt5,108105,Mus musculus,Ambiguous transcript or protein accession
+206,GT,B3gnt5,Q9BYG0,NP_114436,NM_032047,B3GNT5,84002,Homo sapiens,
+207,GT,B4galnt1,Q09200,NP_082015,NM_027739,B4galnt1,14421,Mus musculus,Ambiguous transcript or protein accession
+208,GT,B4galnt1,Q00973,NP_001469,NM_001478,B4GALNT1,2583,Homo sapiens,Ambiguous transcript or protein accession
+209,GT,B4galnt2,Q09199,NP_032107,NM_008081,B4galnt2,14422,Mus musculus,
+210,GT,B4galnt2,Q8NHY0,NP_703147,NM_153446,B4GALNT2,124872,Homo sapiens,Ambiguous transcript or protein accession
+211,GT,Chst8,Q8BQ86,NP_780349,NM_175140,Chst8,68947,Mus musculus,
+212,GT,Chst8,Q9H2A9,NP_071912,NM_022467,CHST8,64377,Homo sapiens,Ambiguous transcript or protein accession
+213,GT,Chst9,Q76EC5,NP_951010,NM_199055,Chst9,71367,Mus musculus,Ambiguous transcript or protein accession
+214,GT,Chst9,Q7L1S5,NP_113610,NM_031422,CHST9,83539,Homo sapiens,Ambiguous transcript or protein accession
+215,GT,Gal3st1,Q9JHE4,NP_058618,NM_016922,Gal3st1,53897,Mus musculus,Ambiguous transcript or protein accession
+216,GT,Gal3st1,Q99999,NP_004852,NM_004861,GAL3ST1,9514,Homo sapiens,Ambiguous transcript or protein accession
+217,GT,Chst2,Q80WV3,NP_061233,NM_018763,Chst2,54371,Mus musculus,
+218,GT,Chst2,Q9Y4C5,NP_004258,NM_004267,CHST2,9435,Homo sapiens,Ambiguous transcript or protein accession
+219,GT,Chst4,Q9R1I1,NP_036128,NM_011998,Chst4,26887,Mus musculus,
+220,GT,Chst4,Q8NCG5,NP_005760,NM_005769,CHST4,10164,Homo sapiens,Ambiguous transcript or protein accession
+221,GT,B3gat1,Q9CW73,NP_084068,NM_029792,B3gat1,76898,Mus musculus,Ambiguous transcript or protein accession
+222,GT,B3gat1,Q9P2W7,NP_473366,NM_054025,B3GAT1,27087,Homo sapiens,Ambiguous transcript or protein accession
+223,GT,B3gat2,P59270,NP_742122,NM_172124,B3gat2,280645,Mus musculus,
+224,GT,B3gat2,Q9NPZ5,NP_542780,NM_080742,B3GAT2,135152,Homo sapiens,
+225,GT,Chst10,Q6PGK7,NP_660124,NM_145142,Chst10,98388,Mus musculus,Ambiguous transcript or protein accession
+226,GT,Chst10,O43529,NP_004845,NM_004854,CHST10,9486,Homo sapiens,
+227,GT,Poglut1,Q8BYB9,NP_759012,NM_172380,Poglut1,224143,Mus musculus,Ambiguous transcript or protein accession
+228,GT,Poglut1,Q8NBL1,NP_689518,NM_152305,POGLUT1,56983,Homo sapiens,
+229,GT,Gxylt1,Q3UHH8,NP_001343935,NM_001357006,Gxylt1,223827,Mus musculus,Ambiguous transcript or protein accession
+230,GT,Gxylt1,Q4G148,NP_775872,NM_173601,GXYLT1,283464,Homo sapiens,Ambiguous transcript or protein accession
+231,GT,Gxylt2,Q810K9,NP_941014,NM_198612,Gxylt2,232313,Mus musculus,
+232,GT,Gxylt2,A0PJZ3,NP_001073862,NM_001080393,GXYLT2,727936,Homo sapiens,
+233,GT,Xxylt1,Q3U4G3,NP_941028,NM_198626,Xxylt1,268880,Mus musculus,
+234,GT,Xxylt1,Q8NBI6,NP_689744,NM_152531,XXYLT1,152002,Homo sapiens,Ambiguous transcript or protein accession
+235,GT,Poglut2,Q9JHP7,NP_076134,NM_023645,Poglut2,72050,Mus musculus,
+236,GT,Poglut2,Q6UW63,NP_076994,NM_024089,POGLUT2,79070,Homo sapiens,Ambiguous transcript or protein accession
+237,GT,Poglut3,G5E897,NP_997610,NM_212445,Poglut3,68304,Mus musculus,
+238,GT,Poglut3,Q7Z4H8,NP_714916,NM_153705,POGLUT3,143888,Homo sapiens,Ambiguous transcript or protein accession
+239,GT,Eogt,Q8BYW9,NP_780522,NM_175313,Eogt,101351,Mus musculus,
+240,GT,Eogt,Q5NDL2,NP_775925,NM_173654,EOGT,285203,Homo sapiens,Ambiguous transcript or protein accession
+241,GT,Alg3,F1M8K7,,,Alg3,287983,Rattus norvegicus,
+242,GT,St3gal5,Q68G12,NP_112627,,St3gal5,83505,Rattus norvegicus,
+243,GT,B3gat2,Q9Z137,NP_072131,,B3gat2,64544,Rattus norvegicus,
+244,GT,Galnt9,D3ZQA1,NP_001116116,,Galnt9,304571,Rattus norvegicus,
+245,GT,St6gal2,Q701R3,NP_001094358,,St6gal2,301155,Rattus norvegicus,
+246,GT,B3gat1,O35789,NP_446455,,B3gat1,117108,Rattus norvegicus,
+247,GT,Pofut1,Q6EV70,NP_001002278,,Pofut1,311551,Rattus norvegicus,
+248,GT,Alg8,E9PT91,,,Alg8,293129,Rattus norvegicus,
+249,GT,Fut8,Q6EV76,NP_001002289,,Fut8,432392,Rattus norvegicus,
+250,GT,Alg1,D4A5S6,NP_001101734,,Alg1,360475,Rattus norvegicus,
+251,GT,Pomt2,Q14U74,NP_001040579,,Pomt2,688673,Rattus norvegicus,
+252,GT,Poglut1,G3V9D0,NP_001094122,,Poglut1,288091,Rattus norvegicus,
+253,GT,Chst9,F1M862,NP_001163941,,Chst9,291770,Rattus norvegicus,
+254,GT,Fut10,Q5F2L1,NP_001012360,,Fut10,497619,Rattus norvegicus,
+255,GT,St3gal1,A0A1W2Q5Z7,,,St3gal1,362924,Rattus norvegicus,
+256,GT,Alg6,Q3T1L5,NP_001028881,,Alg6,362547,Rattus norvegicus,
+257,GT,Fut2,Q10984,NP_113823,,Fut2,58924,Rattus norvegicus,
+258,GT,St6galnac3,Q64686,NP_061996,,St6galnac3,29758,Rattus norvegicus,
+259,GT,B4galt3,Q6P768,NP_001009539,,B4galt3,494342,Rattus norvegicus,
+260,GT,A4gnt,D3ZG90,NP_001413844,,A4gnt,685758,Rattus norvegicus,
+261,GT,Alg14,Q6AY85,NP_001014198,,Alg14,362031,Rattus norvegicus,
+262,GT,Pofut2,D3ZUN5,,,Pofut2,309686,Rattus norvegicus,
+263,GT,Galnt15,D4A3A9,XP_003752912,,Galnt15,100360475,Rattus norvegicus,
+264,GT,Alg11,D3ZCQ2,NP_001101871,,Alg11,361174,Rattus norvegicus,
+265,GT,Poglut3,Q566E5,NP_001020294,,Poglut3,315664,Rattus norvegicus,
+266,GT,St6galnac1,G3V9C4,NP_001099329,,St6galnac1,287920,Rattus norvegicus,
+267,GT,C1galt1c1,Q499P3,NP_001025204,,C1galt1c1,302499,Rattus norvegicus,
+268,GT,B4galnt1,Q10468,NP_074051,,B4galnt1,64828,Rattus norvegicus,
+269,GT,St6gal1,P13721,NP_001106815,,St6gal1,25197,Rattus norvegicus,
+270,GT,Chst10,O54702,NP_536322,,Chst10,140568,Rattus norvegicus,
+271,GT,Fut11,Q68FV3,NP_775430,,Fut11,286971,Rattus norvegicus,
+272,GT,Galnt5,O88422,NP_113984,,Galnt5,83627,Rattus norvegicus,
+273,GT,Galnt6,D4A864,NP_001165534,,Galnt6,100361647,Rattus norvegicus,
+274,GT,Gcnt3,Q8CH87,NP_775434,,Gcnt3,286976,Rattus norvegicus,
+275,GT,Ogt,P56558,NP_058803,,Ogt,26295,Rattus norvegicus,
+276,GT,Galnt12,D4A849,XP_001066416,,Galnt12,313233,Rattus norvegicus,
+277,GT,Eogt,Q5NDL0,NP_001009502,,Eogt,494219,Rattus norvegicus,
+278,GT,B3galnt1,Q6AY39,NP_001013176,,B3galnt1,310508,Rattus norvegicus,
+279,GT,Mgat5b,A0A8I5ZTQ1,XP_006247861,,Mgat5b,303693,Rattus norvegicus,
+280,GT,Galnt10,Q925R7,NP_570098,,Galnt10,170501,Rattus norvegicus,
+281,GT,Galnt1,Q10473,NP_077349,,Galnt1,79214,Rattus norvegicus,
+282,GT,A3galt2,A0A4Z3,NP_612533,,A3galt2,171553,Rattus norvegicus,
+283,GT,Mgat4a,Q5M854,NP_001012225,,Mgat4a,367252,Rattus norvegicus,
+284,GT,Alg9,A0ABK0LJG1,,,Alg9,367083,Rattus norvegicus,
+285,GT,Alg2,G3V6U3,NP_001094180,,Alg2,313231,Rattus norvegicus,
+286,GT,Galnt13,Q6UE39,NP_954537,,Galnt13,311039,Rattus norvegicus,
+287,GT,Galnt16,F1LQN1,NP_001094333,,Galnt16,362760,Rattus norvegicus,
+288,GT,Galnt11,Q6P6V1,NP_955425,,Galnt11,311952,Rattus norvegicus,
+289,GT,B3galt4,O88178,,,B3galt4,171079,Rattus norvegicus,
+290,GT,St3gal6,P61943,,,St3gal6,304023,Rattus norvegicus,
+291,GT,Lfng,Q924T4,NP_596884,,Lfng,170905,Rattus norvegicus,
+292,GT,B4galt1,P80225,,,B4galt1,24390,Rattus norvegicus,
+293,GT,Pomgnt1,Q5XIN7,NP_001007748,,Pomgnt1,362567,Rattus norvegicus,
+294,GT,B3glct,A0ABK0LW29,,,B3glct,689765,Rattus norvegicus,
+295,GT,Oga,Q8VIJ5,NP_571979,,Oga,154968,Rattus norvegicus,
+296,GT,Mgat2,Q09326,NP_446056,,Mgat2,94273,Rattus norvegicus,
+297,GT,Galnt14,A6H9Z9,NP_001012109,,Galnt14,313878,Rattus norvegicus,
+298,GT,B3galt5,D4AB20,NP_001099357,,B3galt5,288161,Rattus norvegicus,
+299,GT,B3galt1,D3ZPD8,NP_001102424,,B3galt1,366064,Rattus norvegicus,
+300,GT,B3gnt2,D3ZEF9,NP_001100710,,B3gnt2,305571,Rattus norvegicus,
+301,GT,St6galnac5,Q6ZXY9,NP_001258290,,St6galnac5,365984,Rattus norvegicus,
+302,GT,Chst4,D3ZLS2,NP_001100897,,Chst4,307838,Rattus norvegicus,
+303,GT,B4galt5,A0A0G2K3K5,,,B4galt5,362275,Rattus norvegicus,
+304,GT,Xxylt1,D4ADL7,XP_344028,,Xxylt1,363799,Rattus norvegicus,
+305,GT,B3gnt6,D3ZC66,NP_001099681,,B3gnt6,292325,Rattus norvegicus,
+306,GT,B4galt2,A0ABK0LW81,NP_001101435,,B4galt2,313536,Rattus norvegicus,
+307,GT,Gxylt2,D4A275,XP_001066466,,Gxylt2,688618,Rattus norvegicus,
+308,GT,Dpagt1,F7EMK2,NP_955420,,Dpagt1,300668,Rattus norvegicus,
+309,GT,Fut4,Q62994,,,Fut4,60670,Rattus norvegicus,
+310,GT,Fut1,Q10980,NP_112515,,Fut1,81919,Rattus norvegicus,
+311,GT,B3galt2,A0ABK0LFV5,,,B3galt2,686081,Rattus norvegicus,
+312,GT,B4galnt2,A0ABK0LW37,XP_006220879,,B4galnt2,688155,Rattus norvegicus,
+313,GT,B3gnt3,A0ABK0LB36,NP_001099538,,B3gnt3,290638,Rattus norvegicus,
+314,GT,Gcnt2,Q6T5E0,,,Gcnt2,306860,Rattus norvegicus,
+315,GT,Gxylt1,Q6GX83,NP_001094357,,Gxylt1,300173,Rattus norvegicus,
+316,GT,St3gal2,Q11205,NP_113883,,St3gal2,64442,Rattus norvegicus,
+317,GT,Galnt2,D3ZFD2,,,Galnt2,292090,Rattus norvegicus,
+318,GT,Fut7,Q712G6,NP_955785,,Fut7,296564,Rattus norvegicus,
+319,GT,B3gnt4,A0ABK0LUZ3,NP_001099408,,B3gnt4,288752,Rattus norvegicus,
+320,GT,B4galnt4,D4A750,NP_001101032,,B4galnt4,309105,Rattus norvegicus,
+321,GT,Pomt1,Q99PR0,NP_445858,,Pomt1,84430,Rattus norvegicus,
+322,GT,Mgat1,Q09325,NP_110488,,Mgat1,81519,Rattus norvegicus,
+323,GT,Galntl6,A0A8I5ZYW6,NP_001129228,,Galntl6,361142,Rattus norvegicus,
+324,GT,Galnt7,Q9R0C5,NP_075215,,Galnt7,29750,Rattus norvegicus,
+325,GT,Alg12,B1WBY3,NP_001101574,,Alg12,315212,Rattus norvegicus,
+326,GT,Fut9,Q99JB3,NP_445917,,Fut9,84597,Rattus norvegicus,
+327,GT,B4gat1,D3ZHA1,NP_001099794,,B4gat1,293667,Rattus norvegicus,
+328,GT,Rfng,Q9R1U9,NP_068621,,Rfng,60433,Rattus norvegicus,
+329,GT,Mgat4c,A0ABK0LZR9,NP_001129286,,Mgat4c,299756,Rattus norvegicus,
+330,GT,C1galt1,Q9JJ05,NP_075239,,C1galt1,65044,Rattus norvegicus,
+331,GT,Mgat3,Q02527,NP_062112,,Mgat3,29582,Rattus norvegicus,
+332,GT,Gal3st1,D3ZCT9,NP_001102917,,Gal3st1,683713,Rattus norvegicus,
+333,GT,Galnt3,A6HLX8,NP_001015032,,Galnt3,366061,Rattus norvegicus,
+334,GT,B4galnt3,F1M021,,,B4galnt3,500306,Rattus norvegicus,
+335,GT,Mgat4b,B2GV39,NP_001121005,,Mgat4b,303100,Rattus norvegicus,
+336,GT,St3gal3,Q02734,NP_113885,,St3gal3,64445,Rattus norvegicus,
+337,GT,Poglut2,A0A8I6AI78,NP_001264157,,Poglut2,316370,Rattus norvegicus,
+338,GT,Galnt17,Q5CD99,NP_001020283,,Galnt17,288611,Rattus norvegicus,
+339,GT,Galnt18,A0A8J8XFR5,,,Galnt18,293181,Rattus norvegicus,
+340,GT,Mgat5,Q08834,NP_075583,,Mgat5,65271,Rattus norvegicus,
+341,GT,B4galt4,Q66HH1,NP_001012018,,B4galt4,303923,Rattus norvegicus,
+342,GT,Mfng,G3V725,,,Mfng,315119,Rattus norvegicus,
+343,GT,St6galnac4,A0A8J8XJY2,,,St6galnac4,407764,Rattus norvegicus,
+344,GT,B3gnt5,Q99NB2,NP_446384,,B3gnt5,116740,Rattus norvegicus,
+345,GT,St6galnac6,A0ABK0LQS8,,,St6galnac6,407765,Rattus norvegicus,
+346,GT,Chst2,M0R868,XP_006226586,,Chst2,367145,Rattus norvegicus,
+347,GT,B3gnt8,D3ZE36,NP_001100962,,B3gnt8,308440,Rattus norvegicus,
+348,GT,St6galnac2,A0A8I6A9Z9,NP_001026822,,St6galnac2,303692,Rattus norvegicus,
+349,GT,Gcnt1,Q64165,NP_071612,,Gcnt1,64043,Rattus norvegicus,
+350,GT,Galntl5,Q6AYL7,NP_001020319,,Galntl5,499968,Rattus norvegicus,
+351,GT,Alg10,O88788,NP_620801,,Alg10,245960,Rattus norvegicus,
+352,GT,Alg13,Q5I0K7,NP_001013973,,Alg13,300284,Rattus norvegicus,
+353,GT,Chst8,A0ABK0LZD4,,,Chst8,308511,Rattus norvegicus,
+354,GT,Sec1,F1MAG9,NP_001129056,,Sec1,308586,Rattus norvegicus,
+355,GT,Ggta1,Q3L7M0,,,Ggta1,246766,Rattus norvegicus,
+356,GT,St3gal4,P61131,,,St3gal4,363040,Rattus norvegicus,
+357,GT,St8sia1,Q92185,,,ST8SIA1,6489,Homo sapiens,
+358,GT,St8sia1,Q64687,,,St8sia1,20449,Mus musculus,
+359,GT,St8sia2,O35696,,,St8sia2,20450,Mus musculus,
+360,GT,St8sia2,Q92186,,,ST8SIA2,8128,Homo sapiens,
+361,GT,St8sia3,Q64689,,,St8sia3,20451,Mus musculus,
+362,GT,St8sia3,O43173,,,ST8SIA3,51046,Homo sapiens,
+363,GT,St8sia4,Q64692,,,St8sia4,20452,Mus musculus,
+364,GT,St8sia4,Q92187,,,ST8SIA4,7903,Homo sapiens,
+365,GT,St8sia5,P70126,,,St8sia5,225742,Mus musculus,
+366,GT,St8sia5,O15466,,,ST8SIA5,29906,Homo sapiens,
+367,GT,St8sia6,Q8K4T1,,,St8sia6,241230,Mus musculus,
+368,GT,St8sia6,P61647,,,ST8SIA6,338596,Homo sapiens,
+369,GT,St8sia1,G3V7T2,,,St8sia1,25280,Rattus norvegicus,
+370,GT,St8sia2,Q07977,,,St8sia2,117523,Rattus norvegicus,
+371,GT,St8sia3,G3V8D0,,,St8sia3,25547,Rattus norvegicus,
+372,GT,St8sia4,A1KQY6,,,St8sia4,116696,Rattus norvegicus,
+373,GT,St8sia5,Q6ZXC8,,,St8sia5,364901,Rattus norvegicus,
+374,GT,St8sia6,A6JM47,,,St8sia6,291325,Rattus norvegicus,
+375,GT,Abo,Q9ET32,,,Abo,65270,Rattus norvegicus,
+376,GT,A4gnt,A0ABI0P2M0,,,A4GNT,540795,Bos taurus,
+377,GT,A4gnt,I3LSM2,,,A4GNT,100621190,Sus scrofa,
+378,GT,Abo,A0AAA9S1H3,,,ABO,515340,Bos taurus,
+379,GT,Alg1,F1N2J7,,,ALG1,507210,Bos taurus,
+380,GT,Alg1,F1RKX2,,,ALG1,100524193,Sus scrofa,
+381,GT,Alg11,A0AAA9T257,,,ALG11,540845,Bos taurus,
+382,GT,Alg11,F1RMC7,,,ALG11,100152645,Sus scrofa,
+383,GT,Alg12,A5PJJ2,,,ALG12,100125314,Bos taurus,
+384,GT,Alg12,F1RXR3,,,ALG12,100520494,Sus scrofa,
+385,GT,Alg13,A6H706,,,ALG13,515282,Bos taurus,
+386,GT,Alg13,K7GR87,,,ALG13,100523348,Sus scrofa,
+387,GT,Alg14,Q17QD5,,,ALG14,506537,Bos taurus,
+388,GT,Alg14,A0A287ARB8,,,ALG14,100157203,Sus scrofa,
+389,GT,Alg2,F1SSE6,,,ALG2,100113423,Sus scrofa,
+390,GT,Alg2,A0AAA9T9B7,,,ALG2,538899,Bos taurus,
+391,GT,Alg3,F6QW25,,,ALG3,614624,Bos taurus,
+392,GT,Alg3,I3LQI7,,,ALG3,100627022,Sus scrofa,
+393,GT,Alg6,F6QF86,,,ALG6,510138,Bos taurus,
+394,GT,Alg6,A0A8D1M5U4,,,ALG6,100521457,Sus scrofa,
+395,GT,Alg8,Q0P5D9,,,ALG8,538731,Bos taurus,
+396,GT,Alg8,I3L8Z7,,,ALG8,100511030,Sus scrofa,
+397,GT,Alg9,F1SUZ6,,,ALG9,100519965,Sus scrofa,
+398,GT,B3galnt1,Q864U6,,,B3GALNT1,397634,Sus scrofa,
+399,GT,B3galt1,A0AAA9TBP1,,,B3GALT1,539027,Bos taurus,
+400,GT,B3galt1,A0A287B819,,,B3GALT1,100152554,Sus scrofa,
+401,GT,B3galt2,Q3T0R9,,,B3GALT2,539815,Bos taurus,
+402,GT,B3galt2,F1SAB1,,,B3GALT2,100525885,Sus scrofa,
+403,GT,B3galt4,Q2HJA3,,,B3GALT4,768038,Bos taurus,
+404,GT,B3galt4,F1RZT4,,,B3GALT4,100155431,Sus scrofa,
+405,GT,B3galt5,A0AAA9TYT3,,,B3GALT5,614873,Bos taurus,
+406,GT,B3galt5,A0A287BQL8,,,B3GALT5,100516832,Sus scrofa,
+407,GT,B3gat1,F1MQ60,,,B3GAT1,541596,Bos taurus,
+408,GT,B3gat1,A0A286ZTI9,,,B3GAT1,100520760,Sus scrofa,
+409,GT,B3gat2,A0AAA9SHR9,,,B3GAT2,541595,Bos taurus,
+410,GT,B3gat2,I3LR31,,,B3GAT2,100526195,Sus scrofa,
+411,GT,B3glct,A0AAA9TL60,,,B3GLCT,132346750,Bos taurus,
+412,GT,B3glct,F1RSS9,,,B3GLCT,100517236,Sus scrofa,
+413,GT,B3gnt2,A7YY64,,,B3GNT2,515585,Bos taurus,
+414,GT,B3gnt2,F1SIW5,,,B3GNT2,100524195,Sus scrofa,
+415,GT,B3gnt3,A4IFK5,,,B3GNT3,784997,Bos taurus,
+416,GT,B3gnt3,A0A8D1NRV6,,,B3GNT3,100518473,Sus scrofa,
+417,GT,B3gnt4,F1MSS4,,,B3GNT4,534619,Bos taurus,
+418,GT,B3gnt4,I3LK83,,,B3GNT4,100736645,Sus scrofa,
+419,GT,B3gnt5,A0AAA9TA32,,,B3GNT5,767899,Bos taurus,
+420,GT,B3gnt5,Q864U8,,,B3GNT5,397599,Sus scrofa,
+421,GT,B3gnt6,F1MGN7,,,B3GNT6,540848,Bos taurus,
+422,GT,B3gnt8,Q0VC83,,,B3GNT8,534859,Bos taurus,
+423,GT,B3gnt8,A0A286ZLM1,,,B3GNT8,100511757,Sus scrofa,
+424,GT,B4galnt1,A5PJP7,,,B4GALNT1,520159,Bos taurus,
+425,GT,B4galnt1,A0A287ACM0,,,B4GALNT1,100516440,Sus scrofa,
+426,GT,B4galnt2,A0A3Q1NNN5,,,B4GALNT2,508108,Bos taurus,
+427,GT,B4galnt2,A0A5G2R5R4,,,B4GALNT2,100621328,Sus scrofa,
+428,GT,B4galnt3,F1N0M7,,,B4GALNT3,527026,Bos taurus,
+429,GT,B4galnt3,A0A287AZV6,,,B4GALNT3,110260758,Sus scrofa,
+430,GT,B4galnt4,G3X7L4,,,B4GALNT4,100137759,Bos taurus,
+431,GT,B4galnt4,A0A8W4F915,,,B4GALNT4,100623649,Sus scrofa,
+432,GT,B4galt1,P08037,,,B4GALT1,281781,Bos taurus,
+433,GT,B4galt1,A0A287AIG3,,,B4GALT1,100511655,Sus scrofa,
+434,GT,B4galt2,F6RJ53,,,B4GALT2,100125390,Bos taurus,
+435,GT,B4galt2,I3LDA7,,,B4GALT2,100736821,Sus scrofa,
+436,GT,B4galt3,Q5EA87,,,B4GALT3,515771,Bos taurus,
+437,GT,B4galt3,F1S1A6,,,B4GALT3,100154856,Sus scrofa,
+438,GT,B4galt4,F6RH18,,,B4GALT4,511328,Bos taurus,
+439,GT,B4galt4,F1SPA3,,,B4GALT4,397380,Sus scrofa,
+440,GT,B4galt5,A0AAA9T0M7,,,B4GALT5,282407,Bos taurus,
+441,GT,B4galt5,A0A1S6M251,,,B4GALT5,100522653,Sus scrofa,
+442,GT,B4gat1,Q5EA01,,,B4GAT1,618055,Bos taurus,
+443,GT,B4gat1,F1RUS9,,,B4GAT1,100518412,Sus scrofa,
+444,GT,C1galt1,Q0VC84,,,C1GALT1,539417,Bos taurus,
+445,GT,C1galt1,A0A5G2QHX1,,,C1GALT1,100525767,Sus scrofa,
+446,GT,C1galt1c1,Q3SX46,,,C1GALT1C1,531644,Bos taurus,
+447,GT,C1galt1c1,F1RUC2,,,C1GALT1C1,100511613,Sus scrofa,
+448,GT,Chst10,F6PRF2,,,CHST10,511215,Bos taurus,
+449,GT,Chst10,A0A287A2S8,,,CHST10,100520428,Sus scrofa,
+450,GT,Chst2,E1BMN6,,,CHST2,615978,Bos taurus,
+451,GT,Chst2,I3L6A5,,,CHST2,100626514,Sus scrofa,
+452,GT,Chst4,Q1LZD4,,,CHST4,539063,Bos taurus,
+453,GT,Chst4,F1S3D0,,,CHST4,106510480,Sus scrofa,
+454,GT,Chst8,C0LMH8,,,CHST8,100271926,Bos taurus,
+455,GT,Chst8,A0A286ZI43,,,CHST8,100620211,Sus scrofa,
+456,GT,Chst9,A0A3Q1MTD8,,,CHST9,525909,Bos taurus,
+457,GT,Chst9,F1SBA1,,,CHST9,100515146,Sus scrofa,
+458,GT,Dpagt1,Q5EA65,,,DPAGT1,537812,Bos taurus,
+459,GT,Dpagt1,F1SAH5,,,DPAGT1,100517773,Sus scrofa,
+460,GT,Eogt,A0JND3,,,EOGT,508782,Bos taurus,
+461,GT,Eogt,F1SFQ3,,,EOGT,100155485,Sus scrofa,
+462,GT,Fut1,F6Q1T7,,,FUT1,281174,Bos taurus,
+463,GT,Fut1,Q29043,,,FUT1,397138,Sus scrofa,
+464,GT,Fut10,Q6A198,,,FUT10,360195,Bos taurus,
+465,GT,Fut10,A0A287BS10,,,FUT10,100625870,Sus scrofa,
+466,GT,Fut11,A0AAA9S1Q8,,,FUT11,539329,Bos taurus,
+467,GT,Fut11,A0A287BIT3,,,FUT11,100157040,Sus scrofa,
+468,GT,Fut2,Q28113,,,FUT2,281175,Bos taurus,
+469,GT,Fut2,Q10982,,,FUT2,397139,Sus scrofa,
+470,GT,Fut3,Q99KG7,,,Hps4,192232,Mus musculus,
+471,GT,Fut3,Q11126,,,FUT3,,Bos taurus,
+472,GT,Fut4,Q8HZR3,,,FUT4,282854,Bos taurus,
+473,GT,Fut4,A0A8W4FN42,,,FUT4,100513419,Sus scrofa,
+474,GT,Fut6,F1MBS8,,,FUT6,338077,Bos taurus,
+475,GT,Fut6,F1SBU3,,,LOC100513844,100513844,Sus scrofa,
+476,GT,Fut7,G3MZR2,,,FUT7,100036592,Bos taurus,
+477,GT,Fut7,A0A287B633,,,FUT7,110258084,Sus scrofa,
+478,GT,Fut8,Q9N0W2,,,FUT8,281177,Bos taurus,
+479,GT,Fut8,P79282,,,FUT8,396933,Sus scrofa,
+480,GT,Fut9,Q8HZR2,,,FUT9,282853,Bos taurus,
+481,GT,Fut9,A0A4X1VHC3,,,FUT9,102160171,Sus scrofa,
+482,GT,Gal3st1,A6QNK1,,,GAL3ST1,513295,Bos taurus,
+483,GT,Gal3st1,A0A287BRU9,,,GAL3ST1,100155265,Sus scrofa,
+484,GT,Galnt1,Q07537,,,GALNT1,282241,Bos taurus,
+485,GT,Galnt1,Q29121,,,GALNT1,100738545,Sus scrofa,
+486,GT,Galnt10,F1N554,,,GALNT10,787200,Bos taurus,
+487,GT,Galnt10,F1RQC2,,,GALNT10,100511419,Sus scrofa,
+488,GT,Galnt11,E1BDW8,,,GALNT11,534904,Bos taurus,
+489,GT,Galnt11,A0A287B5N4,,,GALNT11,100515515,Sus scrofa,
+490,GT,Galnt12,F1SSE9,,,GALNT12,100512452,Sus scrofa,
+491,GT,Galnt13,Q08DM9,,,GALNT13,532545,Bos taurus,
+492,GT,Galnt13,A0A287AU55,,,GALNT13,100520278,Sus scrofa,
+493,GT,Galnt14,A0AAA9S1Y7,,,GALNT14,540500,Bos taurus,
+494,GT,Galnt14,F1S3Y5,,,GALNT14,100738063,Sus scrofa,
+495,GT,Galnt15,E1BHN6,,,GALNT15,618078,Bos taurus,
+496,GT,Galnt15,A0A287ASH2,,,GALNT15,100157572,Sus scrofa,
+497,GT,Galnt16,A6QLD9,,,GALNTL1,526331,Bos taurus,
+498,GT,Galnt16,F1S4B7,,,GALNT16,100513992,Sus scrofa,
+499,GT,Galnt17,E1B9U7,,,GALNT17,505622,Bos taurus,
+500,GT,Galnt17,F1RJJ7,,,GALNT17,100514952,Sus scrofa,
+501,GT,Galnt18,F6RJ62,,,GALNT18,614203,Bos taurus,
+502,GT,Galnt18,F1S6W6,,,GALNT18,100519410,Sus scrofa,
+503,GT,Galnt2,A0A3Q1M986,,,GALNT2,616218,Bos taurus,
+504,GT,Galnt2,A0A287A6N0,,,GALNT2,100153028,Sus scrofa,
+505,GT,Galnt3,A0AAA9S5W3,,,GALNT3,535458,Bos taurus,
+506,GT,Galnt3,A0A4X1VPB2,,,GALNT3,100515629,Sus scrofa,
+507,GT,Galnt4,A0A5G2R0V1,,,GALNT4,100621801,Sus scrofa,
+508,GT,Galnt5,E1BKQ9,,,GALNT5,504711,Bos taurus,
+509,GT,Galnt5,I3LCH7,,,GALNT5,100627600,Sus scrofa,
+510,GT,Galnt6,Q5EA41,,,GALNT6,506903,Bos taurus,
+511,GT,Galnt6,A0A287A7J0,,,GALNT6,100520836,Sus scrofa,
+512,GT,Galnt7,A0A3Q1MN70,,,GALNT7,524529,Bos taurus,
+513,GT,Galnt7,F1RIZ9,,,GALNT7,100158205,Sus scrofa,
+514,GT,Galnt9,A0A287AIU3,,,GALNT9,100156842,Sus scrofa,
+515,GT,Galntl5,G3N0Q1,,,GALNTL5,617031,Bos taurus,
+516,GT,Galntl5,F1SSN3,,,GALNTL5,100515695,Sus scrofa,
+517,GT,Galntl6,A0AAA9TS02,,,GALNTL6,615819,Bos taurus,
+518,GT,Galntl6,A0A4X1V6H3,,,GALNTL6,100518755,Sus scrofa,
+519,GT,Gcnt1,Q92180,,,GCNT1,281778,Bos taurus,
+520,GT,Gcnt1,F1SIN0,,,GCNT1,106508649,Sus scrofa,
+521,GT,Gcnt2,A0A3Q1N1F3,,,GCNT2,613924,Bos taurus,
+522,GT,Gcnt2,A0A287BBU6,,,GCNT2,100152566,Sus scrofa,
+523,GT,Gcnt3,Q7YQE1,,,GCNT3,404167,Bos taurus,
+524,GT,Gcnt3,F1S070,,,GCNT3,100522112,Sus scrofa,
+525,GT,Ggta1,P14769,,,GGTA1,281780,Bos taurus,
+526,GT,Ggta1,P50127,,,GGTA1,396733,Sus scrofa,
+527,GT,Gxylt1,A0A3Q1LRP0,,,GXYLT1,617596,Bos taurus,
+528,GT,Gxylt1,A0A287A1D3,,,GXYLT1,110260763,Sus scrofa,
+529,GT,Gxylt2,G3N2G4,,,GXYLT2,507299,Bos taurus,
+530,GT,Gxylt2,F1SFM8,,,GXYLT2,100511227,Sus scrofa,
+531,GT,Lfng,Q2KJ92,,,LFNG,516209,Bos taurus,
+532,GT,Lfng,F1RI57,,,LFNG,100524978,Sus scrofa,
+533,GT,Mfng,A0AAA9SC75,,,MFNG,505267,Bos taurus,
+534,GT,Mfng,I3LAN4,,,MFNG,102161832,Sus scrofa,
+535,GT,Mgat1,Q5E9I4,,,MGAT1,534248,Bos taurus,
+536,GT,Mgat1,Q0KKC2,,,MGAT1,780412,Sus scrofa,
+537,GT,Mgat2,E1BB36,,,MGAT2,101906103,Bos taurus,
+538,GT,Mgat2,O19071,,,MGAT2,100151745,Sus scrofa,
+539,GT,Mgat3,A0AAA9S9Z3,,,MGAT3,520087,Bos taurus,
+540,GT,Mgat3,A0A287AW36,,,MGAT3,100625969,Sus scrofa,
+541,GT,Mgat4a,O77836,,,MGAT4A,282276,Bos taurus,
+542,GT,Mgat4a,A0A287BE04,,,MGAT4A,100524079,Sus scrofa,
+543,GT,Mgat4b,A0AAF6DMH2,,,MGAT4B,526256,Bos taurus,
+544,GT,Mgat4b,F1S444,,,MGAT4B,100521073,Sus scrofa,
+545,GT,Mgat4c,E1BNB2,,,MGAT4C,539661,Bos taurus,
+546,GT,Mgat4c,Q6ITT3,,,MGAT4C,414851,Sus scrofa,
+547,GT,Mgat5,A0A3Q1MCW8,,,MGAT5,537595,Bos taurus,
+548,GT,Mgat5,A0A4X1ST51,,,MGAT5,100512563,Sus scrofa,
+549,GT,Mgat5b,A0AAA9S5A7,,,MGAT5B,785213,Bos taurus,
+550,GT,Mgat5b,F1RZ69,,,MGAT5B,100516218,Sus scrofa,
+551,GT,Oga,A0A3Q1LX66,,,OGA,538561,Bos taurus,
+552,GT,Oga,F1S8T6,,,OGA,100152585,Sus scrofa,
+553,GT,Ogt,A0A3S5ZPK0,,,OGT,532053,Bos taurus,
+554,GT,Ogt,Q27HV0,,,OGT,664652,Sus scrofa,
+555,GT,Pofut1,A0A3Q1MQ73,,,POFUT1,360194,Bos taurus,
+556,GT,Pofut1,Q00P49,,,POFUT1,397627,Sus scrofa,
+557,GT,Pofut2,A0ABI0P7D0,,,POFUT2,404083,Bos taurus,
+558,GT,Pofut2,F1SG35,,,POFUT2,100738385,Sus scrofa,
+559,GT,Poglut1,Q5E9Q1,,,POGLUT1,511862,Bos taurus,
+560,GT,Poglut1,F1SPB0,,,POGLUT1,100525611,Sus scrofa,
+561,GT,Poglut2,Q0VD36,,,POGLUT2,514810,Bos taurus,
+562,GT,Poglut2,F1RLQ5,,,POGLUT2,100511896,Sus scrofa,
+563,GT,Poglut3,A0A3Q1MGM6,,,POGLUT3,100298704,Bos taurus,
+564,GT,Poglut3,F1SV18,,,POGLUT3,100512977,Sus scrofa,
+565,GT,Pomgnt1,Q5EAB6,,,POMGNT1,506551,Bos taurus,
+566,GT,Pomgnt1,F1S3V2,,,POMGNT1,780413,Sus scrofa,
+567,GT,Pomt1,A0A287BKQ3,,,POMT1,100525803,Sus scrofa,
+568,GT,Pomt2,E1BL72,,,POMT2,537054,Bos taurus,
+569,GT,Pomt2,F1S2M9,,,POMT2,100155173,Sus scrofa,
+570,GT,Rfng,F1MQG2,,,RFNG,532242,Bos taurus,
+571,GT,Rfng,A0A286ZQY8,,,RFNG,110255925,Sus scrofa,
+572,GT,Sec1,Q9TTY3,,,SEC1,281483,Bos taurus,
+573,GT,St3gal1,A0AAF6DLT4,,,ST3GAL1,282351,Bos taurus,
+574,GT,St3gal1,Q02745,,,ST3GAL1,445537,Sus scrofa,
+575,GT,St3gal2,Q6H8M9,,,ST3GAL2,444879,Bos taurus,
+576,GT,St3gal2,A0A287A537,,,ST3GAL2,100627772,Sus scrofa,
+577,GT,St3gal3,A0AAA9RZZ9,,,ST3GAL3,444859,Bos taurus,
+578,GT,St3gal3,Q70D54,,,ST3GAL3,396619,Sus scrofa,
+579,GT,St3gal4,A0AAA9TT54,,,ST3GAL4,404163,Bos taurus,
+580,GT,St3gal4,A0A287AWN7,,,ST3GAL4,396602,Sus scrofa,
+581,GT,St3gal5,Q70D51,,,ST3GAL5,404164,Bos taurus,
+582,GT,St3gal5,A0A287BK78,,,ST3GAL5,100625751,Sus scrofa,
+583,GT,St3gal6,Q6H8M7,,,ST3GAL6,444860,Bos taurus,
+584,GT,St3gal6,A0A287AMU7,,,ST3GAL6,100739492,Sus scrofa,
+585,GT,St6gal1,F1MHF1,,,ST6GAL1,282073,Bos taurus,
+586,GT,St6gal1,A0A286ZSQ8,,,ST6GAL1,100302026,Sus scrofa,
+587,GT,St6gal2,A5D7T4,,,ST6GAL2,493992,Bos taurus,
+588,GT,St6gal2,A0A480E8L5,,,ST6GAL2,100512775,Sus scrofa,
+589,GT,St6galnac1,F1N6V7,,,ST6GALNAC1,618655,Bos taurus,
+590,GT,St6galnac1,F1RZ66,,,ST6GALNAC1,100622490,Sus scrofa,
+591,GT,St6galnac2,A0A3Q1LRX1,,,ST6GALNAC2,511690,Bos taurus,
+592,GT,St6galnac4,G3N3B2,,,ST6GALNAC4,404124,Bos taurus,
+593,GT,St6galnac2,F1RWP7,,,ST6GALNAC2,100518510,Sus scrofa,
+594,GT,St6galnac3,A0A3Q1N3L6,,,ST6GALNAC3,782689,Bos taurus,
+595,GT,St6galnac3,I3LS82,,,ST6GALNAC3,100512173,Sus scrofa,
+596,GT,St6galnac4,F6PZ23,,,ST6GALNAC4,396676,Sus scrofa,
+597,GT,St6galnac5,F1MXN8,,,ST6GALNAC5,540995,Bos taurus,
+598,GT,St6galnac5,A0A287ACU7,,,ST6GALNAC5,404690,Sus scrofa,
+599,GT,St6galnac6,Q08E15,,,ST6GALNAC6,407222,Bos taurus,
+600,GT,St6galnac6,F1RS05,,,ST6GALNAC6,100523532,Sus scrofa,
+601,GT,St8sia1,Q6ZXD2,,,ST8SIA1,282352,Bos taurus,
+602,GT,St8sia1,A0A287ARB7,,,ST8SIA1,100625270,Sus scrofa,
+603,GT,St8sia2,A0AAA9RZE3,,,ST8SIA2,540267,Bos taurus,
+604,GT,St8sia2,M1FW61,,,ST8SIA2,100158046,Sus scrofa,
+605,GT,St8sia3,A0A3Q1LZS9,,,ST8SIA3,414349,Bos taurus,
+606,GT,St8sia3,A0A287A2J7,,,ST8SIA3,100157619,Sus scrofa,
+607,GT,St8sia4,Q6ZXC9,,,ST8SIA4,407768,Bos taurus,
+608,GT,St8sia4,A0A287BAR8,,,ST8SIA4,641356,Sus scrofa,
+609,GT,St8sia5,A0A3Q1LSD7,,,ST8SIA5,497020,Bos taurus,
+610,GT,St8sia5,A0A8W4FIM2,,,ST8SIA5,100622364,Sus scrofa,
+611,GT,St8sia6,A0AAA9TQF6,,,ST8SIA6,494116,Bos taurus,
+612,GT,St8sia6,F1RWB6,,,ST8SIA6,100522567,Sus scrofa,
+613,GT,Xxylt1,Q1RMU6,,,C1H3ORF21,533703,Bos taurus,
+614,GT,Xxylt1,A0A286ZM39,,,XXYLT1,110256394,Sus scrofa,

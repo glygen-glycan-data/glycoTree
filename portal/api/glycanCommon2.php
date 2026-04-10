@@ -25,11 +25,11 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
 	// initialize elements of ruleData array
 	for ($i = 1; $i <= $ruleCount; $i++) $groupedRuleData[$i] = [];
 	
-        $enz2gn = [];
+    $enz2gn = [];
 	$resStructureArray = [];
 	$otherStructureArray = [];
 	$ruleArray = [];
-	$queryText = "SELECT rule_data.*,rules.*,canonical_residues.anomer,canonical_residues.absolute,canonical_residues.form_name FROM rule_data LEFT JOIN rules ON (rule_data.rule_id = rules.rule_id) LEFT JOIN canonical_residues ON (canonical_residues.residue_id = rule_data.other_residue) WHERE focus=?";
+	$queryText = "SELECT rule_data.*,rules.*,enzymes.uniprot as enzyme,canonical_residues.anomer,canonical_residues.absolute,canonical_residues.form_name FROM rule_data LEFT JOIN rules ON (rule_data.rule_id = rules.rule_id) LEFT JOIN canonical_residues ON (canonical_residues.residue_id = rule_data.other_residue) LEFT JOIN enzymes ON (enzymes.enzyme_id = rule_data.enzyme_id) WHERE focus=?";
 	foreach ($resList as $value)  {
 		// reinitialize eCaveats for each residue;
 		$resID = $value['residue_id'];
@@ -52,6 +52,7 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
 				$focus = $row['focus'];
 				$theRule['focus'] = $focus;
 				$theRule['enzyme'] = $row['enzyme'];
+				$theRule['enzyme_id'] = $row['enzyme_id'];
 				$otherResidue = $row['other_residue'];
 				$theRule['other_residue'] = $otherResidue;
 				// retrieve structure of otherResidue, when appropriate
@@ -81,7 +82,8 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
 		}
 		
             foreach ($value["enzymes"] as $eind => $enz) {
-               $enz2gn[$enz["uniprot"]] = $enz["gene_name"];
+			   # $enz2gn[$enz["uniprot"]] = $enz["gene_name"];
+               $enz2gn[$enz["enzyme_id"]] = $enz["gene_name"];
             }
 	}
 
@@ -103,7 +105,7 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
 					if (!$resinStruct) {
 						// the glycan does NOT contain reqRes (it is not in $resStructureArray)
 						// if (!$fullymapped) {
-						    array_push($reqViolation, "enzyme " . $enz2gn[$value['enzyme']] .
+						    array_push($reqViolation, "enzyme " . $enz2gn[$value['enzyme_id']] .
 							  " transfers residue " . $focus . 
 							  " (" . $resStructureArray[$focus] . ") in " .
 							  $value['taxonomy'] . " - missing residue " . $reqRes .
@@ -119,7 +121,7 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
 					if ($resinStruct /* || !$fullymapped*/) {
 						// the glycan contains blockRes or there are unmapped residues
 						// if (!$resinStruct) {
-						     array_push($blockViolation, "enzyme: " . $enz2gn[$value['enzyme']] .
+						     array_push($blockViolation, "enzyme: " . $enz2gn[$value['enzyme_id']] .
 							  "; &nbsp; transferred residue: " . $value['focus'] . 
 							  " (" . $resStructureArray[$focus] . ")" .
 							  "; &nbsp; blocking: " . $blockRes .
@@ -154,8 +156,8 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
                         $keepviolation = true;
                         for ($j = 0; $j< sizeof($rawRuleData); $j++) {
                             $focus = $rawRuleData[$j]["focus"];
-                            $enzyme = $rawRuleData[$j]["enzyme"];
-			    $bvstr = "enzyme: " . $enz2gn[$enzyme] . "; &nbsp; transferred residue: " . $focus . " ";
+                            $enzyme_id = $rawRuleData[$j]["enzyme_id"];
+			    			$bvstr = "enzyme: " . $enz2gn[$enzyme_id] . "; &nbsp; transferred residue: " . $focus . " ";
                             if (strstr($blockViolation[$i],$bvstr) !== false) {
                                 # $keepviolation = false;
                                 break;
@@ -339,7 +341,7 @@ function queryStructure($acc, $con) {
 *   int(6)
 *  }
 ***************************/
-function integrateData($connection, $compArray, $accession, $structure) {
+function integrateData($connection, $compArray, $accession, $structure=null) {
 	// integrates the data associated with the accession
 
 	// $glycan is an associative array that holds the integrated, hierarchical data
@@ -354,7 +356,7 @@ function integrateData($connection, $compArray, $accession, $structure) {
 	$canon_stmt->bind_param("s", $resid);
 
 	// get enzyme information for residues from enzyme_mappings
-	$map_query = "SELECT enzyme_mappings.type,enzyme_mappings.uniprot,enzyme_mappings.notes,enzymes.protein_refseq,enzymes.dna_refseq,enzymes.gene_name,enzymes.gene_id,enzymes.species,enzymes.branch_site_specificity,enzymes.orthology_group FROM enzyme_mappings,enzymes WHERE enzyme_mappings.uniprot=enzymes.uniprot AND residue_id=?";
+	$map_query = "SELECT enzymes.enzyme_id,enzymes.type,enzymes.uniprot,enzyme_mappings.notes,enzyme_mappings.proposer_id,enzyme_mappings.administrator,enzymes.protein_refseq,enzymes.dna_refseq,enzymes.gene_name,enzymes.gene_id,enzymes.species,enzymes.branch_site_specificity,enzymes.orthology_group FROM enzyme_mappings,enzymes WHERE enzyme_mappings.enzyme_id=enzymes.enzyme_id AND enzyme_mappings.status = 'active' AND residue_id=?";
 	$map_stmt = $connection->prepare($map_query);
 	$map_stmt->bind_param("s", $resid);
 
@@ -384,11 +386,12 @@ function integrateData($connection, $compArray, $accession, $structure) {
 		} else {
 			$fullrow['glycotree'] = explode("_", $fullrow['residue_name'])[0];
 		}
-                $fullrow['canonical_residue_index'] = explode(";", $fullrow['canonical_residue_index'])[0];
+        $fullrow['canonical_residue_index'] = explode(";", $fullrow['canonical_residue_index'])[0];
 		// query enzyme_mappings using the current residue_id
 		$map_stmt->execute(); 
 		$map_result = $map_stmt->get_result();
 		while ($map_row = $map_result->fetch_assoc()) {
+			$map_row['curated'] = ($map_row['proposer_id'] == "AN" && $map_row['administrator'] == "WSY"); 
 			array_push($enzymes, $map_row);
 		}
 		$fullrow["enzymes"] = $enzymes;
@@ -419,11 +422,11 @@ function integrateData($connection, $compArray, $accession, $structure) {
             $glycan["residues"][$rind]["rule_violations"] = [];
             foreach ($glycan["rule_violations"] as $rvind => $rv) {
                 if ($rv["focus"] == $resid) {
-                    if (!$rv["enzyme"]) {
+                    if ($rv["enzyme_id"] == 0) {
                         array_push($glycan["residues"][$rind]["rule_violations"],$rv["instance"]);
                     }
                     foreach ($res["enzymes"] as $eind => $enz) {
-                        if ($rv["enzyme"] == $enz["uniprot"]) {
+                        if ($rv["enzyme_id"] == $enz["enzyme_id"]) {
                             if (!array_key_exists("rule_violations",$enz)) {
                                 $glycan["residues"][$rind]["enzymes"][$eind]["rule_violations"] = [];
                             }

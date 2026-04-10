@@ -428,7 +428,7 @@ function addEdge(&$data, $child_node, $parent_node, $connection) {
 				$row["species"] = "no known organism";
 				$enzymes[] = $row;
 			} else {
-				$sql = "SELECT enzymes.gene_name,enzymes.uniprot,enzymes.type,enzymes.species FROM enzyme_mappings,enzymes WHERE enzymes.uniprot=enzyme_mappings.uniprot AND enzyme_mappings.residue_id=? ORDER BY species"; // @@!!
+				$sql = "SELECT enzymes.gene_name,enzymes.uniprot,enzymes.type,enzymes.species FROM enzyme_mappings,enzymes WHERE enzymes.enzyme_id=enzyme_mappings.enzyme_id AND enzyme_mappings.residue_id=? ORDER BY species"; // @@!!
 				$stmt = $connection->prepare($sql);
 				$stmt->bind_param("s", $ra);
 				$stmt->execute(); 
