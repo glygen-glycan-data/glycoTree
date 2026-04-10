@@ -23,7 +23,7 @@ class ModelTable(object):
     notnull = []
     nulls = ["NULL",None,"None",""]
 
-    def __init__(self,filename=None,headers=None,rows=None):
+    def __init__(self,filename=None,headers=None,rows=None,format=None):
         self._table = {} 
         self._maxid = -1
         self._headers = headers
@@ -38,10 +38,10 @@ class ModelTable(object):
         else:
             if not filename:
                 filename = self.filename
-            if filename.endswith('.tsv'):
+            if filename.endswith('.tsv') or format == "TSV":
                 self.parse(csv.DictReader(open(filename),dialect='excel-tab'))
                 self._sep = '\t'
-            elif filename.endswith('.csv'):
+            elif filename.endswith('.csv') or format == "CSV":
                 self.parse(csv.DictReader(open(filename)))
                 self._sep = ','
             else:
