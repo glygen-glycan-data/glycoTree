@@ -5,5 +5,5 @@ if [ ! -d "$PYGLY_SCRIPTS" ]; then
 fi
 set -e
 set -o pipefail
-$PYGLY_SCRIPTS/glycotree_glygendump.py --dev | gzip -c > glycotree_annotated_glycans.tsv.gz
-$PYGLY_SCRIPTS/glycotree_glygendumpcaveat.py --dev | gzip -c > glycotree_glycan_caveats.tsv.gz
+$PYGLY_SCRIPTS/glycotree_glygendump.py | gzip -c > glycotree_annotated_glycans.tsv.gz
+$PYGLY_SCRIPTS/glycotree_glygendumpcaveat.py | gzip -c > glycotree_glycan_caveats.tsv.gz
