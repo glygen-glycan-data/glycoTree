@@ -424,22 +424,27 @@ function addEdge(&$data, $child_node, $parent_node, $connection) {
 				// echo ($residue_affected["residue_id"] . " is abiotic<br>");
 				$row["gene_name"] = "abiotic";
 				$row["uniprot"] = "abiotic";
+                                $row["curated"] = "false";
 				$row["type"] = "";
 				$row["species"] = "no known organism";
 				$enzymes[] = $row;
 			} else {
-				$sql = "SELECT enzymes.gene_name,enzymes.uniprot,enzymes.type,enzymes.species FROM enzyme_mappings,enzymes WHERE enzymes.enzyme_id=enzyme_mappings.enzyme_id AND enzyme_mappings.residue_id=? ORDER BY species"; // @@!!
+				$sql = "SELECT enzymes.gene_name,enzymes.uniprot,enzymes.type,enzymes.species,enzyme_mappings.proposer_id,enzyme_mappings.administrator FROM enzyme_mappings,enzymes WHERE enzymes.enzyme_id=enzyme_mappings.enzyme_id AND enzyme_mappings.residue_id=? ORDER BY species"; // @@!!
 				$stmt = $connection->prepare($sql);
 				$stmt->bind_param("s", $ra);
 				$stmt->execute(); 
 				$result = $stmt->get_result();
 				while ($row = $result->fetch_assoc()) {
+                                        $row['curated'] = "false";
+                                        if ($row['proposer_id'] == "AN" && $row['administrator'] == "WSY") {
+                                            $row['curated'] = "true";
+                                        }
+                                        unset($row["proposer_id"]);
+                                        unset($row["administrator"]);
 					$enzymes[] = $row;
 				}
 			}
 		}
-		
-
 		
 		$edge = array(
 			"target" => $cIndex,
