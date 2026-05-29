@@ -8,6 +8,8 @@ class GlycoTree(object):
     enzymes = "getEnzymeMappings.php?limiter=no_filter&val="
     rules = "getAllRuleData.php?limiter=no_filter&val="
 
+    capping_roots = ['N2','N7','N5','N31','N9','O156','O157']
+
     def __init__(self):
         self.build_tree()
 
@@ -15,6 +17,8 @@ class GlycoTree(object):
         self.read_tree()
         self.add_children()
         self.add_rules()
+        self.add_levels()
+        self.add_capping_levels()
 
     def enzyme_table(self):
         h = urllib.request.urlopen(self.baseurl + "/" + self.enzymes)
@@ -45,13 +49,13 @@ class GlycoTree(object):
                 self.residues[rid]['enzymes'] = []
                 self.residues[rid]['rules'] = []
                 if row.get('gene_name'):
-                    self.residues[rid]['enzymes'].append((row.get('gene_name'),row.get('species'),row.get('uniprot')))
+                    self.residues[rid]['enzymes'].append((row.get('enzyme_id'),row.get('gene_name'),row.get('species'),row.get('uniprot')))
                 for k in ('gene_name','species','uniprot'):
                     if k in self.residues[rid]:
                         del self.residues[rid][k]
             else:
                 if row.get('gene_name'):
-                    self.residues[rid]['enzymes'].append((row['gene_name'],row['species'],row['uniprot']))
+                    self.residues[rid]['enzymes'].append((row.get('enzyme_id'),row['gene_name'],row['species'],row['uniprot']))
 
     def add_children(self):
         for rid in list(self.residues):
@@ -65,16 +69,54 @@ class GlycoTree(object):
                     continue
                 self.residues[pid]['children'][chkey] = rid
 
+    def get_data(self,rid):
+        return self.residues.get(rid,{})
+
     def add_rules(self):
         for row in self.rule_table():
             rid = row['residue_id']
             if not rid in self.residues:
                 continue
-            rule_data = tuple(map(lambda k: row.get(k),('rule_id','enzyme','other_residue','polymer')))
+            rule_data = tuple(map(lambda k: row.get(k),('rule_id','enzyme_id','other_residue','polymer')))
             self.residues[rid]['rules'].append(rule_data)
 
     def get_parent(self,rid):
         return self.residues.get(rid,{}).get('parent_id',None)
+
+    def get_root(self,rid):
+        prid = self.get_parent(rid)
+        if not prid or prid == 'no_id':
+            return rid
+        return self.get_root(prid)
+
+    def get_category(self,rid):
+        anc = self.get_ancestors(rid)
+        if len(set(anc) & set(self.capping_roots)):
+            return "N/O-linked, capping"
+        if len(anc) == 0:
+            root = rid
+        else:
+            root = anc[-1]
+        if root.startswith('N'):
+            return "N-linked, non-capping"
+        if root == "OC":
+            return "Mucin-type O-linked, non-capping"
+        if root == "OC1":
+            return "O-Fuc core"
+        if root == "OC2":
+            return "O-GlcNAc core"
+        if root == "OC3":
+            return "O-Gal core"
+        if root == "OC4":
+            return "O-Man core"
+        return None
+
+    def get_ancestors(self,rid):
+        anc = []
+        prid = self.get_parent(rid)
+        if not prid or prid == 'no_id':
+            return []
+        return ([prid] + self.get_ancestors(prid))
 
     def get_children(self,rid):
         return self.residues.get(rid,{}).get('children',{}).items()
@@ -88,7 +130,7 @@ class GlycoTree(object):
         return False
 
     def get_species_enzymes(self,rid,species):
-        return filter(lambda t: t[1] == species,self.get_enzymes(rid))
+        return filter(lambda t: t[2] == species,self.get_enzymes(rid))
 
     def get_rules(self,rid):
         return self.residues.get(rid,{}).get('rules',[])
@@ -97,6 +139,12 @@ class GlycoTree(object):
         for rule in self.get_rules(rid):
             if not rule[1] or enz[2] == rule[1]:
                 yield rule
+
+    def get_level(self,rid):
+        return self.residues.get(rid,{}).get('level')
+
+    def get_capping_level(self,rid):
+        return self.residues.get(rid,{}).get('capping_level')
 
     def get_edges(self,rid):
         return self.residues.get(rid,{}).get('children',{}).keys()
@@ -114,6 +162,40 @@ class GlycoTree(object):
             if not pid or pid == 'no_id':
                 res.append(rid)
         return res
+
+    def compute_levels(self):
+        residuetolevel = dict()
+        self._compute_levels(residuetolevel,self.get_roots())
+        return residuetolevel
+
+    def compute_capping_levels(self):
+        residuetolevel = dict()
+        self._compute_levels(residuetolevel,self.capping_roots)
+        return residuetolevel
+
+    def _compute_levels(self,residuetolevel,seeds,level='1'):
+        # print(level,seeds)
+        for s in seeds:
+            if s and s != "-":
+                residuetolevel[s] = level
+                # residuetolevel[level].append(s)
+        alledges = set()
+        for s in seeds:
+            if s and s != "-":
+                alledges.update(self.get_edges(s))
+        for i,e in enumerate(sorted(alledges,key=lambda t: (t[2],t[1],t[0]))):
+            seeds1 = [ self.get_child(s,e,"-") for s in seeds ]
+            self._compute_levels(residuetolevel,seeds1,level+"."+str(i+1))
+
+    def add_levels(self):
+        map = self.compute_levels()
+        for rid,level in map.items():
+            self.residues[rid]['level'] = level
+
+    def add_capping_levels(self):
+        map = self.compute_capping_levels()
+        for rid,level in map.items():
+            self.residues[rid]['capping_level'] = level
 
     def all_residues(self,roots=None):
         if roots is None:
@@ -379,6 +461,17 @@ class GlycoTree(object):
     def formname2name(self,formname):
         return formname.replace("p","").replace("x","").replace("NeuN","Neu")
 
+    def get_edge_name(self,rid):
+        t = list(map(self.residues.get(rid,{}).get,("form_name","anomer","site","parent_form_name")))
+        if t[0]:
+            t[0] = self.formname2name(t[0])
+        if t[3]:
+            t[3] = self.formname2name(t[3])
+        name = "-".join(map(lambda v: v if v is not None else "",t))
+        if name.endswith('x-0-'):
+            name = name.replace('x-0-','x')
+        return name
+    
     def _generate_structures(self,residues,**kwargs):
         rids = set(filter(lambda k: residues[k][0] is not None,residues))
         # notrids = set(filter(lambda k: residues[k][0] is None,residues))
@@ -472,6 +565,7 @@ if __name__ == "__main__":
             parent_id
             parent_absolute
             parent_form_name
+            enzyme_id
             uniprot 
             gene_name
             species 
@@ -531,7 +625,8 @@ if __name__ == "__main__":
             form_name
             rule_id
             focus
-            enzyme
+            enzyme_id
+            uniprot
             other_residue
             polymer
             status
