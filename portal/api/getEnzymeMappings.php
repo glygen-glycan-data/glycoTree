@@ -93,7 +93,7 @@ if(!empty($limiter)) switch ($limiter) {
 	  $whereClause = "WHERE enzyme_mappings.residue_id=0";
 }
 
-$query = "SELECT canonical_residues.residue_id,canonical_residues.anomer,canonical_residues.absolute,canonical_residues.form_name,canonical_residues.site,canonical_residues.parent_id,cr1.absolute as parent_absolute,cr1.form_name as parent_form_name,enzyme_mappings.instance,enzymes.uniprot,enzyme_mappings.notes,enzymes.type,enzyme_mappings.status,enzyme_mappings.proposer_id,enzyme_mappings.disputer_id,enzymes.species,enzymes.gene_name FROM canonical_residues LEFT JOIN canonical_residues as cr1 ON (canonical_residues.parent_id = cr1.residue_id) LEFT JOIN enzyme_mappings ON (enzyme_mappings.residue_id = canonical_residues.residue_id) LEFT JOIN enzymes ON (enzymes.enzyme_id = enzyme_mappings.enzyme_id) $whereClause $orderClause";
+$query = "SELECT canonical_residues.residue_id,canonical_residues.anomer,canonical_residues.absolute,canonical_residues.form_name,canonical_residues.site,canonical_residues.parent_id,cr1.absolute as parent_absolute,cr1.form_name as parent_form_name,enzyme_mappings.instance,enzymes.enzyme_id,enzymes.uniprot,enzyme_mappings.notes,enzymes.type,enzyme_mappings.status,enzyme_mappings.proposer_id,enzyme_mappings.disputer_id,enzymes.species,enzymes.gene_name FROM canonical_residues LEFT JOIN canonical_residues as cr1 ON (canonical_residues.parent_id = cr1.residue_id) LEFT JOIN enzyme_mappings ON (enzyme_mappings.residue_id = canonical_residues.residue_id) LEFT JOIN enzymes ON (enzymes.enzyme_id = enzyme_mappings.enzyme_id) $whereClause $orderClause";
 //echo "$query<br><br>";
 //echo "limiterVal is $limiterVal";
 $stmt = $connection->prepare($query);

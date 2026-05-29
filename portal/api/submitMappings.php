@@ -105,7 +105,7 @@ if (is_null($submittedData['data'])) {
 
         foreach(explode(",", $uniprots) as $uniprot) {
 
-	echo "Processing new mapping of enzyme " . $geneName . " to residue " . $residueID;
+	echo "Processing new mapping of enzyme " . $uniprot . " to residue " . $residueID . "<br/>\n";
 	// process 'propose mapping' - data is in $submittedData['data']
 	//   NOTE: 'curator_id' is associated with 'proposer_id'
 	$query = "SELECT enzyme_id, type FROM enzymes WHERE uniprot=?";
@@ -118,10 +118,11 @@ if (is_null($submittedData['data'])) {
 		$type = $row['type'];
 		$enzid = $row['enzyme_id'];
 	}
-	
-	$query = "INSERT INTO enzyme_mappings (residue_name, residue_id, uniprot, enzyme_id, notes, type, proposer_id, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+	# echo "Processing new mapping of enzyme " . $enzid . " to residue " . $residueID. "<br/>\n";
+	# mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+	$query = "INSERT INTO enzyme_mappings (residue_name, residue_id, enzyme_id, notes, proposer_id, status) VALUES (?, ?, ?, ?, ?, ?)";
 	$stmt = $connection->prepare($query);
-	$stmt->bind_param("sssissss", $residueName, $residueID, $uniprot, $enzid, $notes, $type, $curator_id, $status);
+	$stmt->bind_param("ssisss", $residueName, $residueID, $enzid, $notes, $curator_id, $status);
 
 	
 	echo "\nproposer: '" . $curator_id . "'";
