@@ -31,14 +31,14 @@ if ( ($result->num_rows) > 0) {
 }
 
 $finalResult['rule_instances'] = [];
-$query = "SELECT rule_data.*,rules.*,enzymes.uniprot FROM rule_data JOIN rules on (rule_data.rule_id=rules.rule_id) LEFT JOIN enzymes on (rule_data.enzyme_id = enzymes.enzyme_id) WHERE rule_data.focus=? ORDER BY taxonomy, enzymes.uniprot, other_residue";
+$query = "SELECT rule_data.*,rules.*,enzymes.uniprot,enzymes.gene_name FROM rule_data JOIN rules on (rule_data.rule_id=rules.rule_id) LEFT JOIN enzymes on (rule_data.enzyme_id = enzymes.enzyme_id) WHERE rule_data.focus=? ORDER BY taxonomy, enzymes.uniprot, other_residue";
 $stmt = $connection->prepare($query);
 $stmt->bind_param("s", $focus);
 $stmt->execute(); 
 $result = $stmt->get_result();
 if ( ($result->num_rows) > 0) {
 	while ($row = $result->fetch_assoc()) {
-		$enzyme = $row['enzyme'];;
+		$enzyme = $row['gene_name'];;
 		$other_residue = $row['other_residue'];;
 		$polymer = $row['polymer'];;
 		$taxonomy = $row['taxonomy'];;

@@ -51,6 +51,7 @@ if ($h1 != $h2) {
 $rule_id = 0;
 $focus = "";
 $enzyme = "";
+$enzyme_id = "";
 $other_residue = "";
 $polymer = "";
 $taxonomy = "";
@@ -98,34 +99,44 @@ if (is_null($submittedData['data'])) {
 	}
 } else {
 	$sData = $submittedData['data'];
-	echo "Proposing new assertion of rule " . $sData['rule_id'];
+	echo "Proposing new assertion of rule " . $sData['rule_id']. "<br>\n";;
 	// process 'propose assertion' - data is in $submittedData['data']
 	//   NOTE: 'curator_id' is associated with 'proposer_id'
-	$query = "INSERT INTO rule_data (rule_id, focus, enzyme, enzyme_id, other_residue, polymer, taxonomy, proposer_id, refs, comment, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	
+	$query = "INSERT INTO rule_data (rule_id, focus, enzyme_id, other_residue, polymer, taxonomy, proposer_id, refs, comment, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	$stmt = $connection->prepare($query);
-	$stmt->bind_param("ississsssss", $rule_id, $focus, $enzyme, $enz_id, $other_residue, $polymer, $taxonomy, $curator_id, $refs, $comment, $status);
+	$stmt->bind_param("isisssssss", $rule_id, $focus, $enzyme_id, $other_residue, $polymer, $taxonomy, $curator_id, $refs, $comment, $status);
 
-        $enzymes = explode(',',$sData['enzyme']);
-	// echo "\nenzymes: '" . $enzymes.join(",") . "'";
-        
-        $taxas = explode(',',$sData['taxonomy']);
-	// echo "\ntaxas: '" . $taxas.join(",") . "'";
-        $residues = explode(',',$sData['other_residue']);
-        for ($i = 0; $i < sizeof($enzymes); $i++) {
-          for ($j = 0; $j < sizeof($residues); $j++) {
+	$enzymes = explode(',',$sData['enzyme']);
+	$taxas = explode(',',$sData['taxonomy']);
+    $residues = explode(',',$sData['other_residue']);
+	for ($i = 0; $i < sizeof($enzymes); $i++) {
+
+	$enzyme = $enzymes[$i];
+	$query1 = "SELECT enzyme_id FROM enzymes WHERE uniprot=?";
+	$stmt1 = $connection->prepare($query1);
+	$stmt1->bind_param("s", $enzyme);
+	$stmt1->execute();
+	$result1 = $stmt1->get_result();
+	if ( ($result1->num_rows) > 0) { 
+		$row1 = $result1->fetch_assoc();
+		$enzyme_id = $row1['enzyme_id'];
+	}
+
+	for ($j = 0; $j < sizeof($residues); $j++) {
 	
 	echo "\nproposer: '" . $curator_id . "'";
 	$rule_id = 1 * $sData['rule_id'];
 	echo "\n  proposed assertion id: " . $rule_id; 
 	$focus = $sData['focus'];
 	echo "\n  focus: '" . $focus . "'"; 
-	$enzyme = $enzymes[$i]; // $sData['enzyme'];
+	echo "\n  enzyme_id: '" . $enzyme_id . "'"; 
 	echo "\n  enzyme: '" . $enzyme . "'"; 
 	$other_residue = trim($residues[$j]); // $sData['other_residue'];
 	echo "\n  other_residue: '" . $other_residue . "'"; 
 	$polymer = $sData['polymer'];
 	echo "\n  polymer: '" . $polymer . "'"; 
-	$taxonomy = $taxas[$i]; // $sData['taxonomy'];
+	$taxonomy = $taxas[$i];
 	echo "\n  taxonomy: '" . $taxonomy . "'"; 
 	$refs = $sData['refs'];
 	echo "\n  refs: '" . $refs . "'"; 
@@ -133,6 +144,7 @@ if (is_null($submittedData['data'])) {
 	echo "\n  comment: '" . $comment . "'"; 
 	echo "\n  status: '" . $status . "'"; 
 
+	$stmt->bind_param("isisssssss", $rule_id, $focus, $enzyme_id, $other_residue, $polymer, $taxonomy, $curator_id, $refs, $comment, $status);
 	if ($stmt->execute()) {
 		echo "\n\nNew record created successfully";
 	} else {

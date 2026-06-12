@@ -861,23 +861,38 @@ function continue1(keepParameters) {
         let values = [];
         let allsp = new Set();
         let me = enzymeData.mapped_enzymes;
-        let allenz = [];
-        let alltax = [];
+        let allenz = {};
+        let alltax = {};
+		allenz['_all_'] = [];
+		alltax['_all_'] = [];
         for (let i=0; i<me.length; i++) {
 	    let up = me[i]['uniprot'];
             let gn = me[i]['gene_name'];
+			let gnu = gn.toUpperCase();
             let sp = me[i]['species'];
-            options.push(gn + " (" + up + ") in " + sp);
+            options.push(gn + " in " + sp);
             values.push(up+":"+sp);
-            allenz.push(up);
-            alltax.push(sp);
+			allenz['_all_'].push(up);
+            alltax['_all_'].push(sp);
+            if (!(gnu in allenz)) {
+				allenz[gnu] = [];
+				alltax[gnu] = [];
+			}
+			allenz[gnu].push(up);
+			alltax[gnu].push(sp);
         }
         
         let enzselect = "<select id='rule_enzyme'>";
         for (let i=0; i<options.length; i++) {
              enzselect += "<option value='"+values[i]+"'>"+options[i]+"</option>";
-        }										  
-        enzselect += "<option value='"+allenz.join(",")+":"+alltax.join(",")+"'>All enzymes</option>";
+        }
+		for (let gnu in allenz) {
+			if (gnu != "_all_") {
+				enzselect += "<option value='"+allenz[gnu].join(",")+":"+alltax[gnu].join(",")+"'>All "+gnu+" enzymes</option>";
+			}
+			
+		}							  
+        enzselect += "<option value='"+allenz["_all_"].join(",")+":"+alltax["_all_"].join(",")+"'>All enzymes</option>";
         enzselect += "</select>";
 	var ruleInput = inference.replace("[enzyme] in [taxonomy]", enzselect);
 	ruleInput = ruleInput.replace("[other_residue]", "<input type='text' id='rule_other_residue' size='8' placeholder='e.g., N2'>");
