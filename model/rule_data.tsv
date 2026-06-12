@@ -13410,3 +13410,13 @@ instance	rule_id	focus	enzyme_id	other_residue	polymer	taxonomy	proposer_id	refs
 14762	2	N69	345	N490		Rattus norvegicus	NE	NA	Steps 3&7, N-Glycan Capping	active	NE	
 14763	2	N128	345	N469		Rattus norvegicus	NE	NA	Steps 3&7, N-Glycan Capping	active	NE	
 14764	2	N128	345	N490		Rattus norvegicus	NE	NA	Steps 3&7, N-Glycan Capping	active	NE	
+14782	1	OC1	190	O800	NULL	Homo sapiens	NE	N/A	O-glycans (non-GalNAc core), Step 2	active	NE	
+14783	1	OC1	189	O800	NULL	Mus musculus	NE	N/A	O-glycans (non-GalNAc core), Step 2	active	NE	
+14784	1	OC1	262	O800	NULL	Rattus norvegicus	NE	N/A	O-glycans (non-GalNAc core), Step 2	active	NE	
+14785	1	OC1	557	O800	NULL	Bos taurus	NE	N/A	O-glycans (non-GalNAc core), Step 2	active	NE	
+14786	1	OC1	558	O800	NULL	Sus scrofa	NE	N/A	O-glycans (non-GalNAc core), Step 2	active	NE	
+14788	1	OC1	170	O801	NULL	Homo sapiens	NE	N/A	O-glycans (non-GalNAc core), Step 1	active	NE	
+14789	1	OC1	169	O801	NULL	Mus musculus	NE	N/A	O-glycans (non-GalNAc core), Step 1	active	NE	
+14790	1	OC1	247	O801	NULL	Rattus norvegicus	NE	N/A	O-glycans (non-GalNAc core), Step 1	active	NE	
+14791	1	OC1	555	O801	NULL	Bos taurus	NE	N/A	O-glycans (non-GalNAc core), Step 1	active	NE	
+14792	1	OC1	556	O801	NULL	Sus scrofa	NE	N/A	O-glycans (non-GalNAc core), Step 1	active	NE	

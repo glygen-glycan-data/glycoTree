@@ -282,3 +282,6 @@ O-glycan_a-D-NeupNAc_825,O825,NeuNAc,a,D,p,O159,8,NeupNAc,cloned from node N457
 O-glycan_a-D-NeupNAc_826,O826,NeuNAc,a,D,p,O587,8,NeupNAc,cloned from node O825
 O-glycan_a-D-NeupNAc_827,O827,NeuNAc,a,D,p,O825,8,NeupNAc,cloned from node O825
 O-glycan_a-D-NeupNAc_828,O828,NeuNAc,a,D,p,O826,8,NeupNAc,cloned from node O825
+O-glycan_b-D-GlcpNAc_829,O829,GlcNAc,b,D,p,OC4,4,GlcpNAc,not validated
+O-glycan_b-D-GalpNAc_830,O830,GalNAc,b,D,p,O829,3,GalpNAc,not validated
+O-glycan_phosphate_831,O831,phosphate,n,n,n,OC4,6,phosphate,not validated
