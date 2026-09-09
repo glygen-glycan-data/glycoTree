@@ -460,7 +460,13 @@ function setupResidueTable(tableName, tableData) {
 			{ 
 				"title": "Notes",
 				"data": "notes",
-				"defaultContent": "---"
+				"defaultContent": "---",
+				render: function(data, type, row, meta) {
+						if (row['residue_name'] === undefined) {
+							data = 'unmapped';
+						}
+						return data;
+				}
 			}
 		]
 	} );
@@ -733,7 +739,7 @@ function showCaveats(acc) {
 		var msg = caveats[i]['msg'];
 		
 		// enclose each residue_id in an anchor referring to method 'highlightResidue()'
-		var resStr = msg.match(/[NO][0-9]+/g);
+		var resStr = msg.match(/\b[NO]?[0-9]+\b/g);
 		var uniqueResStr = [...new Set(resStr)];
                 var newuniqres = [];
                 for (var r of uniqueResStr) {
