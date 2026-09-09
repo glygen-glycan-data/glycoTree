@@ -25,6 +25,14 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
 	// initialize elements of ruleData array
 	for ($i = 1; $i <= $ruleCount; $i++) $groupedRuleData[$i] = [];
 	
+	$unmappedRuleQuery = "SELECT rule_id,logic from rules where description = 'unmapped residue'";
+	$stmt = $connection->prepare($unmappedRuleQuery);	
+	$stmt->execute(); 
+	$result = $stmt->get_result();
+	$row = $result->fetch_assoc();
+	$unmappedRuleID = $row['rule_id'];
+	$unmappedRuleLogic = $row['logic'];
+
     $enz2gn = [];
 	$resStructureArray = [];
 	$otherStructureArray = [];
@@ -37,7 +45,7 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
 		$replaceStr = array("&alpha;", "&beta;");
 		$anomer = str_replace($findStr,$replaceStr,$value['anomer']);
 		$resStructure =  $anomer . "-" . $value['absolute'] . "-" . $value['form_name'];
-		$resStructureArray[$resID] = $resStructure;
+		$resStructureArray[$resID] = $resStructure;        
                 
 
 		$result = doQuery($queryText, $connection, "s", $resID);
@@ -81,15 +89,30 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
 			}
 		}
 		
-            foreach ($value["enzymes"] as $eind => $enz) {
-			   # $enz2gn[$enz["uniprot"]] = $enz["gene_name"];
-               $enz2gn[$enz["enzyme_id"]] = $enz["gene_name"];
-            }
+        foreach ($value["enzymes"] as $eind => $enz) {
+            $enz2gn[$enz["enzyme_id"]] = $enz["gene_name"];
+        }
+
+		if (!isset($value['residue_name'])) {
+			$theRule = [];
+			$theRule['rule_id'] = $unmappedRuleID;
+			$theRule['focus'] = $value['residue_id'];
+			$theRule['logic'] = $unmappedRuleLogic;
+			$theRule['description'] = "unmapped residue";
+			$theRule['class'] = "structure";
+			$theRule['status'] = "active";
+			$ruleFind = array("[focus]",);
+			$ruleReplace = array($theRule['focus'],);
+			$theRule['assertion'] = str_replace($ruleFind, $ruleReplace, $theRule['logic']);
+			$groupedRuleData[$unmappedRuleID][$value['residue_id']+10000] = $theRule;
+		}
+
 	}
 
 	$reqViolation = [];
 	$blockViolation = [];
 	$structureViolation = [];
+	$unmappedViolation = [];
 	$limitViolation = [];
 	for ($i = 1; $i <= $ruleCount; $i++) {
 		// each of the different canonical rules
@@ -140,6 +163,10 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
 					array_push($limitViolation, $value['assertion'] );
 					array_push($rawRuleData, $value);
 				}
+				if (strpos($value['logic'], "cannot be mapped")) {
+					array_push($unmappedViolation, ['focus' => $focus, 'assertion' => $value['assertion']] );
+					array_push($rawRuleData, $value);
+				}
 			}
 		}
 	}
@@ -168,12 +195,12 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
                         }
 			$blockMsg .= $sep . $blockViolation[$i];
 			$sep = "# ";
-                        $any = true;
+            $any = true;
 		}
-                if ($any) {
+        if ($any) {
 		    $newCaveat['msg'] = $blockMsg;
 		    array_push($caveats, $newCaveat);
-                }
+        }
 	}
 	
 	if (sizeof($reqViolation) > 0) {
@@ -218,6 +245,20 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
 		}
 		$limitMsg .= "</li></ul>";
 		$newCaveat['msg'] = $limitMsg;
+		array_push($caveats, $newCaveat);
+	}
+	
+	if (sizeof($unmappedViolation) > 0 ) {
+		usort($unmappedViolation, function($a, $b) { return gtree_comparator($a['focus'], $b['focus']); });
+		$newCaveat = [];
+		$unmappedMsg = "One or more residues in " .
+			$accession . " cannot be mapped to the canonical glycan supertree, and therefore cannot be annotated with biosynthetic enzymes:";
+		$sep = "";
+		for ($i = 0; $i < sizeof($unmappedViolation); $i++) {
+			$unmappedMsg .= $sep . $unmappedViolation[$i]['assertion'];
+			$sep = "# ";
+		}
+		$newCaveat['msg'] = $unmappedMsg;
 		array_push($caveats, $newCaveat);
 	}
 	

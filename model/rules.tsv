@@ -7,3 +7,4 @@ rule_id	class	description	logic
 6	structure	abiotic anomeric configuration (alpha or beta)	residue [focus] has an abiotic anomeric configuration
 7	structure	abiotic context (location in glycan)	residue [focus] has an abiotic structural context
 8	taxonomy	taxonomic limitation (species restriction)	residue [focus] is limited to [polymer] in [taxonomy]
+9	structure	unmapped residue	residue [focus] cannot be mapped to the canonical glycan supertree
