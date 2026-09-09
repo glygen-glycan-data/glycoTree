@@ -95,16 +95,18 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
 
 		if (!isset($value['residue_name'])) {
 			$theRule = [];
+			$theRule['instance'] = "UM".strval($value['residue_id']);
 			$theRule['rule_id'] = $unmappedRuleID;
 			$theRule['focus'] = $value['residue_id'];
-			$theRule['logic'] = $unmappedRuleLogic;
-			$theRule['description'] = "unmapped residue";
-			$theRule['class'] = "structure";
 			$theRule['status'] = "active";
+			$theRule['class'] = "structure";
+			$theRule['description'] = "unmapped residue";
+			$theRule['logic'] = $unmappedRuleLogic;
 			$ruleFind = array("[focus]",);
 			$ruleReplace = array($theRule['focus'],);
 			$theRule['assertion'] = str_replace($ruleFind, $ruleReplace, $theRule['logic']);
-			$groupedRuleData[$unmappedRuleID][$value['residue_id']+10000] = $theRule;
+			$groupedRuleData[$unmappedRuleID][$theRule['instance']] = $theRule;
+			array_push($ruleArray, $theRule);
 		}
 
 	}
@@ -463,7 +465,7 @@ function integrateData($connection, $compArray, $accession, $structure=null) {
             $glycan["residues"][$rind]["rule_violations"] = [];
             foreach ($glycan["rule_violations"] as $rvind => $rv) {
                 if ($rv["focus"] == $resid) {
-                    if ($rv["enzyme_id"] == 0) {
+                    if ($rv["enzyme_id"] == 0 || !isset($rv["enzyme_id"])) {
                         array_push($glycan["residues"][$rind]["rule_violations"],$rv["instance"]);
                     }
                     foreach ($res["enzymes"] as $eind => $enz) {
