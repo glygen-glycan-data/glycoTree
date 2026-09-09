@@ -35,6 +35,12 @@ try {
 		case "mapped":
 		  $query = "SELECT DISTINCT glytoucan_ac FROM compositions WHERE glytoucan_ac NOT IN (SELECT DISTINCT glytoucan_ac FROM compositions WHERE residue_name='unassigned')";
 		  break;
+		case "good_glygen":
+		  $query = "SELECT glytoucan_ac from structure WHERE inglygen = 1 and abiotic = 0 and mapped = 1";
+		  break;
+		case "good_clean_glygen":
+		  $query = "SELECT glytoucan_ac from structure WHERE inglygen = 1 and abiotic = 0 and mapped = 1 and validated = 1";
+		  break;
 		case "clean":
 		  $query = "SELECT DISTINCT glytoucan_ac FROM compositions WHERE glytoucan_ac NOT IN (SELECT DISTINCT glytoucan_ac FROM compositions WHERE residue_name='unassigned' OR notes not in ('validated by Qrator','manually validated','Manually validated'))";
 		  break;
