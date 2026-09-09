@@ -349,7 +349,8 @@ function getGlycans() {
 						<h3>Explore Glycan Structures with GlycoTree</h3>
 						<label for="filter">Glycan List Filter:</label><br> 
 						<select name="filter" id="filter" onchange="getGlycans()">
-							<option value="all" selected>All glycans in DB</option>
+							<option value="all">All glycans in DB</option>
+							<option value="good_glygen" selected>All fully mapped GlyGen glycans in DB</option>
 							<option value="all_N">All N-linked glycans in DB</option>
 							<option value="mapped_N">All fully mapped N-linked glycans in DB</option>
 							<option value="clean_mapped_N">All fully mapped and validated N-linked glycans in DB</option>
