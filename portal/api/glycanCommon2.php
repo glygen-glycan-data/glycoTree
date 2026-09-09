@@ -94,6 +94,7 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
         }
 
 		if (!isset($value['residue_name'])) {
+			$theRule = [];
 			$theRule['rule_id'] = $unmappedRuleID;
 			$theRule['focus'] = $value['residue_id'];
 			$theRule['logic'] = $unmappedRuleLogic;
