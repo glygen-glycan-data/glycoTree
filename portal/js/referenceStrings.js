@@ -31,10 +31,8 @@ var dStr = {
 	"resTable": "Go to the Residue Table",
 	"glyTable": "Go to the Glycan Table",
 	"imgHead": "Reference Glycan",
-	"tableEnd":	"These enzymes' roles in the biosynthesis of this glycan structure were compiled \
-and curated by Dr. Alison Nairn, and reflect knowledge accumulated by \
-Dr. Kelley Moremen, Dr. Nairn, and other members of Dr. Moremen's \
-laboratory (see <A href=\"https://glycoenzymes.ccrc.uga.edu/Glycomics3/\">Glycan Biosynthetic Pathways</A>). \
+	"tableEnd":	"These enzymes' roles in the biosynthesis of this glycan structure were compiled, \
+curated, and/or verified by glycobiology experts, including Dr. Alison Nairn, Dr. Kelley Moremen, Dr. Michael Tiemeyer, and Dr. Chris West. \
 <p>Other enzymes shown to be associated with this glycan structure are inferred from online \
 resources, including \
 <A href=\"https://glycoenzymes.ccrc.uga.edu/Glycomics3/\">Glycan Biosynthetic Pathways</A>, \

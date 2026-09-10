@@ -16,7 +16,7 @@ MYSQL="mysql -u $user -h localhost -P 3306 --raw --batch --database glycotree"
 # HEADERS="enzyme_id,type,orthology_group,uniprot,protein_refseq,dna_refseq,gene_name,gene_id,species,branch_site_specificity"
 # ./dumptsv.sh enzymes "$HEADERS" | $MYSQL | tr '\t' ',' > enzymes.csv 
 
-HEADERS="instance,residue_name,residue_id,enzyme_id,notes,status,proposer_id,administrator,disputer_id"
+HEADERS="instance,residue_name,residue_id,enzyme_id,notes,status,proposer_id,administrator,disputer_id,curated"
 ./dumptsv.sh enzyme_mappings "$HEADERS" | $MYSQL | tr '\t' ',' > enzyme_mappings.csv
 
 # HEADERS="rule_id,class,description,logic"
