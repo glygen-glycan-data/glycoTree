@@ -292,7 +292,7 @@ function gtree_comparator($a, $b) {
 //	  - next both partially numeric (e.g., 'N31' - 'N324') order numerically
 //	  - last both numeric (e.g., '17' - '12') order numerically
 //	  - for mixed numeric and partially numeric (e.g., 'N5' - '35') put numeric last
-	preg_match('/[A;-Z]/', $a, $matches, PREG_OFFSET_CAPTURE);
+	preg_match('/[A-Z]/', $a, $matches, PREG_OFFSET_CAPTURE);
 	$ap = $matches[0][1]; // position of [A-Z] in $a, NULL if not found
 	$ac = (!is_null($ap)); // boolean, true if contains [A-Z]
 	
