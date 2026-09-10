@@ -50,6 +50,7 @@ var species_sort_order = {
 	'Rattus norvegicus': 2,
 	'Sus scrofa': 3,
 	'Bos taurus': 4,
+	'Dictyostelium discoideum': 5
 }
 
 document.onkeydown = keySet;

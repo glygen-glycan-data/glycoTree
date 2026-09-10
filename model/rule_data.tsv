@@ -13420,3 +13420,4 @@ instance	rule_id	focus	enzyme_id	other_residue	polymer	taxonomy	proposer_id	refs
 14790	1	OC1	247	O801	NULL	Rattus norvegicus	NE	N/A	O-glycans (non-GalNAc core), Step 1	active	NE	
 14791	1	OC1	555	O801	NULL	Bos taurus	NE	N/A	O-glycans (non-GalNAc core), Step 1	active	NE	
 14792	1	OC1	556	O801	NULL	Sus scrofa	NE	N/A	O-glycans (non-GalNAc core), Step 1	active	NE	
+14793	8	N40	0		N-glycans	plants, insects, and parasitic worms	NE	PMID:39624801		active	NE	
