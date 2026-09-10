@@ -1218,7 +1218,7 @@ function annotateResidues() {
 	var s = sd.find("svg"); // all <svg> elements in iframe body
 
 	for (var i = 0 ; i < s.length; i++) { // for each svg image
-		var localAcc = s[i].id.split("_")[1];
+		var localAcc = s[i].id.split("-")[1];
 		if (v > 3) console.log("##### Annotating glycan " +
 									  localAcc + " #####");
 
@@ -1239,7 +1239,7 @@ function annotateResidues() {
 				// first child of the <g> element having 'id'
 				var d = this.children[0];
 				if (v > 4) console.log("    annotating node " +
-							index2 + ": type " + type + "; id " + resID);
+							index2 + ": type " + type + ": nn " + d.nodeName + "; id " + resID);
 				var nn = d.nodeName;
 				switch(nn) {
 					case "circle":
@@ -1277,6 +1277,13 @@ function annotateResidues() {
 						if (v > 4) console.log("         <polygon> at " +
 													  x + "," + y);
 						break;
+					case "text":
+						x = 1 * $(d).attr('x');
+						y = 1 * $(d).attr('y');
+						let fs = 1 * $(d).attr('font-size');
+						x += fs*1.5;
+						if (v > 4) console.log("         <text> at " +
+							x + "," + y);
 				}
 				var elemID = "A-" + localAcc + ":" + resID;
 				var element = generateTextElement(x, y, 'annotationShown', elemID, resID);
