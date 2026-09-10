@@ -682,12 +682,15 @@ function continue3(newRuleID) {
 	showLayerDiv(sd);
 	// newRule is global!!!
 	let enzymevalue = $("#rule_enzyme").val();
-	let sev = enzymevalue.split(':');
-        let enzyme = sev[0];
-        let taxonomy = $("#rule_taxonomy").val();
+	let enzyme = null;
+	let taxonomy = $("#rule_taxonomy").val();
+	if (enzymevalue !== undefined) {
+		let sev = enzymevalue.split(':');
+        enzyme = sev[0];
         if (sev.length > 1) {
-            taxonomy = sev[1];
+           	taxonomy = sev[1];
         }
+	}
 	newRule = {
 		rule_id: newRuleID,
 		focus: $("#resid").val(),
@@ -760,13 +763,17 @@ function continue2(newRuleID) {
 		}
 	}
 
-        var senz = $("#rule_enzyme").val().split(':');	
-	var ruleEnzyme = senz[0];
+
+    var ruleEnzyme = null;
+	var ruleTaxonomy = null;
+	if ($("#rule_enzyme").val() !== undefined) {
+		let senz = $("#rule_enzyme").val().split(':');	
+		ruleEnzyme = senz[0];
         if (senz.length > 1) {
             ruleTaxonomy = senz[1];
-	    continue3(newRuleID);
+	    	continue3(newRuleID);
         }
-	else if (ruleLogic.search(/(enzyme)/) > -1) {
+	} else if (ruleLogic.search(/(enzyme)/) > -1) {
 		if (v > 1) console.log("Rule cites enzyme");
 		// the rule cites an enzyme (enzyme)
 		if (ruleEnzyme.length == 0) {
