@@ -195,7 +195,7 @@ find $mappedDir -maxdepth 1 -name "G*.csv" -print | sed -e 's/^.*\///' -e 's/\..
 
 echo
 echo "Writing file of structure properties:$NL	$sqlDir/structure.csv"
-$here/scripts/structprops.py $here/data/glygen_allacc.txt $sqlDir/compositions.csv $modelDir/rule_data.tsv > $sqlDir/structure.csv
+$here/scripts/structprops.py $here/data/glygen_allacc.txt $sqlDir/compositions.csv $modelDir/enzymes.csv $modelDir/enzyme_mappings.csv $modelDir/rule_data.tsv > $sqlDir/structure.csv
 
 echo
 echo "The home page for the portal:$NL     $portalDir/index.html$NL is no longer automatically generated"
