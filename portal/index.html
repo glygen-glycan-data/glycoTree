@@ -350,7 +350,9 @@ function getGlycans() {
 						<label for="filter">Glycan List Filter:</label><br> 
 						<select name="filter" id="filter" onchange="getGlycans()">
 							<option value="all">All glycans in DB</option>
-							<option value="good_glygen" selected>All fully mapped GlyGen glycans in DB</option>
+							<option value="goodenzymes_glygen_human" selected>All GlyGen glycans with complete human enzyme evidence in DB</option>
+							<option value="goodenzymes_human">All glycans with complete human enzyme evidence in DB</option>
+							<option value="good_glygen">All fully mapped GlyGen glycans in DB</option>
 							<option value="all_N">All N-linked glycans in DB</option>
 							<option value="mapped_N">All fully mapped N-linked glycans in DB</option>
 							<option value="clean_mapped_N">All fully mapped and validated N-linked glycans in DB</option>

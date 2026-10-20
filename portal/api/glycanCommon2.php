@@ -292,7 +292,7 @@ function gtree_comparator($a, $b) {
 //	  - next both partially numeric (e.g., 'N31' - 'N324') order numerically
 //	  - last both numeric (e.g., '17' - '12') order numerically
 //	  - for mixed numeric and partially numeric (e.g., 'N5' - '35') put numeric last
-	preg_match('/[A;-Z]/', $a, $matches, PREG_OFFSET_CAPTURE);
+	preg_match('/[A-Z]/', $a, $matches, PREG_OFFSET_CAPTURE);
 	$ap = $matches[0][1]; // position of [A-Z] in $a, NULL if not found
 	$ac = (!is_null($ap)); // boolean, true if contains [A-Z]
 	
@@ -399,7 +399,7 @@ function integrateData($connection, $compArray, $accession, $structure=null) {
 	$canon_stmt->bind_param("s", $resid);
 
 	// get enzyme information for residues from enzyme_mappings
-	$map_query = "SELECT enzymes.enzyme_id,enzymes.type,enzymes.uniprot,enzyme_mappings.notes,enzyme_mappings.proposer_id,enzyme_mappings.administrator,enzymes.protein_refseq,enzymes.dna_refseq,enzymes.gene_name,enzymes.gene_id,enzymes.species,enzymes.branch_site_specificity,enzymes.orthology_group FROM enzyme_mappings,enzymes WHERE enzyme_mappings.enzyme_id=enzymes.enzyme_id AND enzyme_mappings.status = 'active' AND residue_id=?";
+	$map_query = "SELECT enzymes.enzyme_id,enzymes.type,enzymes.uniprot,enzyme_mappings.notes,enzyme_mappings.curated,enzymes.protein_refseq,enzymes.dna_refseq,enzymes.gene_name,enzymes.gene_id,enzymes.species,enzymes.branch_site_specificity,enzymes.orthology_group FROM enzyme_mappings,enzymes WHERE enzyme_mappings.enzyme_id=enzymes.enzyme_id AND enzyme_mappings.status = 'active' AND residue_id=?";
 	$map_stmt = $connection->prepare($map_query);
 	$map_stmt->bind_param("s", $resid);
 
@@ -434,7 +434,7 @@ function integrateData($connection, $compArray, $accession, $structure=null) {
 		$map_stmt->execute(); 
 		$map_result = $map_stmt->get_result();
 		while ($map_row = $map_result->fetch_assoc()) {
-			$map_row['curated'] = ($map_row['proposer_id'] == "AN" && $map_row['administrator'] == "WSY"); 
+			$map_row['curated'] = ($map_row['curated'] == 1);
 			array_push($enzymes, $map_row);
 		}
 		$fullrow["enzymes"] = $enzymes;

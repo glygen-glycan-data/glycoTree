@@ -65,6 +65,7 @@ function	reactionHTMLtop(d, fromGlycan, toGlycan, multiple) {
 	  <option value='Rattus norvegicus'>Rattus norvegicus</option>\
 	  <option value='Sus scrofa'>Sus scrofa</option>\
 	  <option value='Bos taurus'>Bos taurus</option>\
+	  <option value='Dictyostelium discoideum'>Dictyostelium discoideum</option>\
 	  <option value='all'>all</option>\
 	</select>";
 	tStr += "<table width='800px'>";
