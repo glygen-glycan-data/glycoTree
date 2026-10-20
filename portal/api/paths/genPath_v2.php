@@ -435,7 +435,7 @@ function addEdge(&$data, $child_node, $parent_node, $connection) {
 				$stmt->execute(); 
 				$result = $stmt->get_result();
 				while ($row = $result->fetch_assoc()) {
-					$row['curated'] = ("true" if ($row['curated'] == 1) else "false");
+					$row['curated'] = ($row['curated'] == 1) ? "true" : "false";
 					$enzymes[] = $row;
 				}
 			}
