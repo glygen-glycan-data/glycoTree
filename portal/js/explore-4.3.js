@@ -751,7 +751,7 @@ function showCaveats(acc) {
                 uniqueResStr = newuniqres;
 		$.each(uniqueResStr, function(index, value) { 
 			var replacement = "<a href=\"javascript:highlightResidue('" + value + "','" + acc + "');\">" + value + "</a>";
-			var regex = new RegExp(value, "g");
+			var regex = new RegExp('\\b' + value+'\\b', "g");
 			msg = msg.replace(regex, replacement);
 		});
 		
