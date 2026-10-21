@@ -5,8 +5,8 @@ include 'glycanCommon2.php';
 $servername = getenv('MYSQL_SERVER_NAME');
 $password = getenv('MYSQL_PASSWORD');
 
-$focus = $_GET['focus'];
-$allenz = $_GET['allenz'];
+$focus = isset($_GET['focus']) ? $_GET['focus'] : '';
+$allenz = isset($_GET['allenz']) ? $_GET['allenz'] : '';
 
 // Create connection
 $connection = new mysqli($servername, $username, $password, $dbname);

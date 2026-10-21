@@ -6,7 +6,7 @@ $password = getenv('MYSQL_PASSWORD');
 
 $limiter = null;
 if(isset($_GET['limiter'])) $limiter = $_GET['limiter'];
-$limiterVal = $_GET['val'];
+$limiterVal = isset($_GET['val']) ? $_GET['val'] : '';
 
 // Create connection
 $connection = new mysqli($servername, $username, $password, $dbname);

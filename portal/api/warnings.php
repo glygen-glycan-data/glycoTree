@@ -6,8 +6,8 @@ $password = "gobbledygoo";
 $dbname = "glycotree";
 
 try {
-	$accession = $_GET['ac'];
-	$type = $_GET['type'];
+	$accession = isset($_GET['ac']) ? $_GET['ac'] : '';
+	$type = isset($_GET['type']) ? $_GET['type'] : '';
 	
 	// Create connection
 	$connection = new mysqli($servername, $username, $password, $dbname);

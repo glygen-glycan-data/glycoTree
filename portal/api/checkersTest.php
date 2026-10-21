@@ -9,7 +9,8 @@ function generateEmptyBitSet($connection) {
 	$stmt = $connection->prepare($bsQuery);	
 	$stmt->execute(); 
 	$result = $stmt->get_result();
-	$b64 = $result->fetch_assoc()['base64_composition'];
+	$row = $result->fetch_assoc();
+	$b64 = $row ? $row['base64_composition'] : '';
 	$bs = new BitSet($b64, "base64");
 	$bs->clear(-1);
 	return ($bs);
@@ -55,8 +56,8 @@ if ($v > 0) {
 
 if ($v > 1) echo "Development in progress: showing intermediate data processing steps\n\n";
 
-$glycoct = $_GET['glycoct'];
-$glycan_type = $_GET['type'];
+$glycoct = isset($_GET['glycoct']) ? $_GET['glycoct'] : '';
+$glycan_type = isset($_GET['type']) ? $_GET['type'] : '';
 
 switch ($glycan_type) {
 	case "N":

@@ -13,10 +13,10 @@ try {
           // echo json_encode($path);
           $accession = end($path);
         } else {
-          $accession = $_GET['ac']; 
+          $accession = isset($_GET['ac']) ? $_GET['ac'] : null;
         }
         if ($accession===null) {
-          $accessions = $_GET['accs']; 
+          $accessions = isset($_GET['accs']) ? $_GET['accs'] : '';
           $accessions = explode(",",$accessions);
           $returnlist = true;
         } else {

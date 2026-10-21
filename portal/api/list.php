@@ -4,9 +4,9 @@ $servername = getenv('MYSQL_SERVER_NAME');
 $password = getenv('MYSQL_PASSWORD');
 
 try {
-	$par = $_GET['par'];
-	$mode = $_GET['mode'];
-	$par2 = $_GET['par2'];
+	$par = isset($_GET['par']) ? $_GET['par'] : '';
+	$mode = isset($_GET['mode']) ? $_GET['mode'] : '';
+	$par2 = isset($_GET['par2']) ? $_GET['par2'] : '';
 	
 	// Create connection
 	$connection = new mysqli($servername, $username, $password, $dbname);

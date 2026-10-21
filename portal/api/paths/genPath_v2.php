@@ -345,7 +345,7 @@ function addEdge(&$data, $child_node, $parent_node, $connection) {
 	$stmt->execute(); 
 	$result = $stmt->get_result();
 	while ($row = $result->fetch_assoc()) {
-		if (strpos($row["name"], '-') !== false) {
+		if (strpos($row["name"] ?? '', '-') !== false) {
 			//echo $child_node . " - FOUND SUBSTITUENT: " . $row["name"] . " in " . $row["residue_id"] . "<br>";
 			$clean = false;
 		}
@@ -358,7 +358,7 @@ function addEdge(&$data, $child_node, $parent_node, $connection) {
 	$stmt->execute(); 
 	$result = $stmt->get_result();
 	while ($row = $result->fetch_assoc()) {
-		if (strpos($row["name"], '-') !== false) {
+		if (strpos($row["name"] ?? '', '-') !== false) {
 			// echo $parent_node . " - FOUND SUBSTITUENT: " . $row["name"] . " in " . $row["residue_id"] . "<br>";
 			$clean = false;
 		}		
@@ -410,7 +410,7 @@ function addEdge(&$data, $child_node, $parent_node, $connection) {
 				// may need to extend $greek
 				$fullName = $greek[$row["anomer"]] . "-" . $row["absolute"] . "-" . $row["form_name"];
 				$residue_affected["full_name"] = $fullName;
-				$logic = $row["logic"];
+				$logic = $row["logic"] ?? '';
 			}
 			
 			if ($sizeDiff > 0 ) {
@@ -585,15 +585,16 @@ function printResult($format, $data, $head) {
 // main method follows
 try {
 	//$logFile = fopen("php.log", "w") or die("Unable to open log file!");
+	$logFile = null;
 	$noteCount = 0;
-	$end = $_GET['end'];
-	$head = $_GET['head'];
+	$end = isset($_GET['end']) ? $_GET['end'] : '';
+	$head = isset($_GET['head']) ? $_GET['head'] : '';
 	$start = 'not determined';
 	$queryEnd = $end;
 	//fwrite($logFile, "\n\n ### " . date("Y/m/d H:i:s") . " GMT ###\n" );
 	//fwrite($logFile, "Generating pathways for glycan " . $end . "\n");
-	$format = $_GET['fmt'];
-	$scope = $_GET['scope'];
+	$format = isset($_GET['fmt']) ? $_GET['fmt'] : '';
+	$scope = isset($_GET['scope']) ? $_GET['scope'] : '';
 
 
 	$data = [];

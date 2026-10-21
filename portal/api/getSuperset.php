@@ -34,9 +34,9 @@ try {
 
 try {
 
-	$acc = $_GET['acc'];
+	$acc = isset($_GET['acc']) ? $_GET['acc'] : '';
 	//echo "\n### processing glycan: " . $acc . " ###";
-	$head = $_GET['head'];
+	$head = isset($_GET['head']) ? $_GET['head'] : '';
 	
 	// Create connection
 	$connection = new mysqli($servername, $username, $password, $dbname);
