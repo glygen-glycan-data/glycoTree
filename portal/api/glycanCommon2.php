@@ -124,7 +124,7 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
 				// $value is an associative array desribing an instance of rule $i
 				$focus = $value['focus'];
 				$instance = $value['instance'];
-				if (strpos($value['logic'], "requires residue [other_residue]")) {
+				if (strpos($value['logic'] ?? '', "requires residue [other_residue]")) {
 					$reqRes = $value['other_residue'];
 					$resinStruct = array_key_exists($reqRes, $resStructureArray);
 					if (!$resinStruct) {
@@ -140,7 +140,7 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
                                                 // }
 					}
 				}
-				if (strpos($value['logic'], "blocked by residue [other_residue]")) {
+				if (strpos($value['logic'] ?? '', "blocked by residue [other_residue]")) {
 					$blockRes = $value['other_residue'];
 					$resinStruct = array_key_exists($blockRes, $resStructureArray);
 					if ($resinStruct /* || !$fullymapped*/) {
@@ -157,15 +157,15 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
                                                 // }
 					}
 				}
-				if (strpos($value['logic'], "abiotic")) {
+				if (strpos($value['logic'] ?? '', "abiotic")) {
 					array_push($structureViolation, $value['assertion']); 
 					array_push($rawRuleData, $value);
 				}
-				if (strpos($value['logic'], "limited to")) {
+				if (strpos($value['logic'] ?? '', "limited to")) {
 					array_push($limitViolation, $value['assertion'] );
 					array_push($rawRuleData, $value);
 				}
-				if (strpos($value['logic'], "cannot be mapped")) {
+				if (strpos($value['logic'] ?? '', "cannot be mapped")) {
 					array_push($unmappedViolation, ['focus' => $focus, 'assertion' => $value['assertion']] );
 					array_push($rawRuleData, $value);
 				}
@@ -293,11 +293,11 @@ function gtree_comparator($a, $b) {
 //	  - last both numeric (e.g., '17' - '12') order numerically
 //	  - for mixed numeric and partially numeric (e.g., 'N5' - '35') put numeric last
 	preg_match('/[A-Z]/', $a, $matches, PREG_OFFSET_CAPTURE);
-	$ap = $matches[0][1]; // position of [A-Z] in $a, NULL if not found
+	$ap = !empty($matches) ? $matches[0][1] : null; // position of [A-Z] in $a, NULL if not found
 	$ac = (!is_null($ap)); // boolean, true if contains [A-Z]
-	
+
 	preg_match('/[A-Z]/', $b, $matches, PREG_OFFSET_CAPTURE);
-	$bp = $matches[0][1]; // position of [A-Z] in $a, NULL if not found
+	$bp = !empty($matches) ? $matches[0][1] : null; // position of [A-Z] in $b, NULL if not found
 	$bc = (!is_null($bp)); // boolean, true if contains [A-Z]
 
 	//get the numeric parts $an and $bn
@@ -307,15 +307,12 @@ function gtree_comparator($a, $b) {
 	if ($ac) { // $a is canonical
 		// reset $an only if $a contains a numeric substring
 		preg_match('/[0-9]/', $a, $matches, PREG_OFFSET_CAPTURE);
-		if (!is_null($matches)) $an = (int) substr($a, $ap+1);
+		if (!empty($matches)) $an = (int) substr($a, $ap+1);
 	}
 	if ($bc) { // $b is canonical
 		// reset $bn only if $b contains a numeric substring
 		preg_match('/[0-9]/', $b, $matches, PREG_OFFSET_CAPTURE);
-		if (!is_null($matches)) $bn = (int) substr($b, $bp+1);
-		// TODO: fix the above line, which causes php to log a 'Notice'
-		//    Undefined offset   or 
-		//    Trying to access array offset on value of type null
+		if (!empty($matches)) $bn = (int) substr($b, $bp+1);
 	}
 	
 	// exactly one of the two is numeric
@@ -429,7 +426,7 @@ function integrateData($connection, $compArray, $accession, $structure=null) {
 		} else {
 			$fullrow['glycotree'] = explode("_", $fullrow['residue_name'])[0];
 		}
-        $fullrow['canonical_residue_index'] = explode(";", $fullrow['canonical_residue_index'])[0];
+        $fullrow['canonical_residue_index'] = explode(";", $fullrow['canonical_residue_index'] ?? '')[0];
 		// query enzyme_mappings using the current residue_id
 		$map_stmt->execute(); 
 		$map_result = $map_stmt->get_result();

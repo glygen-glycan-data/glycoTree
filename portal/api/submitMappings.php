@@ -6,7 +6,7 @@ $password = getenv('MYSQL_PASSWORD');
 $SUGAR = getenv('SUGAR');
 $SPICE = 1 * getenv('SPICE'); 
 
-$jsonData = $_GET['json_data'];
+$jsonData = isset($_GET['json_data']) ? $_GET['json_data'] : '';
 
 $submittedData = json_decode($jsonData, true);
 

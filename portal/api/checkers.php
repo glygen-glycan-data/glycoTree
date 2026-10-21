@@ -10,7 +10,8 @@ function generateEmptyBitSet($connection) {
 	$stmt = $connection->prepare($bsQuery);	
 	$stmt->execute(); 
 	$result = $stmt->get_result();
-	$b64 = $result->fetch_assoc()['base64_composition'];
+	$row = $result->fetch_assoc();
+	$b64 = $row ? $row['base64_composition'] : '';
 	$bs = new BitSet($b64, "base64");
 	$bs->clear(-1);
 	return ($bs);
@@ -43,9 +44,12 @@ $nodeFileN = $codeDir . "N_canonical_residues.csv";
 $nodeFileO = $codeDir . "O_canonical_residues.csv";
 $v = 0;  // $v MUST be zero for API to function
 
-$glycoct = $_GET['glycoct'];
-$glycan_type = $_GET['type'];
-if (strcmp($_GET['debug'], 'true') == 0) {
+$glycoct = isset($_GET['glycoct']) ? $_GET['glycoct'] : '';
+$glycan_type = isset($_GET['type']) ? $_GET['type'] : '';
+$debug = isset($_GET['debug']) ? $_GET['debug'] : '';
+$enz = isset($_GET['enz']) ? $_GET['enz'] : '';
+$related = isset($_GET['related']) ? $_GET['related'] : '';
+if (strcmp($debug, 'true') == 0) {
 	$v = 9;
 }
 
@@ -72,9 +76,9 @@ if (is_null($glycan_type) || (strlen($glycan_type) < 1) ) {
 
 if ($v > 0) {
 	echo "<pre>";
-	echo "debug is '" . $_GET['debug'] . "'\n";
-	echo "show Enzymes is '" . $_GET['enz'] . "'\n";
-	echo "show Related is '" . $_GET['related'] . "'\n";
+	echo "debug is '" . $debug . "'\n";
+	echo "show Enzymes is '" . $enz . "'\n";
+	echo "show Related is '" . $related . "'\n";
 	echo "verbosity is " . $v . "\n";
 	echo "code Dir is " . $codeDir . "\n";
 	echo "csv code is " . $csvCode . "\n";
@@ -117,7 +121,7 @@ if ($v > 3) echo "\ntemporary glycan id is " . $tempID . "\n";
 //   the quoted string is split into 'words' by the java program
 $command = "java -jar " . $csvCode . " " . escapeshellarg($glycoct);
 // $command = "java -jar somecrap.jar " . escapeshellarg($glycoct);
-$csvEncoding = shell_exec($command);
+$csvEncoding = shell_exec($command) ?? '';
 if ($v > 3) echo "\nThe following COMMAND was passed from PHP (via shell_exec) to generate CSV encoding:\n" . $st . "\n" .
 	$command . "\n" . $et . "\n";
 
@@ -250,7 +254,7 @@ if (isset($integratedData['residues']))
 	if (sizeof($integratedData['residues']) > 0)
 		$finalData['residues'] = $integratedData['residues'];
 
-if (strcmp($_GET['enz'], "true") == 0) {
+if (strcmp($enz, "true") == 0) {
 	if ($v > 5) echo("\nEnzymes are included in scope of the query");
 } else {
 	if (isset($integratedData['residues'])) {
@@ -280,7 +284,7 @@ if (strcmp($_GET['enz'], "true") == 0) {
 }
 
 	
-if (strcmp($_GET['related'], "true") == 0) {
+if (strcmp($related, "true") == 0) {
 	// generate the structure's bit set with appropriate size for current DB contents
 	$probeBS = generateEmptyBitSet($connection);  
 	if ($v > 4) echo "\n### new bit set: size " . $probeBS->size() . ";  length " . $probeBS->length();
