@@ -67,6 +67,9 @@ hasenzyme1 = defaultdict(lambda: defaultdict(set))
 for r in csv.DictReader(open(sys.argv[4])):
     resid = r['residue_id']
     enzid = r['enzyme_id']
+    status = r['status']
+    if status not in ('active',):
+        continue
     sp = enzyme2species[enzid]
     hasenzyme[resid].add(sp)
     hasenzyme1[resid][sp].add(enzid)
@@ -111,7 +114,7 @@ for r in csv.DictReader(open(sys.argv[2])):
     data[acc]['residues'] += 1
     data[acc]['composition'][r['name']] += 1
 
-    # print(acc,data[acc])
+    # print(acc,r['residue_id'],data[acc])
 
 # glygen_allacc.txt
 glygenacc = set(open(sys.argv[1]).read().split())
