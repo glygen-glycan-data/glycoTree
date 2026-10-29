@@ -64,9 +64,9 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
 				$otherResidue = $row['other_residue'];
 				$theRule['other_residue'] = $otherResidue;
 				// retrieve structure of otherResidue, when appropriate
-				if (!is_null($otherResidue) ) {
-					$anomer = str_replace($findStr,$replaceStr,$row['anomer']);
-					$resStructure =  $anomer . "-" . $row['absolute'] . "-" . $row['form_name'];
+				if ($otherResidue !== null) {
+					$anomer = str_replace($findStr,$replaceStr,$row['anomer'] ?? '');
+					$resStructure =  $anomer . "-" . ($row['absolute'] ?? '') . "-" . ($row['form_name'] ?? '');
 					$otherStructureArray[$otherResidue] = $resStructure; // BAD!!!
 				}
 				$theRule['polymer'] = $row['polymer'];
@@ -82,7 +82,7 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
 				// include both residue_id and residue_name in 'assertion'
 				$ruleReplace = array($focus . " (" . $resStructureArray[$focus] . ")",
 						$theRule['enzyme'], $theRule['taxonomy'],
-						$otherResidue. " (" . $otherStructureArray[$otherResidue] . ")",
+						$otherResidue. " (" . ($otherStructureArray[$otherResidue] ?? 'unknown') . ")",
 						$theRule['polymer']);
 				$theRule['assertion'] = str_replace($ruleFind, $ruleReplace, $theRule['logic']);
 				$groupedRuleData[$ruleID][$instance] = $theRule;
@@ -130,11 +130,11 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
 					if (!$resinStruct) {
 						// the glycan does NOT contain reqRes (it is not in $resStructureArray)
 						// if (!$fullymapped) {
-						    array_push($reqViolation, "enzyme " . $enz2gn[$value['enzyme_id']] .
-							  " transfers residue " . $focus . 
+						    array_push($reqViolation, "enzyme " . ($enz2gn[$value['enzyme_id']] ?? 'unknown') .
+							  " transfers residue " . $focus .
 							  " (" . $resStructureArray[$focus] . ") in " .
 							  $value['taxonomy'] . " - missing residue " . $reqRes .
-							  " (" . $otherStructureArray[$reqRes] . ")");
+							  " (" . ($otherStructureArray[$reqRes] ?? 'unknown') . ")");
                                                 // } else {
 						    array_push($rawRuleData, $value);
                                                 // }
@@ -146,11 +146,11 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
 					if ($resinStruct /* || !$fullymapped*/) {
 						// the glycan contains blockRes or there are unmapped residues
 						// if (!$resinStruct) {
-						     array_push($blockViolation, "enzyme: " . $enz2gn[$value['enzyme_id']] .
-							  "; &nbsp; transferred residue: " . $value['focus'] . 
+						     array_push($blockViolation, "enzyme: " . ($enz2gn[$value['enzyme_id']] ?? 'unknown') .
+							  "; &nbsp; transferred residue: " . $value['focus'] .
 							  " (" . $resStructureArray[$focus] . ")" .
 							  "; &nbsp; blocking: " . $blockRes .
-							  " (" . $otherStructureArray[$blockRes] . ")" .
+							  " (" . ($otherStructureArray[$blockRes] ?? 'unknown') . ")" .
 							  "; &nbsp; species: " . $value['taxonomy']);
                                                 // } else {
 						     array_push($rawRuleData, $value);
@@ -186,7 +186,7 @@ function getFeatures($resList, $accession, $homologs, $fullymapped, $connection)
                         for ($j = 0; $j< sizeof($rawRuleData); $j++) {
                             $focus = $rawRuleData[$j]["focus"];
                             $enzyme_id = $rawRuleData[$j]["enzyme_id"];
-			    			$bvstr = "enzyme: " . $enz2gn[$enzyme_id] . "; &nbsp; transferred residue: " . $focus . " ";
+			    			$bvstr = "enzyme: " . ($enz2gn[$enzyme_id] ?? 'unknown') . "; &nbsp; transferred residue: " . $focus . " ";
                             if (strstr($blockViolation[$i],$bvstr) !== false) {
                                 # $keepviolation = false;
                                 break;
@@ -294,11 +294,11 @@ function gtree_comparator($a, $b) {
 //	  - for mixed numeric and partially numeric (e.g., 'N5' - '35') put numeric last
 	preg_match('/[A-Z]/', $a, $matches, PREG_OFFSET_CAPTURE);
 	$ap = !empty($matches) ? $matches[0][1] : null; // position of [A-Z] in $a, NULL if not found
-	$ac = (!is_null($ap)); // boolean, true if contains [A-Z]
+	$ac = ($ap !== null); // boolean, true if contains [A-Z]
 
 	preg_match('/[A-Z]/', $b, $matches, PREG_OFFSET_CAPTURE);
 	$bp = !empty($matches) ? $matches[0][1] : null; // position of [A-Z] in $b, NULL if not found
-	$bc = (!is_null($bp)); // boolean, true if contains [A-Z]
+	$bc = ($bp !== null); // boolean, true if contains [A-Z]
 
 	//get the numeric parts $an and $bn
 	$an = $a;
@@ -420,7 +420,7 @@ function integrateData($connection, $compArray, $accession, $structure=null) {
 			$fullrow = array_merge($resdata, $canon_row);
 		}
 
-		if (is_null($fullrow['residue_name'])) {
+		if (!isset($fullrow['residue_name'])) {
 			$fullrow['glycotree'] = "none";
                         $fullymapped = false;
 		} else {
@@ -462,7 +462,7 @@ function integrateData($connection, $compArray, $accession, $structure=null) {
             $glycan["residues"][$rind]["rule_violations"] = [];
             foreach ($glycan["rule_violations"] as $rvind => $rv) {
                 if ($rv["focus"] == $resid) {
-                    if ($rv["enzyme_id"] == 0 || !isset($rv["enzyme_id"])) {
+                    if (!isset($rv["enzyme_id"]) || $rv["enzyme_id"] === 0) {
                         array_push($glycan["residues"][$rind]["rule_violations"],$rv["instance"]);
                     }
                     foreach ($res["enzymes"] as $eind => $enz) {
