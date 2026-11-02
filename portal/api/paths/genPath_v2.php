@@ -160,9 +160,9 @@ function getSubclass($accession, $connection, $classMap, $outFile) {
 	}
 
 	//fwrite($outFile, "\n  glycan " . $accession . " assigned the following classes:\n");
-	for ($i = 0; $i < sizeOf($sClass); $i++) 
+	for ($i = 0; $i < sizeOf($sClass); $i++) {
 		//fwrite($outFile, "   " . $sClass[$i] . "\n");
-		
+	}
 	return $sClass;
 } // end of function getSubclass()
 
@@ -408,7 +408,7 @@ function addEdge(&$data, $child_node, $parent_node, $connection) {
 				$residue_affected["form_name"] = $row["form_name"];
 				$greek = array('a' => "&alpha;", 'b' => "&beta;");
 				// may need to extend $greek
-				$fullName = $greek[$row["anomer"]] . "-" . $row["absolute"] . "-" . $row["form_name"];
+				$fullName = ($greek[$row["anomer"]] ?? $row["anomer"]) . "-" . $row["absolute"] . "-" . $row["form_name"];
 				$residue_affected["full_name"] = $fullName;
 				$logic = $row["logic"] ?? '';
 			}
@@ -675,7 +675,7 @@ try {
 			$subclass = getSubclass($end, $connection, $glycanClassMap, $logFile);
 			$properRed = 'b-D-GlcpNAc';
                         // echo json_encode($subclass, JSON_PRETTY_PRINT);
-			$start = $startAccession[$subclass[0]];
+			$start = isset($subclass[0]) ? ($startAccession[$subclass[0]] ?? "not determined") : "not determined";
 			if ($reEnd != $properRed) {
 				$data['notes'][$noteCount++] = "reducing end mismatch [" . $reEnd . "]";
 				$end = getAlternate($end, $connection, $properRed);
@@ -727,7 +727,7 @@ try {
 		} else {
 			$nodeArray[$key]['path_count'] = $pc[$pcKey];
 		}
-		$dpDistribution[$value['dp']]++;
+		$dpDistribution[$value['dp']] = ($dpDistribution[$value['dp']] ?? 0) + 1;
 	}
 	
 	$sortedNodes = sortColumn($nodeArray, 'dp');
